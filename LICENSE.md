@@ -1,6 +1,6 @@
-MIT License
+[MIT License](https://opensource.org/license/mit)
 
-Copyright (c) 2024 James LaFritz
+Copyright © 2022 James LaFritz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

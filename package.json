@@ -1,0 +1,42 @@
+{
+  "name": "com.jameslafritz.coreframework",
+  "version": "1.0.0",
+  "displayName": "Core Framework",
+  "description": "Framework that contains useful Modules to be Used in Unity Project.",
+  "unity": "6000.0",
+  "unityRelease": "3f1",
+  "author": {
+    "name": "James LaFritz",
+    "url": "https://www.JamesLaFritz.com"
+  },
+  "documentationUrl": "https://jameslafritz.github.io/CoreFramework2022/",
+  "changelogUrl": "https://jameslafritz.github.io/CoreFramework2022/CHANGELOG.html",
+  "licensesUrl": "https://jameslafritz.github.io/CoreFramework2022/License/LICENSE.html",
+  "hideInEditor": false,
+  "keywords": [
+    "Attribute",
+    "Scriptable Object",
+    "Inspector",
+    "Variable"
+  ],
+  "samples": [
+    {
+      "displayName": "Core Framework Attributes",
+      "description": "Shows how to use the various attributes.",
+      "path": "Samples~/Attributes"
+    }
+  ],
+  "dependencies": {
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.cinemachine": "3.1.0",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.timeline": "1.8.7",
+    "com.unity.ugui": "2.0.0",
+    "com.unity.modules.imgui": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.physics2d": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+    "com.unity.modules.uielements": "1.0.0"
+  },
+  "type": "library"
+}

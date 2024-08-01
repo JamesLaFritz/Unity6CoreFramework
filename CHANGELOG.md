@@ -22,5 +22,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added CoreFramework preferences and project settings in Editor/Settings.
 
 [unreleased]: https://github.com/JamesLaFritz/Unity6CoreFramework
-[1.1.0]: https://github.com/JamesLaFritz/Unity6CoreFramework/commit/662e3a1daa66072d76d7eaebab442a1523257e1e
+[1.0.0.0]: https://github.com/JamesLaFritz/Unity6CoreFramework/commit/662e3a1daa66072d76d7eaebab442a1523257e1e
 [0.0.1]: https://github.com/olivierlacan/keep-a-changelog/releases/tag/v0.0.1

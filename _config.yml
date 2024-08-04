@@ -18,20 +18,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: {{ site.github.project_title }}
+title: Unity6CoreFramework
 author:
-  name: {{ site.github.owner_name }}
+  name: James LaFritz
   email: your-email@domain.com
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  {% raw %}{% site.github.project_tagline %}{% endraw %}
+  Framework that contains useful Modules to be Used in Unity Project.
   
 domain: jameslafritz.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 baseurl: "/Unity6CoreFramework/" # the subpath of your site, e.g. /blog
 url: "https://jameslafritz.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  {{ site.github.owner_name }}
+github_username:  JamesLaFritz
 
 # Build settings
 # If you clone the Minima repo and build locally, use this setting.
@@ -44,7 +44,7 @@ remote_theme: jekyll/minima
 
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
+  - jekyll-se
 
 
 

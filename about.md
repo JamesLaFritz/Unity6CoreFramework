@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: About
 permalink: /about/
 ---
@@ -16,3 +16,7 @@ You can find the source code for Jekyll at GitHub:
 
 
 [jekyll-organization]: https://github.com/jekyll
+
+<p>This site is open source. {% raw %}{% github_edit_link "Improve this page" %}{% endraw %}</p>
+
+<p>This site is open source. <a href="{% raw %}{% github_edit_link %}{% endraw %}">Improve this page</a></p>

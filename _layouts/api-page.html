@@ -1,0 +1,10 @@
+---
+layout: base
+---
+<article class="apipage">
+    {%- assign nav_pages = site.api-pages | sort: order-%}
+    {% include sidebar.html nav_pages=nav_pages %}
+    <div class="api-content">
+        {{ content }}
+    </div>
+</article>

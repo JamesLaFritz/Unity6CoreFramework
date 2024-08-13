@@ -1,0 +1,10 @@
+---
+layout: base
+---
+{%- assign nav_pages = site.man-pages | sort: order-%}
+{% include sidebar.html nav_pages=nav_pages %}
+<article class="manpage">
+    <div class="man-content">
+        {{ content }}
+    </div>
+</article>

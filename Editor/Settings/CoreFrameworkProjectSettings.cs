@@ -4,6 +4,7 @@
 // Description: ScriptableSingleton for managing Core Framework project-specific settings.
 #endregion
 
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace CoreFramework.Settings
 
         #endregion
 
-        #region Propeerties
+        #region Properties
 
         /// <summary>
         /// Gets or sets the name of the initial scene to start the application.
@@ -41,7 +42,7 @@ namespace CoreFramework.Settings
             set
             {
                 _startScene = value;
-                CoreFrameworkSettings.BootScene = value;
+                CoreFrameworkSettings.StartScene = value;
                 Save(true);
             }
         }

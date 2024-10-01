@@ -7,7 +7,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace CoreFramework.Settings
@@ -36,7 +35,7 @@ namespace CoreFramework.Settings
 
         #region Overrides of SettingsProvider
 
-        public override void OnActivate(string searchContext, VisualElement rootElement)
+        /*public override void OnActivate(string searchContext, VisualElement rootElement)
         {
             // Retrieve available scenes
             var scenes = (from scene in EditorBuildSettings.scenes where scene.enabled select scene.path).ToList();
@@ -54,44 +53,43 @@ namespace CoreFramework.Settings
             
             // Get current project settings
             var settings = CoreFrameworkProjectSettings.instance;
-            using var settingsSerializedObject = new SerializedObject(settings);
 
-            rootElement.Add(new PopupField<string>
+            var startField = new PopupField<string>
             {
                 label = "Start Scene",
                 choices = scenes,
-                index = scenes.Contains(settings.startScene) ? scenes.IndexOf(settings.startScene) : 0,
-                bindingPath = settingsSerializedObject.FindProperty("_startScene").propertyPath
-            });
+                index = scenes.Contains(settings.bootScene) ? scenes.IndexOf(settings.bootScene) : 0
+            };
+            startField.RegisterValueChangedCallback(StartFieldChanged);
+            rootElement.Add(startField);
 
-            rootElement.Add(new PopupField<string>
+            var bootField = new PopupField<string>
             {
                 label = "Boot Scene",
                 choices = scenes,
-                index = scenes.Contains(settings.bootScene) ? scenes.IndexOf(settings.bootScene) : 0,
-                bindingPath = settingsSerializedObject.FindProperty("_bootScene").propertyPath
-            });
-            
-            rootElement.Bind(settingsSerializedObject);
-        }
+                index = scenes.Contains(settings.bootScene) ? scenes.IndexOf(settings.bootScene) : 0
+            };
+            bootField.RegisterValueChangedCallback(BootFieldChanged);
+            rootElement.Add(bootField);
+        }*/
 
         /// <inheritdoc />
         public override void OnGUI(string searchContext)
         {
             // This function is never called since UIElements is drawing the UI.
 
-            /*
             // Retrieve available scenes
             var scenes = (from scene in EditorBuildSettings.scenes where scene.enabled select scene.path).ToArray();
             //var scenes = SceneAttributePropertyDrawer.GetScenes() ?? new[] { "" };
             var scenesList = scenes.ToList();
 
             // Insert "None" option if more than one scene is available
-            if (scenesList.Count > 1)
-            {
+            if (scenesList.Count > 0)
                 scenesList.Insert(0, "None");
-                scenes = scenesList.ToArray();
-            }
+            else
+                scenesList.Add("None");
+            
+            scenes = scenesList.ToArray();
 
             // Get current project settings
             var settings = CoreFrameworkProjectSettings.instance;
@@ -105,10 +103,19 @@ namespace CoreFramework.Settings
             // Display dropdowns for selecting Boot Scene and Start Scene
             settings.bootScene = scenesList[EditorGUILayout.Popup("Boot Scene", selectedBootSceneIndex, scenes)];
             settings.startScene = scenesList[EditorGUILayout.Popup("Start Scene", selectedStartSceneIndex, scenes)];
-            */
         }
 
         #endregion
+
+        private static void StartFieldChanged(ChangeEvent<string> evt)
+        {
+            CoreFrameworkProjectSettings.instance.startScene = evt.newValue;
+        }
+        
+        private static void BootFieldChanged(ChangeEvent<string> evt)
+        {
+            CoreFrameworkProjectSettings.instance.bootScene = evt.newValue;
+        }
 
         /// <summary>
         /// Creates an instance of the $CLASS and registers it with the [SettingsProvider] attribute.

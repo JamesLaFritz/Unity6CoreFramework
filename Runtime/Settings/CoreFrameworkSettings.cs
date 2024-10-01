@@ -8,14 +8,14 @@ namespace CoreFramework.Settings
     {
 
         /// <summary>
-        /// The name of the starting scene. Defaults to "SampleScene" if SettingsSO is not set.
+        /// The name of the starting scene. Defaults to "None" if SettingsSO is not set.
         /// </summary>
-        public static string StartScene = null;
+        public static string StartScene = "None";
 
         /// <summary>
-        /// The name of the boot scene. Defaults to "Bootstrapper" if SettingsSO is not set.
+        /// The name of the boot scene. Defaults to "None" if SettingsSO is not set.
         /// </summary>
-        public static string BootScene = null;
+        public static string BootScene = "None";
 
         /// <summary>
         /// Flag to indicate if debugging information should be displayed.

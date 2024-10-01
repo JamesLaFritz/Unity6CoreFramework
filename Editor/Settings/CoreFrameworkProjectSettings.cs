@@ -35,7 +35,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// Gets or sets the name of the initial scene to start the application.
         /// </summary>
-        public string StartScene
+        public string startScene
         {
             get => _startScene;
             set
@@ -49,7 +49,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// Gets or sets the name of the bootstrapper scene that initializes the application.
         /// </summary>
-        public string BootScene
+        public string bootScene
         {
             get => _bootScene;
             set

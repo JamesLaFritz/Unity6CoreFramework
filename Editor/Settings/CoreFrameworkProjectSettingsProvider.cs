@@ -7,6 +7,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace CoreFramework.Settings
 {
@@ -18,7 +20,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// The path of the settings provider in the Preferences window.
         /// </summary>
-        private const string k_settingsPath = "Project/Core Framework/Settings";
+        private const string KSettingsPath = "Project/Core Framework/Settings";
 
         /// <summary>
         /// Creates an instance of the CoreFrameworkProjectSettingsProvider.
@@ -34,9 +36,51 @@ namespace CoreFramework.Settings
 
         #region Overrides of SettingsProvider
 
+        public override void OnActivate(string searchContext, VisualElement rootElement)
+        {
+            // Retrieve available scenes
+            var scenes = (from scene in EditorBuildSettings.scenes where scene.enabled select scene.path).ToList();
+            //var scenes = SceneAttributePropertyDrawer.GetScenes() ?? new[] { "" };
+
+            // Insert "None" option if more than one scene is available
+            if (scenes.Count > 0)
+            {
+                scenes.Insert(0, "None");
+            }
+            else
+            {
+                scenes.Add("None");
+            }
+            
+            // Get current project settings
+            var settings = CoreFrameworkProjectSettings.instance;
+            using var settingsSerializedObject = new SerializedObject(settings);
+
+            rootElement.Add(new PopupField<string>
+            {
+                label = "Start Scene",
+                choices = scenes,
+                index = scenes.Contains(settings.startScene) ? scenes.IndexOf(settings.startScene) : 0,
+                bindingPath = settingsSerializedObject.FindProperty("_startScene").propertyPath
+            });
+
+            rootElement.Add(new PopupField<string>
+            {
+                label = "Boot Scene",
+                choices = scenes,
+                index = scenes.Contains(settings.bootScene) ? scenes.IndexOf(settings.bootScene) : 0,
+                bindingPath = settingsSerializedObject.FindProperty("_bootScene").propertyPath
+            });
+            
+            rootElement.Bind(settingsSerializedObject);
+        }
+
         /// <inheritdoc />
         public override void OnGUI(string searchContext)
         {
+            // This function is never called since UIElements is drawing the UI.
+
+            /*
             // Retrieve available scenes
             var scenes = (from scene in EditorBuildSettings.scenes where scene.enabled select scene.path).ToArray();
             //var scenes = SceneAttributePropertyDrawer.GetScenes() ?? new[] { "" };
@@ -54,13 +98,14 @@ namespace CoreFramework.Settings
 
             // Get indices for selected scenes
             var selectedStartSceneIndex =
-                scenes.Contains(settings.StartScene) ? scenesList.IndexOf(settings.StartScene) : 0;
-            var selectedBootSceneIndex =
-                scenes.Contains(settings.BootScene) ? scenesList.IndexOf(settings.BootScene) : 0;
+                scenes.Contains(settings.startScene) ? scenesList.IndexOf(settings.startScene) : 0;
+
+            var selectedBootSceneIndex = scenes.Contains(settings.bootScene) ? scenesList.IndexOf(settings.bootScene) : 0;
 
             // Display dropdowns for selecting Boot Scene and Start Scene
-            settings.BootScene = scenesList[EditorGUILayout.Popup("Boot Scene", selectedBootSceneIndex, scenes)];
-            settings.StartScene = scenesList[EditorGUILayout.Popup("Start Scene", selectedStartSceneIndex, scenes)];
+            settings.bootScene = scenesList[EditorGUILayout.Popup("Boot Scene", selectedBootSceneIndex, scenes)];
+            settings.startScene = scenesList[EditorGUILayout.Popup("Start Scene", selectedStartSceneIndex, scenes)];
+            */
         }
 
         #endregion
@@ -71,13 +116,17 @@ namespace CoreFramework.Settings
         /// <returns>The created CoreFrameworkProjectSettingsProvider instance.</returns>
         [SettingsProvider]
         public static SettingsProvider CreateCoreFrameworkProjectSettingsProvider() =>
-            new CoreFrameworkProjectSettingsProvider(k_settingsPath);
+            new CoreFrameworkProjectSettingsProvider(KSettingsPath)
+            {
+                // Populate the search keywords to enable smart search filtering and label highlighting:
+                keywords = new HashSet<string>(new[] { "Boot Scene", "Start Scene" }),
+            };
 
         /// <summary>
         /// Opens the Project Settings window at the specified path when the menu item is selected.
         /// </summary>
         [MenuItem("Core Framework/Project Settings", priority = 0)]
         private static void ProjectSettingsMenuItem() =>
-            SettingsService.OpenProjectSettings(k_settingsPath);
+            SettingsService.OpenProjectSettings(KSettingsPath);
     }
 }

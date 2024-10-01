@@ -45,7 +45,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// A flag indicating whether debugging logs should be shown.
         /// </summary>
-        public bool ShowDebug
+        public bool showDebug
         {
             get => _showDebug;
             set
@@ -59,7 +59,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// The font size for informational log messages.
         /// </summary>
-        public int InfoSize
+        public int infoSize
         {
             get => _infoSize;
             set
@@ -73,7 +73,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// The font size for warning log messages.
         /// </summary>
-        public int WarningSize
+        public int warningSize
         {
             get => _warningSize;
             set
@@ -87,7 +87,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// The font size for error log messages.
         /// </summary>
-        public int ErrorSize
+        public int errorSize
         {
             get => _errorSize;
             set

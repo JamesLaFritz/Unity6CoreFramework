@@ -8,6 +8,8 @@
 
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace CoreFramework.Settings
 {
@@ -21,7 +23,7 @@ namespace CoreFramework.Settings
         /// <summary>
         /// The path of the settings provider in the Preferences window.
         /// </summary>
-        private const string k_settingsPath = "Preferences/Core Framework/Settings";
+        private const string KSettingsPath = "Preferences/Core Framework/Settings";
 
         /// <summary>
         /// Creates an instance of the CoreFrameworkPreferencesProvider.
@@ -35,6 +37,35 @@ namespace CoreFramework.Settings
 
         #region Overrides of SettingsProvider
 
+        public override void OnActivate(string searchContext, VisualElement rootElement)
+        {
+            base.OnActivate(searchContext, rootElement);
+
+            var preferences =  new SerializedObject(CoreFrameworkPreferences.instance);
+            
+            rootElement.Add(new Toggle("Show Debug")
+            {
+                bindingPath = preferences.FindProperty("_showDebug").propertyPath
+            });
+            rootElement.Add(new SliderInt(10, 20)
+            {
+                label = "Info Size",
+                bindingPath = preferences.FindProperty("_infoSize").propertyPath
+            });
+            rootElement.Add(new SliderInt(10, 20)
+            {
+                label = "Warning Size",
+                bindingPath = preferences.FindProperty("_warningSize").propertyPath
+            });
+            rootElement.Add(new SliderInt(10, 20)
+            {
+                label = "Error Size",
+                bindingPath = preferences.FindProperty("_errorSize").propertyPath
+            });
+            
+            rootElement.Bind(preferences);
+        }
+
         /// <inheritdoc />
         public override void OnGUI(string searchContext)
         {
@@ -42,10 +73,10 @@ namespace CoreFramework.Settings
 
             var preferences = CoreFrameworkPreferences.instance;
 
-            preferences.ShowDebug = EditorGUILayout.ToggleLeft("Show Debug", preferences.ShowDebug);
-            preferences.InfoSize = EditorGUILayout.IntSlider("Info Size", preferences.InfoSize, 10, 20);
-            preferences.WarningSize = EditorGUILayout.IntSlider("Warning Size", preferences.WarningSize, 10, 20);
-            preferences.ErrorSize = EditorGUILayout.IntSlider("Error Size", preferences.ErrorSize, 10, 20);
+            preferences.showDebug = EditorGUILayout.ToggleLeft("Show Debug", preferences.showDebug);
+            preferences.infoSize = EditorGUILayout.IntSlider("Info Size", preferences.infoSize, 10, 20);
+            preferences.warningSize = EditorGUILayout.IntSlider("Warning Size", preferences.warningSize, 10, 20);
+            preferences.errorSize = EditorGUILayout.IntSlider("Error Size", preferences.errorSize, 10, 20);
         }
 
         #endregion
@@ -56,12 +87,12 @@ namespace CoreFramework.Settings
         /// <returns>The created CoreFrameworkPreferencesProvider instance.</returns>
         [SettingsProvider]
         public static SettingsProvider CreateCoreFrameworkPreferencesProvider() =>
-            new CoreFrameworkPreferencesProvider(k_settingsPath);
+            new CoreFrameworkPreferencesProvider(KSettingsPath);
 
         /// <summary>
-        /// Opens the Preferences window at the specified path when the menu item is selected..
+        /// Opens the Preferences window at the specified path when the menu item is selected.
         /// </summary>
         [MenuItem("Core Framework/Preference Settings", priority = 1)]
-        private static void ProjectSettingsMenuItem() => SettingsService.OpenUserPreferences(k_settingsPath);
+        private static void ProjectSettingsMenuItem() => SettingsService.OpenUserPreferences(KSettingsPath);
     }
 }

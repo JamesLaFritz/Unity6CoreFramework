@@ -3,27 +3,27 @@
 <!--<h2 align="center">Project Description</h2>-->
 
 <p style="text-align: center">
-	<img src ="https://github-readme-stats-jameslafritz.vercel.app/api/pin?username=JamesLaFritz&repo=CoreFramework2022&theme=react" alt="Git Repo Title and Info" title="Repo Info"/>'
+	<img src ="https://github-readme-stats-jameslafritz.vercel.app/api/pin?username=JamesLaFritz&repo=Unity6CoreFramework&theme=react" alt="Git Repo Title and Info" title="Repo Info"/>'
 	<br />
-	<a href="https://github.com/JamesLaFritz/CoreFramework2022/issues">Report Bug or Request Feature</a>
+	<a href="https://github.com/JamesLaFritz/Unity6CoreFramework/issues">Report Bug or Request Feature</a>
 </p>
 
 <!-- PROJECT SHIELDS -->
 <p style="text-align: center">
-  <a href="https://github.com/JamesLafritz/CoreFramework2022/graphs/contributors">
-	  <img src="https://img.shields.io/github/contributors/JamesLafritz/CoreFramework2022.svg?style=for-the-badge" title="Contributors Badge" alt="Contributors Badge">
+  <a href="https://github.com/JamesLafritz/Unity6CoreFramework/graphs/contributors">
+	  <img src="https://img.shields.io/github/contributors/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="Contributors Badge" alt="Contributors Badge">
   </a>
-  <a href="https://github.com/JamesLaFritz/CoreFramework2022/fork">
-	  <img src="https://img.shields.io/github/forks/JamesLafritz/CoreFramework2022.svg?style=for-the-badge" title="fork Badge" alt="fork Badge">
+  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/fork">
+	  <img src="https://img.shields.io/github/forks/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="fork Badge" alt="fork Badge">
   </a>
-  <a href="https://github.com/JamesLafritz/CoreFramework2022/stargazers">
-	  <img src="https://img.shields.io/github/stars/JamesLafritz/CoreFramework2022.svg?style=for-the-badge" title="stargazers Badge" alt="stargazers Badge">
+  <a href="https://github.com/JamesLafritz/Unity6CoreFramework/stargazers">
+	  <img src="https://img.shields.io/github/stars/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="stargazers Badge" alt="stargazers Badge">
   </a>
-  <a href="https://github.com/JamesLafritz/CoreFramework2022/issues">
-	  <img src="https://img.shields.io/github/issues/JamesLafritz/CoreFramework2022.svg?style=for-the-badge" title="issues Badge" alt="issues Badge">
+  <a href="https://github.com/JamesLafritz/Unity6CoreFramework/issues">
+	  <img src="https://img.shields.io/github/issues/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="issues Badge" alt="issues Badge">
   </a>
-  <a href="https://github.com/JamesLaFritz/CoreFramework2022/blob/main/LICENSE">
-	  <img src="https://img.shields.io/github/license/JamesLafritz/CoreFramework2022.svg?style=for-the-badge" title="License Badge" alt="License Badge">
+  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/LICENSE">
+	  <img src="https://img.shields.io/github/license/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="License Badge" alt="License Badge">
   </a>
 </p>
 
@@ -46,7 +46,7 @@
 
 <!-- PROJECT LOGO -->
 <p style="text-align: center">
-  <a href="https://github.com/JamesLaFritz/CoreFramework2022">
+  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework">
     <img src="https://github.com/JamesLaFritz/CoreFramework2022/docs/Images/Logo.png" alt="Logo" style="width:50%"/>
   </a>
 </p>
@@ -57,14 +57,16 @@
 
 <img src="https://github.com/JamesLaFritz/CoreFramework2022/docs/Images/ScreenShot.gif" alt="Product Name Screen Shot"/>
 
-[Documentation](https://jameslafritz.github.io/CoreFramework2022)
+[Documentation](https://jameslafritz.github.io/Unity6CoreFramework)
+[Manual](https://jameslafritz.github.io/Unity6CoreFramework/manual/coreframework-man-home/)
+[API](https://jameslafritz.github.io/Unity6CoreFramework/api/api-home/)
 
 Framework that contains useful Modules to be Used in Unity Project.
 
 
 ### Built With
 
-* <a href="https://unity.com/download"><img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white"/> V6000.0.3f1</a>
+* <a href="https://unity.com/download"><img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white"/> Unity 6 Preview</a>
 
 
 <!-- Installation -->
@@ -74,17 +76,17 @@ Framework that contains useful Modules to be Used in Unity Project.
 
 Follow Unity's [Install a UPM package from a Git URL](https://docs.unity3d.com/6000.0/Documentation/Manual/upm-ui-giturl.html)
 
-#### Clone/Download From Git Hub
+#### Clone/Download From GitHub
 
-To install this into your project Clone or Download the code from Git Hub into your project.
+To install this into your project Clone or Download the code from GitHub into your project.
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/JamesLaFritz/CoreFramework2022/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/JamesLaFritz/Unity6CoreFramework/issues) for a list of proposed features (and known issues).
 
-Currently in Work: Documentation, Samples, Attributes using UI Elements, and Scriptable Object Variables and Game Events.
+Currently, in Work: Documentation, Samples, Attributes using UI Elements, and Scriptable Object Variables and Game Events.
 
 * Scriptable Object Variables and Game Events
 * Documentation:
@@ -148,8 +150,8 @@ Currently in Work: Documentation, Samples, Attributes using UI Elements, and Scr
 ## License
 
 Distributed under the MIT License. See 
-  <a href="https://jameslafritz.github.io/CoreFramework2022/License/LICENSE.html">
-	  <img src="https://img.shields.io/github/license/JamesLafritz/CoreFramework2022.svg?style=for-the-badge" title="License Badge" alt="License Badge"/>
+  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/tree/main?tab=MIT-1-ov-file#readme">
+	  <img src="https://img.shields.io/github/license/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="License Badge" alt="License Badge"/>
   </a> for more information.
 
 <!-- Acknowledgments -->

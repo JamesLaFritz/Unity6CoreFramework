@@ -26,15 +26,15 @@ namespace CoreFramework.Settings
         {
             // Load preferences
             var preferences = CoreFrameworkPreferences.instance;
-            CoreFrameworkSettings.ShowDebug = preferences.showDebug;
-            CoreFrameworkSettings.InfoSize = preferences.infoSize;
-            CoreFrameworkSettings.WarningSize = preferences.warningSize;
-            CoreFrameworkSettings.ErrorSize = preferences.errorSize;
+            CoreFrameworkSettings.ShowDebug = preferences.ShowDebug;
+            CoreFrameworkSettings.InfoSize = preferences.InfoSize;
+            CoreFrameworkSettings.WarningSize = preferences.WarningSize;
+            CoreFrameworkSettings.ErrorSize = preferences.ErrorSize;
 
             // Load project settings
             var projectSettings = CoreFrameworkProjectSettings.instance;
-            CoreFrameworkSettings.StartScene = projectSettings.startScene;
-            CoreFrameworkSettings.BootScene = projectSettings.bootScene;
+            CoreFrameworkSettings.StartScene = projectSettings.StartScene;
+            CoreFrameworkSettings.BootScene = projectSettings.BootScene;
         }
     }
 }

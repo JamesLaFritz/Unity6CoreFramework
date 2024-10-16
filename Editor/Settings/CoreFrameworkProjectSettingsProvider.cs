@@ -96,25 +96,25 @@ namespace CoreFramework.Settings
 
             // Get indices for selected scenes
             var selectedStartSceneIndex =
-                scenes.Contains(settings.startScene) ? scenesList.IndexOf(settings.startScene) : 0;
+                scenes.Contains(settings.StartScene) ? scenesList.IndexOf(settings.StartScene) : 0;
 
-            var selectedBootSceneIndex = scenes.Contains(settings.bootScene) ? scenesList.IndexOf(settings.bootScene) : 0;
+            var selectedBootSceneIndex = scenes.Contains(settings.BootScene) ? scenesList.IndexOf(settings.BootScene) : 0;
 
             // Display dropdowns for selecting Boot Scene and Start Scene
-            settings.bootScene = scenesList[EditorGUILayout.Popup("Boot Scene", selectedBootSceneIndex, scenes)];
-            settings.startScene = scenesList[EditorGUILayout.Popup("Start Scene", selectedStartSceneIndex, scenes)];
+            settings.BootScene = scenesList[EditorGUILayout.Popup("Boot Scene", selectedBootSceneIndex, scenes)];
+            settings.StartScene = scenesList[EditorGUILayout.Popup("Start Scene", selectedStartSceneIndex, scenes)];
         }
 
         #endregion
 
         private static void StartFieldChanged(ChangeEvent<string> evt)
         {
-            CoreFrameworkProjectSettings.instance.startScene = evt.newValue;
+            CoreFrameworkProjectSettings.instance.StartScene = evt.newValue;
         }
         
         private static void BootFieldChanged(ChangeEvent<string> evt)
         {
-            CoreFrameworkProjectSettings.instance.bootScene = evt.newValue;
+            CoreFrameworkProjectSettings.instance.BootScene = evt.newValue;
         }
 
         /// <summary>

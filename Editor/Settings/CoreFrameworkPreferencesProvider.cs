@@ -73,10 +73,10 @@ namespace CoreFramework.Settings
 
             var preferences = CoreFrameworkPreferences.instance;
 
-            preferences.showDebug = EditorGUILayout.ToggleLeft("Show Debug", preferences.showDebug);
-            preferences.infoSize = EditorGUILayout.IntSlider("Info Size", preferences.infoSize, 10, 20);
-            preferences.warningSize = EditorGUILayout.IntSlider("Warning Size", preferences.warningSize, 10, 20);
-            preferences.errorSize = EditorGUILayout.IntSlider("Error Size", preferences.errorSize, 10, 20);
+            preferences.ShowDebug = EditorGUILayout.ToggleLeft("Show Debug", preferences.ShowDebug);
+            preferences.InfoSize = EditorGUILayout.IntSlider("Info Size", preferences.InfoSize, 10, 20);
+            preferences.WarningSize = EditorGUILayout.IntSlider("Warning Size", preferences.WarningSize, 10, 20);
+            preferences.ErrorSize = EditorGUILayout.IntSlider("Error Size", preferences.ErrorSize, 10, 20);
         }
 
         #endregion

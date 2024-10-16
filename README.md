@@ -5,41 +5,47 @@
 <p style="text-align: center">
 	<img src ="https://github-readme-stats-jameslafritz.vercel.app/api/pin?username=JamesLaFritz&repo=Unity6CoreFramework&theme=react" alt="Git Repo Title and Info" title="Repo Info"/>'
 	<br />
-	<a href="https://github.com/JamesLaFritz/Unity6CoreFramework/issues">Report Bug or Request Feature</a>
+	<a href="https://github.com/JamesLaFritz/Unity6CoreFramework/issues/new">Report Bug or Request Feature</a>
 </p>
 
 <!-- PROJECT SHIELDS -->
 <p style="text-align: center">
   <a href="https://github.com/JamesLafritz/Unity6CoreFramework/graphs/contributors">
-	  <img src="https://img.shields.io/github/contributors/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="Contributors Badge" alt="Contributors Badge">
+	  <img alt="Contributors Badge" src="https://custom-icon-badges.demolab.com/github/contributors/JamesLafritz/Unity6CoreFramework?style=plastic&logo=graph&color=blue&labelColor=blue">
   </a>
   <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/fork">
-	  <img src="https://img.shields.io/github/forks/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="fork Badge" alt="fork Badge">
+	  <img alt="GitHub forks" src="https://custom-icon-badges.demolab.com/github/forks/JamesLaFritz/Unity6CoreFramework?style=plastic&logo=fork&logoColor=black&labelColor=blue">
   </a>
   <a href="https://github.com/JamesLafritz/Unity6CoreFramework/stargazers">
-	  <img src="https://img.shields.io/github/stars/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="stargazers Badge" alt="stargazers Badge">
+	  <img alt="GitHub Repo stars" src="https://custom-icon-badges.demolab.com/github/stars/JamesLaFritz/Unity6CoreFramework?style=plastic&logo=star&labelColor=yellow&color=yellow">
+  </a>
+  <a href="https://github.com/JamesLafritz/Unity6CoreFramework/graphs/commit-activity">
+      <img alt="Codecov" src="https://img.shields.io/codecov/c/github/JamesLaFritz/Unity6CoreFramework?style=plastic" title="Coverage">
+  </a>
+  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/latest">
+      <img alt="Latest Release" src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&display_name=release&style=plastic&label=Latest%20Release&logo=github">
   </a>
   <a href="https://github.com/JamesLafritz/Unity6CoreFramework/issues">
-	  <img src="https://img.shields.io/github/issues/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="issues Badge" alt="issues Badge">
+      <img alt="Open Issues" src="https://custom-icon-badges.demolab.com/github/issues-raw/JamesLaFritz/Unity6CoreFramework?style=plastic&logo=issue&logoColor=fff&color=red">
   </a>
-  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/LICENSE">
-	  <img src="https://img.shields.io/github/license/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="License Badge" alt="License Badge">
+  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/LICENSE.md">
+      <img alt="GitHub License" src="https://custom-icon-badges.demolab.com/github/license/JamesLaFritz/Unity6CoreFramework?style=plastic&logo=law">
   </a>
 </p>
 
 <!-- Links -->
 <p style="text-align: center">
   <a href="https://jameslafritz.intensive.gamedevhq.com/">
-	  <img src="https://img.shields.io/badge/Portfolio-21759B?style=for-the-badge&logo=wordpress&logoColor=white" title="Portfolio Badge" alt="Portfolio"/>
+	  <img src="https://img.shields.io/badge/Portfolio-21759B?style=plastic&logo=wordpress&logoColor=white" title="Portfolio Badge" alt="Portfolio"/>
   </a>
   <a href="https://ktmarine1999.medium.com/">
-	  <img src="https://img.shields.io/badge/Articles-000000?style=for-the-badge&logo=medium&logoColor=white" title="medium Badge" alt="medium"/>
+	  <img src="https://img.shields.io/badge/Articles-000000?style=plastic&logo=medium&logoColor=white" title="medium Badge" alt="medium"/>
   </a>
   <a href="https://www.linkedin.com/in/james-lafritz/">
-	  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" title="LinkedIn Badge" alt="LinkedIn"/>
+	  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=plastic&logo=linkedin&logoColor=white" title="LinkedIn Badge" alt="LinkedIn"/>
   </a> 
   <a href="https://ktmarine1999.itch.io/">
-	  <img src="https://img.shields.io/badge/Itch-fa5c5c.svg?style=for-the-badge&logo=Itch.io&logoColor=white" title="Itch.io Badge" alt="Itch.io"/>
+	  <img src="https://img.shields.io/badge/Itch-fa5c5c.svg?style=plastic&logo=Itch.io&logoColor=white" title="Itch.io Badge" alt="Itch.io"/>
   </a> 
 </p>
 
@@ -57,16 +63,16 @@
 
 <img src="https://github.com/JamesLaFritz/CoreFramework2022/docs/Images/ScreenShot.gif" alt="Product Name Screen Shot"/>
 
-[Documentation](https://jameslafritz.github.io/Unity6CoreFramework)
-[Manual](https://jameslafritz.github.io/Unity6CoreFramework/manual/coreframework-man-home/)
-[API](https://jameslafritz.github.io/Unity6CoreFramework/api/api-home/)
+[![Documentation](https://custom-icon-badges.demolab.com/badge/Documentation-222222?style=plastic&logo=Book&logoSource=feather&logoColor=green)](https://jameslafritz.github.io/Unity6CoreFramework)
+[![Manual](https://custom-icon-badges.demolab.com/badge/Manual-222222?style=plastic&logo=Book&logoColor=blue)](https://jameslafritz.github.io/Unity6CoreFramework/manual/coreframework-man-home/)
+[![API](https://custom-icon-badges.demolab.com/badge/API-222222?style=plastic&logo=Book&logoColor=red)](https://jameslafritz.github.io/Unity6CoreFramework/api/api-home/)
 
 Framework that contains useful Modules to be Used in Unity Project.
 
 
 ### Built With
 
-* <a href="https://unity.com/download"><img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white"/> Unity 6 Preview</a>
+* <a href="https://unity.com/download"><img src="https://custom-icon-badges.demolab.com/badge/Unity%206%20Preview-100000?style=plastic&logo=unity&logoColor=FFFFFF"/></a>
 
 
 <!-- Installation -->
@@ -145,22 +151,13 @@ Currently, in Work: Documentation, Samples, Attributes using UI Elements, and Sc
   * Show If Bool
   * Show If Enum
 
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See 
-  <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/tree/main?tab=MIT-1-ov-file#readme">
-	  <img src="https://img.shields.io/github/license/JamesLafritz/Unity6CoreFramework.svg?style=for-the-badge" title="License Badge" alt="License Badge"/>
-  </a> for more information.
-
 <!-- Acknowledgments -->
 ## Acknowledgments
 * ![BitCake BitStrap](https://assetstorev1-prd-cdn.unity3d.com/key-image/054e8c14-82c1-4b0e-9945-88aabf9a210a.jpg)
 * Ryan Hipple's Game Architecture with Scriptable Objects from Unite Austin 2017
-  * [Ryan Hipple's Game Architecture with Scriptable Objects from Unite Austin 2017 ](https://github.com/roboryantron/Unite2017)
-  * [@roboryantron](https://twitter.com/roboryantron)
+  * [![Game Architecture with Scriptable Objects On GitHub](https://custom-icon-badges.demolab.com/badge/Game_Architecture_with_Scriptable_Objects_GitHub-blue?style=plastic&logo=repo)](https://github.com/roboryantron/Unite2017)
   * [The slides are on slide share.](https://www.slideshare.net/RyanHipple/game-architecture-with-scriptable-objects)
-  * [!Video https://www.youtube.com/embed/raQ3iHhE_Kk]
-  * [The video for the talk is posted on Unity's YouTube page.](https://www.youtube.com/watch?v=raQ3iHhE_Kk)
-  * [![Here is a blog post He did about the talk](https://4.bp.blogspot.com/-NPqlFwFSnh0/Wdw-Td_eAII/AAAAAAAASdg/NctR71hqiD0aIGi_qwqX--pX5iK-BYKWACLcBGAs/s640/Capture.PNG)](http://www.roboryantron.com/2017/10/unite-2017-game-architecture-with.html)
+  * [![You Tube Video](https://img.shields.io/badge/Unite_Austin_2017_--_Game_Architecture_with_Scriptable_Objects-3C225F?style=plastic&logo=youtube&logoColor=FF0000&label=YouTube&labelColor=212121)](https://www.youtube.com/watch?v=raQ3iHhE_Kk)
+  * [Blog Post![Blog Post Image](https://4.bp.blogspot.com/-NPqlFwFSnh0/Wdw-Td_eAII/AAAAAAAASdg/NctR71hqiD0aIGi_qwqX--pX5iK-BYKWACLcBGAs/s640/Capture.PNG)](http://www.roboryantron.com/2017/10/unite-2017-game-architecture-with.html)
+  * [![X (formerly Twitter) URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fx.com%2Froboryantron%2Fstatus%2F924389738206978050&style=plastic&logo=x&logoColor=000000)](https://x.com/roboryantron/status/924389738206978050)
+  * [![X (formerly Twitter)](https://img.shields.io/twitter/follow/roboryantron?style=plastic&logo=x&logoColor=000000)](https://twitter.com/roboryantron)

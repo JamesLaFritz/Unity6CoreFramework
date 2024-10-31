@@ -10,8 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [![GitHub Release](https://custom-icon-badges.demolab.com/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&display_name=release&style=plastic&label=Latest%20Release&logo=tag)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/latest)
 
 [![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&filter=*v1.3.0.0&display_name=release&style=plastic&label=%E2%9C%A8%20feat(Editor)%3A%20add%20build%20processing%20automation%20script)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.3.0.0)
+- added `BuildProcessing.cs` to automate build processes in Unity
+- features include version incrementing, build pipeline execution, and exporting version files
+- supports optional installer creation using Unity's build preprocess and postprocess interfaces
+- updated `CHANGELOG.md` to reflect the addition of the new script
 
-[![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&filter=*v1.2.0.0.0&display_name=release&style=plastic&label=%E2%9C%A8%20feat(Settings)%3A%20add%20version%20control%20and%20initialization%20support)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.2.0.0)
+[![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&filter=*v1.2.0.0&display_name=release&style=plastic&label=%E2%9C%A8%20feat(Settings)%3A%20add%20version%20control%20and%20initialization%20support)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.2.0.0)
 - introduced new version control classes: `VersionInitialization`, `VersionProjectSettings`, `VersionProjectSettingsProvider`, and `VersionControl`
 - updated existing settings files for integration with version management
 - made related updates in `CHANGELOG.md` to document these changes

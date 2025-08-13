@@ -1,0 +1,117 @@
+﻿using Unity.Mathematics;
+using UnityEngine;
+
+namespace CoreFramework
+{
+    /// <summary>
+    /// Provides extension methods for Unity's Vector3 structure to enable additional functionality
+    /// for vector operations such as modifying components, adding offsets, range checks, and conversions.
+    /// </summary>
+    public static class Vector3Extensions
+    {
+        /// <summary>
+        /// Sets any x y z values of a Vector3
+        /// </summary>
+        public static Vector3 With(this Vector3 vector, float? x = null, float? y = null, float? z = null)
+        {
+            return new Vector3(x ?? vector.x, y ?? vector.y, z ?? vector.z);
+        }
+
+        /// <summary>
+        /// Adds to any x y z values of a Vector3
+        /// </summary>
+        public static Vector3 Add(this Vector3 vector, float x = 0, float y = 0, float z = 0)
+        {
+            return new Vector3(vector.x + x, vector.y + y, vector.z + z);
+        }
+
+        /// <summary>
+        /// Returns a Boolean indicating whether the current Vector3 is in a given range from another Vector3
+        /// </summary>
+        /// <param name="current">The current Vector3 position</param>
+        /// <param name="target">The Vector3 position to compare against</param>
+        /// <param name="range">The range value to compare against</param>
+        /// <returns>True if the current Vector3 is in the given range from the target Vector3, false otherwise</returns>
+        public static bool InRangeOf(this Vector3 current, Vector3 target, float range)
+        {
+            return (current - target).sqrMagnitude <= range * range;
+        }
+
+        /// <summary>
+        /// Divides two Vector3 objects component-wise.
+        /// </summary>
+        /// <remarks>
+        /// For each component in v0 (x, y, z), it is divided by the corresponding component in v1 if the component in v1 is not zero. 
+        /// Otherwise, the component in v0 remains unchanged.
+        /// </remarks>
+        /// <example>
+        /// Use 'ComponentDivide' to scale a game object proportionally:
+        /// <code>
+        /// myObject.transform.localScale = originalScale.ComponentDivide(targetDimensions);
+        /// </code>
+        /// This scales the object size to fit within the target dimensions while maintaining its original proportions.
+        ///</example>
+        /// <param name="v0">The Vector3 object that this method extends.</param>
+        /// <param name="v1">The Vector3 object by which v0 is divided.</param>
+        /// <returns>A new Vector3 object resulting from the component-wise division.</returns>
+        public static Vector3 ComponentDivide(this Vector3 v0, Vector3 v1)
+        {
+            return new Vector3(
+                v1.x != 0 ? v0.x / v1.x : v0.x,
+                v1.y != 0 ? v0.y / v1.y : v0.y,
+                v1.z != 0 ? v0.z / v1.z : v0.z);
+        }
+
+        /// <summary>
+        /// Converts a Vector2 to a Vector3 with a y value of 0.
+        /// </summary>
+        /// <param name="v2">The Vector2 to convert.</param>
+        /// <returns>A Vector3 with the x and z values of the Vector2 and a y value of 0.</returns>
+        public static Vector3 ToVector3(this Vector2 v2)
+        {
+            return new Vector3(v2.x, 0, v2.y);
+        }
+
+        /// <summary>
+        /// Adds a random offset to the components of a <see cref="Vector3"/> within the specified range.
+        /// </summary>
+        /// <param name="vector">The original vector to which the random offset will be applied.</param>
+        /// <param name="range">The maximum absolute value of random offsets that can be added 
+        /// or subtracted to/from each component of the vector.</param>
+        /// <returns>A new <see cref="Vector3"/> with random offsets applied to its X, Y, and Z components.
+        /// Each offset is in the range [-<paramref name="range"/>, <paramref name="range"/>].</returns>
+        public static Vector3 RandomOffset(this Vector3 vector, float range)
+        {
+            // ToDo: Use Random Noise
+            return vector + new Vector3(
+                UnityEngine.Random.Range(-range, range),
+                UnityEngine.Random.Range(-range, range),
+                UnityEngine.Random.Range(-range, range)
+            );
+        }
+
+        /// <summary>
+        /// Computes a random point in an annulus (a ring-shaped area) based on minimum and 
+        /// maximum radius values around a central Vector3 point (origin).
+        /// </summary>
+        /// <param name="origin">The center Vector3 point of the annulus.</param>
+        /// <param name="minRadius">Minimum radius of the annulus.</param>
+        /// <param name="maxRadius">Maximum radius of the annulus.</param>
+        /// <returns>A random Vector3 point within the specified annulus.</returns>
+        public static Vector3 RandomPointInAnnulus(this Vector3 origin, float minRadius, float maxRadius)
+        {
+            // ToDo: Use Random Noise
+            var angle = UnityEngine.Random.value * math.PI * 2f;
+            var direction = new Vector2(math.cos(angle), math.sin(angle));
+
+            // Squaring and then square-rooting radii to ensure uniform distribution within the annulus
+            var minRadiusSquared = minRadius * minRadius;
+            var maxRadiusSquared = maxRadius * maxRadius;
+            var distance = math.sqrt(UnityEngine.Random.value * (maxRadiusSquared - minRadiusSquared) + minRadiusSquared);
+
+            // Converting the 2D direction vector to a 3D position vector
+            var position = new Vector3(direction.x, 0, direction.y) * distance;
+            return origin + position;
+        }
+    }
+}

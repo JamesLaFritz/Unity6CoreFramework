@@ -28,7 +28,8 @@
   ],
   "dependencies": {
     "com.unity.2d.sprite": "1.0.0",
-    "com.unity.cinemachine": "3.1.0",
+    "com.unity.cinemachine": "3.1.4",
+    "com.unity.inputsystem": "1.14.2",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.timeline": "1.8.7",
     "com.unity.ugui": "2.0.0",

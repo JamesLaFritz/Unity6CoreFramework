@@ -14,7 +14,7 @@
 
 using System.Runtime.CompilerServices;
 using CoreFramework.Mathematics;
-
+using Unity.Mathematics;
 using static CoreFramework.Random.HashBasedNoiseUtils;
 
 namespace CoreFramework.Random
@@ -32,7 +32,7 @@ namespace CoreFramework.Random
         /// ensuring a consistent and predictable fallback behavior.
         /// </summary>
         private const NoiseType DefaultNoiseType = NoiseType.MangledBitsBalancedMix; // Default noise type to use
-        
+
         #endregion
 
         // ToDo: Add ulong4(Get256)
@@ -102,13 +102,13 @@ namespace CoreFramework.Random
         {
             return type switch
             {
-                NoiseType.MangledBits => HashBasedNoiseUtils.MangledBitsShiftXOR((uint)index, seed),
-                NoiseType.MangledBitsBalancedMix => HashBasedNoiseUtils.MangledBitsBalancedMix((uint)index, seed),
-                NoiseType.MangledBitsRotational => HashBasedNoiseUtils.MangledBitsRotational((uint)index, seed),
-                NoiseType.ChaChaQuarterRoundSimple => HashBasedNoiseUtils.ChaChaQuarterRoundSimple((uint)index, seed),
-                NoiseType.ChaChaQuarterRoundAdvanced => HashBasedNoiseUtils.ChaChaQuarterRoundAdvanced(
+                NoiseType.MangledBits => MangledBitsShiftXOR((uint)index, seed),
+                NoiseType.MangledBitsBalancedMix => MangledBitsBalancedMix((uint)index, seed),
+                NoiseType.MangledBitsRotational => MangledBitsRotational((uint)index, seed),
+                NoiseType.ChaChaQuarterRoundSimple => ChaChaQuarterRoundSimple((uint)index, seed),
+                NoiseType.ChaChaQuarterRoundAdvanced => ChaChaQuarterRoundAdvanced(
                     (uint)index, seed),
-                _ => HashBasedNoiseUtils.MangledBitsShiftXOR((uint)index, seed)
+                _ => MangledBitsShiftXOR((uint)index, seed)
             };
         }
 
@@ -205,7 +205,7 @@ namespace CoreFramework.Random
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Get1DNoise01(int index, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToZeroToOne(Get1DNoise(index, seed));
+            ToZeroToOne(Get1DNoise(index, seed));
 
         /// <summary>
         /// Generates a deterministic 2D noise value scaled to the range [0, 1].
@@ -226,7 +226,7 @@ namespace CoreFramework.Random
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Get2DNoise01(int x, int y, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToZeroToOne(Get2DNoise(x, y, seed));
+            ToZeroToOne(Get2DNoise(x, y, seed));
 
         /// <summary>
         /// Generates a 3D noise value between 0.0 and 1.0 using deterministic pseudo-random algorithms.
@@ -251,7 +251,7 @@ namespace CoreFramework.Random
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Get3DNoise01(int x, int y, int z, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToZeroToOne(Get3DNoise(x, y, z, seed));
+            ToZeroToOne(Get3DNoise(x, y, z, seed));
 
         /// <summary>
         /// Computes a 4D noise value normalized to the range [0, 1].
@@ -279,8 +279,9 @@ namespace CoreFramework.Random
         /// A floating-point value between 0 and 1 representing the normalized 4D noise.
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float Get4DNoise01(int x, int y, int z, int w, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToZeroToOne(Get4DNoise(x, y, z, w, seed));
+        public static float Get4DNoise01(int x, int y, int z, int w, uint seed = 0,
+            NoiseType type = DefaultNoiseType) =>
+            ToZeroToOne(Get4DNoise(x, y, z, w, seed));
 
         /// <summary>
         /// Generates a deterministic pseudo-random noise value based on a 1-dimensional index
@@ -299,7 +300,7 @@ namespace CoreFramework.Random
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Get1DNoiseNeg1To1(int index, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToNegOneToOne(Get1DNoise(index, seed));
+            ToNegOneToOne(Get1DNoise(index, seed));
 
         /// <summary>
         /// Generates a deterministic pseudo-random noise value for two-dimensional integer coordinates
@@ -321,7 +322,7 @@ namespace CoreFramework.Random
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Get2DNoiseNeg1To1(int x, int y, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToNegOneToOne(Get2DNoise(x, y, seed));
+            ToNegOneToOne(Get2DNoise(x, y, seed));
 
         /// <summary>
         /// Generates deterministic pseudo-random noise for a 3D coordinate and normalizes the result within the range of -1 to 1.
@@ -344,7 +345,7 @@ namespace CoreFramework.Random
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Get3DNoiseNeg1To1(int x, int y, int z, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToNegOneToOne(Get3DNoise(x, y, z, seed));
+            ToNegOneToOne(Get3DNoise(x, y, z, seed));
 
         /// <summary>
         /// Generates a deterministic pseudo-random noise value in 4D space and normalizes it to the range of -1 to 1.
@@ -370,9 +371,97 @@ namespace CoreFramework.Random
         /// A floating-point value in the range of -1 to 1, representing the normalized 4D noise value.
         /// </returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float Get4DNoiseNeg1To1(int x, int y, int z, int w, uint seed = 0, NoiseType type = DefaultNoiseType) =>
-            HashBasedNoiseUtils.ToNegOneToOne(Get4DNoise(x, y, z, w, seed));
+        public static float Get4DNoiseNeg1To1(int x, int y, int z, int w, uint seed = 0,
+            NoiseType type = DefaultNoiseType) =>
+            ToNegOneToOne(Get4DNoise(x, y, z, w, seed));
 
         #endregion
+
+        #region Perlin
+
+        /// <summary>
+        /// Generates a Perlin noise value based on the provided 2D coordinates, seed, and noise type.
+        /// The noise value is computed by hashing the corners of the surrounding grid and applying interpolation.
+        /// </summary>
+        /// <param name="x">
+        /// The X coordinate (continuous) used for generating the noise value.
+        /// </param>
+        /// <param name="y">
+        /// The Y coordinate (continuous) used for generating the noise value.
+        /// </param>
+        /// <param name="seed">
+        /// An optional 32-bit unsigned integer seed to enhance the determinism of the noise generation. Defaults to 0 if not provided.
+        /// </param>
+        /// <param name="type">
+        /// The type of noise used to hash the corners of the grid. Defaults to the method's default noise type.
+        /// </param>
+        /// <returns>
+        /// A floating-point value representing the generated Perlin noise.
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Perlin(float x, float y, uint seed = 0, NoiseType type = DefaultNoiseType)
+        {
+            var xi = (int)math.floor(x);
+            var yi = (int)math.floor(y);
+            var xf = x - xi;
+            var yf = y - yi;
+
+            // Corner hashes (reuse your integer noise to get stable corner IDs)
+            var h00 = Get2DNoise(xi, yi, seed, type);
+            var h10 = Get2DNoise(xi + 1, yi, seed, type);
+            var h01 = Get2DNoise(xi, yi + 1, seed, type);
+            var h11 = Get2DNoise(xi + 1, yi + 1, seed, type);
+
+            return HashBasedNoiseUtils.Perlin(xf, yf, h00, h10, h01, h11);
+        }
+
+        /// <summary>
+        /// Generates a Perlin noise value based on the input coordinates and a specified seed.
+        /// This method calculates smooth noise by blending integer-based deterministic noise
+        /// values at each corner of the cube enclosing the input coordinates.
+        /// </summary>
+        /// <param name="x">
+        /// The x-coordinate of the noise input.
+        /// </param>
+        /// <param name="y">
+        /// The y-coordinate of the noise input.
+        /// </param>
+        /// <param name="z">
+        /// The z-coordinate of the noise input.
+        /// </param>
+        /// <param name="seed">
+        /// A 32-bit unsigned integer used to control the pseudo-randomness of the noise generation.
+        /// </param>
+        /// <param name="type">
+        /// Specifies the type of noise function to use for generating corner values. Defaults to MangledBitsBalancedMix.
+        /// </param>
+        /// <returns>
+        /// A single-precision floating-point value representing the Perlin noise at the given coordinates.
+        /// </returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Perlin(float x, float y, float z, uint seed = 0, NoiseType type = DefaultNoiseType)
+        {
+            var xi = (int)math.floor(x);
+            var yi = (int)math.floor(y);
+            var zi = (int)math.floor(z);
+            var xf = x - xi;
+            var yf = y - yi;
+            var zf = z - zi;
+
+            // Corner hashes (reuse your integer noise to get stable corner IDs)
+            var h000 = Get3DNoise(xi, yi, zi, seed, type);
+            var h100 = Get3DNoise(xi + 1, yi, zi, seed, type);
+            var h010 = Get3DNoise(xi, yi + 1, zi, seed, type);
+            var h110 = Get3DNoise(xi + 1, yi + 1, zi, seed, type);
+            var h001 = Get3DNoise(xi, yi, zi + 1, seed, type);
+            var h101 = Get3DNoise(xi + 1, yi, zi + 1, seed, type);
+            var h011 = Get3DNoise(xi, yi + 1, zi + 1, seed, type);
+            var h111 = Get3DNoise(xi + 1, yi + 1, zi + 1, seed, type);
+
+            return HashBasedNoiseUtils.Perlin(xf, yf, zf, h000, h100, h010, h110, h001, h101, h011, h111);
+        }
+
+        #endregion
+
     }
 }

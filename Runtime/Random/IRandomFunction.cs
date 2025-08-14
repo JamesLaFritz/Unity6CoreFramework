@@ -205,5 +205,40 @@ namespace CoreFramework.Random
         public bool Chance(float probabilityOfTrue);
 
         #endregion
+
+        #region Perlin
+
+        /// <summary>
+        /// Generates a Perlin noise value based on the provided 2D coordinates, seed, and noise type.
+        /// The noise value is computed by hashing the corners of the surrounding grid and applying interpolation.
+        /// </summary>
+        /// <param name="x">
+        /// The X coordinate (continuous) used for generating the noise value.
+        /// </param>
+        /// <param name="y">
+        /// The Y coordinate (continuous) used for generating the noise value.
+        /// </param>
+        public float Perlin(float x, float y);
+
+        /// <summary>
+        /// Generates a Perlin noise value based on the input coordinates and a specified seed.
+        /// This method calculates smooth noise by blending integer-based deterministic noise
+        /// values at each corner of the cube enclosing the input coordinates.
+        /// </summary>
+        /// <param name="x">
+        /// The x-coordinate of the noise input.
+        /// </param>
+        /// <param name="y">
+        /// The y-coordinate of the noise input.
+        /// </param>
+        /// <param name="z">
+        /// The z-coordinate of the noise input.
+        /// </param>
+        /// <returns>
+        /// A single-precision floating-point value representing the Perlin noise at the given coordinates.
+        /// </returns>
+        public float Perlin(float x, float y, float z);
+
+        #endregion
     }
 }

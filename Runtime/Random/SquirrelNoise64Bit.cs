@@ -10,6 +10,7 @@
 
 using System.Runtime.CompilerServices;
 using CoreFramework.Mathematics;
+using Unity.Mathematics;
 
 namespace CoreFramework.Random
 {
@@ -19,11 +20,11 @@ namespace CoreFramework.Random
     public static class SquirrelNoise64Bit
     {
         #region Constants
-        
+
         private const ulong Prime1 = 0xD6E8FEB86659FD93UL; // Used in xxHash64 (good entropy)
         private const ulong Prime2 = 0xC2B2AE3D27D4EB4FUL; // From MurmurHash3 / xxHash
         private const ulong Prime3 = 0x165667B19E3779F9UL; // Mix of golden ratio and irregular prime
-        
+
         private const NoiseType DefaultNoiseType = NoiseType.MangledBitsBalancedMix; // Default noise type to use
 
         #endregion
@@ -116,7 +117,8 @@ namespace CoreFramework.Random
         /// <param name="type">The type of noise algorithm to apply, defined by the <see cref="NoiseType"/> enumeration.</param>
         /// <returns>A 32-bit unsigned integer representing the generated 4D noise value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint Get4DNoise(ulong x, ulong y, ulong z, ulong w, ulong seed = 0, NoiseType type = DefaultNoiseType) =>
+        public static uint Get4DNoise(ulong x, ulong y, ulong z, ulong w, ulong seed = 0,
+            NoiseType type = DefaultNoiseType) =>
             Get1DNoise(x + Prime1 * y + Prime2 * z + Prime3 * w, seed, type);
 
         #endregion
@@ -156,7 +158,8 @@ namespace CoreFramework.Random
         /// <param name="type">The type of noise algorithm to apply, defined by the <see cref="NoiseType"/> enumeration.</param>
         /// <returns>A pseudo-random noise value in the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float Get3DNoise01(ulong x, ulong y, ulong z, ulong seed = 0, NoiseType type = DefaultNoiseType) =>
+        public static float Get3DNoise01(ulong x, ulong y, ulong z, ulong seed = 0,
+            NoiseType type = DefaultNoiseType) =>
             HashBasedNoiseUtils.ToZeroToOne(Get3DNoise(x, y, z, seed, type));
 
         /// <summary>
@@ -170,7 +173,8 @@ namespace CoreFramework.Random
         /// <param name="type">The type of noise algorithm to apply, defined by the <see cref="NoiseType"/> enumeration.</param>
         /// <returns>A float value representing the 4D noise in the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float Get4DNoise01(ulong x, ulong y, ulong z, ulong w, ulong seed = 0, NoiseType type = DefaultNoiseType) =>
+        public static float Get4DNoise01(ulong x, ulong y, ulong z, ulong w, ulong seed = 0,
+            NoiseType type = DefaultNoiseType) =>
             HashBasedNoiseUtils.ToZeroToOne(Get4DNoise(x, y, z, w, seed, type));
 
         /// <summary>
@@ -206,7 +210,8 @@ namespace CoreFramework.Random
         /// <param name="type">The type of noise algorithm to apply, defined by the <see cref="NoiseType"/> enumeration.</param>
         /// <returns>A floating-point noise value in the range of -1 to 1.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float Get3DNoiseNeg1To1(ulong x, ulong y, ulong z, ulong seed = 0, NoiseType type = DefaultNoiseType) =>
+        public static float Get3DNoiseNeg1To1(ulong x, ulong y, ulong z, ulong seed = 0,
+            NoiseType type = DefaultNoiseType) =>
             HashBasedNoiseUtils.ToNegOneToOne(Get3DNoise(x, y, z, seed, type));
 
         /// <summary>
@@ -220,9 +225,73 @@ namespace CoreFramework.Random
         /// <param name="type">The type of noise algorithm to apply, defined by the <see cref="NoiseType"/> enumeration.</param>
         /// <returns>A floating-point noise value in the range [-1, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float Get4DNoiseNeg1To1(ulong x, ulong y, ulong z, ulong w, ulong seed = 0, NoiseType type = DefaultNoiseType) =>
+        public static float Get4DNoiseNeg1To1(ulong x, ulong y, ulong z, ulong w, ulong seed = 0,
+            NoiseType type = DefaultNoiseType) =>
             HashBasedNoiseUtils.ToNegOneToOne(Get4DNoise(x, y, z, w, seed, type));
 
         #endregion
+
+        #region Perlin
+
+        /// <summary>
+        /// Generates a 2D Perlin noise value based on the input coordinates, a seed, and the specified noise generation type.
+        /// </summary>
+        /// <param name="x">The x-coordinate of the sample point in the 2D noise field.</param>
+        /// <param name="y">The y-coordinate of the sample point in the 2D noise field.</param>
+        /// <param name="seed">An optional 64-bit unsigned integer seed providing additional randomness to the noise output. Defaults to 0.</param>
+        /// <param name="type">The type of noise generation algorithm, affecting the computation method. Defaults to the system's default noise type.</param>
+        /// <returns>A single-precision floating-point value representing the generated Perlin noise at the specified coordinates.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Perlin(float x, float y, ulong seed = 0, NoiseType type = DefaultNoiseType)
+        {
+            // Use double for inputs if you prefer; cast to float for core math
+            var xi = (ulong)math.floor(x);
+            var yi = (ulong)math.floor(y);
+            var xf = x - xi;
+            var yf = y - yi;
+
+            // Corner hashes (reuse your integer noise to get stable corner IDs)
+            var h00 = Get2DNoise(xi, yi, seed, type);
+            var h10 = Get2DNoise(xi + 1UL, yi, seed, type);
+            var h01 = Get2DNoise(xi, yi + 1UL, seed, type);
+            var h11 = Get2DNoise(xi + 1UL, yi + 1UL, seed, type);
+
+            return HashBasedNoiseUtils.Perlin(xf, yf, h00, h10, h01, h11);
+        }
+
+        /// <summary>
+        /// Computes a 3D Perlin noise value for the given spatial coordinates, seed, and noise type.
+        /// </summary>
+        /// <param name="x">The X-coordinate of the input point in 3D space.</param>
+        /// <param name="y">The Y-coordinate of the input point in 3D space.</param>
+        /// <param name="z">The Z-coordinate of the input point in 3D space.</param>
+        /// <param name="seed">An optional 64-bit unsigned seed value for adding randomness, defaulting to 0.</param>
+        /// <param name="type">An optional noise type specifying the computation method, defaulting to a balanced mix.</param>
+        /// <returns>A single-precision floating-point value representing the computed Perlin noise at the given 3D coordinates.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Perlin(float x, float y, float z, ulong seed = 0, NoiseType type = DefaultNoiseType)
+        {
+            var xi = (ulong)math.floor(x);
+            var yi = (ulong)math.floor(y);
+            var zi = (ulong)math.floor(z);
+            var xf = x - xi;
+            var yf = y - yi;
+            var zf = z - zi;
+
+            // Corner hashes (reuse your integer noise to get stable corner IDs)
+            var h000 = Get3DNoise(xi, yi, zi, seed, type);
+            var h100 = Get3DNoise(xi + 1UL, yi, zi, seed, type);
+            var h010 = Get3DNoise(xi, yi + 1UL, zi, seed, type);
+            var h110 = Get3DNoise(xi + 1UL, yi + 1UL, zi, seed, type);
+            var h001 = Get3DNoise(xi, yi, zi + 1UL, seed, type);
+            var h101 = Get3DNoise(xi + 1UL, yi, zi + 1UL, seed, type);
+            var h011 = Get3DNoise(xi, yi + 1UL, zi + 1UL, seed, type);
+            var h111 = Get3DNoise(xi + 1UL, yi + 1UL, zi + 1UL, seed, type);
+
+            return HashBasedNoiseUtils.Perlin(xf, yf, zf, h000, h100, h010, h110, h001, h101, h011, h111);
+        }
+
+        #endregion
+
     }
 }

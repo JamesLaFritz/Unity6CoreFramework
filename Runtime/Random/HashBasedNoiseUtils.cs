@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 
 namespace CoreFramework.Random
 {
@@ -16,7 +17,7 @@ namespace CoreFramework.Random
         public const uint ChaChaPrime2 = 0x3320646E; // "nd 3"
         public const uint ChaChaPrime3 = 0x79622D32; // "2-by"
         public const uint ChaChaPrime4 = 0x6B206574; // "te k"
-        
+
         public const int Prime1 = 198491317; // Large prime number with non-boring bits
         public const int Prime2 = 6542989; // Large prime number with non-boring bits
         public const int Prime3 = 357239; // Large prime number with non-boring bits
@@ -45,10 +46,10 @@ namespace CoreFramework.Random
         public static float ToZeroToOne(uint value) => value / (float)uint.MaxValue;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float ToNegOneToOne(uint value) => (value / (float)uint.MaxValue) * 2f - 1f;
+        public static float ToNegOneToOne(uint value) => value / (float)uint.MaxValue * 2f - 1f;
 
         #endregion
-        
+
         #region Noise Mixing Methods
 
         #region 32-bit
@@ -59,20 +60,20 @@ namespace CoreFramework.Random
         #region Mixing Methods
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint MangledBitsShiftXOR(uint index, uint seed)
+        internal static uint MangledBitsShiftXOR(uint index, uint seed)
         {
             var mangled = index * GoldenRatio;
             mangled += seed;
-            mangled ^= (mangled >> 8);
+            mangled ^= mangled >> 8;
             mangled += MurmurHash3Final1;
-            mangled ^= (mangled << 8);
+            mangled ^= mangled << 8;
             mangled *= MurmurHash3Final2;
-            mangled ^= (mangled >> 8);
+            mangled ^= mangled >> 8;
             return mangled;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint MangledBitsBalancedMix(uint index, uint seed)
+        internal static uint MangledBitsBalancedMix(uint index, uint seed)
         {
             var mangled = index ^ seed;
             mangled *= MurmurHash3Final1; // MurmurHash3 constant
@@ -83,7 +84,7 @@ namespace CoreFramework.Random
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint MangledBitsRotational(uint index, uint seed)
+        internal static uint MangledBitsRotational(uint index, uint seed)
         {
             var mangled = index * GoldenRatio; // golden ratio constant
             mangled += seed;
@@ -95,7 +96,7 @@ namespace CoreFramework.Random
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint ChaChaQuarterRoundAdvanced(uint index, uint seed)
+        internal static uint ChaChaQuarterRoundAdvanced(uint index, uint seed)
         {
             // Mix input into 4 words for quarter-round style processing
             var a = index ^ ChaChaPrime1;
@@ -122,7 +123,7 @@ namespace CoreFramework.Random
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint ChaChaQuarterRoundSimple(uint index, uint seed)
+        internal static uint ChaChaQuarterRoundSimple(uint index, uint seed)
         {
             // Mix index and seed with ChaCha constants
             var a = index ^ ChaChaPrime1;
@@ -149,7 +150,7 @@ namespace CoreFramework.Random
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ChaChaQuarterRound(ref uint prime, ref uint key1, ref uint key2, ref uint input)
+        internal static void ChaChaQuarterRound(ref uint prime, ref uint key1, ref uint key2, ref uint input)
         {
             prime += key1;
             input ^= prime;
@@ -168,7 +169,7 @@ namespace CoreFramework.Random
             key1 = RotateLeft(key1, 7);
         }
 
-        public static void ChaCha20Setup()
+        internal static void ChaCha20Setup()
         {
             //[ "expa" | "nd 3" | "2-by" | "te k" ]
             //[ key0 | key1 | key2 | key3 ]
@@ -193,20 +194,20 @@ namespace CoreFramework.Random
         #region Mixing Methods
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong MangledBitsShiftXOR(ulong index, ulong seed)
+        internal static ulong MangledBitsShiftXOR(ulong index, ulong seed)
         {
             var mangled = index * GoldenRatioUl;
             mangled += seed;
-            mangled ^= (mangled >> 17);
+            mangled ^= mangled >> 17;
             mangled += MurmurHash3Final1Ul;
-            mangled ^= (mangled << 21);
+            mangled ^= mangled << 21;
             mangled *= MurmurHash3Final2Ul;
-            mangled ^= (mangled >> 13);
+            mangled ^= mangled >> 13;
             return mangled;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong MangledBitsBalancedMix(ulong index, ulong seed)
+        internal static ulong MangledBitsBalancedMix(ulong index, ulong seed)
         {
             var mangled = index ^ seed;
             mangled *= MurmurHash3Final1Ul;
@@ -217,7 +218,7 @@ namespace CoreFramework.Random
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong MangledBitsRotational(ulong index, ulong seed)
+        internal static ulong MangledBitsRotational(ulong index, ulong seed)
         {
             var mangled = index * GoldenRatioUl;
             mangled += seed;
@@ -227,41 +228,57 @@ namespace CoreFramework.Random
             mangled ^= mangled >> 33;
             return mangled;
         }
-        
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong ChaChaQuarterAdvanced(ulong index, ulong seed)
+        internal static ulong ChaChaQuarterAdvanced(ulong index, ulong seed)
         {
             var a = index ^ ChaChaPrime1;
             var b = seed ^ ChaChaPrime2;
             var c = index * ChaChaPrime2 + seed * ChaChaPrime3;
             var d = seed ^ index ^ ChaChaPrime4;
 
-            a += b; d ^= a; d = RotateLeft(d, 32);
-            c += d; b ^= c; b = RotateLeft(b, 24);
-            a += b; d ^= a; d = RotateLeft(d, 16);
-            c += d; b ^= c; b = RotateLeft(b, 7); // canonical ChaCha constant
+            a += b;
+            d ^= a;
+            d = RotateLeft(d, 32);
+            c += d;
+            b ^= c;
+            b = RotateLeft(b, 24);
+            a += b;
+            d ^= a;
+            d = RotateLeft(d, 16);
+            c += d;
+            b ^= c;
+            b = RotateLeft(b, 7); // canonical ChaCha constant
 
             return a ^ b ^ c ^ d;
         }
-        
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong ChaChaQuarterRoundSimple(ulong index, ulong seed)
+        internal static ulong ChaChaQuarterRoundSimple(ulong index, ulong seed)
         {
             var a = index + ChaChaPrime1Ul;
             var b = seed + ChaChaPrime2Ul;
             var c = index ^ ChaChaPrime3Ul;
             var d = seed ^ ChaChaPrime4Ul;
 
-            a += b; d ^= a; d = RotateLeft(d, 32);
-            c += d; b ^= c; b = RotateLeft(b, 24);
-            a += b; d ^= a; d = RotateLeft(d, 16);
-            c += d; b ^= c; b = RotateLeft(b, 7);
+            a += b;
+            d ^= a;
+            d = RotateLeft(d, 32);
+            c += d;
+            b ^= c;
+            b = RotateLeft(b, 24);
+            a += b;
+            d ^= a;
+            d = RotateLeft(d, 16);
+            c += d;
+            b ^= c;
+            b = RotateLeft(b, 7);
 
             return a ^ b ^ c ^ d;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static void ChaChaQuarterRound(ref ulong prime, ref ulong key1, ref ulong key2, ref ulong input)
+        internal static void ChaChaQuarterRound(ref ulong prime, ref ulong key1, ref ulong key2, ref ulong input)
         {
             prime += key1;
             input ^= prime;
@@ -285,5 +302,136 @@ namespace CoreFramework.Random
         #endregion
 
         #endregion
+
+        #region Perlin Core (shared 32/64)
+
+        #region Fade (scalar)
+
+        /// <summary>
+        /// Applies a smoothing function to a value to produce a smooth transition in the range [0, 1].
+        /// Perlin's quintic fade curve: 6t^5 - 15t^4 + 10t^3.
+        /// </summary>
+        /// <param name="t">Fractional coordinate in the range [0, 1].</param>
+        /// <returns>Smoothed value in the range [0, 1].</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Fade(float t)
+        {
+            // t*t*t*(t*(t*6 - 15) + 10) is branchless and Burst-friendly
+            return t * t * t * (t * (t * 6f - 15f) + 10f);
+        }
+
+        #endregion
+
+        #region Gradients
+
+        /// <summary>Computes a 2D gradient value based on a corner hash and local offsets.</summary>
+        /// <param name="hash">Hash for the corner (low bits used).</param>
+        /// <param name="dx">Local x offset from the corner.</param>
+        /// <param name="dy">Local y offset from the corner.</param>
+        /// <returns>Calculated gradient value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static float Grad2(uint hash, float dx, float dy)
+        {
+            var h = (int)(hash & 7u);
+            var u = h < 4 ? dx : dy;
+            var v = h < 4 ? dy : dx;
+            return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
+        }
+
+        /// <summary>Computes a gradient value based on the hash and the given offsets.</summary>
+        /// <param name="hash">Hash value used to determine the gradient vector.</param>
+        /// <param name="dx">Offset along the x-axis from the corner.</param>
+        /// <param name="dy">Offset along the y-axis from the corner.</param>
+        /// <param name="dz">Offset along the z-axis from the corner.</param>
+        /// <returns>The dot product of the gradient vector and the offset vector.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static float Grad3(uint hash, float dx, float dy, float dz)
+        {
+            var h = (int)(hash & 15u);
+            var u = h < 8 ? dx : dy;
+            var v = h < 4 ? dy : h is 12 or 14 ? dx : dz;
+            return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
+        }
+
+        #endregion
+
+        #region Perlin2D/3D (corner‑hash driven)
+
+         /// <summary>
+         /// Corner‑hash driven Perlin 2D. Callers pass the four corner hashes and the local
+         /// fractional offsets inside the cell. This keeps the only 32 vs 64 difference (how
+         /// you generate the corner IDs) out of the core.
+         /// </summary>
+         /// <param name="xf">Fractional x in [0,1) relative to the cell’s lower corner.</param>
+         /// <param name="yf">Fractional y in [0,1) relative to the cell’s lower corner.</param>
+         /// <param name="h00">Hash at (0,0) corner.</param>
+         /// <param name="h10">Hash at (1,0) corner.</param>
+         /// <param name="h01">Hash at (0,1) corner.</param>
+         /// <param name="h11">Hash at (1,1) corner.</param>
+         /// <returns>Smooth 2D noise value in [-1,1].</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+         internal static float Perlin(float xf, float yf, uint h00, uint h10, uint h01, uint h11)
+        {
+            var u = Fade(xf);
+            var v = Fade(yf);
+
+            var n00 = Grad2(h00, xf, yf);
+            var n10 = Grad2(h10, xf - 1, yf);
+            var n01 = Grad2(h01, xf, yf - 1);
+            var n11 = Grad2(h11, xf - 1, yf - 1);
+
+            var nx0 = math.lerp(n00, n10, u);
+            var nx1 = math.lerp(n01, n11, u);
+            return math.lerp(nx0, nx1, v);
+        }
+
+        /// <summary>Generates a 3D Perlin noise value based on hashed gradient coordinates and fractional positions.</summary>
+        /// <param name="xf">Fractional x-coordinate in the range [0,1].</param>
+        /// <param name="yf">Fractional y-coordinate in the range [0,1].</param>
+        /// <param name="zf">Fractional z-coordinate in the range [0,1].</param>
+        /// <param name="h000">Hash value for the gradient at the (0, 0, 0) corner of the unit cube.</param>
+        /// <param name="h100">Hash value for the gradient at the (1, 0, 0) corner of the unit cube.</param>
+        /// <param name="h010">Hash value for the gradient at the (0, 1, 0) corner of the unit cube.</param>
+        /// <param name="h110">Hash value for the gradient at the (1, 1, 0) corner of the unit cube.</param>
+        /// <param name="h001">Hash value for the gradient at the (0, 0, 1) corner of the unit cube.</param>
+        /// <param name="h101">Hash value for the gradient at the (1, 0, 1) corner of the unit cube.</param>
+        /// <param name="h011">Hash value for the gradient at the (0, 1, 1) corner of the unit cube.</param>
+        /// <param name="h111">Hash value for the gradient at the (1, 1, 1) corner of the unit cube.</param>
+        /// <returns>A smooth noise value in the range [-1,1].</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static float Perlin(
+            float xf, float yf, float zf,
+            uint h000, uint h100, uint h010, uint h110,
+            uint h001, uint h101, uint h011, uint h111)
+        {
+            var u = Fade(xf);
+            var v = Fade(yf);
+            var w = Fade(zf);
+
+            var n000 = Grad3(h000, xf, yf, zf);
+            var n100 = Grad3(h100, xf - 1, yf, zf);
+            var n010 = Grad3(h010, xf, yf - 1, zf);
+            var n110 = Grad3(h110, xf - 1, yf - 1, zf);
+
+            var n001 = Grad3(h001, xf, yf, zf - 1);
+            var n101 = Grad3(h101, xf - 1, yf, zf - 1);
+            var n011 = Grad3(h011, xf, yf - 1, zf - 1);
+            var n111 = Grad3(h111, xf - 1, yf - 1, zf - 1);
+
+            var nx00 = math.lerp(n000, n100, u);
+            var nx10 = math.lerp(n010, n110, u);
+            var nx01 = math.lerp(n001, n101, u);
+            var nx11 = math.lerp(n011, n111, u);
+
+            var nxy0 = math.lerp(nx00, nx10, v);
+            var nxy1 = math.lerp(nx01, nx11, v);
+
+            return math.lerp(nxy0, nxy1, w);
+        }
+
+        #endregion
+
+        #endregion
+
     }
 }

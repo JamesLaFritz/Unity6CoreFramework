@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 > Build/revision info is carried as **build metadata**, e.g. `1.4.0+rev.0`.  
 > Package resolution ignores `+metadata`, so publish patches as `1.4.1`, `1.4.2`, … (don’t only change `+rev` if you want Package Manager to upgrade).
 
-[![GitHub Release](https://custom-icon-badges.demolab.com/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&display_name=release&style=plastic&label=Latest%20Release&logo=tag)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/latest)
+
+
+[![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&display_name=release&style=plastic&label=Latest%20Release&logo=github)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/latest)
 
 ---
 
@@ -19,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.4.0] — 2025-08-29 [![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&filter=*v1.4.0&display_name=release&style=plastic&label=%E2%9C%A8%20feat(Random)%3A%20add%20Squirrel%20Noise)]([https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.4.0](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.4.0))
+## [1.4.0] — 2025-08-29 [![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&filter=v1.4.0&style=plastic&label=%E2%9C%A8%20feat(Random)%3A%20add%20Squirrel%20Noise)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.4.0)
 
 ### Added
 - **Squirrel Noise Random**: stateless, deterministic noise/RNG suite.
@@ -55,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [1.3.0.0] — 2024-10-16 [![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&filter=*v1.3.0.0&display_name=release&style=plastic&label=%E2%9C%A8%20feat(Editor)%3A%20add%20build%20processing%20automation%20script)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.3.0.0)
+## [1.3.0.0] — 2024-10-16 [![GitHub Release](https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&filter=*v1.3.0.0&style=plastic&label=%E2%9C%A8%20feat(Editor)%3A%20add%20build%20processing%20automation%20script)](https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.3.0.0)
 
 ### Added
 - **Editor build processing automation** (`BuildProcessing.cs`):

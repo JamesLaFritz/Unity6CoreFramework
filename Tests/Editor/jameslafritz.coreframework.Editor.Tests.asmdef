@@ -4,8 +4,14 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "KTMarineStudios.CoreFramework.Runtime",
-        "KTMarineStudios.CoreFramework.Editor"
+        "Unity.Burst",
+        "Unity.Burst.Editor",
+        "Unity.Collections",
+        "Unity.Collections.Editor",
+        "Unity.Mathematics",
+        "Unity.Mathematics.Editor",
+        "jameslafritz.coreframework",
+        "jameslafritz.coreframework.Editor"
     ],
     "includePlatforms": [
         "Editor"

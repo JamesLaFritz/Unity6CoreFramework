@@ -1,6 +1,6 @@
 {
   "name": "com.jameslafritz.coreframework",
-  "version": "2.0.0.0",
+  "version": "2.0.0",
   "displayName": "Core Framework",
   "description": "Framework that contains useful Modules to be Used in Unity Project.",
   "unity": "6000.0",

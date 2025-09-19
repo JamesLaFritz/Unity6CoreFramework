@@ -53,7 +53,7 @@
 <!-- PROJECT LOGO -->
 <p style="text-align: center">
   <a href="https://github.com/JamesLaFritz/Unity6CoreFramework">
-    <img src="https://github.com/JamesLaFritz/CoreFramework2022/docs/Images/Logo.png" alt="Logo" style="width:50%"/>
+    <img src="https://github.com/JamesLaFritz/Unity6CoreFramework/Documentation~/Images/Logo_large.png" alt="Logo" style="width:50%"/>
   </a>
 </p>
 
@@ -61,7 +61,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="https://github.com/JamesLaFritz/CoreFramework2022/docs/Images/ScreenShot.gif" alt="Product Name Screen Shot"/>
+<img src="https://github.com/JamesLaFritz/Unity6CoreFramework/Documentation~/Images/ScreenShot.gif" alt="Product Name Screen Shot"/>
 
 [![Documentation](https://custom-icon-badges.demolab.com/badge/Documentation-222222?style=plastic&logo=Book&logoSource=feather&logoColor=green)](https://jameslafritz.github.io/Unity6CoreFramework)
 [![Manual](https://custom-icon-badges.demolab.com/badge/Manual-222222?style=plastic&logo=Book&logoColor=blue)](https://jameslafritz.github.io/Unity6CoreFramework/manual/coreframework-man-home/)
@@ -92,64 +92,7 @@ To install this into your project Clone or Download the code from GitHub into yo
 
 See the [open issues](https://github.com/JamesLaFritz/Unity6CoreFramework/issues) for a list of proposed features (and known issues).
 
-Currently, in Work: Documentation, Samples, Attributes using UI Elements, and Scriptable Object Variables and Game Events.
-
-* Scriptable Object Variables and Game Events
-* Documentation:
-  * Manual
-    * Animation
-      * Animation Parameters
-        * Bool
-        * Float
-        * Int
-        * Trigger
-      * Animation Parameter Drawer
-    * ~~Attributes~~
-    * Create From Game Object 
-    * Destroy
-      * After Time
-      * No Children
-    * Extensions
-      * Array
-      * Quaternion
-      * Text
-      * Vector4
-    * Functional
-      * Option
-    * Interactable 
-    * Scriptable Object Variables and Game Events
-  * API Documentation
-* Samples
-  * Animation
-    * Animation Parameters
-      * Bool
-      * Float
-      * Int
-      * Trigger
-    * Animation Parameter Drawer
-  * ~~Attributes~~
-  * Destroy
-    * After Time
-    * No Children
-  * Extensions
-    * Array
-    * Quaternion
-    * Text
-    * Vector4
-  * Functional
-    * Option
-  * Interactable
-  * Scriptable Object Variables and Game Events
-* Attributes using UI Elements
-  * Header
-    * ~~Add Header Element to Property Element~~
-    * Use Style Sheet
-  * Info Box
-    * ~~Add Header Element to Property Element~~
-    * Use Style Sheet
-  * ~~Icon~~
-  * Show If Bool
-  * Show If Enum
+Currently, in Work: Documentation and Samples.
 
 <!-- Acknowledgments -->
 ## Acknowledgments
@@ -161,3 +104,6 @@ Currently, in Work: Documentation, Samples, Attributes using UI Elements, and Sc
   * [Blog Post![Blog Post Image](https://4.bp.blogspot.com/-NPqlFwFSnh0/Wdw-Td_eAII/AAAAAAAASdg/NctR71hqiD0aIGi_qwqX--pX5iK-BYKWACLcBGAs/s640/Capture.PNG)](http://www.roboryantron.com/2017/10/unite-2017-game-architecture-with.html)
   * [![X (formerly Twitter) URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fx.com%2Froboryantron%2Fstatus%2F924389738206978050&style=plastic&logo=x&logoColor=000000)](https://x.com/roboryantron/status/924389738206978050)
   * [![X (formerly Twitter)](https://img.shields.io/twitter/follow/roboryantron?style=plastic&logo=x&logoColor=000000)](https://twitter.com/roboryantron)
+* [![**2017 GDC Math for Game Programmers talk Noise-Based RNG**](https://img.youtube.com/vi/LWFzPP8ZbdU/0.jpg)](https://www.youtube.com/watch?v=LWFzPP8ZbdU)
+* [![**Building Worlds in No Man's Sky Using Math(s)**](https://img.youtube.com/vi/C9RyEiEzMiU/0.jpg)](https://www.youtube.com/watch?v=C9RyEiEzMiU)
+* [![**Herbert Wolverson – Procedural Map Generation Techniques**](https://img.youtube.com/vi/TlLIOgWYVpI/0.jpg)](https://www.youtube.com/watch?v=TlLIOgWYVpI)

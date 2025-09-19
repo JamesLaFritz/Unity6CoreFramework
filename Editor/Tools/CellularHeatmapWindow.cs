@@ -170,7 +170,7 @@ namespace CoreFramework.Tools
 
         #region Methods
 
-        /// <summary>Allocate buffers & textures for the configured dimensions.</summary>
+        /// <summary>Allocate buffers and textures for the configured dimensions.</summary>
         private void Allocate()
         {
             var len = _width * _height;

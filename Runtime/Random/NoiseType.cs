@@ -28,8 +28,16 @@ namespace CoreFramework.Random
         All
     }
 
+    /// <summary>
+    /// Provides extension methods for the <see cref="NoiseType"/> enumeration.
+    /// </summary>
     public static class NoiseTypeExtensions
     {
+        /// <summary>
+        /// Converts the specified <see cref="NoiseType"/> enumeration value to its associated description string.
+        /// </summary>
+        /// <param name="value">The <see cref="NoiseType"/> value to convert.</param>
+        /// <returns>The description string associated with the specified <see cref="NoiseType"/> value, or the enumeration name if no description is defined.</returns>
         public static string ToDescriptionString(this NoiseType value)
         {
             var field = value.GetType().GetField(value.ToString());

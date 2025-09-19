@@ -17,7 +17,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - [![Unreleased](https://img.shields.io/badge/Core_Framework-blue?logo=github&label=Unreleased)](https://github.com/JamesLaFritz/Unity6CoreFramework)
 
-- _Add entries here for changes after 1.4.0._
+### Changed
+- Updated **README.md** with revised guidelines and examples.
+- Fixed minor issues in `Bootstrapper`, `EnumeratorExtensions`, and `NoiseType`.
+
+### Added
+- `GuidelinesDemoTest` under **Tests/Editor** for demo validation.
+
+### Removed
+- Deleted outdated documentation: `Documentation~/CoreFramework.md`.
+
+### Renamed
+- `Third Party Notices.md` → `ThirdPartyNotices.md` for naming consistency.
+
+### Fixed
+- Small corrections in **Editor Tools** (`CellularHeatmapWindow`, `SquirrelNoiseHeatMapWindow`).
 
 ---
 

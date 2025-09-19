@@ -7,13 +7,11 @@ namespace CoreFramework
     /// </summary>
     public static class EnumeratorExtensions
     {
-        // ReSharper disable InvalidXmlDocComment
         /// <summary>
-        /// Converts an IEnumerator<T> to an IEnumerable<T>.
+        /// Converts an IEnumerator to an IEnumerable.
         /// </summary>
-        /// <param name="e">An instance of IEnumerator<T>.</param>
-        /// <returns>An IEnumerable<T> with the same elements as the input instance.</returns>
-        // ReSharper restore InvalidXmlDocComment
+        /// <param name="e">An instance of IEnumerator.</param>
+        /// <returns>An IEnumerable with the same elements as the input instance.</returns>
         public static IEnumerable<T> ToEnumerable<T>(this IEnumerator<T> e)
         {
             while (e.MoveNext())

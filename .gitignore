@@ -76,6 +76,12 @@ docs/Gemfile.lock
 *.gem
 
 
+# DocFx generated files
+Documentation~/_site
+Documentation~/docfx.local.json
+Documentation~/GenerateDocWebsite.cmd
+
+
 #JetBrains
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider

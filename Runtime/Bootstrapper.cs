@@ -16,7 +16,7 @@ namespace CoreFramework
     /// Handles the initial bootstrapping of the application, ensuring that
     /// essential settings are applied and that the initial scene is loaded.
     /// </summary>
-    [HelpURL("https://jameslafritz.github.io/CoreFramework2022/Manual/Bootstrapper.html")]
+    [HelpURL("https://jameslafritz.github.io/Unity6CoreFramework/Manual/Bootstrapper.html")]
     public class Bootstrapper : MonoBehaviour
     {
         /// <summary>

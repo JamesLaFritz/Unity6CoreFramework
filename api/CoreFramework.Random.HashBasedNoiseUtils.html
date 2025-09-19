@@ -1,0 +1,2749 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Random_HashBasedNoiseUtils.md&amp;value=---%0Auid%3A%20CoreFramework.Random.HashBasedNoiseUtils%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Random.HashBasedNoiseUtils">
+
+
+
+  <h1 id="CoreFramework_Random_HashBasedNoiseUtils" data-uid="CoreFramework.Random.HashBasedNoiseUtils" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a>.<a class="xref" href="CoreFramework.Random.html">Random</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[BurstCompile]
+public static class HashBasedNoiseUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime1" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime1">
+  ChaChaPrime1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant representing the hexadecimal value 0x61707865 (&ldquo;expa&rdquo;), derived from the standard ChaCha block constants.
+Used as a prime value in hash-based noise generation and ChaCha operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const uint ChaChaPrime1 = 1634760805</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime1Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime1Ul">
+  ChaChaPrime1Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant 64-bit unsigned integer used as one of the ChaCha cryptographic primes.
+Represents the hexadecimal value 0x6170786561707865UL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong ChaChaPrime1Ul = 7021244195892394085</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime2" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime2">
+  ChaChaPrime2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A prime constant derived from ChaCha block constants, used in ChaCha-based algorithms for noise generation and hashing operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const uint ChaChaPrime2 = 857760878</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime2Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime2Ul">
+  ChaChaPrime2Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant 64-bit prime value used in ChaCha-based hash and noise computations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong ChaChaPrime2Ul = 3684054920645862510</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime3" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime3">
+  ChaChaPrime3
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A predefined prime constant used in ChaCha-based number manipulation algorithms.
+Represents the hexadecimal value 0x79622D32 (interpreted as &ldquo;2-by&rdquo;).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const uint ChaChaPrime3 = 2036477234</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime3Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime3Ul">
+  ChaChaPrime3Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant used as a part of ChaCha-inspired hashing operations in the form of a 64-bit unsigned integer.
+The value is derived from the string &ldquo;2-by2-by&rdquo;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong ChaChaPrime3Ul = 8746603121115016498</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime4" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime4">
+  ChaChaPrime4
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A predefined constant used in ChaCha-based noise generation operations.
+Represents the hexadecimal value 0x6B206574.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const uint ChaChaPrime4 = 1797285236</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaPrime4Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaPrime4Ul">
+  ChaChaPrime4Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant prime value used in ChaCha-based noise generation algorithms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong ChaChaPrime4Ul = 7719281312000927092</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_DerivEps" data-uid="CoreFramework.Random.HashBasedNoiseUtils.DerivEps">
+  DerivEps
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A small incremental value used for numerical derivation calculations within hashing-based noise utilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private const float DerivEps = 0.001</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_GoldenRatio" data-uid="CoreFramework.Random.HashBasedNoiseUtils.GoldenRatio">
+  GoldenRatio
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant value derived from the mathematical golden ratio, used as a mixing constant in hash-based noise functions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const uint GoldenRatio = 2654435769</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_GoldenRatioUl" data-uid="CoreFramework.Random.HashBasedNoiseUtils.GoldenRatioUl">
+  GoldenRatioUl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant representing the golden ratio in unsigned 64-bit format, commonly used for hashing and noise generation calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong GoldenRatioUl = 11400714819323198485</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_InvUintMax" data-uid="CoreFramework.Random.HashBasedNoiseUtils.InvUintMax">
+  InvUintMax
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The reciprocal of the maximum value for a 32-bit unsigned integer, used for normalization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private const float InvUintMax = 2.3283064E-10</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MurmurHash3Final1" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MurmurHash3Final1">
+  MurmurHash3Final1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant used as a final mixing value in MurmurHash3 algorithm computations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const uint MurmurHash3Final1 = 2246822507</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MurmurHash3Final1Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MurmurHash3Final1Ul">
+  MurmurHash3Final1Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant value used in the finalization step of the MurmurHash3 hash algorithm.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong MurmurHash3Final1Ul = 9650029242287828579</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MurmurHash3Final2" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MurmurHash3Final2">
+  MurmurHash3Final2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant used in the final mixing step of the MurmurHash3 algorithm.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const uint MurmurHash3Final2 = 3266489909</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MurmurHash3Final2Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MurmurHash3Final2Ul">
+  MurmurHash3Final2Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant value used as part of the MurmurHash3 finalization steps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong MurmurHash3Final2Ul = 14029467366897019727</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Prime1" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Prime1">
+  Prime1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A large prime number with non-boring bits used as a constant in hash-based noise calculations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int Prime1 = 198491317</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Prime1Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Prime1Ul">
+  Prime1Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A 64-bit prime constant used in xxHash64 and related hashing techniques for ensuring good entropy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong Prime1Ul = 15485907386658061715</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Prime2" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Prime2">
+  Prime2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A large prime number with well-distributed bits, used in various noise generation algorithms for hashing and position computations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int Prime2 = 6542989</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Prime2Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Prime2Ul">
+  Prime2Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant 64-bit prime number used for hashing in noise generation algorithms,
+particularly in MurmurHash3 and xxHash implementations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong Prime2Ul = 14029467366897019727</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Prime3" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Prime3">
+  Prime3
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A large prime number used for noise generation algorithms with well-distributed bits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int Prime3 = 357239</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Prime3Ul" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Prime3Ul">
+  Prime3Ul
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A 64-bit prime constant used in hash-based noise calculations.
+Combines characteristics of the golden ratio and irregular prime to improve distribution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ulong Prime3Ul = 1609587929392839161</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_SimplexF2" data-uid="CoreFramework.Random.HashBasedNoiseUtils.SimplexF2">
+  SimplexF2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Constant value defined as (√3 - 1) / 2, used as a skew factor in the 2D Simplex noise algorithm.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly float SimplexF2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_SimplexF3" data-uid="CoreFramework.Random.HashBasedNoiseUtils.SimplexF3">
+  SimplexF3
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A constant used in 3D Simplex Noise calculations for skewing coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float SimplexF3 = 0.33333334</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_SimplexG2" data-uid="CoreFramework.Random.HashBasedNoiseUtils.SimplexG2">
+  SimplexG2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The unskewing factor used in 2D Simplex noise calculations.
+This constant is derived as (3 - √3) / 6 and helps transform simplex grid coordinates
+back to Euclidean space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly float SimplexG2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_SimplexG3" data-uid="CoreFramework.Random.HashBasedNoiseUtils.SimplexG3">
+  SimplexG3
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The unskew factor for 3D Simplex noise, used in the conversion process
+between space coordinates and skewed simplex grid coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const float SimplexG3 = 0.16666667</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_AmplitudeSum_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.AmplitudeSum*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_AmplitudeSum_System_Int32_System_Single_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.AmplitudeSum(System.Int32,System.Single,System.Single)">
+  AmplitudeSum(int, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L889"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Max possible sum for geometric series of amplitudes with &lsquo;gain&rsquo;.
+Useful to remap fBm-like outputs back to [-1,1] or [0,1] ranges.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static float AmplitudeSum(int octaves, float amplitude, float gain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>octaves</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>amplitude</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>gain</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_CellularDistance2_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance2*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_CellularDistance2_Unity_Mathematics_float2_CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance2(Unity.Mathematics.float2,CoreFramework.Random.HashBasedNoiseUtils.CellularDistance)">
+  CellularDistance2(float2, CellularDistance)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L963"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static float CellularDistance2(float2 d, HashBasedNoiseUtils.CellularDistance metric)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_CellularDistance3_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance3*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_CellularDistance3_Unity_Mathematics_float3_CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance3(Unity.Mathematics.float3,CoreFramework.Random.HashBasedNoiseUtils.CellularDistance)">
+  CellularDistance3(float3, CellularDistance)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L975"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static float CellularDistance3(float3 d, HashBasedNoiseUtils.CellularDistance metric)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>d</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_CellularVein01_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVein01*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_CellularVein01_CoreFramework_Random_HashBasedNoiseUtils_Cellular2DResult__System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVein01(CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult@,System.Single)">
+  CellularVein01(in Cellular2DResult, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L995"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Vein/edge intensity from a Cellular result, normalized to [0,1].
+Uses 1 - saturate((F2 - F1) / edgeWidth) so the value is bright near borders.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float CellularVein01(in HashBasedNoiseUtils.Cellular2DResult r, float edgeWidth = 0.1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult.html">Cellular2DResult</a></dt>
+    <dd></dd>
+    <dt><code>edgeWidth</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_CellularVein01_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVein01*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_CellularVein01_CoreFramework_Random_HashBasedNoiseUtils_Cellular3DResult__System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVein01(CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult@,System.Single)">
+  CellularVein01(in Cellular3DResult, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1002"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Vein/edge intensity from a Cellular result, normalized to [0,1] (3D overload).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float CellularVein01(in HashBasedNoiseUtils.Cellular3DResult r, float edgeWidth = 0.12)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult.html">Cellular3DResult</a></dt>
+    <dd></dd>
+    <dt><code>edgeWidth</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_CellularVeinExp01_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVeinExp01*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_CellularVeinExp01_CoreFramework_Random_HashBasedNoiseUtils_Cellular2DResult__System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVeinExp01(CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult@,System.Single)">
+  CellularVeinExp01(in Cellular2DResult, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1010"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exponential edge falloff for veins. Higher k produces thinner, sharper lines.
+Output in [0,1].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float CellularVeinExp01(in HashBasedNoiseUtils.Cellular2DResult r, float k = 8)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult.html">Cellular2DResult</a></dt>
+    <dd></dd>
+    <dt><code>k</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_CellularVeinExp01_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVeinExp01*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_CellularVeinExp01_CoreFramework_Random_HashBasedNoiseUtils_Cellular3DResult__System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.CellularVeinExp01(CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult@,System.Single)">
+  CellularVeinExp01(in Cellular3DResult, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1015"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exponential edge falloff (3D overload). Output in [0,1].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float CellularVeinExp01(in HashBasedNoiseUtils.Cellular3DResult r, float k = 8)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult.html">Cellular3DResult</a></dt>
+    <dd></dd>
+    <dt><code>k</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ChaCha20Setup_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaCha20Setup*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaCha20Setup" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaCha20Setup">
+  ChaCha20Setup()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Configures the initial state for the ChaCha20 cryptographic algorithm, preparing it for operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static void ChaCha20Setup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterAdvanced_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterAdvanced*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterAdvanced_System_UInt64_System_UInt64_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterAdvanced(System.UInt64,System.UInt64)">
+  ChaChaQuarterAdvanced(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L446"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a pseudo-random 64-bit unsigned integer using a modified ChaCha quarter round process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static ulong ChaChaQuarterAdvanced(ulong index, ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">ulong</span></dt>
+    <dd><p>The index used in the ChaCha quarter round algorithm.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">ulong</span></dt>
+    <dd><p>The seed value used to introduce randomness to the algorithm.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd><p>A pseudo-random 64-bit unsigned integer derived from the input index and seed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRound_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRound*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRound_System_UInt32__System_UInt32__System_UInt32__System_UInt32__" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRound(System.UInt32@,System.UInt32@,System.UInt32@,System.UInt32@)">
+  ChaChaQuarterRound(ref uint, ref uint, ref uint, ref uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a ChaCha quarter round operation on the provided input values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static void ChaChaQuarterRound(ref uint prime, ref uint key1, ref uint key2, ref uint input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prime</code> <span class="xref">uint</span></dt>
+    <dd><p>A reference to the prime value used in the operation.</p>
+</dd>
+    <dt><code>key1</code> <span class="xref">uint</span></dt>
+    <dd><p>A reference to the first key used in the operation.</p>
+</dd>
+    <dt><code>key2</code> <span class="xref">uint</span></dt>
+    <dd><p>A reference to the second key used in the operation.</p>
+</dd>
+    <dt><code>input</code> <span class="xref">uint</span></dt>
+    <dd><p>A reference to the input value that will be modified during the operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRound_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRound*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRound_System_UInt64__System_UInt64__System_UInt64__System_UInt64__" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRound(System.UInt64@,System.UInt64@,System.UInt64@,System.UInt64@)">
+  ChaChaQuarterRound(ref ulong, ref ulong, ref ulong, ref ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L508"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a single ChaCha quarter round operation on the provided prime, keys, and input values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static void ChaChaQuarterRound(ref ulong prime, ref ulong key1, ref ulong key2, ref ulong input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prime</code> <span class="xref">ulong</span></dt>
+    <dd><p>Reference to the prime value to be modified during the operation.</p>
+</dd>
+    <dt><code>key1</code> <span class="xref">ulong</span></dt>
+    <dd><p>Reference to the first key value to be modified during the operation.</p>
+</dd>
+    <dt><code>key2</code> <span class="xref">ulong</span></dt>
+    <dd><p>Reference to the second key value to be modified during the operation.</p>
+</dd>
+    <dt><code>input</code> <span class="xref">ulong</span></dt>
+    <dd><p>Reference to the input value to be modified during the operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRoundAdvanced_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRoundAdvanced*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRoundAdvanced_System_UInt32_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRoundAdvanced(System.UInt32,System.UInt32)">
+  ChaChaQuarterRoundAdvanced(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a processed 32-bit unsigned integer based on the ChaCha quarter-round algorithm, enhanced with additional
+mixing patterns, using the given index and seed as inputs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static uint ChaChaQuarterRoundAdvanced(uint index, uint seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">uint</span></dt>
+    <dd><p>The input index value used for computation.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd><p>The seed value used to add variability to the computation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A 32-bit unsigned integer resulting from the advanced ChaCha quarter-round computation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRoundSimple_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRoundSimple*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRoundSimple_System_UInt32_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRoundSimple(System.UInt32,System.UInt32)">
+  ChaChaQuarterRoundSimple(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a simplified ChaCha quarter-round operation on the given index and seed values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static uint ChaChaQuarterRoundSimple(uint index, uint seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">uint</span></dt>
+    <dd><p>The index value used in the calculation, typically representing a noise coordinate.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd><p>A seed value used to add variability to the computation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A 32-bit unsigned integer result derived from the ChaCha quarter-round process.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRoundSimple_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRoundSimple*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ChaChaQuarterRoundSimple_System_UInt64_System_UInt64_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ChaChaQuarterRoundSimple(System.UInt64,System.UInt64)">
+  ChaChaQuarterRoundSimple(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L477"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a simplified ChaCha quarter round operation on the provided index and seed values.
+Uses predefined constants and bitwise operations to generate a transformed 64-bit value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static ulong ChaChaQuarterRoundSimple(ulong index, ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">ulong</span></dt>
+    <dd><p>The 64-bit index value used in the transformation.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">ulong</span></dt>
+    <dd><p>The 64-bit seed value used as an additional input for the transformation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd><p>A 64-bit unsigned integer result produced by the simplified ChaCha quarter round operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_Fade_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Fade*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Fade_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Fade(System.Single)">
+  Fade(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L544"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a smoothing function to a value to produce a smooth transition in the range [0, 1].
+Perlin's quintic fade curve: 6t<sup>5 - 15t</sup>4 + 10t^3.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Fade(float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <span class="xref">float</span></dt>
+    <dd><p>Fractional coordinate in the range [0, 1].</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>Smoothed value in the range [0, 1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_FadeDeriv_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.FadeDeriv*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_FadeDeriv_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.FadeDeriv(System.Single)">
+  FadeDeriv(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L667"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Derivative of Perlin's quintic fade: 30t<sup>4 − 60t</sup>3 + 30t^2.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float FadeDeriv(float t)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>t</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_Grad2_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad2*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Grad2_System_UInt32_System_Single_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad2(System.UInt32,System.Single,System.Single)">
+  Grad2(uint, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L560"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a 2D gradient value based on a corner hash and local offsets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static float Grad2(uint hash, float dx, float dy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash for the corner (low bits used).</p>
+</dd>
+    <dt><code>dx</code> <span class="xref">float</span></dt>
+    <dd><p>Local x offset from the corner.</p>
+</dd>
+    <dt><code>dy</code> <span class="xref">float</span></dt>
+    <dd><p>Local y offset from the corner.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>Calculated gradient value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_Grad2Vec_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad2Vec*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Grad2Vec_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad2Vec(System.UInt32)">
+  Grad2Vec(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L677"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a 2D gradient unit-ish vector based on low bits of <code class="paramref">hash</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static float2 Grad2Vec(uint hash)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_Grad3_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad3*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Grad3_System_UInt32_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad3(System.UInt32,System.Single,System.Single,System.Single)">
+  Grad3(uint, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L575"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a gradient value based on the hash and the given offsets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static float Grad3(uint hash, float dx, float dy, float dz)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value used to determine the gradient vector.</p>
+</dd>
+    <dt><code>dx</code> <span class="xref">float</span></dt>
+    <dd><p>Offset along the x-axis from the corner.</p>
+</dd>
+    <dt><code>dy</code> <span class="xref">float</span></dt>
+    <dd><p>Offset along the y-axis from the corner.</p>
+</dd>
+    <dt><code>dz</code> <span class="xref">float</span></dt>
+    <dd><p>Offset along the z-axis from the corner.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>The dot product of the gradient vector and the offset vector.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_Grad3Vec_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad3Vec*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Grad3Vec_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Grad3Vec(System.UInt32)">
+  Grad3Vec(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L694"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a 3D gradient vector from 12 canonical directions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static float3 Grad3Vec(uint hash)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>hash</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsBalancedMix_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsBalancedMix*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsBalancedMix_System_UInt32_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsBalancedMix(System.UInt32,System.UInt32)">
+  MangledBitsBalancedMix(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a hashed value for the given index and seed using a balanced mix approach.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static uint MangledBitsBalancedMix(uint index, uint seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">uint</span></dt>
+    <dd><p>The input index used for hashing.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd><p>The seed value to influence the hash generation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A hashed unsigned integer value derived from the input index and seed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsBalancedMix_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsBalancedMix*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsBalancedMix_System_UInt64_System_UInt64_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsBalancedMix(System.UInt64,System.UInt64)">
+  MangledBitsBalancedMix(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Applies a balanced mixing strategy to mangle the provided index and seed using bitwise operations
+and multiplication with predefined constants for generating a pseudorandom value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static ulong MangledBitsBalancedMix(ulong index, ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">ulong</span></dt>
+    <dd><p>The input index to be mangled.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">ulong</span></dt>
+    <dd><p>The seed value used for mixing with the index.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd><p>A mangled 64-bit unsigned integer value derived from the index and seed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsRotational_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsRotational*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsRotational_System_UInt32_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsRotational(System.UInt32,System.UInt32)">
+  MangledBitsRotational(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a pseudo-random value by applying rotational manipulations to the index and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static uint MangledBitsRotational(uint index, uint seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">uint</span></dt>
+    <dd><p>The input index for generating the pseudo-random value.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd><p>The seed value used to influence the randomness of the output.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A pseudo-random 32-bit unsigned integer value derived from the input index and seed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsRotational_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsRotational*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsRotational_System_UInt64_System_UInt64_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsRotational(System.UInt64,System.UInt64)">
+  MangledBitsRotational(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L428"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 64-bit hash value using a rotational mixing and mangling approach.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static ulong MangledBitsRotational(ulong index, ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">ulong</span></dt>
+    <dd><p>The input index used as part of the hash calculation.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">ulong</span></dt>
+    <dd><p>The seed value used to randomize the result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd><p>A 64-bit hash value derived from the index and seed using rotational bit manipulation and mixing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsShiftXOR_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsShiftXOR*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsShiftXOR_System_UInt32_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsShiftXOR(System.UInt32,System.UInt32)">
+  MangledBitsShiftXOR(uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a deterministically &ldquo;mangled&rdquo; unsigned integer value by applying a series of bitwise operations and transformations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static uint MangledBitsShiftXOR(uint index, uint seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">uint</span></dt>
+    <dd><p>The input index value used for generating the mangled result.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd><p>The seed value used to introduce variability to the generated result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>An unsigned integer that is the result of the mangling operations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsShiftXOR_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsShiftXOR*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MangledBitsShiftXOR_System_UInt64_System_UInt64_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MangledBitsShiftXOR(System.UInt64,System.UInt64)">
+  MangledBitsShiftXOR(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L391"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a pseudo-randomized 64-bit unsigned integer using bitwise mangling
+operations on the input index and seed values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static ulong MangledBitsShiftXOR(ulong index, ulong seed)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <span class="xref">ulong</span></dt>
+    <dd><p>The input index value to be used for the calculation.</p>
+</dd>
+    <dt><code>seed</code> <span class="xref">ulong</span></dt>
+    <dd><p>The seed value used to introduce variability in the calculation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd><p>A pseudo-randomized 64-bit unsigned integer derived from the input index and seed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MaxCellularF1_2D_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MaxCellularF1_2D*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MaxCellularF1_2D_CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MaxCellularF1_2D(CoreFramework.Random.HashBasedNoiseUtils.CellularDistance,System.Single)">
+  MaxCellularF1_2D(CellularDistance, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1030"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static float MaxCellularF1_2D(HashBasedNoiseUtils.CellularDistance metric, float jitter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+    <dt><code>jitter</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MaxCellularF1_3D_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MaxCellularF1_3D*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MaxCellularF1_3D_CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MaxCellularF1_3D(CoreFramework.Random.HashBasedNoiseUtils.CellularDistance,System.Single)">
+  MaxCellularF1_3D(CellularDistance, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1043"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static float MaxCellularF1_3D(HashBasedNoiseUtils.CellularDistance metric, float jitter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+    <dt><code>jitter</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MixOctave_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MixOctave*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MixOctave_System_UInt32_System_Int32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MixOctave(System.UInt32,System.Int32)">
+  MixOctave(uint, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L855"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mix a 32-bit seed with an octave index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static uint MixOctave(uint seed, int octave)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>octave</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_MixOctave_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MixOctave*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_MixOctave_System_UInt64_System_Int32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.MixOctave(System.UInt64,System.Int32)">
+  MixOctave(ulong, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L869"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Mix a 64-bit seed with an octave index.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static ulong MixOctave(ulong seed, int octave)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>octave</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF101_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF101*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF101_CoreFramework_Random_HashBasedNoiseUtils_Cellular2DResult__CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF101(CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult@,CoreFramework.Random.HashBasedNoiseUtils.CellularDistance,System.Single)">
+  NormalizeF101(in Cellular2DResult, CellularDistance, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1059"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Normalizes F1 to [0,1] using a conservative metric/jitter bound (2D).
+0 near feature sites, 1 at farthest plausible locations given <code class="paramref">jitter</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float NormalizeF101(in HashBasedNoiseUtils.Cellular2DResult r, HashBasedNoiseUtils.CellularDistance metric, float jitter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult.html">Cellular2DResult</a></dt>
+    <dd></dd>
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+    <dt><code>jitter</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF101_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF101*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF101_CoreFramework_Random_HashBasedNoiseUtils_Cellular3DResult__CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF101(CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult@,CoreFramework.Random.HashBasedNoiseUtils.CellularDistance,System.Single)">
+  NormalizeF101(in Cellular3DResult, CellularDistance, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1067"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Normalizes F1 to [0,1] using a conservative metric/jitter bound (3D).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float NormalizeF101(in HashBasedNoiseUtils.Cellular3DResult r, HashBasedNoiseUtils.CellularDistance metric, float jitter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult.html">Cellular3DResult</a></dt>
+    <dd></dd>
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+    <dt><code>jitter</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF1Inv01_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF1Inv01*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF1Inv01_CoreFramework_Random_HashBasedNoiseUtils_Cellular2DResult__CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF1Inv01(CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult@,CoreFramework.Random.HashBasedNoiseUtils.CellularDistance,System.Single)">
+  NormalizeF1Inv01(in Cellular2DResult, CellularDistance, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1078"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Convenience: inverted normalized F1 (soft &ldquo;blob&rdquo; mask) in [0,1].
+1 near sites, 0 far from sites.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float NormalizeF1Inv01(in HashBasedNoiseUtils.Cellular2DResult r, HashBasedNoiseUtils.CellularDistance metric, float jitter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult.html">Cellular2DResult</a></dt>
+    <dd></dd>
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+    <dt><code>jitter</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF1Inv01_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF1Inv01*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_NormalizeF1Inv01_CoreFramework_Random_HashBasedNoiseUtils_Cellular3DResult__CoreFramework_Random_HashBasedNoiseUtils_CellularDistance_System_Single_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.NormalizeF1Inv01(CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult@,CoreFramework.Random.HashBasedNoiseUtils.CellularDistance,System.Single)">
+  NormalizeF1Inv01(in Cellular3DResult, CellularDistance, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L1087"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>3D overload of <see>
+<cref>NormalizeF1Inv01(CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult, CellularDistance, float)</cref>
+</see></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float NormalizeF1Inv01(in HashBasedNoiseUtils.Cellular3DResult r, HashBasedNoiseUtils.CellularDistance metric, float jitter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>r</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult.html">Cellular3DResult</a></dt>
+    <dd></dd>
+    <dt><code>metric</code> <a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a>.<a class="xref" href="CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">CellularDistance</a></dt>
+    <dd></dd>
+    <dt><code>jitter</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_Perlin_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Perlin*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Perlin_System_Single_System_Single_System_Single_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Perlin(System.Single,System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  Perlin(float, float, float, uint, uint, uint, uint, uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L629"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 3D Perlin noise value based on hashed gradient coordinates and fractional positions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static float Perlin(float xf, float yf, float zf, uint h000, uint h100, uint h010, uint h110, uint h001, uint h101, uint h011, uint h111)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xf</code> <span class="xref">float</span></dt>
+    <dd><p>Fractional x-coordinate in the range [0,1].</p>
+</dd>
+    <dt><code>yf</code> <span class="xref">float</span></dt>
+    <dd><p>Fractional y-coordinate in the range [0,1].</p>
+</dd>
+    <dt><code>zf</code> <span class="xref">float</span></dt>
+    <dd><p>Fractional z-coordinate in the range [0,1].</p>
+</dd>
+    <dt><code>h000</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (0, 0, 0) corner of the unit cube.</p>
+</dd>
+    <dt><code>h100</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (1, 0, 0) corner of the unit cube.</p>
+</dd>
+    <dt><code>h010</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (0, 1, 0) corner of the unit cube.</p>
+</dd>
+    <dt><code>h110</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (1, 1, 0) corner of the unit cube.</p>
+</dd>
+    <dt><code>h001</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (0, 0, 1) corner of the unit cube.</p>
+</dd>
+    <dt><code>h101</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (1, 0, 1) corner of the unit cube.</p>
+</dd>
+    <dt><code>h011</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (0, 1, 1) corner of the unit cube.</p>
+</dd>
+    <dt><code>h111</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash value for the gradient at the (1, 1, 1) corner of the unit cube.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A smooth noise value in the range [-1,1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_Perlin_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Perlin*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_Perlin_System_Single_System_Single_System_UInt32_System_UInt32_System_UInt32_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.Perlin(System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+  Perlin(float, float, uint, uint, uint, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L600"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Corner‑hash driven Perlin 2D. Callers pass the four corner hashes and the local
+fractional offsets inside the cell. This keeps the only 32 vs 64 difference (how
+you generate the corner IDs) out of the core.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static float Perlin(float xf, float yf, uint h00, uint h10, uint h01, uint h11)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xf</code> <span class="xref">float</span></dt>
+    <dd><p>Fractional x in [0,1) relative to the cell’s lower corner.</p>
+</dd>
+    <dt><code>yf</code> <span class="xref">float</span></dt>
+    <dd><p>Fractional y in [0,1) relative to the cell’s lower corner.</p>
+</dd>
+    <dt><code>h00</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash at (0,0) corner.</p>
+</dd>
+    <dt><code>h10</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash at (1,0) corner.</p>
+</dd>
+    <dt><code>h01</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash at (0,1) corner.</p>
+</dd>
+    <dt><code>h11</code> <span class="xref">uint</span></dt>
+    <dd><p>Hash at (1,1) corner.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>Smooth 2D noise value in [-1,1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_PerlinWithDeriv_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.PerlinWithDeriv*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_PerlinWithDeriv_System_Single_System_Single_System_Single_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_System_UInt32_Unity_Mathematics_float3__" data-uid="CoreFramework.Random.HashBasedNoiseUtils.PerlinWithDeriv(System.Single,System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Unity.Mathematics.float3@)">
+  PerlinWithDeriv(float, float, float, uint, uint, uint, uint, uint, uint, uint, uint, out float3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L766"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Corner-hash Perlin 3D with analytic gradient. Inputs are fractional coords and eight corner hashes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static float PerlinWithDeriv(float xf, float yf, float zf, uint h000, uint h100, uint h010, uint h110, uint h001, uint h101, uint h011, uint h111, out float3 d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xf</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>yf</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>zf</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>h000</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h100</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h010</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h110</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h001</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h101</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h011</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h111</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>d</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_PerlinWithDeriv_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.PerlinWithDeriv*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_PerlinWithDeriv_System_Single_System_Single_System_UInt32_System_UInt32_System_UInt32_System_UInt32_Unity_Mathematics_float2__" data-uid="CoreFramework.Random.HashBasedNoiseUtils.PerlinWithDeriv(System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32,System.UInt32,Unity.Mathematics.float2@)">
+  PerlinWithDeriv(float, float, uint, uint, uint, uint, out float2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L720"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Corner-hash Perlin 2D with analytic gradient. Inputs are <em>fractional</em> coords (0..1) inside cell
+and the four corner hashes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static float PerlinWithDeriv(float xf, float yf, uint h00, uint h10, uint h01, uint h11, out float2 d)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xf</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>yf</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>h00</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h10</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h01</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>h11</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>d</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_RotateLeft_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.RotateLeft*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_RotateLeft_System_UInt32_System_Int32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.RotateLeft(System.UInt32,System.Int32)">
+  RotateLeft(uint, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rotates the bits of a 32-bit unsigned integer to the left by a specified offset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint RotateLeft(uint value, int offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">uint</span></dt>
+    <dd><p>The 32-bit unsigned integer whose bits are to be rotated.</p>
+</dd>
+    <dt><code>offset</code> <span class="xref">int</span></dt>
+    <dd><p>The number of positions to rotate the bits to the left.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>The result of the bitwise left rotation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_RotateLeft_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.RotateLeft*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_RotateLeft_System_UInt64_System_Int32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.RotateLeft(System.UInt64,System.Int32)">
+  RotateLeft(ulong, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Performs a left rotation of the bits in the given unsigned 32-bit integer value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong RotateLeft(ulong value, int offset)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">ulong</span></dt>
+    <dd><p>The unsigned 32-bit integer value to be rotated.</p>
+</dd>
+    <dt><code>offset</code> <span class="xref">int</span></dt>
+    <dd><p>The number of bit positions to rotate left.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd><p>The resulting value after performing the left rotation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ToNegOneToOne_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ToNegOneToOne*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ToNegOneToOne_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ToNegOneToOne(System.UInt32)">
+  ToNegOneToOne(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts an unsigned integer value to a floating-point value in the range [-1, 1].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ToNegOneToOne(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">uint</span></dt>
+    <dd><p>Unsigned integer value to be converted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>Floating-point value in the range [-1, 1] derived from the input.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_HashBasedNoiseUtils_ToZeroToOne_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ToZeroToOne*"></a>
+
+  <h3 id="CoreFramework_Random_HashBasedNoiseUtils_ToZeroToOne_System_UInt32_" data-uid="CoreFramework.Random.HashBasedNoiseUtils.ToZeroToOne(System.UInt32)">
+  ToZeroToOne(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts an unsigned integer value to a floating-point value in the range [0, 1].</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float ToZeroToOne(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">uint</span></dt>
+    <dd><p>Unsigned integer value to be converted.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>Floating-point value in the range [0, 1] derived from the input.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/HashBasedNoiseUtils.cs/#L8" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

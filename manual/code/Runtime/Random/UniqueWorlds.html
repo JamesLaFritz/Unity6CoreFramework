@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>How many different unique worlds? How big before repetition? | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="How many different unique worlds? How big before repetition? | Unity 6 Core Framework ">
+      
+      
+      <link rel="icon" href="../../../../Images/logo_large.png">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Runtime/Random/UniqueWorlds.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="how-many-different-unique-worlds-how-big-before-repetition">How many different unique worlds? How big before repetition?</h1>
+
+<p>If a “world” is fully determined by the <strong>seed</strong>, then the number of distinct worlds equals the number of distinct seeds because the noise is stateless and deterministic.</p>
+<ul>
+<li><strong>32-bit pipeline (uint seed):</strong> <strong>2³² = 4,294,967,296</strong> unique worlds</li>
+<li><strong>64-bit pipeline (ulong seed):</strong> <strong>2⁶⁴ = 18,446,744,073,709,551,616</strong> unique worlds</li>
+</ul>
+<p>(With our mixers, two different seeds producing the same infinite field would require a pathological collision across <em>every</em> index—practically zero, so count them all.)</p>
+<hr>
+<h2 id="when-does-the-world-repeat">When does the world repeat?</h2>
+<p>Two limits matter:</p>
+<h3 id="exact-tiling-from-the-integer-index-combiner">1) Exact tiling from the integer index combiner</h3>
+<p>For integer hashing we build indices like</p>
+<ul>
+<li><strong>2D:</strong> <code>i = x + P1*y               (mod 2^N)</code></li>
+<li><strong>3D:</strong> <code>i = x + P1*y + P2*z       (mod 2^N)</code></li>
+<li><strong>4D:</strong> <code>i = x + P1*y + P2*z + P3*w (mod 2^N)</code></li>
+</ul>
+<p>This gives <strong>true translational periods</strong>: small integer vectors <code>(Δx,Δy,Δz,Δw)</code> where the combination sums to <code>0 (mod 2^N)</code>.</p>
+<p>Using our constants:</p>
+<ul>
+<li><p><strong>32-bit</strong> (N=32, <code>P1=198,491,317</code>, <code>P2=6,542,989</code>, <code>P3=357,239</code>)</p>
+<ul>
+<li><strong>2D:</strong> period <code>(P1, −1)</code> → <strong>198,491,317 cells</strong></li>
+<li><strong>3D:</strong> period <code>(P2, 0, −1)</code> → <strong>6,542,989 cells</strong> <em>(shortest)</em></li>
+<li><strong>4D:</strong> period <code>(P3, 0, 0, −1)</code> → <strong>357,239 cells</strong> <em>(shortest)</em></li>
+</ul>
+</li>
+<li><p><strong>64-bit</strong> (N=64, <code>P1UL≈1.5486e19</code>, <code>P2UL≈1.4029e19</code>, <code>P3UL≈1.6096e18</code>)</p>
+<ul>
+<li><strong>2D:</strong> <code>(P1UL, −1)</code> → <strong>≈1.5486e19 cells</strong></li>
+<li><strong>3D:</strong> <code>(P2UL, 0, −1)</code> → <strong>≈1.4029e19 cells</strong></li>
+<li><strong>4D:</strong> <code>(P3UL, 0, 0, −1)</code> → <strong>≈1.6096e18 cells</strong></li>
+</ul>
+</li>
+</ul>
+<p>If you sample at <strong>frequency <code>f</code></strong> (i.e., <code>p_cell = p_world * f</code>), the shortest <strong>repeat distance in world units</strong> along those vectors is:</p>
+<pre><code>repeat_distance_world ≈ (period_in_cells) / f
+</code></pre>
+<p>Examples (32-bit):</p>
+<ul>
+<li>3D, <code>f=1.0</code> → <strong>~6.54 million units</strong></li>
+<li>3D, <code>f=0.01</code> → <strong>~654 million units</strong></li>
+<li>2D, <code>f=0.01</code> → <strong>~19.85 billion units</strong></li>
+</ul>
+<p>64-bit periods are astronomically large—you won’t hit them.</p>
+<hr>
+<h3 id="floating-point-precision-detail-horizon">2) Floating-point precision (“detail horizon”)</h3>
+<p>Unity/world space coords are <strong>float</strong>. A float has ~24 bits of mantissa, so beyond about <strong>2²⁴ = 16,777,216</strong> in the <strong>sampled coordinate space</strong>, adding <code>±1</code> no longer changes the value after the <code>floor</code>/fraction split used by Perlin/Simplex. In world units:</p>
+<pre><code>detail_horizon_world ≈ 16,777,216 / f
+</code></pre>
+<p>So at <code>f=1.0</code>, you keep 1-unit detail out to ~<strong>16.8M units</strong>. At <code>f=0.01</code>, it’s ~<strong>1.68B units</strong>.</p>
+<hr>
+<h2 id="which-limit-bites-first">Which limit bites first?</h2>
+<ul>
+<li><strong>32-bit hashing:</strong> the <strong>shortest tiling vector</strong> (e.g., 3D <code>(P2,0,−1)</code>) can be smaller than the float horizon at <code>f=1</code>. You <em>could</em> see repeats along that skew direction if you traverse that vector exactly. Along cardinal axes, periods are <code>2^32</code> cells—effectively unreachable.</li>
+<li><strong>64-bit hashing:</strong> the <strong>float horizon</strong> dominates by many orders of magnitude. You’ll hit precision limits long before any hash tiling.</li>
+</ul>
+<hr>
+<h1 id="recommended-max-int3-worldsize">Recommended max <code>int3 worldSize</code></h1>
+<p>Assume your loops visit <strong>all integer cells</strong> from <code>-worldSize</code> to <code>+worldSize</code> <strong>inclusive</strong> (so <code>2*W+1</code> samples per axis) and step size = 1 cell.</p>
+<blockquote>
+<p>⚠️ <strong>Axis reminder (important)</strong>
+Your current call is <code>Perlin( y, x, z, seed )</code>. The 3D index is <code>idx = X + P1*Y + P2*Z</code>.
+That means <strong>world Y → hash X</strong>, which is the axis that repeats fastest.
+<strong>Clamp the <em>small</em> bound on world Y</strong> with this call order.
+If you switch to <code>Perlin(x,y,z)</code>, move the small bound to <strong>world X</strong> instead.</p>
+</blockquote>
+<h2 id="using-the-32-bit-pipeline-e.g.squirrelnoise32bit">Using the 32-bit pipeline (e.g., <code>SquirrelNoise32Bit</code>)</h2>
+<p><strong>If you sample Perlin/Simplex anywhere</strong> (floats involved):</p>
+<ul>
+<li><strong>Anisotropic safe (with <code>Perlin(y,x,z)</code>):</strong>
+<code>worldSize = int3(8_388_607, 3_271_494, 8_388_607)</code></li>
+<li><strong>Cube option:</strong>
+<code>worldSize = int3(3_271_494)</code></li>
+</ul>
+<p><em>(Numbers come from: shortest 3D period <code>(P2,0,−1)</code> ⇒ keep <code>2*W_small+1 &lt; P2</code> → <code>W_small ≤ floor((P2−1)/2) = 3,271,494</code>; and float horizon <code>W ≤ (2^24−1)/2 = 8,388,607</code> per float axis.)</em></p>
+<p><strong>If you only use integer hash/value noise (no floats):</strong></p>
+<ul>
+<li><strong>Anisotropic max (with <code>Perlin(y,x,z)</code>):</strong>
+<code>worldSize = int3(int.MaxValue, 3_271_494, int.MaxValue)</code>
+<em>(practically choose smaller for memory/perf)</em></li>
+<li><strong>Cube option:</strong>
+<code>int3(3_271_494)</code></li>
+</ul>
+<h2 id="using-the-64-bit-pipeline-e.g.squirrelnoise64bit">Using the 64-bit pipeline (e.g., <code>SquirrelNoise64Bit</code>)</h2>
+<ul>
+<li><strong>If you sample Perlin/Simplex:</strong>
+<code>worldSize = int3(8_388_607)</code> (float horizon dominates)</li>
+<li><strong>If you only use integer hashing/value noise:</strong>
+Effectively unbounded within <code>int</code>; choose by memory/perf.</li>
+</ul>
+<hr>
+<h2 id="frequency-scaling">Frequency scaling</h2>
+<p>If you pre-scale positions by <strong>frequency <code>f</code></strong> before Perlin/Simplex:</p>
+<ul>
+<li><strong>Float-limited axes (X/Z here):</strong> <code>W ≤ floor(8_388_607 / f)</code></li>
+<li><strong>Small 32-bit axis (Y here):</strong> <code>W ≤ floor(3_271_494 / f)</code></li>
+</ul>
+<p>You can exceed these <strong>in practice</strong> with <strong>origin rebasing</strong> (keep the active window near 0 in world→noise space), while keeping 64-bit hashing for stability.</p>
+<hr>
+<h2 id="loop-skeleton-inclusive-bounds-correct-small-axis-on-y">Loop skeleton (inclusive bounds + correct small axis on Y)</h2>
+<pre><code class="lang-csharp">const int FloatHorizon = 8_388_607; // (2^24 - 1)/2
+const int Small32      = 3_271_494; // floor((P2 - 1)/2), P2 = 6,542,989
+
+// Current call order Perlin(y,x,z): small bound goes on Y.
+var worldSize32 = new int3(FloatHorizon, Small32, FloatHorizon);
+var worldSize64 = new int3(FloatHorizon);
+
+var W = use32Bit ? worldSize32 : worldSize64;
+
+// Inclusive loops → 2*W+1 samples per axis.
+for (int z = -W.z; z &lt;= W.z; z++)
+for (int x = -W.x; x &lt;= W.x; x++)
+for (int y = -W.y; y &lt;= W.y; y++)
+{
+    float n = use32Bit
+        ? SquirrelNoise32Bit.Perlin( y,  x,  z, seed ) // note (y,x,z)
+        : SquirrelNoise64Bit.Perlin( y,  x,  z, seed );
+}
+</code></pre>
+<h3 id="bit-negative-cast-tip">64-bit negative-cast tip</h3>
+<p>When implementing <code>SquirrelNoise64Bit.Perlin</code>, compute lattice coordinates as <strong>signed</strong> first, then cast to <code>ulong</code> for hashing:</p>
+<pre><code class="lang-csharp">long xi = (long)math.floor(x), yi = (long)math.floor(y), zi = (long)math.floor(z);
+float xf = x - xi, yf = y - yi, zf = z - zi;
+
+var h000 = SquirrelNoise64Bit.Get3DNoise(
+    unchecked((ulong)xi),
+    unchecked((ulong)yi),
+    unchecked((ulong)zi),
+    seed);
+</code></pre>
+<p>Casting a negative directly to <code>ulong</code> <em>before</em> subtracting the integer part will break the fractional offsets.</p>
+<hr>
+<h1 id="how-does-this-compare-to-unityengine.mathf.perlinnoisex-z">How does this compare to <code>UnityEngine.Mathf.PerlinNoise(x, z)</code>?</h1>
+<p><strong>Short answer:</strong> <code>Mathf.PerlinNoise</code> is a handy <strong>2D</strong>, <strong>seedless</strong>, engine-side Perlin with a <strong>small, fixed period</strong>; Squirrel-based noise is <strong>seeded</strong>, <strong>Burst-friendly</strong>, supports <strong>3D</strong>, <strong>huge periods</strong>, and extras like <strong>derivatives</strong> and <strong>cellular</strong>.</p>
+<h2 id="unitys-mathf.perlinnoise">Unity’s <code>Mathf.PerlinNoise</code></h2>
+<ul>
+<li><strong>2D only</strong>, signature <code>PerlinNoise(float x, float y)</code> → returns <strong>[0,1]</strong>.</li>
+<li><strong>No seed</strong> (to vary results you offset/scale inputs).</li>
+<li><strong>Deterministic</strong> for same inputs.</li>
+<li><strong>True period ≈ 256 cells per axis</strong>, because classic Perlin uses a 256-entry permutation table.
+With sampling frequency <code>f</code>, the world-space repeat is <strong>≈ 256 / f</strong>.</li>
+<li><strong>Float precision horizon</strong> still exists (<code>~16,777,216 / f</code>), but the <strong>256/f period</strong> is the much tighter limit.</li>
+<li><strong>Not Burst/job friendly</strong> (lives in <code>UnityEngine</code>; can’t call it from Burst jobs).</li>
+<li><strong>No derivatives</strong>; gradients require extra samples.</li>
+</ul>
+<h2 id="squirrel-noise-pipeline">Squirrel Noise pipeline</h2>
+<ul>
+<li><strong>2D &amp; 3D</strong> Perlin (and Simplex, Cellular), all <strong>stateless</strong> and <strong>seeded</strong>.</li>
+<li><strong>32-bit seeds:</strong> <code>2^32</code> worlds. <strong>64-bit seeds:</strong> <code>2^64</code> worlds.</li>
+<li><strong>Huge periods</strong> from integer hashing: in 3D (32-bit) the <strong>shortest</strong> repeat vector is ~<strong>6,542,989 cells</strong> (directional), vs <strong>256</strong> for <code>Mathf</code>.
+In 64-bit, repeats are effectively unreachable; float precision dominates.</li>
+<li><strong>Burst-friendly</strong>, job-safe; <strong>analytic derivatives</strong> available.</li>
+<li>Plus Worley/Cellular, ridge/billow stacks, domain warps, etc.</li>
+</ul>
+<h3 id="quick-repeat-math-vs-unity">Quick repeat math vs Unity</h3>
+<p>Let <code>f</code> be the frequency multiplied into world coords before sampling.</p>
+<ul>
+<li><p><strong>Unity 2D Perlin:</strong>
+<strong>Repeat distance:</strong> <code>~256 / f</code> (hard limit)
+<strong>Precision horizon:</strong> <code>~16,777,216 / f</code> (larger; usually irrelevant)</p>
+<ul>
+<li>If you loop <code>-W .. +W</code> <em>inclusive</em>, keep <code>2W+1 &lt; 256/f</code> ⇒
+<code>W ≤ floor((256/f - 1)/2)</code>.</li>
+</ul>
+</li>
+<li><p><strong>Squirrel 3D Perlin (32-bit):</strong>
+<strong>Shortest repeat:</strong> <code>~6,542,989 / f</code> (skew direction)
+<strong>Float horizon:</strong> <code>~16,777,216 / f</code> per axis
+Use the <strong>smaller</strong> of those for a conservative bound.</p>
+</li>
+<li><p><strong>Squirrel 3D Perlin (64-bit):</strong>
+<strong>Repeat:</strong> effectively unreachable; <strong>float horizon</strong> wins.</p>
+</li>
+</ul>
+<h3 id="if-you-fake-3d-with-mathf.perlinnoise">If you “fake 3D” with <code>Mathf.PerlinNoise</code></h3>
+<p>You can blend slices, but expect <strong>axis bias</strong> and the same <strong>256/f</strong> repeat:</p>
+<pre><code class="lang-csharp">// crude “3D” blend of three 2D slices; still repeats every 256/f
+float Perlin3D_Fake(float x, float y, float z, float f) {
+    float a = Mathf.PerlinNoise(x*f, z*f);
+    float b = Mathf.PerlinNoise(x*f + 37.2f, y*f + 11.5f);
+    float c = Mathf.PerlinNoise(y*f + 19.7f, z*f + 53.8f);
+    return (a + b + c) / 3f * 2f - 1f; // map to ~[-1,1]
+}
+</code></pre>
+<p><strong>Bottom line:</strong> for <strong>big worlds</strong>, <strong>3D</strong>, <strong>seeds</strong>, <strong>jobs/Burst</strong>, and advanced compositions (derivatives, warps, cellular), the Squirrel Noise pipeline is clearly the better foundation.</p>
+<hr>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li><strong>Unique worlds:</strong> 32-bit <code>2^32</code>, 64-bit <code>2^64</code>.</li>
+<li><strong>Practical non-repeat span:</strong> <code>min( tiling distance, float horizon ) / f</code>.</li>
+<li>With <code>Perlin(y,x,z)</code>, clamp <strong>Y</strong> to <code>3,271,494</code> (32-bit) and keep <strong>X/Z</strong> to <code>8,388,607</code>.
+For a cube: <code>int3(3,271,494)</code> (32-bit) or <code>int3(8,388,607)</code> (64-bit).</li>
+<li>Unity’s <code>Mathf.PerlinNoise</code> repeats every <strong>~256/f</strong> units; great for small 2D uses, not for large 3D worlds.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Runtime/Random/UniqueWorlds.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

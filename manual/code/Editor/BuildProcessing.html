@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>BuildProcessing | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="BuildProcessing | Unity 6 Core Framework ">
+      
+      
+      <link rel="icon" href="../../../Images/logo_large.png">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Editor/BuildProcessing.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="buildprocessing">BuildProcessing</h1>
+
+<p>Source: <code>./Editor/BuildProcessing.cs</code></p>
+<p>Overview
+Build automation hooks for the Editor. Provides version bump menus, pre-/post-build processing, and optional Windows installer creation after a successful Standalone build.</p>
+<p>Features</p>
+<ul>
+<li>Build menus (Unity Editor → Core Framework → Build):
+<ul>
+<li>0 HotFix or Patch — increments Build</li>
+<li>1 New Feature — increments Minor</li>
+<li>2 Breaking API Change — increments Major</li>
+<li>3 Internal Testing — increments Revision</li>
+</ul>
+</li>
+<li>Preprocess: increments the version before the build based on the chosen menu action.</li>
+<li>Postprocess: writes a Version.txt next to the built player; for Standalone, optionally prompts to create an installer.</li>
+<li>Installer integration (optional, Windows): runs Inno Setup Compiler if installed and Installers/installer.iss exists.</li>
+</ul>
+<p>Quick start</p>
+<ol>
+<li>Open Unity and set up your build scenes in File → Build Settings.</li>
+<li>Choose one of the Core Framework → Build menu items to trigger a build and bump the appropriate version segment.</li>
+<li>After a successful build:
+<ul>
+<li>A Version.txt file is created in the build output folder containing PlayerSettings.bundleVersion.</li>
+<li>If platform group is Standalone and you confirm the dialog, Inno Setup will compile the installer.</li>
+</ul>
+</li>
+</ol>
+<p>Installer prerequisites (optional)</p>
+<ul>
+<li>OS: Windows (uses Microsoft.Win32 registry to locate Inno Setup)</li>
+<li>Install Inno Setup (iscc.exe). The path is detected via registry key: HKLM\SOFTWARE\Classes\InnoSetupScriptFile\shell\open\command</li>
+<li>Create an installer script at: ProjectRoot/Installers/installer.iss</li>
+</ul>
+<p>Notes</p>
+<ul>
+<li>Version data is read/written via VersionProjectSettings.instance.CurrentFileVersion and PlayerSettings.bundleVersion.</li>
+<li>Build output defaults to Assets/../Builds/<productname>.exe when using the quick build menu.</productname></li>
+<li>Only prompts for an installer on Standalone targets.</li>
+</ul>
+<p>Related API</p>
+<ul>
+<li><a class="xref" href="../../../api/CoreFramework.BuildProcessing.html">BuildProcessing</a></li>
+<li><a class="xref" href="../../../api/CoreFramework.Settings.VersionProjectSettings.html">VersionProjectSettings</a></li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Editor/BuildProcessing.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

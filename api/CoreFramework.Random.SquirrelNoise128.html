@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="Provides a collection of static methods for generating various noise-based values using secure and efficient 128-bit computations. The class supports one-dimensional through four-dimensional noise generation.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Random_SquirrelNoise128.md&amp;value=---%0Auid%3A%20CoreFramework.Random.SquirrelNoise128%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Random.SquirrelNoise128">
+
+
+
+  <h1 id="CoreFramework_Random_SquirrelNoise128" data-uid="CoreFramework.Random.SquirrelNoise128" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a>.<a class="xref" href="CoreFramework.Random.html">Random</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Provides a collection of static methods for generating various noise-based values
+using secure and efficient 128-bit computations. The class supports one-dimensional
+through four-dimensional noise generation.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class SquirrelNoise128</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_DefaultNoiseType" data-uid="CoreFramework.Random.SquirrelNoise128.DefaultNoiseType">
+  DefaultNoiseType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents the default noise type used in the noise generation methods of the SecureNoise128 class.
+The default value is set to <a class="xref" href="CoreFramework.Random.NoiseType.html#CoreFramework_Random_NoiseType_ChaChaQuarterRoundSimple">ChaChaQuarterRoundSimple</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private const NoiseType DefaultNoiseType = ChaChaQuarterRoundSimple</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Prime1" data-uid="CoreFramework.Random.SquirrelNoise128.Prime1">
+  Prime1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private const ulong Prime1 = 11400714785074694791</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Prime2" data-uid="CoreFramework.Random.SquirrelNoise128.Prime2">
+  Prime2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private const ulong Prime2 = 13925035116211876495</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Prime3" data-uid="CoreFramework.Random.SquirrelNoise128.Prime3">
+  Prime3
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private const ulong Prime3 = 10511698010929265437</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get1DNoise_" data-uid="CoreFramework.Random.SquirrelNoise128.Get1DNoise*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get1DNoise_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get1DNoise(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get1DNoise(ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 1D deterministic pseudo-random noise value based on an integer index and a seed value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint Get1DNoise(ulong2 index, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 1D index to generate the noise for.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The seed value represented as a 2D unsigned integer vector for random noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A 32-bit unsigned integer representing the noise value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get1DNoise01_" data-uid="CoreFramework.Random.SquirrelNoise128.Get1DNoise01*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get1DNoise01_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get1DNoise01(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get1DNoise01(ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 1D noise value scaled to the range [0, 1], based on the given index and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get1DNoise01(ulong2 index, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>A 2D vector representing the index coordinates of the noise function input.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>A 2D vector used as a seed for random noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A 1D noise value in the range [0, 1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get1DNoiseNeg1To1_" data-uid="CoreFramework.Random.SquirrelNoise128.Get1DNoiseNeg1To1*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get1DNoiseNeg1To1_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get1DNoiseNeg1To1(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get1DNoiseNeg1To1(ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 1D noise value within the range [-1, 1] based on the specified index and seed values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get1DNoiseNeg1To1(ulong2 index, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D index wrapped in an <code>ulong2</code> structure, representing the coordinates for the noise generation.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D seed wrapped in an <code>ulong2</code> structure, representing the random seed used for noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A floating-point noise value in the range [-1, 1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get2DNoise_" data-uid="CoreFramework.Random.SquirrelNoise128.Get2DNoise*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get2DNoise_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get2DNoise(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get2DNoise(ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 2D noise value based on the provided coordinates and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint Get2DNoise(ulong2 x, ulong2 y, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The X-coordinate used for noise generation.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The Y-coordinate used for noise generation.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>A 64-bit seed for deterministic noise generation, supplied as a <code>ulong2</code> value.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A 32-bit unsigned integer representing the generated 2D noise value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get2DNoise01_" data-uid="CoreFramework.Random.SquirrelNoise128.Get2DNoise01*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get2DNoise01_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get2DNoise01(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get2DNoise01(ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 2D noise value scaled to the range [0, 1], using the specified coordinates and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get2DNoise01(ulong2 x, ulong2 y, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D coordinate value representing the x-dimension component.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D coordinate value representing the y-dimension component.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D seed value influencing the random noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A floating-point value in the range [0, 1] representing the generated noise value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get2DNoiseNeg1To1_" data-uid="CoreFramework.Random.SquirrelNoise128.Get2DNoiseNeg1To1*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get2DNoiseNeg1To1_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get2DNoiseNeg1To1(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get2DNoiseNeg1To1(ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 2D noise value within the range [-1, 1] using the specified coordinates and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get2DNoiseNeg1To1(ulong2 x, ulong2 y, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D coordinate value representing the x-dimension component.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D coordinate value representing the y-dimension component.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 2D seed value influencing the random noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A floating-point value in the range [-1, 1] representing the generated noise value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get3DNoise_" data-uid="CoreFramework.Random.SquirrelNoise128.Get3DNoise*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get3DNoise_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get3DNoise(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get3DNoise(ulong2, ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 3D noise value based on the provided coordinates and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint Get3DNoise(ulong2 x, ulong2 y, ulong2 z, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The x-coordinate represented as a 64-bit vector.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The y-coordinate represented as a 64-bit vector.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The z-coordinate represented as a 64-bit vector.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>A 64-bit vector used as a seed for the noise generation process.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A 32-bit unsigned integer representing the generated 3D noise value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get3DNoise01_" data-uid="CoreFramework.Random.SquirrelNoise128.Get3DNoise01*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get3DNoise01_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get3DNoise01(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get3DNoise01(ulong2, ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates 3D noise as a normalized float value between 0 and 1 using the provided 2D unsigned integer coordinates and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get3DNoise01(ulong2 x, ulong2 y, ulong2 z, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The unsigned 2D integer representing the x-coordinate.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The unsigned 2D integer representing the y-coordinate.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The unsigned 2D integer representing the z-coordinate.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The unsigned 2D integer used as the seed for noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A float value between 0 and 1 representing the generated 3D noise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get3DNoiseNeg1To1_" data-uid="CoreFramework.Random.SquirrelNoise128.Get3DNoiseNeg1To1*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get3DNoiseNeg1To1_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get3DNoiseNeg1To1(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get3DNoiseNeg1To1(ulong2, ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 3D noise value in the range of -1 to 1 using the provided coordinates and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get3DNoiseNeg1To1(ulong2 x, ulong2 y, ulong2 z, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The x-coordinate as a 64-bit unsigned integer.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The y-coordinate as a 64-bit unsigned integer.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The z-coordinate as a 64-bit unsigned integer.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>A 64-bit unsigned integer used as the random seed for noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get4DNoise_" data-uid="CoreFramework.Random.SquirrelNoise128.Get4DNoise*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get4DNoise_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get4DNoise(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get4DNoise(ulong2, ulong2, ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 4D noise value based on the provided 4D input coordinates and seed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static uint Get4DNoise(ulong2 x, ulong2 y, ulong2 z, ulong2 w, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 4D noise input along the x-axis, represented as a <code>ulong2</code>.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 4D noise input along the y-axis, represented as a <code>ulong2</code>.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 4D noise input along the z-axis, represented as a <code>ulong2</code>.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The 4D noise input along the w-axis, represented as a <code>ulong2</code>.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>A unique seed value, represented as a <code>ulong2</code>, used to influence the noise output.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd><p>A 32-bit unsigned integer representing the calculated noise value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get4DNoise01_" data-uid="CoreFramework.Random.SquirrelNoise128.Get4DNoise01*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get4DNoise01_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get4DNoise01(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get4DNoise01(ulong2, ulong2, ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a normalized 4D noise value within the range [0, 1] based on the given input coordinates and seed values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get4DNoise01(ulong2 x, ulong2 y, ulong2 z, ulong2 w, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The first component of the 4D input coordinates, represented as a ulong2 structure.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The second component of the 4D input coordinates, represented as a ulong2 structure.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The third component of the 4D input coordinates, represented as a ulong2 structure.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The fourth component of the 4D input coordinates, represented as a ulong2 structure.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The seed value, represented as a ulong2 structure, used to initialize the noise generation process.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A floating-point number representing the 4D noise value normalized to the range [0, 1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_Get4DNoiseNeg1To1_" data-uid="CoreFramework.Random.SquirrelNoise128.Get4DNoiseNeg1To1*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_Get4DNoiseNeg1To1_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.Get4DNoiseNeg1To1(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  Get4DNoiseNeg1To1(ulong2, ulong2, ulong2, ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 4D noise value in the range [-1, 1] based on the provided 4D coordinates and seed value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Get4DNoiseNeg1To1(ulong2 x, ulong2 y, ulong2 z, ulong2 w, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The first 64-bit unsigned integer coordinate.</p>
+</dd>
+    <dt><code>y</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The second 64-bit unsigned integer coordinate.</p>
+</dd>
+    <dt><code>z</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The third 64-bit unsigned integer coordinate.</p>
+</dd>
+    <dt><code>w</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The fourth 64-bit unsigned integer coordinate.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The seed value used to initialize the noise generation process.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A float representing the 4D noise value in the range [-1, 1].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_GetUInt128_" data-uid="CoreFramework.Random.SquirrelNoise128.GetUInt128*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_GetUInt128_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.GetUInt128(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  GetUInt128(ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 128-bit pseudorandom noise value based on the provided parameters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 GetUInt128(ulong2 index, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The input 128-bit vector index used as part of the noise calculation.</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The input 128-bit vector seed that modifies the noise generation.</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>A 128-bit pseudorandom noise value represented as a <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise128_GetUInt64_" data-uid="CoreFramework.Random.SquirrelNoise128.GetUInt64*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise128_GetUInt64_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Random_NoiseType_" data-uid="CoreFramework.Random.SquirrelNoise128.GetUInt64(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Random.NoiseType)">
+  GetUInt64(ulong2, ulong2, NoiseType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a pseudo-random 64-bit unsigned integer based on the provided index and seed values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong GetUInt64(ulong2 index, ulong2 seed, NoiseType type = NoiseType.ChaChaQuarterRoundSimple)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The index used for noise generation, represented as a 2D vector of unsigned 64-bit integers (ulong2).</p>
+</dd>
+    <dt><code>seed</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>The seed value for noise generation, represented as a 2D vector of unsigned 64-bit integers (ulong2).</p>
+</dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd><p>The type of noise algorithm to apply, defined by the <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a> enumeration.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd><p>A pseudo-randomly generated 64-bit unsigned integer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise128.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

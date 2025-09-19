@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="Provides utility functions for generating random values using random function and random noise function interfaces. This class includes methods for working with various data types and structures in random generation scenarios.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Random_NoiseRngUtils.md&amp;value=---%0Auid%3A%20CoreFramework.Random.NoiseRngUtils%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Random.NoiseRngUtils">
+
+
+
+  <h1 id="CoreFramework_Random_NoiseRngUtils" data-uid="CoreFramework.Random.NoiseRngUtils" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a>.<a class="xref" href="CoreFramework.Random.html">Random</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Provides utility functions for generating random values using random function
+and random noise function interfaces. This class includes methods for working
+with various data types and structures in random generation scenarios.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class NoiseRngUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_Bool_" data-uid="CoreFramework.Random.NoiseRngUtils.Bool*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_Bool_System_Single_" data-uid="CoreFramework.Random.NoiseRngUtils.Bool(System.Single)">
+  Bool(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a boolean value based on a pseudo-random calculation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Bool(float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the pseudo-random value is less than or equal to 0.5; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_Byte_" data-uid="CoreFramework.Random.NoiseRngUtils.Byte*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_Byte_System_UInt32_" data-uid="CoreFramework.Random.NoiseRngUtils.Byte(System.UInt32)">
+  Byte(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a random uint value into a byte.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte Byte(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span></dt>
+    <dd><p>A byte value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_Chance_" data-uid="CoreFramework.Random.NoiseRngUtils.Chance*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_Chance_System_Single_System_Single_" data-uid="CoreFramework.Random.NoiseRngUtils.Chance(System.Single,System.Single)">
+  Chance(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a random event occurs based on the given probability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Chance(float value, float probabilityOfTrue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>probabilityOfTrue</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the randomly generated value falls within the probability range, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_InsideUnitCircle_" data-uid="CoreFramework.Random.NoiseRngUtils.InsideUnitCircle*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_InsideUnitCircle_System_Single_System_Single_" data-uid="CoreFramework.Random.NoiseRngUtils.InsideUnitCircle(System.Single,System.Single)">
+  InsideUnitCircle(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random 2D point inside a unit circle, maintaining a uniform distribution across its area.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float2 InsideUnitCircle(float angle, float radius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>angle</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>radius</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd><p>A 2D point as a <code>float2</code> structure, representing the coordinates inside the unit circle.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_InsideUnitSphere_" data-uid="CoreFramework.Random.NoiseRngUtils.InsideUnitSphere*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_InsideUnitSphere_System_Single_Unity_Mathematics_float3_" data-uid="CoreFramework.Random.NoiseRngUtils.InsideUnitSphere(System.Single,Unity.Mathematics.float3)">
+  InsideUnitSphere(float, float3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random point inside or on the surface of a unit sphere (sphere with radius 1.0).
+Use Marsaglia's method to generate a point on the sphere, then scale by radius cube root</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float3 InsideUnitSphere(float radius, float3 onUnitSphere)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>radius</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>onUnitSphere</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd><p>A float3 representing a random point inside or on the surface of a unit sphere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_OnUnitSphere_" data-uid="CoreFramework.Random.NoiseRngUtils.OnUnitSphere*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_OnUnitSphere_System_Single_System_Single_" data-uid="CoreFramework.Random.NoiseRngUtils.OnUnitSphere(System.Single,System.Single)">
+  OnUnitSphere(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random point on the surface of a unit sphere.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float3 OnUnitSphere(float z, float theta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>z</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>theta</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd><p>A vector representing a random point on the unit sphere surface.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_Range_" data-uid="CoreFramework.Random.NoiseRngUtils.Range*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_Range_System_Int32_System_Int32_System_UInt32_" data-uid="CoreFramework.Random.NoiseRngUtils.Range(System.Int32,System.Int32,System.UInt32)">
+  Range(int, int, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a uniformly random integer within the specified range using a random function and noise function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int Range(int minInclusive, int maxExclusive, uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minInclusive</code> <span class="xref">int</span></dt>
+    <dd><p>The minimum bound of the range (inclusive).</p>
+</dd>
+    <dt><code>maxExclusive</code> <span class="xref">int</span></dt>
+    <dd><p>The maximum bound of the range (exclusive).</p>
+</dd>
+    <dt><code>value</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd><p>A uniformly random integer between <code class="paramref">minInclusive</code> and <code class="paramref">maxExclusive</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_Range_" data-uid="CoreFramework.Random.NoiseRngUtils.Range*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_Range_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Random.NoiseRngUtils.Range(System.Single,System.Single,System.Single)">
+  Range(float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clamps and Remaps the specified value to the specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float Range(float minInclusive, float maxInclusive, float value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minInclusive</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum inclusive bound of the range.</p>
+</dd>
+    <dt><code>maxInclusive</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum inclusive bound of the range.</p>
+</dd>
+    <dt><code>value</code> <span class="xref">float</span></dt>
+    <dd><p>The Value</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A float representing a value within the specified range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_Rotation_" data-uid="CoreFramework.Random.NoiseRngUtils.Rotation*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_Rotation_Unity_Mathematics_float3_System_Single_" data-uid="CoreFramework.Random.NoiseRngUtils.Rotation(Unity.Mathematics.float3,System.Single)">
+  Rotation(float3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random quaternion representing a rotation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static quaternion Rotation(float3 axis, float angle)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>axis</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+    <dt><code>angle</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.quaternion.html">quaternion</a></dt>
+    <dd><p>A randomly generated quaternion representing a rotation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_RotationUniform_" data-uid="CoreFramework.Random.NoiseRngUtils.RotationUniform*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_RotationUniform_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Random.NoiseRngUtils.RotationUniform(System.Single,System.Single,System.Single)">
+  RotationUniform(float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a quaternion representing a random 3D rotation with uniform distribution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static quaternion RotationUniform(float u1, float u2, float u3)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>u1</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>u2</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>u3</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.quaternion.html">quaternion</a></dt>
+    <dd><p>A randomly generated quaternion with uniform distribution over 3D rotation space.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_NoiseRngUtils_Uint16_" data-uid="CoreFramework.Random.NoiseRngUtils.Uint16*"></a>
+
+  <h3 id="CoreFramework_Random_NoiseRngUtils_Uint16_System_UInt32_" data-uid="CoreFramework.Random.NoiseRngUtils.Uint16(System.UInt32)">
+  Uint16(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A 16-bit unsigned integer value based on the provided unsigned integer value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ushort Uint16(uint value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ushort</span></dt>
+    <dd><p>A 16-bit unsigned integer value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/NoiseRngUtils.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

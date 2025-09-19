@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Noise Types &amp; Squirrel Integration — A Practical Guide | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Noise Types &amp; Squirrel Integration — A Practical Guide | Unity 6 Core Framework ">
+      
+      
+      <link rel="icon" href="../../../../Images/logo_large.png">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Runtime/Random/NoiseTypesSquirrelIntegrationAPracticalGuide.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="noise-types-squirrel-integration-a-practical-guide">Noise Types &amp; Squirrel Integration — A Practical Guide</h1>
+
+<blockquote>
+<p>A compact, production-oriented reference that explains what each noise <strong>is</strong>, how its <strong>knobs</strong> shape results, and exactly how it maps to <strong>SquirrelNoise32Bit / SquirrelNoise64Bit</strong> APIs and <code>HashBasedNoiseUtils</code> cores.</p>
+</blockquote>
+<hr>
+<h2 id="shared-knobs-youll-see-them-everywhere">Shared knobs (you’ll see them everywhere)</h2>
+<ul>
+<li><strong>Amplitude (amp):</strong> vertical scale of the output.</li>
+<li><strong>Frequency (freq):</strong> feature size (↑freq → smaller features). Often scale the <em>input position</em> instead.</li>
+<li><strong>Octaves:</strong> how many stacked layers you sum; each octave is higher freq and lower amp.</li>
+<li><strong>Lacunarity:</strong> frequency multiplier per octave (≈ <strong>2.0</strong>).</li>
+<li><strong>Gain / Persistence:</strong> amplitude multiplier per octave (≈ <strong>0.5</strong>).</li>
+</ul>
+<blockquote>
+<p>Think of an <strong>octave stack</strong> (fBm) as your “how bumpy” control; the <strong>base noise</strong> you stack (Perlin, Simplex, Value, Worley) sets the <strong>character</strong> of those bumps.</p>
+</blockquote>
+<hr>
+<h2 id="core-bases">Core bases</h2>
+<h3 id="perlin-simplex-gradient-noise">Perlin / Simplex (gradient noise)</h3>
+<ul>
+<li><strong>What:</strong> Pseudo-random gradients at lattice corners, faded and blended. Simplex uses skewed simplices (triangles/tetrahedra), fewer samples in &gt;2D.</li>
+<li><strong>Feels like:</strong> Smooth, band-limited hills; Simplex is slightly crisper and more isotropic.</li>
+<li><strong>Range:</strong> ~<code>[-1, 1]</code>.</li>
+<li><strong>Continuity:</strong> C1 (value + first derivative continuous).</li>
+<li><strong>Where to use:</strong> Terrain height, masks, clouds, normals (with analytic gradients).</li>
+<li><strong>In Squirrel Noise:</strong>
+<ul>
+<li>2D/3D value: <code>SquirrelNoise32Bit.Perlin(...)</code>, <code>SquirrelNoise64Bit.Perlin(...)</code></li>
+<li>Analytic gradient: <code>PerlinWithDeriv(...)</code> (2D/3D) on both 32/64</li>
+<li>Simplex cores: <code>Simplex2DCore(...)</code>, <code>Simplex3DCore(...)</code> (hash-callback based)</li>
+</ul>
+</li>
+</ul>
+<h3 id="value-noise-hash-smoothed">Value noise (hash-smoothed)</h3>
+<ul>
+<li><strong>What:</strong> Hash lattice values and smooth-interpolate with <code>Fade</code>.</li>
+<li><strong>Feels like:</strong> Perlin-ish; trivial to drive from stateless Squirrel hashes.</li>
+<li><strong>Note:</strong> Already using hash-driven gradients/values under Perlin/Simplex; value noise fits the same pattern if you ever want it.</li>
+<li><strong>In Squirrel Noise:</strong>
+<ul>
+<li>1D/2D/3D/4D value: <code>.Get1DNoise(...)</code>, <code>.Get2DNoise(...)</code> <code>.Get3DNoise(...)</code> <code>.Get3DNoise(...)</code> <code>.Get4DNoise(...)</code> both 32/64</li>
+</ul>
+</li>
+</ul>
+<h3 id="worley-cellular">Worley / Cellular</h3>
+<ul>
+<li><strong>What:</strong> Distance to nearest / 2nd-nearest <em>feature points</em> per cell → cells, cracks, pebbles, veins.</li>
+<li><strong>Not a heightfield by itself:</strong> You usually remap (invert, edge extract) or combine with other fields.</li>
+<li><strong>In Squirrel Noise:</strong> <code>.Cellular2D(...)</code>, <code>.Cellular3D(...)</code>, helpers (<code>CellularF1</code>, <code>CellularF2MinusF1</code>, <code>CellularEdge01</code>, <code>CellularEdgeExp01</code>, <code>CellularEdgeSigned</code>) both 32/64.</li>
+</ul>
+<hr>
+<h2 id="fractal-variants-post-process-stacking">Fractal “variants” (post-process + stacking)</h2>
+<h3 id="fbm-fractional-brownian-motion">fBm (Fractional Brownian Motion)</h3>
+<ul>
+<li><strong>What:</strong> Sum octaves of a base noise at increasing <code>frequency</code> and decreasing <code>amplitude</code>.</li>
+<li><strong>Feels like:</strong> Classic rolling mountains; self-similar detail.</li>
+<li><strong>Knobs:</strong> <code>octaves</code>, <code>lacunarity≈2</code>, <code>gain≈0.5</code>, base <code>freq/amp</code>.</li>
+<li><strong>In Squirrel Noise:</strong> <code>.FBm(...)</code> both 32/64.</li>
+</ul>
+<h3 id="billow">Billow</h3>
+<ul>
+<li><strong>What:</strong> <code>abs(base(p))</code> per octave, then re-center.</li>
+<li><strong>Feels like:</strong> Puffy pillows / clouds.</li>
+<li><strong>In Squirrel Noise:</strong> <code>.Billow(...)</code> both 32/64.</li>
+</ul>
+<h3 id="ridge-ridged-multifractal">Ridge (Ridged-multifractal)</h3>
+<ul>
+<li><strong>What:</strong> <code>r = 1 - abs(base(p))</code>, sharpen via power/bias, weight by previous octave.</li>
+<li><strong>Feels like:</strong> Sharp crests, deep valleys.</li>
+<li><strong>In Squirrel Noise:</strong> <code>.Ridge(...)</code> both 32/64.</li>
+</ul>
+<h3 id="domain-warping">Domain warping</h3>
+<ul>
+<li><strong>What:</strong> Displace input coords by a <em>low-frequency vector field</em> before sampling:
+<code>p' = p + A * W(p)</code></li>
+<li><strong>Feels like:</strong> Twisted, meandering structures; breaks grid repetition.</li>
+<li><strong>In Squirrel Noise:</strong> <code>.DomainWarp(...)</code> both 32/64.</li>
+</ul>
+<h3 id="analytical-derivatives-noise">Analytical derivatives (∇noise)</h3>
+<ul>
+<li><strong>What:</strong> Closed-form gradient of Perlin with your exact <code>Fade</code>/grad definitions.</li>
+<li><strong>Use:</strong> Slope-aware detail, normals, flow/advection, curl fields.</li>
+<li><strong>In Squirrel Noise:</strong> <code>PerlinWithDeriv(...)</code> (2D/3D) on both 32/64.
+Aliases: <code>ValueAndGrad(...)</code>.
+Approximation: <code>GradientCentral(...)</code> (finite differences).</li>
+</ul>
+<h3 id="uber-noise-no-mans-sky-style-composition">“Uber Noise” (No Man’s Sky-style composition)</h3>
+<ul>
+<li><strong>What:</strong> Two domain warps → fBm base → subtract a ridged component → clamp/normalize.</li>
+<li><strong>Feels like:</strong> Big shapes with believable micro detail that holds up close.</li>
+<li><strong>In Squirrel Noise:</strong> <code>.UberNoise(...)</code> on both 32/64.</li>
+</ul>
+<hr>
+<h2 id="stateless-integration-pattern-how-it-all-plugs-together">Stateless integration pattern (how it all plugs together)</h2>
+<ul>
+<li><strong>Entropy core:</strong> <code>NoiseType</code> picks the hash/mixer (see below).</li>
+<li><strong>Corner/feature hashes:</strong> 32-bit: <code>Get1D/2D/3DNoise</code>; 64-bit: <code>GetUInt64</code>, <code>Get2DNoise(...)</code> etc.</li>
+<li><strong>Per-octave reseed:</strong> <code>MixOctave(seed, i)</code> (32/64 variants).</li>
+<li><strong>Gradient/value cores:</strong> <code>HashBasedNoiseUtils.Perlin(...)</code>, <code>...PerlinWithDeriv(...)</code>, <code>Simplex2DCore/3DCore</code>.</li>
+<li><strong>Cellular:</strong> <code>Cellular2D/3D</code> returns F1/F2 + feature/cell info; remap with helpers.</li>
+</ul>
+<hr>
+<h2 id="noisetype-the-hash-mixer">NoiseType (the hash mixer)</h2>
+<p>enum controls how indices/seeds scramble into pseudo-random bits:</p>
+<ul>
+<li><strong>Use by default:</strong> <code>MangledBitsBalancedMix</code></li>
+<li><strong>Alternatives:</strong>
+<code>MangledBitsShiftXOR</code>, <code>MangledBitsRotational</code> (slightly different dispersion),
+<code>ChaChaQuarterRoundSimple/Advanced</code> (strong diffusion)</li>
+<li><strong>Mental model:</strong> Swapping <code>NoiseType</code> changes <em>micro-texture/correlation</em>, not the high-level algorithm (Perlin/Simplex/Cellular).</li>
+</ul>
+<hr>
+<h2 id="api-map-what-to-call-for-what">API map (what to call for what)</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>32-bit wrapper</th>
+<th>64-bit wrapper</th>
+<th>Low-level core</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Perlin 2D/3D</td>
+<td><code>SquirrelNoise32Bit.Perlin(...)</code></td>
+<td><code>SquirrelNoise64Bit.Perlin(...)</code></td>
+<td><code>HashBasedNoiseUtils.Perlin(...)</code></td>
+<td>~<code>[-1,1]</code></td>
+</tr>
+<tr>
+<td>Perlin + ∇ (2D/3D)</td>
+<td><code>PerlinWithDeriv(...)</code></td>
+<td><code>PerlinWithDeriv(...)</code></td>
+<td><code>HashBasedNoiseUtils.PerlinWithDeriv(...)</code></td>
+<td>Value + gradient</td>
+</tr>
+<tr>
+<td>Simplex 2D/3D</td>
+<td><code>Simplex2DCore/3DCore(...)</code></td>
+<td><code>Simplex2DCore/3DCore(...)</code></td>
+<td>(inside cores)</td>
+<td>~<code>[-1,1]</code></td>
+</tr>
+<tr>
+<td>Cellular 2D/3D</td>
+<td><code>Cellular2D/3D(...)</code></td>
+<td><code>Cellular2D/3D(...)</code></td>
+<td>–</td>
+<td>F1/F2 + cell/feature</td>
+</tr>
+<tr>
+<td>Cellular helpers</td>
+<td><code>CellularF1</code>, <code>CellularF2MinusF1</code>, <code>CellularEdge01</code>, <code>CellularEdgeExp01</code>, <code>CellularEdgeSigned</code></td>
+<td>same</td>
+<td><code>NormalizeF101</code>, <code>CellularVein01</code>, <code>CellularVeinExp01</code></td>
+<td>0..1 or [-1,1]</td>
+</tr>
+<tr>
+<td>fBm</td>
+<td><code>FBm(...)</code></td>
+<td><code>FBm(...)</code></td>
+<td>–</td>
+<td>Normalized to ~<code>[-1,1]</code></td>
+</tr>
+<tr>
+<td>Billow</td>
+<td><code>Billow(...)</code></td>
+<td><code>Billow(...)</code></td>
+<td>–</td>
+<td>~<code>[-1,1]</code></td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td><code>Ridge(...)</code></td>
+<td><code>Ridge(...)</code></td>
+<td>–</td>
+<td>~<code>[-1,1]</code></td>
+</tr>
+<tr>
+<td>Domain Warp</td>
+<td><code>DomainWarp(...)</code></td>
+<td><code>DomainWarp(...)</code></td>
+<td>–</td>
+<td>Warp → fBm</td>
+</tr>
+<tr>
+<td>Uber Noise</td>
+<td><code>UberNoise(...)</code></td>
+<td><code>UberNoise(...)</code></td>
+<td>–</td>
+<td>Two warps + fBm − ridge</td>
+</tr>
+<tr>
+<td>Grad approx</td>
+<td><code>GradientCentral(...)</code></td>
+<td><code>GradientCentral(...)</code></td>
+<td>–</td>
+<td>Central differences</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="cellular-two-practical-buckets">Cellular = two practical buckets</h2>
+<h3 id="wormy-veins-tunnels-tendrils">Wormy (veins, tunnels, tendrils)</h3>
+<ul>
+<li><strong>Metric:</strong> <code>Euclidean</code></li>
+<li><strong>Jitter:</strong> <code>0.75–1.0</code> (organic)</li>
+<li><strong>Frequency:</strong> low (e.g. <code>0.002–0.01</code>)</li>
+<li><strong>Value:</strong> use <strong>edges</strong> → <code>F2 - F1</code> then invert/soften</li>
+<li><strong>Warp:</strong> optional low-freq warp to bend paths</li>
+</ul>
+<p>Minimal recipe (2D → <code>[-1,1]</code>):</p>
+<pre><code class="lang-csharp">float WorleyWormy2D(float2 P, ulong seed, float freq=0.005f, float jitter=1.0f, float edgeWidth=0.1f)
+{
+    var r = SquirrelNoise64Bit.Cellular2D(P, seed, frequency: freq, jitter: jitter,
+        metric: HashBasedNoiseUtils.CellularDistance.Euclidean);
+    float vein01 = 1f - math.saturate((r.F2 - r.F1) / edgeWidth);
+    return vein01 * 2f - 1f;
+}
+</code></pre>
+<h3 id="blocky-tiles-bricks-city-grids">Blocky (tiles, bricks, city grids)</h3>
+<ul>
+<li><strong>Metric:</strong> <code>Manhattan</code> (diamond) or <code>Chebyshev</code> (square)</li>
+<li><strong>Jitter:</strong> <code>0.0–0.25</code> (anchored)</li>
+<li><strong>Frequency:</strong> <code>0.003–0.02</code></li>
+<li><strong>Value:</strong> <code>F1</code> for fill, <code>F2−F1</code> for edges; step/quantize for hard panels</li>
+</ul>
+<p>Minimal recipe (2D):</p>
+<pre><code class="lang-csharp">float WorleyBlocky2D(float2 P, ulong seed, float freq=0.01f, float jitter=0.1f)
+{
+    var r = SquirrelNoise64Bit.Cellular2D(P, seed, frequency: freq, jitter: jitter,
+        metric: HashBasedNoiseUtils.CellularDistance.Chebyshev);
+    float edges01 = 1f - math.saturate((r.F2 - r.F1) / 0.1f);
+    return edges01 * 2f - 1f;
+}
+</code></pre>
+<hr>
+<h2 id="fractal-defaults-good-starting-points">Fractal defaults (good starting points)</h2>
+<h3 id="fbm">fBm</h3>
+<ul>
+<li><code>octaves=5–7</code>, <code>lacunarity=2</code>, <code>gain=0.5</code>, normalize output.</li>
+<li><strong>Bigger features:</strong> ↓<code>freq</code> or ↓<code>octaves</code>.</li>
+<li><strong>Finer detail:</strong> ↑<code>octaves</code> (keep normalization).</li>
+</ul>
+<h3 id="billow-1">Billow</h3>
+<ul>
+<li>Same as fBm; often <code>gain=0.55–0.65</code>.</li>
+<li>Too round? Mix a bit of plain fBm: <code>0.7*Billow + 0.3*fBm</code>.</li>
+</ul>
+<h3 id="ridge">Ridge</h3>
+<ul>
+<li>Start: <code>ridgeOffset≈1.0</code>, <code>ridgeSharpness=2–3</code>, frequency ×<code>1.2–1.6</code> vs base.</li>
+<li>Too spiky? ↓<code>sharpness</code> or ↓<code>freq</code>.</li>
+</ul>
+<hr>
+<h2 id="mixing-cellular-with-fractals">Mixing Cellular with fractals</h2>
+<ul>
+<li><p><strong>Wormy rivers over terrain</strong></p>
+<ol>
+<li><code>height = FBm(Perlin, p, seed, …)</code></li>
+<li><code>vein01 = CellularEdge01(...)</code> (Euclidean, high jitter)</li>
+<li><code>height -= vein01 * carveDepth</code></li>
+<li>Optional: warp the <em>vein sampling position</em> with a very low-freq warp.</li>
+</ol>
+</li>
+<li><p><strong>Blocky biomes</strong></p>
+<ol>
+<li><code>Cellular2D</code> with <code>Chebyshev</code>, <code>jitter≈0.05</code></li>
+<li>Per-cell ID: <code>Get2DNoise(r.Cell.x, r.Cell.y, seed)</code> → pick biome params</li>
+<li>Evaluate fBm/Billow/Ridge with that per-cell seed.</li>
+</ol>
+</li>
+<li><p><strong>Road masks</strong>
+Threshold <code>F2−F1 &lt; w</code>, optionally thin/skeletonize.</p>
+</li>
+</ul>
+<hr>
+<h2 id="domain-warping-heuristics">Domain warping heuristics</h2>
+<ul>
+<li><strong>Big bend, small twist:</strong> keep warp amplitude modest (0.2–0.8), warp freq <strong>lower</strong> than the value freq.</li>
+<li><strong>Two-scale warp:</strong> slow/strong warp for macro shape, then faster/weaker warp for mid detail.</li>
+<li><strong>Too torn:</strong> reduce warp freq or amplitude.</li>
+</ul>
+<hr>
+<h2 id="handy-snippets">Handy snippets</h2>
+<p><strong>1) Generic vein mask (01) from a Cellular result</strong></p>
+<pre><code class="lang-csharp">[MethodImpl(MethodImplOptions.AggressiveInlining)]
+static float WorleyVein01(in HashBasedNoiseUtils.Cellular2DResult r, float edgeWidth = 0.1f)
+    =&gt; 1f - math.saturate((r.F2 - r.F1) / edgeWidth);
+</code></pre>
+<p><strong>2) 3D wormy with small fractal detail</strong></p>
+<pre><code class="lang-csharp">float Worm3D(float3 P, ulong seed)
+{
+    var r = SquirrelNoise64Bit.Cellular3D(P, seed, frequency: 0.006f, jitter: 0.9f);
+    float vein01 = 1f - math.saturate((r.F2 - r.F1) / 0.12f);
+    float detail = 0.25f * SquirrelNoise64Bit.FBm(P * 1.8f, seed, octaves: 4, gain: 0.55f);
+    return math.saturate(vein01 + detail);
+}
+</code></pre>
+<p><strong>3) Blocky tiles with per-cell variation</strong></p>
+<pre><code class="lang-csharp">float BlockyTile(float2 P, ulong seed)
+{
+    var r = SquirrelNoise64Bit.Cellular2D(P, seed, frequency: 0.01f, jitter: 0.05f,
+        metric: HashBasedNoiseUtils.CellularDistance.Chebyshev);
+
+    // Per-cell seed for interior variation:
+    ulong cellSeed = SquirrelNoise64Bit.GetCellSeed2D(r.Cell, seed);
+    float tile = SquirrelNoise64Bit.FBm(new float3(P, 0), cellSeed, octaves: 4, gain: 0.6f);
+
+    float edges = 1f - math.saturate((r.F2 - r.F1) / 0.08f);
+    return math.clamp(tile * 0.7f + edges * 0.3f, -1f, 1f);
+}
+</code></pre>
+<hr>
+<h2 id="final-tuning-cheatsheet">Final tuning cheatsheet</h2>
+<ul>
+<li><strong>Straighter structure:</strong> ↓<code>jitter</code>, use <code>Manhattan</code>/<code>Chebyshev</code>.</li>
+<li><strong>More organic curves:</strong> ↑<code>jitter</code>, keep <code>Euclidean</code>, add 1–2 domain warps.</li>
+<li><strong>Thinner veins/roads:</strong> ↓<code>edgeWidth</code> (or ↑<code>k</code> in exponential remap).</li>
+<li><strong>Bigger cells/roads:</strong> ↓<code>frequency</code> (remember F1/F2 are in <em>cell units</em> at your sampling freq).</li>
+<li><strong>Too noisy:</strong> lower the <strong>value</strong> octaves first; keep warps smooth/low-freq.</li>
+<li><strong>Terrain mushy:</strong> add a small <code>Ridge</code> layer (2–3 octaves, mix 0.2–0.4).</li>
+</ul>
+<hr>
+<h2 id="ranges-seeds-performance-notes">Ranges, seeds, performance notes</h2>
+<ul>
+<li><strong>Ranges:</strong> Perlin/Simplex are ~<code>[-1,1]</code> (cores match this); Cellular helpers return <code>0..1</code> or <code>[-1,1]</code> as named.</li>
+<li><strong>Seeds:</strong> Use <code>MixOctave(seed, i)</code> for decorrelated octave seeds; 32/64 versions exist.</li>
+<li><strong>NoiseType:</strong> Keep <code>MangledBitsBalancedMix</code> unless you need a different micro-texture profile.</li>
+<li><strong>Unity Burst:</strong> All hot paths are <code>AggressiveInlining</code>; keep branches minimal (already do). Prefer <code>float</code> math; avoid allocations.</li>
+</ul>
+<hr>
+<h3 id="tldr">TL;DR</h3>
+<ul>
+<li>Choose <strong>base</strong>: Perlin/Simplex for smooth, Worley for cells.</li>
+<li>Shape with <strong>fBm/Billow/Ridge</strong>.</li>
+<li><strong>Warp</strong> for richness.</li>
+<li>Use <strong>PerlinWithDeriv</strong> for slope-aware tricks.</li>
+<li>Drive everything from stateless <strong>Squirrel</strong> hashes; swap <strong>NoiseType</strong> if you want different bit-mix flavor.</li>
+</ul>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Runtime/Random/NoiseTypesSquirrelIntegrationAPracticalGuide.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

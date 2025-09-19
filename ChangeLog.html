@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Changelog | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Changelog | Unity 6 Core Framework ">
+      
+      
+      <link rel="icon" href="Images/logo_large.png">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/ChangeLog.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="changelog">Changelog</h1>
+
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<blockquote>
+<p><strong>UPM versioning:</strong> <code>package.json</code> uses <strong>SemVer</strong> (<code>MAJOR.MINOR.PATCH</code>).<br>
+Build/revision info is carried as <strong>build metadata</strong>, e.g. <code>1.4.0+rev.0</code>.<br>
+Package resolution ignores <code>+metadata</code>, so publish patches as <code>1.4.1</code>, <code>1.4.2</code>, … (don’t only change <code>+rev</code> if you want Package Manager to upgrade).</p>
+</blockquote>
+<p><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/latest"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;display_name=release&amp;style=plastic&amp;label=Latest%20Release&amp;logo=github" alt="GitHub Release"></a></p>
+<hr>
+<h2 id="unreleased-unreleased"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/compare/1.4.0...HEAD">Unreleased</a> - <a href="https://github.com/JamesLaFritz/Unity6CoreFramework"><img src="https://img.shields.io/badge/Core_Framework-blue?logo=github&amp;label=Unreleased" alt="Unreleased"></a></h2>
+<ul>
+<li><em>Add entries here for changes after 1.4.0.</em></li>
+</ul>
+<hr>
+<h2 id="github-release"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/compare/v1.3.0.0...1.4.0">1.4.0</a> — 2025-08-29 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.4.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=v1.4.0&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Random)%3A%20add%20Squirrel%20Noise" alt="GitHub Release"></a></h2>
+<h3 id="added">Added</h3>
+<ul>
+<li><strong>Squirrel Noise Random</strong>: stateless, deterministic noise/RNG suite.
+<ul>
+<li>Perlin &amp; Simplex (2D/3D), Cellular/Worley (F1/F2, combos), fBm/Billow/Ridge stacks.</li>
+<li>Domain warping utilities, slope/derivative helpers, seedable wrappers (32/64-bit).</li>
+</ul>
+</li>
+<li><strong>Unity.Mathematics integration</strong>:
+<ul>
+<li><code>Unity.Mathematics.noise.cnoise</code> hook for baseline Perlin calls.</li>
+<li>New numeric types: <code>ulong2</code>, <code>ulong4</code>.</li>
+</ul>
+</li>
+<li><strong>RNG systems</strong>:
+<ul>
+<li>Noise-based RNG and <strong>crypto-safe RNG</strong> options with consistent APIs.</li>
+</ul>
+</li>
+<li><strong>Runtime extensions</strong>:
+<ul>
+<li>Comprehensive set of common extension methods (collections, math, Unity types).</li>
+</ul>
+</li>
+<li><strong>Patterns &amp; interfaces</strong>:
+<ul>
+<li><code>IVisitor</code> / <code>IVisitable</code> for component visitation.</li>
+<li>Generic <strong>Flyweight</strong> and <strong>Factory</strong> helpers.</li>
+</ul>
+</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li><strong>Packaging:</strong> <code>package.json</code> now <strong>SemVer</strong> (<code>&quot;version&quot;: &quot;1.4.0+rev.0&quot;</code>).<br>
+(Replaces previous 4-segment scheme like <code>1.3.0.0</code>.)</li>
+<li>Updated badges/docs to reflect new versioning and install instructions.</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Added missing <code>.meta</code> files to prevent import warnings.</li>
+<li>Removed orphaned <code>Gemfile.lock.meta</code>.</li>
+</ul>
+<h3 id="notes-on-compatibility">Notes on compatibility</h3>
+<ul>
+<li>No breaking API changes detected; all additions are backward-compatible.</li>
+<li>If you introduce <strong>new auto-referenced assemblies</strong> later, that may require a <strong>MAJOR</strong> bump per Unity’s guidance.</li>
+</ul>
+<p><strong>Diff:</strong> <code>v1.3.0.0...1.4.0</code><br>
+<strong>UPM URL:</strong> <code>https://github.com/JamesLaFritz/Unity6CoreFramework.git#1.4.0</code><br>
+<em>(Package resolution treats <code>1.4.0+rev.0</code> the same as <code>1.4.0</code>.)</em></p>
+<hr>
+<h2 id="github-release-1"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.3.0.0">1.3.0.0</a> — 2024-10-16 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.3.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.3.0.0&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Editor)%3A%20add%20build%20processing%20automation%20script" alt="GitHub Release"></a></h2>
+<h3 id="added-1">Added</h3>
+<ul>
+<li><strong>Editor build processing automation</strong> (<code>BuildProcessing.cs</code>):
+<ul>
+<li>Version incrementing, build pipeline execution, version file export.</li>
+<li>Optional installer creation via build preprocess/postprocess hooks.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="github-release-2"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.2.0.0">1.2.0.0</a> — 2024-10-16 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.2.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.2.0.0&amp;display_name=release&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Settings)%3A%20add%20version%20control%20and%20initialization%20support" alt="GitHub Release"></a></h2>
+<h3 id="added-2">Added</h3>
+<ul>
+<li><strong>Version control &amp; initialization</strong>:
+<ul>
+<li><code>VersionInitialization</code>, <code>VersionProjectSettings</code>, <code>VersionProjectSettingsProvider</code>, <code>VersionControl</code>.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="github-release-3"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.1.0.0">1.1.0.0</a> — 2024-10-15 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.1.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.1.0.0&amp;display_name=release&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Runtime)%3A%20add%20Bootstrapper%20for%20initialization%20logic" alt="GitHub Release"></a></h2>
+<h3 id="added-3">Added</h3>
+<ul>
+<li><strong>Runtime Bootstrapper</strong> to centralize app initialization.</li>
+</ul>
+<hr>
+<h2 id="github-release-4"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.1.0">1.0.1.0</a> — 2024-10-15 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.1.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.0.1.0&amp;display_name=release&amp;style=plastic&amp;label=%F0%9F%90%9B%20fix(Settings)%3A%20resolve%20issue%20with%20settings%20not%20saving" alt="GitHub Release"></a></h2>
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+<li>Project settings not saving correctly (<code>CoreFrameworkProjectSettings</code>, <code>CoreFrameworkProjectSettingsProvider</code>, <code>CoreFrameworkSettings</code>).</li>
+</ul>
+<hr>
+<h2 id="github-release-5"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.2">1.0.0.2</a> — 2024-10-15<a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.2"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.0.0.2&amp;display_name=release&amp;style=plastic&amp;label=%E2%99%BB%EF%B8%8F%20refactor(Editor)%3A%20update%20variable%20names%20and%20switch%20to%20UI%20Elements" alt="GitHub Release"></a></h2>
+<h3 id="changed-1">Changed</h3>
+<ul>
+<li>Editor refactor: variable name clean-up; migrated UI to <strong>UI Elements</strong>.</li>
+</ul>
+<hr>
+<h2 id="github-release-6"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.1">1.0.0.1</a> — 2024-10-15 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.1"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.0.0.1&amp;display_name=release&amp;style=plastic&amp;label=%F0%9F%99%88%20ci(.gitignore)%3A%20add%20.gitignore%20and%20project%20settings%20file" alt="GitHub Release"></a></h2>
+<ul>
+<li>add a new <code>.gitignore</code> file to ignore unnecessary files</li>
+<li>add project settings updater configuration in the <code>.idea</code> directory</li>
+</ul>
+<h3 id="ci">CI</h3>
+<ul>
+<li>Add <code>.gitignore</code> and project settings file.</li>
+</ul>
+<hr>
+<h2 id="github-release-7"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.0">1.0.0.0</a> — 2024-07-31 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.0.0.0&amp;display_name=release&amp;style=plastic&amp;label=%E2%9C%A8%20feat(coreframework)%3A%20introduce%20Core%20Framework%20with%20initial%20setup%20and%20settings" alt="GitHub Release"></a></h2>
+<h3 id="added-4">Added</h3>
+<ul>
+<li>Initial Core Framework:
+<ul>
+<li>Docs (<code>README.md</code>, <code>Documentation~/CoreFramework.md</code>, <code>Third Party Notices</code>), <code>package.json</code>.</li>
+<li>Assembly definitions for editor, runtime, tests.</li>
+<li>Runtime settings, editor preferences &amp; project settings.</li>
+<li>License normalization.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="versioning-tagging">Versioning &amp; tagging</h2>
+<ul>
+<li><strong>Current package version:</strong> <code>1.4.0+rev.0</code> (SemVer + build metadata).</li>
+<li><strong>Git tags:</strong> publish <code>1.4.0</code> for UPM installs; keep legacy <code>v1.3.0.0</code>-style tags for history if desired.</li>
+<li><strong>Pre-releases:</strong> use <code>1.5.0-pre.1</code>, <code>1.5.0-pre.2</code>, …</li>
+<li><strong>Hotfixes:</strong> bump PATCH (<code>1.4.1</code>, <code>1.4.2</code>, …). Don’t rely on changing <code>+rev</code> alone.</li>
+</ul>
+<hr>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/ChangeLog.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

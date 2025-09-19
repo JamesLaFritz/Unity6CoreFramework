@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="The CoreFrameworkProjectSettingsProvider class is a SettingsProvider responsible for displaying and managing project settings in the Unity Editor.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Settings_CoreFrameworkProjectSettingsProvider.md&amp;value=---%0Auid%3A%20CoreFramework.Settings.CoreFrameworkProjectSettingsProvider%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider">
+
+
+
+  <h1 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a>.<a class="xref" href="CoreFramework.Settings.html">Settings</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>The <code>CoreFrameworkProjectSettingsProvider</code> class is a SettingsProvider responsible for displaying and managing project settings in the Unity Editor.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CoreFrameworkProjectSettingsProvider : SettingsProvider</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="https://docs.unity3d.com/ScriptReference/SettingsProvider.html">SettingsProvider</a></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="CoreFramework.TaskExtensions.html#CoreFramework_TaskExtensions_AsCompletedTask__1___0_">TaskExtensions.AsCompletedTask&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider__ctor_" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.#ctor*"></a>
+
+  <h3 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider__ctor_System_String_UnityEditor_SettingsScope_System_Collections_Generic_IEnumerable_System_String__" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.#ctor(System.String,UnityEditor.SettingsScope,System.Collections.Generic.IEnumerable{System.String})">
+  CoreFrameworkProjectSettingsProvider(string, SettingsScope, IEnumerable&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an instance of the CoreFrameworkProjectSettingsProvider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private CoreFrameworkProjectSettingsProvider(string path, SettingsScope scopes = SettingsScope.Project, IEnumerable&lt;string&gt; keywords = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <span class="xref">string</span></dt>
+    <dd><p>The path of the settings provider, e.g., &ldquo;Preferences/Core Framework/Settings&rdquo;.</p>
+</dd>
+    <dt><code>scopes</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/SettingsScope.html">SettingsScope</a></dt>
+    <dd><p>The scope of the settings provider (default is SettingsScope.Project).</p>
+</dd>
+    <dt><code>keywords</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd><p>Keywords associated with the settings provider.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_KSettingsPath" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.KSettingsPath">
+  KSettingsPath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The path of the settings provider in the Preferences window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private const string KSettingsPath = &quot;Project/Core Framework/Settings&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_BootFieldChanged_" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.BootFieldChanged*"></a>
+
+  <h3 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_BootFieldChanged_UnityEngine_UIElements_ChangeEvent_System_String__" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.BootFieldChanged(UnityEngine.UIElements.ChangeEvent{System.String})">
+  BootFieldChanged(ChangeEvent&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static void BootFieldChanged(ChangeEvent&lt;string&gt; evt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evt</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/UIElements.ChangeEvent_1.html">ChangeEvent</a>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_CreateCoreFrameworkProjectSettingsProvider_" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.CreateCoreFrameworkProjectSettingsProvider*"></a>
+
+  <h3 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_CreateCoreFrameworkProjectSettingsProvider" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.CreateCoreFrameworkProjectSettingsProvider">
+  CreateCoreFrameworkProjectSettingsProvider()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an instance of the $CLASS and registers it with the [SettingsProvider] attribute.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SettingsProvider]
+public static SettingsProvider CreateCoreFrameworkProjectSettingsProvider()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/SettingsProvider.html">SettingsProvider</a></dt>
+    <dd><p>The created CoreFrameworkProjectSettingsProvider instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_OnGUI_" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.OnGUI*"></a>
+
+  <h3 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_OnGUI_System_String_" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.OnGUI(System.String)">
+  OnGUI(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Use this function to draw the UI based on IMGUI. This assumes you haven't added any children to the rootElement passed to the OnActivate function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnGUI(string searchContext)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>searchContext</code> <span class="xref">string</span></dt>
+    <dd><p>Search context for the Settings window. Used to show or hide relevant properties.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_ProjectSettingsMenuItem_" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.ProjectSettingsMenuItem*"></a>
+
+  <h3 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_ProjectSettingsMenuItem" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.ProjectSettingsMenuItem">
+  ProjectSettingsMenuItem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens the Project Settings window at the specified path when the menu item is selected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MenuItem(&quot;Core Framework/Project Settings&quot;, priority = 0)]
+private static void ProjectSettingsMenuItem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_StartFieldChanged_" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.StartFieldChanged*"></a>
+
+  <h3 id="CoreFramework_Settings_CoreFrameworkProjectSettingsProvider_StartFieldChanged_UnityEngine_UIElements_ChangeEvent_System_String__" data-uid="CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.StartFieldChanged(UnityEngine.UIElements.ChangeEvent{System.String})">
+  StartFieldChanged(ChangeEvent&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static void StartFieldChanged(ChangeEvent&lt;string&gt; evt)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>evt</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/UIElements.ChangeEvent_1.html">ChangeEvent</a>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Settings/CoreFrameworkProjectSettingsProvider.cs/#L17" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

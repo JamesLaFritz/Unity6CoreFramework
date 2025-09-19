@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>What each noise “type” actually is | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="What each noise “type” actually is | Unity 6 Core Framework ">
+      
+      
+      <link rel="icon" href="../../../../Images/logo_large.png">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Runtime/Random/NoiseTypes.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="what-each-noise-type-actually-is">What each noise “type” actually is</h1>
+
+<p><strong>Shared knobs you’ll see a lot</strong></p>
+<ul>
+<li><strong>Amplitude (amp)</strong>: vertical scale of the output. output scale.</li>
+<li><strong>Frequency (freq)</strong>: how quickly the pattern changes per unit distance. feature size.</li>
+<li><strong>Octaves</strong>: how many stacked layers you sum (each higher octave is smaller scale + lower amplitude).</li>
+<li><strong>Lacunarity</strong>: frequency multiplier per octave (commonly 2.0).</li>
+<li><strong>Gain / Persistence</strong>: amplitude multiplier per octave (commonly 0.5).</li>
+</ul>
+<blockquote>
+<p>Think of an <em>octave stack</em> (also called fBm) as your “how bumpy” control; the <em>base noise function</em> you stack (Perlin, value, Simplex, Worley) sets the <em>character</em> of those bumps.</p>
+</blockquote>
+<hr>
+<h2 id="core-bases">Core bases</h2>
+<p><strong>Perlin / Simplex (gradient noise)</strong></p>
+<ul>
+<li>Produce smooth, band‑limited noise with no sharp grid artifacts.</li>
+<li>Perlin is lattice‑based; Simplex uses tetrahedra (faster in higher dimensions and easier for analytic derivatives).</li>
+<li>Output: ~[-1,1]. Great general‑purpose base for terrain, textures.</li>
+</ul>
+<p><strong>Value noise (hash‑smoothed)</strong></p>
+<ul>
+<li>Uses a hash to get a value at lattice points, then smooth‑interpolates.</li>
+<li>With the right fade curve it’s visually similar to Perlin and plays nicely with stateless PRNGs (perfect for your Squirrel functions).</li>
+</ul>
+<p><strong>Worley / Cellular</strong></p>
+<ul>
+<li>Computes distance to nearest/2nd‑nearest feature points in each cell; outputs distance patterns → “cells/cracks/pebbles/veins.”</li>
+<li>Not a heightfield by itself; you usually remap/distort it (invert, take min/max, combine with fBm).</li>
+</ul>
+<hr>
+<h2 id="fractal-variants-theyre-just-postprocesses-combinations">Fractal “variants” (they’re just post‑processes / combinations)</h2>
+<p><strong>fBm (Fractional Brownian Motion)</strong></p>
+<ul>
+<li>Sum octaves of a base noise (Perlin/value/Simplex).</li>
+<li>Parameters: <code>octaves, lacunarity (≈2), gain (≈0.5)</code>.</li>
+<li>Output looks like classic rolling mountains.</li>
+</ul>
+<p><strong>Billow</strong></p>
+<ul>
+<li><code>billow(p) = abs(base(p))</code> (then optionally re‑center).</li>
+<li>Rounds valleys into puffy hills. Stack with fBm parameters → “cloudy” terrain.</li>
+</ul>
+<p><strong>Ridge / Ridged‑Multi</strong></p>
+<ul>
+<li><code>ridge(p) = 1 - abs(base(p))</code> then sharpen via squaring and biasing.</li>
+<li>Creates sharp crests; typical for alpine ridges/canyons.</li>
+</ul>
+<p><strong>Domain warping</strong></p>
+<ul>
+<li>Feed noise into the <em>coordinates</em> of another noise: <code>base(p + warp(p)*strength)</code>.</li>
+<li>Breaks repetition, creates flow/“river‑like” structures, gnarly cliffs when used with ridges.</li>
+</ul>
+<p><strong>Analytical derivatives</strong></p>
+<ul>
+<li>Some gradient noises can return <code>(value, ∂value/∂x, ∂value/∂y, …)</code> cheaply.</li>
+<li>Use derivatives to modulate detail by slope (e.g., reduce high‑frequency detail on steep slopes → pseudo‑erosion).</li>
+<li>If your base doesn’t expose derivatives, you can approximate with tiny central differences (still stateless &amp; random‑access).</li>
+</ul>
+<p><strong>Sean Murray’s “Uber Noise” (No Man’s Sky)</strong></p>
+<ul>
+<li>A <em>parameterized blender</em> that mixes ridge/billow/base, applies domain warps, and damps by slope/altitude using derivatives.</li>
+<li>Think: one function with knobs for <strong>sharpness</strong>, <strong>slope erosion</strong>, <strong>altitude damping</strong>, <strong>warp strength</strong>, plus the usual fBm controls.</li>
+<li>Squirrel Noise already has the right architectural constraint: <em>stateless, random‑access</em>.</li>
+</ul>
+<hr>
+<h2 id="quick-mapping-squirrel-mental-recipes">Quick mapping: Squirrel → mental recipes</h2>
+<ul>
+<li><strong>Perlin / Simplex</strong>: the <em>base</em> (use our smoothed value noise if you don’t have them).</li>
+<li><strong>fBm</strong>: <em>how</em> you stack (octaves, lacunarity, gain).</li>
+<li><strong>Billow</strong>: <code>abs</code> post‑process of the base (then center).</li>
+<li><strong>Ridge</strong>: <code>1 - abs</code> with sharpening (then stack).</li>
+<li><strong>Worley</strong>: nearest‑point distance field (use <code>f1</code>, <code>f2</code>, or <code>f2-f1</code> then remap).</li>
+<li><strong>Analytical derivatives</strong>: value + gradient; use to damp high‑freq on steep slopes.</li>
+<li><strong>Domain warping</strong>: warp coordinates with another fBm (one or two stages) before sampling.</li>
+<li><strong>Sean Murray’s Uber Noise</strong>: a single function that blends base/billow/ridge, applies domain warp, and damps by slope/altitude—implemented above as <code>Uber</code>.</li>
+</ul>
+<hr>
+<h1 id="perlin-gradient-noise">Perlin (gradient noise)</h1>
+<ul>
+<li><strong>What it is:</strong> Smooth scalar field built by dotting pseudo-random gradients at lattice corners with the local offset, then easing and trilinearly blending.</li>
+<li><strong>Feels like:</strong> Rolling hills; smooth, band-limited variations.</li>
+<li><strong>Knobs:</strong> <code>frequency</code> (feature size), output scale (<code>amplitude</code>), seed.</li>
+<li><strong>Continuity:</strong> C1 (value + first derivative continuous).</li>
+<li><strong>Where it shines:</strong> Terrain height, clouds, masks, normals (with analytic grad).</li>
+<li><strong>Gotchas:</strong> Axis-aligned if overused; periodic artifacts if you upsample too far.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>Perlin(…)</code>, <code>PerlinWithDerivatives(…)</code> (2D/3D core + analytic grad).</li>
+</ul>
+<h1 id="simplex-skewed-gradient-noise">Simplex (skewed gradient noise)</h1>
+<ul>
+<li><strong>What it is:</strong> Perlin’s sibling on a simplex (triangles/tetrahedra) grid; fewer corners sampled → faster, isotropic patterns.</li>
+<li><strong>Feels like:</strong> Similar to Perlin but slightly “crisper,” less axial bias.</li>
+<li><strong>Knobs:</strong> Same as Perlin.</li>
+<li><strong>Continuity:</strong> C1 (like Perlin).</li>
+<li><strong>Where it shines:</strong> Higher dimensions and cheaper/per-octave use.</li>
+<li><strong>Gotchas:</strong> Patent history (now expired); beware non-standard gradient sets.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>Simplex(x,y,…)</code>, <code>Simplex(x,y,z,…)</code> via hash callbacks—no perm tables.</li>
+</ul>
+<h1 id="fbm-fractal-brownian-motion">fBm (fractal Brownian motion)</h1>
+<ul>
+<li><strong>What it is:</strong> <em>Sum of octaves</em> of a base noise at increasing <code>frequency</code> (×<code>lacunarity</code>) and decreasing <code>amplitude</code> (×<code>gain</code>).</li>
+<li><strong>Feels like:</strong> Self-similar detail across scales; “natural” fractal roughness.</li>
+<li><strong>Knobs:</strong> <code>octaves</code>, <code>lacunarity</code> (≈2), <code>gain</code> (≈0.5), base <code>frequency</code>/<code>amplitude</code>.</li>
+<li><strong>Where it shines:</strong> Mountains, rough textures, masks.</li>
+<li><strong>Gotchas:</strong> Dynamic range grows with octaves → normalize if you want stable [-1,1].</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>FBm(baseFn, …)</code>; wrappers: <code>SquirrelNoise32Bit.FBm</code>, <code>…64Bit.FBm</code>.</li>
+</ul>
+<h1 id="billow-abs-fbm">Billow (abs fBm)</h1>
+<ul>
+<li><strong>What it is:</strong> fBm of <code>abs(base)</code>, remapped back to [-1,1] per octave.</li>
+<li><strong>Feels like:</strong> Puffy, soft pillows; clouds, rolling dunes.</li>
+<li><strong>Knobs:</strong> Same as fBm (abs makes peaks symmetric).</li>
+<li><strong>Where it shines:</strong> Soft cloud cover, fog density, soft ground.</li>
+<li><strong>Gotchas:</strong> Can look too “round” without mixing with other components.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>Billow(baseFn, …)</code> + 32/64 wrappers.</li>
+</ul>
+<h1 id="ridge-ridged-multifractal">Ridge (ridged multifractal)</h1>
+<ul>
+<li><strong>What it is:</strong> Invert and sharpen the absolute value per octave; weight by previous octave.</li>
+<li><strong>Feels like:</strong> Sharp crests, deep valleys—mountain ranges, cracked rock.</li>
+<li><strong>Knobs:</strong> <code>ridgeOffset</code> (~1), <code>ridgeSharpness</code> (≥2), plus fBm knobs.</li>
+<li><strong>Where it shines:</strong> Mountain masks, glacial spines, canyons.</li>
+<li><strong>Gotchas:</strong> Over-sharpening can cause ringing; modulate gain/weight for stability.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>Ridge(baseFn, …)</code> + wrappers.</li>
+</ul>
+<h1 id="worley-cellular">Worley / Cellular</h1>
+<ul>
+<li><strong>What it is:</strong> For each sample, find nearest “feature point” in nearby lattice cells; return distances: F1 (nearest), F2 (2nd), combos like F2−F1.</li>
+<li><strong>Feels like:</strong> Cells, plates, cracks, pebble patterns depending on metric/jitter.</li>
+<li><strong>Knobs:</strong> <code>metric</code> (Euclidean/Manhattan/Chebyshev), <code>jitter</code> (0=centered, 1=free), <code>frequency</code>.</li>
+<li><strong>Where it shines:</strong> Stone, scales, cell membranes, road networks (with post-ops).</li>
+<li><strong>Gotchas:</strong> Value range depends on metric/scale; usually normalize or use F2−F1.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>Cellular2DCore/3DCore</code> + <code>Cellular2D/3D</code>, <code>CellularF1</code>, <code>F2MinusF1</code>.</li>
+</ul>
+<h1 id="worley-cellular-worms-vs-blocky">Worley / Cellular = “worms” vs “blocky”</h1>
+<h2 id="wormy-veins-tunnels-tendrils">Wormy (veins, tunnels, tendrils)</h2>
+<p><strong>Idea:</strong> Use <em>Euclidean</em> distance with higher <em>jitter</em>, then emphasize <strong>cell edges</strong> via <code>F2 - F1</code>, optionally warp the domain so edges bend and weave.</p>
+<ul>
+<li><strong>Metric:</strong> <code>Euclidean</code></li>
+<li><strong>Jitter:</strong> <code>0.75–1.0</code> (features roam inside the cell → organic)</li>
+<li><strong>Frequency:</strong> start low (big features), e.g. <code>0.002–0.01</code> in world units</li>
+<li><strong>Value to use:</strong> <code>edge = F2 - F1</code> (small near edges) → turn into a bright line with an inverse/smoothstep</li>
+<li><strong>Warping:</strong> Apply a low-frequency <strong>Domain Warp</strong> first to curve the edges</li>
+<li><strong>Nice remaps:</strong>
+<ul>
+<li><code>vein = 1 - saturate((F2-F1)/w)</code> (thin veins; w ~ <code>0.05–0.2</code> in <em>cell units</em>)</li>
+<li><code>vein = exp(-k*(F2-F1))</code> for smoother, exponential falloff (k ~ <code>5–15</code>)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tips</strong></p>
+<ul>
+<li>Increase <code>jitter</code> for more organic meanders; reduce <code>edgeWidth</code> for thinner/wilder veins.</li>
+<li>Warp twice (two different seeds/freqs) for “arteries + capillaries”.</li>
+<li>For cave/tunnel generation: threshold <code>vein &gt; t</code> and run connectivity post-process.</li>
+</ul>
+<hr>
+<h2 id="blocky-cells-tiles-citybrick-vibes">Blocky (cells, tiles, city/brick vibes)</h2>
+<p><strong>Idea:</strong> Choose <strong>Manhattan</strong> or <strong>Chebyshev</strong> metrics and keep <em>jitter</em> low so features anchor near cell centers. Edges become straight, grid-like.</p>
+<ul>
+<li><strong>Metric:</strong>
+<ul>
+<li><code>Manhattan</code> → diamond/orthogonal facets</li>
+<li><code>Chebyshev</code> → square/box facets</li>
+</ul>
+</li>
+<li><strong>Jitter:</strong> <code>0.0–0.25</code> (structured, centered)</li>
+<li><strong>Frequency:</strong> <code>0.003–0.02</code> (depending on desired tile size)</li>
+<li><strong>Value to use:</strong> <code>F1</code> (distance to nearest site) for rounded cells, or <code>F2 - F1</code> for sharp edges</li>
+<li><strong>Post:</strong> quantize or step to get hard tiling; mix with fBm to add texture variation in each cell.</li>
+</ul>
+<p><strong>Tips</strong></p>
+<ul>
+<li><code>Manhattan</code> + low jitter is great for <strong>streets/blocks</strong>; extrude edges as walls.</li>
+<li>Use the <strong>cell id</strong> (<code>r.Cell</code>) to seed a per-cell color/height:
+<code>cellSeed = SquirrelNoise32Bit.Get2DNoise(r.Cell.x, r.Cell.y, seed)</code> then modulate fBm.</li>
+</ul>
+<hr>
+<h1 id="analytical-derivatives-noise">Analytical Derivatives (∇noise)</h1>
+<ul>
+<li><strong>What it is:</strong> Closed-form gradient of Perlin/Simplex w.r.t. position (not finite diff).</li>
+<li><strong>Feels like:</strong> A vector field pointing “uphill” in the scalar noise.</li>
+<li><strong>Knobs:</strong> None—just pick the base noise &amp; scale via frequency.</li>
+<li><strong>Where it shines:</strong> Flow maps, erosion simulation, normals, advection, curl fields.</li>
+<li><strong>Gotchas:</strong> Make sure your grad matches your exact fade/grad definitions.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>PerlinWithDeriv(…)</code> (2D/3D) returning <code>(value, grad)</code>.</li>
+</ul>
+<h1 id="domain-warping-a.k.a.position-warp">Domain Warping (a.k.a. position warp)</h1>
+<ul>
+<li><strong>What it is:</strong> Displace the input position by a <em>low-frequency vector field</em> before sampling another (or same) noise.
+<ul>
+<li><code>x' = x + A * Wx(x)</code>, <code>y' = y + A * Wy(x)</code>, <code>z' = z + A * Wz(x)</code></li>
+</ul>
+</li>
+<li><strong>Feels like:</strong> Twisted, folded patterns; veins, flowy marbling, rivers.</li>
+<li><strong>Knobs:</strong> Warp amplitude, warp frequency/octaves (<code>warp*</code>), then value stack knobs.</li>
+<li><strong>Where it shines:</strong> Breaking grid-like appearance, creating coherent features.</li>
+<li><strong>Gotchas:</strong> Large amplitude at high frequency can “tear” features; start small, low-freq.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>DomainWarp(baseFn, …)</code> (warps with three independent stacks).</li>
+</ul>
+<h1 id="uber-noise-nms-style-composition">“Uber Noise” (NMS-style composition)</h1>
+<ul>
+<li><strong>What it is:</strong> A <em>recipe</em>: stacked warps → fBm base → subtract a ridged component → clamp/normalize.</li>
+<li><strong>Feels like:</strong> Big shapes with believable micro detail; planetary-scale variation that holds up close.</li>
+<li><strong>Knobs:</strong> Two warp blocks (<code>warp1/warp2 Amp/Freq/Octaves</code>), fBm (<code>octaves/freq/gain/lacunarity</code>), ridge mix.</li>
+<li><strong>Where it shines:</strong> Biomes, planet surfaces, large-to-small continuity.</li>
+<li><strong>Gotchas:</strong> Many knobs—tune in stages: warp1 (big), warp2 (medium), fBm, then ridge.</li>
+<li><strong>In Unity6CoreFramework.Random lib:</strong> <code>UberNoise(baseFn, …)</code> (both seeds).</li>
+</ul>
+<hr>
+<h2 id="cross-cutting-parameters-quick-map">Cross-cutting parameters (quick map)</h2>
+<ul>
+<li><strong>frequency</strong>: feature size (↑frequency → smaller features). Often start at 1 and scale your input position instead.</li>
+<li><strong>amplitude</strong>: output scale per octave (top-level).</li>
+<li><strong>octaves</strong>: number of layers in the stack.</li>
+<li><strong>lacunarity</strong>: frequency multiplier per octave (≈2).</li>
+<li><strong>gain</strong>: amplitude multiplier per octave (≈0.5).</li>
+<li><strong>jitter (Worley)</strong>: 0 = features centered, 1 = fully random inside cell.</li>
+</ul>
+<hr>
+<h1 id="stateless-integration-pattern-how-unity6coreframework.random-code-lines-up">Stateless integration pattern (how Unity6CoreFramework.Random code lines up)</h1>
+<ul>
+<li><strong>Base scalar field</strong>: <code>Perlin(...)</code> or <code>Simplex(...)</code> returning ~[-1,1].</li>
+<li><strong>Fractals</strong>: <code>FBm/Billow/Ridge(baseFn, p, seed, …)</code>.</li>
+<li><strong>Gradients</strong>: use <code>PerlinWithDerivatives</code> (no extra samples).</li>
+<li><strong>Cellular</strong>: <code>Cellular2D/3D</code> → use <code>F1</code>, <code>F2</code>, <code>F2−F1</code> or feature positions.</li>
+<li><strong>Warps</strong>: <code>DomainWarp(baseFn, …)</code> then feed into another stack (as in <code>UberNoise</code>).</li>
+</ul>
+<h2 id="the-two-axes-to-keep-straight">The two axes to keep straight</h2>
+<ol>
+<li><p><strong>Base field</strong> (what pattern you’re sampling)</p>
+<ul>
+<li><strong>Perlin</strong> / <strong>Simplex</strong> (gradient noise)</li>
+<li><strong>Cellular / Worley</strong> (distance-to-features)</li>
+<li>(Optional) <strong>Value noise</strong> (hash values + smooth fade-lerp)</li>
+</ul>
+</li>
+<li><p><strong>Entropy core</strong> (how hash integers to “random”)</p>
+<ul>
+<li><code>NoiseType</code> enum: <code>MangledBits*</code>, <code>ChaCha*</code>
+<ul>
+<li>This only changes the <em>bit-mixing</em> used to produce corner hashes / feature jitter. It doesn’t change the macro algorithm—Perlin is still Perlin, Worley is still Worley.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="shared-knobs-quick">Shared knobs (quick)</h2>
+<p><code>frequency</code> = feature size; <code>amplitude</code> = output scale; <code>octaves/lacunarity/gain</code> = fractal stack controls; <code>jitter/metric</code> = Worley flavoring.</p>
+<hr>
+<h2 id="how-each-concept-maps-to-squirrel-noise-code">How each concept maps to Squirrel Noise code</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Core (low-level)</th>
+<th>32-bit wrappers</th>
+<th>64-bit wrappers</th>
+<th>Range</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Perlin 2D</strong></td>
+<td><code>HashBasedNoiseUtils.Perlin(xf,yf,h00,h10,h01,h11)</code></td>
+<td><code>SquirrelNoise32Bit.Perlin(x,y, seed, type)</code></td>
+<td><code>SquirrelNoise64Bit.Perlin(x,y, seed, type)</code></td>
+<td>~[-1,1]</td>
+<td>Corner hashes come from <code>Get2DNoise</code>.</td>
+</tr>
+<tr>
+<td><strong>Perlin 3D</strong></td>
+<td><code>HashBasedNoiseUtils.Perlin(xf,yf,zf, …8 hashes…)</code></td>
+<td><code>SquirrelNoise32Bit.Perlin(x,y,z, seed, type)</code></td>
+<td><code>SquirrelNoise64Bit.Perlin(x,y,z, seed, type)</code></td>
+<td>~[-1,1]</td>
+<td>Same idea, 8 corners.</td>
+</tr>
+<tr>
+<td><strong>Perlin + analytic ∇ (2D)</strong></td>
+<td><code>HashBasedNoiseUtils.PerlinWithDeriv(xf,yf,…, out float2 d)</code></td>
+<td><code>SquirrelNoise32Bit.PerlinWithDeriv(x,y, seed, out float2 d, type)</code></td>
+<td><code>SquirrelNoise64Bit.PerlinWithDeriv(x,y, seed, out float2 d, type)</code></td>
+<td>value ~[-1,1]</td>
+<td>Exact gradient, no extra samples.</td>
+</tr>
+<tr>
+<td><strong>Perlin + analytic ∇ (3D)</strong></td>
+<td><code>HashBasedNoiseUtils.PerlinWithDeriv(xf,yf,zf,…, out float3 d)</code></td>
+<td><code>SquirrelNoise32Bit.PerlinWithDeriv(x,y,z, seed, out float3 d, type)</code></td>
+<td><code>SquirrelNoise64Bit.PerlinWithDeriv(x,y,z, seed, out float3 d, type)</code></td>
+<td>value ~[-1,1]</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Value &amp; Grad aliases</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.ValueAndGrad(...)</code></td>
+<td><code>SquirrelNoise64Bit.ValueAndGrad(...)</code></td>
+<td>–</td>
+<td>Just forwards to PerlinWithDeriv.</td>
+</tr>
+<tr>
+<td><strong>Finite-diff gradient</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.GradientCentral(float2/float3, seed, eps, type)</code></td>
+<td><code>SquirrelNoise64Bit.GradientCentral(float2/float3, seed, eps, type)</code></td>
+<td>–</td>
+<td>Uses central differences (extra samples).</td>
+</tr>
+<tr>
+<td><strong>Simplex 2D</strong></td>
+<td>(inside Simplex code: skew/unskew + <code>Grad2Vec</code>)</td>
+<td><code>SquirrelNoise32Bit.Simplex2DCore(pos, seed, freq, type)</code></td>
+<td><code>SquirrelNoise64Bit.Simplex2DCore(pos, seed, freq, type)</code></td>
+<td>~[-1,1]</td>
+<td>No perm tables; hashes via Squirrel.</td>
+</tr>
+<tr>
+<td><strong>Simplex 3D</strong></td>
+<td>(skew/unskew + <code>Grad3Vec</code>)</td>
+<td><code>SquirrelNoise32Bit.Simplex3DCore(pos, seed, freq, type)</code></td>
+<td><code>SquirrelNoise64Bit.Simplex3DCore(pos, seed, freq, type)</code></td>
+<td>~[-1,1]</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Cellular/Worley 2D</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.Cellular2D(...)</code></td>
+<td><code>SquirrelNoise64Bit.Cellular2D(...)</code></td>
+<td>F1/F2 in <strong>cell units</strong></td>
+<td>Use <code>metric</code> + <code>jitter</code>; feature pos/cell returned too.</td>
+</tr>
+<tr>
+<td><strong>Cellular/Worley 3D</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.Cellular3D(...)</code></td>
+<td><code>SquirrelNoise64Bit.Cellular3D(...)</code></td>
+<td>F1/F2 in <strong>cell units</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Cellular helpers</strong></td>
+<td><code>NormalizeF101 / NormalizeF1Inv01 / CellularVein01 / CellularVeinExp01</code></td>
+<td><code>CellularF1 / CellularF2MinusF1 / CellularEdge01 / CellularEdgeExp01 / CellularEdgeSigned</code></td>
+<td>same</td>
+<td>0..1 or [-1,1]</td>
+<td>Quickly get fills/edges/veins.</td>
+</tr>
+<tr>
+<td><strong>fBm</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.FBm(p, seed, oct, freq, amp, lac, gain, normalize, type)</code></td>
+<td><code>SquirrelNoise64Bit.FBm(p, seed, oct, freq, amp, lac, gain, normalize, type)</code></td>
+<td>~[-1,1] (when normalized)</td>
+<td>Stacks Perlin underneath (via your wrapper).</td>
+</tr>
+<tr>
+<td><strong>Billow</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.Billow(...)</code></td>
+<td><code>SquirrelNoise64Bit.Billow(...)</code></td>
+<td>~[-1,1]</td>
+<td>Uses <code>abs(base)</code> per octave.</td>
+</tr>
+<tr>
+<td><strong>Ridge</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.Ridge(...)</code></td>
+<td><code>SquirrelNoise64Bit.Ridge(...)</code></td>
+<td>~[-1,1]</td>
+<td>Invert+sharpen, octave-weighted.</td>
+</tr>
+<tr>
+<td><strong>Domain warp</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.DomainWarp(...)</code></td>
+<td><code>SquirrelNoise64Bit.DomainWarp(...)</code></td>
+<td>scalar</td>
+<td>Builds a low-freq vector warp then samples fBm.</td>
+</tr>
+<tr>
+<td><strong>Uber Noise</strong></td>
+<td>–</td>
+<td><code>SquirrelNoise32Bit.UberNoise(...)</code></td>
+<td><code>SquirrelNoise64Bit.UberNoise(...)</code></td>
+<td>[-1,1]</td>
+<td>Two warps → fBm → subtract ridges → clamp.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The Diffrence between 32Bit and 64Bit is 32Bit uses <code>uint</code> for the seed and <code>int</code> for the positions, where 64Bit uses <code>ulong</code> for the seed and positions.</p>
+</blockquote>
+<hr>
+<h2 id="the-squirrel-noisetype-mixers-entropy-core">The Squirrel “NoiseType” mixers (entropy core)</h2>
+<p>These feed all the “get hash” calls (<code>Get1D/2D/3DNoise</code> in 32-bit, <code>GetUInt64/…</code> in 64-bit), which in turn feed:</p>
+<ul>
+<li>Perlin/Simplex (corner hashes → gradient selection)</li>
+<li>Cellular (cell seeds → jitter vectors)</li>
+<li>Any per-octave reseeding (<code>MixOctave</code> helpers)</li>
+</ul>
+<p><strong>Pick:</strong></p>
+<ul>
+<li><code>MangledBitsBalancedMix</code> (default): great avalanche, stable.</li>
+<li><code>MangledBitsShiftXOR</code> / <code>MangledBitsRotational</code>: slightly different bias/dispersion; good for decorrelating layers.</li>
+<li><code>ChaChaQuarterRoundSimple/Advanced</code>: strong diffusion; nice if you want “very random” local variation.</li>
+</ul>
+<p><strong>Mental model:</strong> Changing <code>NoiseType</code> is like swapping the hash function under the hood—it alters micro-texture and correlation, not the high-level pattern that Perlin/Simplex/Cellular produce.</p>
+<h1 id="defaults-that-just-work">Defaults that “just work”</h1>
+<ul>
+<li>fBm: <code>octaves=5–7</code>, <code>lacunarity=2.0</code>, <code>gain=0.5</code>, normalize output.</li>
+<li>Ridge: <code>ridgeOffset≈1.0</code>, <code>ridgeSharpness=2–3</code>, freq ×1.2–1.6 vs base.</li>
+<li>Cellular “wormy”: Euclidean, <code>jitter=0.8–1.0</code>, <code>edgeWidth≈0.1</code> (2D), <code>0.12</code> (3D).</li>
+<li>Cellular “blocky”: Chebyshev or Manhattan, <code>jitter=0.0–0.2</code>.</li>
+</ul>
+<h2 id="fbm">fBm</h2>
+<ul>
+<li><strong>Start:</strong> <code>octaves=5–7</code>, <code>lacunarity=2</code>, <code>gain=0.5</code>, <code>frequency≈0.001–0.01</code></li>
+<li><strong>Bigger features:</strong> ↓<code>frequency</code> or ↓<code>octaves</code></li>
+<li><strong>Finer detail:</strong> ↑<code>octaves</code> (normalize output to keep range stable —Squirrel Noise stacks already do)</li>
+<li><strong>Rougher surface:</strong> ↑<code>lacunarity</code> (2→2.2) or ↓<code>gain</code> (0.5→0.45)</li>
+<li><strong>Smoother surface:</strong> ↓<code>lacunarity</code> (1.9) or ↑<code>gain</code> (0.55)</li>
+</ul>
+<h2 id="billow-puffy">Billow (puffy)</h2>
+<ul>
+<li><strong>Start:</strong> same as fBm; often <code>gain=0.55–0.65</code></li>
+<li><strong>More “pillow”:</strong> ↑<code>gain</code> (amplitudes decay slower)</li>
+<li><strong>Less symmetric/too soft?</strong> Mix in a little standard fBm (<code>0.7*Billow + 0.3*fBm</code>)</li>
+</ul>
+<h2 id="ridge-mountainous">Ridge (mountainous)</h2>
+<ul>
+<li><strong>Start:</strong> <code>ridgeOffset≈1.0</code>, <code>ridgeSharpness≈2.0–3.0</code>, frequency slightly higher than fBm (×1.2–1.6)</li>
+<li><strong>Sharper spines:</strong> ↑<code>ridgeSharpness</code> (2→3.5)</li>
+<li><strong>Chunkier ridges:</strong> ↑<code>ridgeOffset</code> above 1 (1.1–1.3)</li>
+<li><strong>Too spiky?</strong> ↓<code>ridgeSharpness</code> or ↓<code>frequency</code></li>
+</ul>
+<hr>
+<h1 id="mixing-cellular-with-the-fractals">Mixing Cellular with the fractals</h1>
+<ul>
+<li><p><strong>Wormy rivers over terrain</strong></p>
+<ol>
+<li>Get terrain base: <code>height = FBm(Perlin, p3, seed, …)</code></li>
+<li>Get vein mask from Cellular (Euclidean, jitter high): <code>vein ∈ [0,1]</code></li>
+<li>Carve: <code>height -= vein * carveDepth</code></li>
+<li>Optional: domain warp the <em>vein sampling position</em> with a <strong>very</strong> low-frequency warp so rivers meander.</li>
+</ol>
+</li>
+<li><p><strong>Blocky biomes</strong></p>
+<ol>
+<li>Use <code>Cellular2D</code> with <code>Chebyshev</code>, <code>jitter≈0.05</code></li>
+<li>Compute a <strong>cell id</strong> → pick biome params (different seeds/gains/octaves)</li>
+<li>Evaluate fBm/Billow/Ridge per biome to keep features consistent <em>within</em> cells and distinct <em>between</em> cells.</li>
+</ol>
+</li>
+<li><p><strong>Cell edges as roads</strong></p>
+<ul>
+<li>Threshold <code>F2-F1 &lt; w</code>, then run a thinning/skeletonization if needed.</li>
+<li>With <code>Manhattan</code>, you get orthogonal “city blocks” almost for free.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="domain-warping-with-helpers">Domain warping with helpers</h1>
+<ul>
+<li><strong>Big bend, small twist:</strong> warp amps small (0.2–0.8), warp frequencies <strong>lower</strong> than the value frequency.</li>
+<li><strong>Two-scale warp (“Uber Noise”)</strong>: a slow, strong warp (shape), then a faster, weaker warp (detail), then the fBm stack. Squirrel Noise has already codified this in <code>UberNoise</code>.</li>
+</ul>
+<hr>
+<h1 id="final-tuning-heuristics-quick-cheatsheet">Final tuning heuristics (quick cheatsheet)</h1>
+<ul>
+<li><strong>Want straighter structure?</strong> ↓<code>jitter</code>, switch to <code>Manhattan</code>/<code>Chebyshev</code>.</li>
+<li><strong>Want more organic curves?</strong> ↑<code>jitter</code>, keep <code>Euclidean</code>, add 1–2 domain warps.</li>
+<li><strong>Thinner lines (worms/roads)?</strong> ↓<code>edgeWidth</code> (or ↑<code>k</code> in the exponential remap).</li>
+<li><strong>Bigger cells/roads?</strong> ↓<code>frequency</code>. (Remember all distances scale with your sampling frequency.)</li>
+<li><strong>Too noisy?</strong> Lower the <strong>value</strong> octaves, not the warp octaves. Keep warps smooth.</li>
+<li><strong>Terrain too mushy?</strong> Add a small <code>Ridge</code> layer (2–3 octaves) and mix it in (0.2–0.4).</li>
+</ul>
+<hr>
+<h1 id="quick-which-one-should-i-use-guide">Quick “which one should I use?” guide</h1>
+<ul>
+<li><strong>General terrain/masks:</strong> Perlin fBm. Add <code>Ridge</code> (mix 0.2–0.4) for bite.</li>
+<li><strong>Puffy clouds/sand:</strong> Billow (abs fBm).</li>
+<li><strong>Sharp crests/canyons:</strong> Ridge.</li>
+<li><strong>Veins/river networks:</strong> Cellular with <code>F2−F1</code> → <code>CellularEdge01</code> (Euclidean, high <code>jitter</code>), optionally domain-warped.</li>
+<li><strong>Tiles/blocks/streets:</strong> Cellular (<code>Chebyshev</code> or <code>Manhattan</code>), low <code>jitter</code>, use <code>F1</code> or <code>F2−F1</code> + threshold.</li>
+<li><strong>Slope-aware detail:</strong> Use <code>PerlinWithDeriv</code> and reduce high-freq where <code>|∇|</code> is large.</li>
+</ul>
+<hr>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/manual/code/Runtime/Random/NoiseTypes.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

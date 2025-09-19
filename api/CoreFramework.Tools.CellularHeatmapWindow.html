@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="Editor window that renders small heatmaps for Cellular/Worley diagnostics: F1, F2, and F2-F1 in both Euclidean (wormy) and Chebyshev (blocky) metrics.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Tools_CellularHeatmapWindow.md&amp;value=---%0Auid%3A%20CoreFramework.Tools.CellularHeatmapWindow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Tools.CellularHeatmapWindow">
+
+
+
+  <h1 id="CoreFramework_Tools_CellularHeatmapWindow" data-uid="CoreFramework.Tools.CellularHeatmapWindow" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a>.<a class="xref" href="CoreFramework.Tools.html">Tools</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Editor window that renders small heatmaps for Cellular/Worley diagnostics:
+F1, F2, and F2-F1 in both Euclidean (wormy) and Chebyshev (blocky) metrics.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class CellularHeatmapWindow : EditorWindow</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="https://docs.unity3d.com/ScriptReference/Object.html">Object</a></div>
+      <div><a class="xref" href="https://docs.unity3d.com/ScriptReference/ScriptableObject.html">ScriptableObject</a></div>
+      <div><a class="xref" href="https://docs.unity3d.com/ScriptReference/EditorWindow.html">EditorWindow</a></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="CoreFramework.GameObjectExtensions.html#CoreFramework_GameObjectExtensions_OrNull__1___0_">GameObjectExtensions.OrNull&lt;T&gt;(T)</a>
+  </div>
+  <div>
+      <a class="xref" href="CoreFramework.TaskExtensions.html#CoreFramework_TaskExtensions_AsCompletedTask__1___0_">TaskExtensions.AsCompletedTask&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__autoFit" data-uid="CoreFramework.Tools.CellularHeatmapWindow._autoFit">
+  _autoFit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, previews auto-fit to window width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private bool _autoFit</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__autoNormalize" data-uid="CoreFramework.Tools.CellularHeatmapWindow._autoNormalize">
+  _autoNormalize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Normalize F1/F2 by observed min/max.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private bool _autoNormalize</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__bufEdgesC" data-uid="CoreFramework.Tools.CellularHeatmapWindow._bufEdgesC">
+  _bufEdgesC
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private float[] _bufEdgesC</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__bufEdgesE" data-uid="CoreFramework.Tools.CellularHeatmapWindow._bufEdgesE">
+  _bufEdgesE
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private float[] _bufEdgesE</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__bufEdgesM" data-uid="CoreFramework.Tools.CellularHeatmapWindow._bufEdgesM">
+  _bufEdgesM
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private float[] _bufEdgesM</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__bufF1" data-uid="CoreFramework.Tools.CellularHeatmapWindow._bufF1">
+  _bufF1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private float[] _bufF1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__bufF2" data-uid="CoreFramework.Tools.CellularHeatmapWindow._bufF2">
+  _bufF2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private float[] _bufF2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__edgeWidth" data-uid="CoreFramework.Tools.CellularHeatmapWindow._edgeWidth">
+  _edgeWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visual scaling for F2-F1 edge map.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private float _edgeWidth</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__frequency" data-uid="CoreFramework.Tools.CellularHeatmapWindow._frequency">
+  _frequency
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Cells-per-world-unit multiplier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private float _frequency</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__gradient" data-uid="CoreFramework.Tools.CellularHeatmapWindow._gradient">
+  _gradient
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Color ramp for preview.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private Gradient _gradient</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Gradient.html">Gradient</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__height" data-uid="CoreFramework.Tools.CellularHeatmapWindow._height">
+  _height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Output texture height (pixels).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private int _height</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__jitter" data-uid="CoreFramework.Tools.CellularHeatmapWindow._jitter">
+  _jitter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>0=center; 1=random within cell.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private float _jitter</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__noiseType" data-uid="CoreFramework.Tools.CellularHeatmapWindow._noiseType">
+  _noiseType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Noise type for cell hashing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private NoiseType _noiseType</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__origin" data-uid="CoreFramework.Tools.CellularHeatmapWindow._origin">
+  _origin
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>World-space sampling origin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private float2 _origin</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__pixelStep" data-uid="CoreFramework.Tools.CellularHeatmapWindow._pixelStep">
+  _pixelStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>World units per pixel step along X/Y.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private float _pixelStep</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__previewScale" data-uid="CoreFramework.Tools.CellularHeatmapWindow._previewScale">
+  _previewScale
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When Auto-Fit is off, each preview width = _width * this scale.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private int _previewScale</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__scroll" data-uid="CoreFramework.Tools.CellularHeatmapWindow._scroll">
+  _scroll
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scroll position for the preview list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private Vector2 _scroll</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector2.html">Vector2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__seed" data-uid="CoreFramework.Tools.CellularHeatmapWindow._seed">
+  _seed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hash seed for feature placement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private uint _seed</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__texEdgesCheby" data-uid="CoreFramework.Tools.CellularHeatmapWindow._texEdgesCheby">
+  _texEdgesCheby
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private Texture2D _texEdgesCheby</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__texEdgesEuclid" data-uid="CoreFramework.Tools.CellularHeatmapWindow._texEdgesEuclid">
+  _texEdgesEuclid
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private Texture2D _texEdgesEuclid</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__texEdgesManhattan" data-uid="CoreFramework.Tools.CellularHeatmapWindow._texEdgesManhattan">
+  _texEdgesManhattan
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private Texture2D _texEdgesManhattan</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__texF1" data-uid="CoreFramework.Tools.CellularHeatmapWindow._texF1">
+  _texF1
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private Texture2D _texF1</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__texF2" data-uid="CoreFramework.Tools.CellularHeatmapWindow._texF2">
+  _texF2
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private Texture2D _texF2</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Texture2D.html">Texture2D</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow__width" data-uid="CoreFramework.Tools.CellularHeatmapWindow._width">
+  _width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Output texture width (pixels).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+private int _width</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Tools_CellularHeatmapWindow_Allocate_" data-uid="CoreFramework.Tools.CellularHeatmapWindow.Allocate*"></a>
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow_Allocate" data-uid="CoreFramework.Tools.CellularHeatmapWindow.Allocate">
+  Allocate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Allocate buffers and textures for the configured dimensions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private void Allocate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Tools_CellularHeatmapWindow_OnEnable_" data-uid="CoreFramework.Tools.CellularHeatmapWindow.OnEnable*"></a>
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow_OnEnable" data-uid="CoreFramework.Tools.CellularHeatmapWindow.OnEnable">
+  OnEnable()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialize defaults and gradient.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private void OnEnable()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Tools_CellularHeatmapWindow_OnGUI_" data-uid="CoreFramework.Tools.CellularHeatmapWindow.OnGUI*"></a>
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow_OnGUI" data-uid="CoreFramework.Tools.CellularHeatmapWindow.OnGUI">
+  OnGUI()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draw the UI and scrollable previews.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private void OnGUI()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Tools_CellularHeatmapWindow_Open_" data-uid="CoreFramework.Tools.CellularHeatmapWindow.Open*"></a>
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow_Open" data-uid="CoreFramework.Tools.CellularHeatmapWindow.Open">
+  Open()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Menu entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MenuItem(&quot;Core Framework/Tools/Cellular Heatmap&quot;)]
+private static void Open()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Tools_CellularHeatmapWindow_Regenerate_" data-uid="CoreFramework.Tools.CellularHeatmapWindow.Regenerate*"></a>
+
+  <h3 id="CoreFramework_Tools_CellularHeatmapWindow_Regenerate" data-uid="CoreFramework.Tools.CellularHeatmapWindow.Regenerate">
+  Regenerate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compute F1/F2 and edges for both metrics, write into textures.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private void Regenerate()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/Tools/CellularHeatmapWindow.cs/#L20" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

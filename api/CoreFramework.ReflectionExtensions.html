@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="Provides extension methods for reflection-related operations on types, methods, fields, and attributes.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_ReflectionExtensions.md&amp;value=---%0Auid%3A%20CoreFramework.ReflectionExtensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.ReflectionExtensions">
+
+
+
+  <h1 id="CoreFramework_ReflectionExtensions" data-uid="CoreFramework.ReflectionExtensions" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Provides extension methods for reflection-related operations on types, methods, fields, and attributes.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ReflectionExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CoreFramework_ReflectionExtensions_PrimitiveTypeCastHierarchy" data-uid="CoreFramework.ReflectionExtensions.PrimitiveTypeCastHierarchy">
+  PrimitiveTypeCastHierarchy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A hierarchical structure defining sets of primitive types that can be explicitly or implicitly cast between each other.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static readonly Type[][] PrimitiveTypeCastHierarchy</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Type</span>[][]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="CoreFramework_ReflectionExtensions_PrimitiveTypeCastHierarchy_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This two-dimensional array organizes related primitive types into groups, where each inner array represents a set of types
+that share compatible casting rules. The hierarchy is used for determining possible casts among primitive types
+for runtime reflection-based operations.</p>
+</div>
+
+
+
+
+
+  <h3 id="CoreFramework_ReflectionExtensions_TypeDisplayNames" data-uid="CoreFramework.ReflectionExtensions.TypeDisplayNames">
+  TypeDisplayNames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A dictionary mapping common .NET types to their user-friendly display names.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static readonly Dictionary&lt;Type, string&gt; TypeDisplayNames</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Dictionary</span>&lt;<span class="xref">Type</span>, <span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="CoreFramework_ReflectionExtensions_TypeDisplayNames_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This dictionary maps instances of <span class="xref">System.Type</span> representing common .NET types
+(e.g., <span class="xref">int</span>, <span class="xref">string</span>) to their simplified or more readable display names
+(e.g., &ldquo;int&rdquo;, &ldquo;string&rdquo;). It is primarily used in reflection-based operations to provide a human-readable type designation.</p>
+</div>
+
+
+
+
+
+  <h3 id="CoreFramework_ReflectionExtensions_ValueTupleTypes" data-uid="CoreFramework.ReflectionExtensions.ValueTupleTypes">
+  ValueTupleTypes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An array of <span class="xref">System.Type</span> objects representing various generic type definitions of <span class="xref">System.ValueTuple</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static readonly Type[] ValueTupleTypes</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Type</span>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="CoreFramework_ReflectionExtensions_ValueTupleTypes_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This array includes all generic forms of <span class="xref">System.ValueTuple</span> types with arity ranging from one to eight,
+such as <span class="xref">System.ValueTuple&lt;T1&gt;</span> through <span class="xref">System.ValueTuple&lt;T1, T2, T3, T4, T5, T6, T7, TRest&gt;</span>.
+It is primarily used to identify <span class="xref">System.ValueTuple</span> types during reflection-based operations
+where type inspection or display name generation is required.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_ReflectionExtensions_AreMethodsEqual_" data-uid="CoreFramework.ReflectionExtensions.AreMethodsEqual*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_AreMethodsEqual_System_Reflection_MethodInfo_System_Reflection_MethodInfo_" data-uid="CoreFramework.ReflectionExtensions.AreMethodsEqual(System.Reflection.MethodInfo,System.Reflection.MethodInfo)">
+  AreMethodsEqual(MethodInfo, MethodInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if two methods from different types have the same signature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AreMethodsEqual(MethodInfo a, MethodInfo b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">MethodInfo</span></dt>
+    <dd><p>First method</p>
+</dd>
+    <dt><code>b</code> <span class="xref">MethodInfo</span></dt>
+    <dd><p>Second method</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p><code>true</code> if they are equal</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_Cast_" data-uid="CoreFramework.ReflectionExtensions.Cast*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_Cast_System_Type_System_Object_" data-uid="CoreFramework.ReflectionExtensions.Cast(System.Type,System.Object)">
+  Cast(Type, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dynamically casts an object to the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object Cast(this Type type, object data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The destination type of the cast.</p>
+</dd>
+    <dt><code>data</code> <span class="xref">object</span></dt>
+    <dd><p>The object to cast.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd><p>The dynamically cast object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_Default_" data-uid="CoreFramework.ReflectionExtensions.Default*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_Default_System_Type_" data-uid="CoreFramework.ReflectionExtensions.Default(System.Type)">
+  Default(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the default value for the given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object Default(this Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The type for which to get the default value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd><p>An instance of the type with a default value, or null if the type is a reference type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_GetDisplayName_" data-uid="CoreFramework.ReflectionExtensions.GetDisplayName*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_GetDisplayName_System_Type_System_Boolean_" data-uid="CoreFramework.ReflectionExtensions.GetDisplayName(System.Type,System.Boolean)">
+  GetDisplayName(Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L301"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a formatted display name for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDisplayName(this Type type, bool includeNamespace = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The type to generate a display name for.</p>
+</dd>
+    <dt><code>includeNamespace</code> <span class="xref">bool</span></dt>
+    <dd><p>If the namespace should be included when generating the typename.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The generated display name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_GetTupleDisplayName_" data-uid="CoreFramework.ReflectionExtensions.GetTupleDisplayName*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_GetTupleDisplayName_System_Type_System_Boolean_" data-uid="CoreFramework.ReflectionExtensions.GetTupleDisplayName(System.Type,System.Boolean)">
+  GetTupleDisplayName(Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L378"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets a formatted display name for a tuple type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static string GetTupleDisplayName(this Type type, bool includeNamespace = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The tuple type to generate a display name for.</p>
+</dd>
+    <dt><code>includeNamespace</code> <span class="xref">bool</span></dt>
+    <dd><p>If the namespace should be included when generating the typename.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The generated display name for the tuple type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_HasAttribute_" data-uid="CoreFramework.ReflectionExtensions.HasAttribute*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_HasAttribute__1_System_Reflection_ICustomAttributeProvider_System_Boolean_" data-uid="CoreFramework.ReflectionExtensions.HasAttribute``1(System.Reflection.ICustomAttributeProvider,System.Boolean)">
+  HasAttribute&lt;T&gt;(ICustomAttributeProvider, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L282"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if the specified attribute is present on the provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool HasAttribute&lt;T&gt;(this ICustomAttributeProvider provider, bool searchInherited = true) where T : Attribute</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>provider</code> <span class="xref">ICustomAttributeProvider</span></dt>
+    <dd><p>The attribute provider.</p>
+</dd>
+    <dt><code>searchInherited</code> <span class="xref">bool</span></dt>
+    <dd><p>If base declarations should be searched.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the attribute is present, otherwise false.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The attribute to test.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_HasCastDefined_" data-uid="CoreFramework.ReflectionExtensions.HasCastDefined*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_HasCastDefined_System_Type_System_Type_System_Boolean_" data-uid="CoreFramework.ReflectionExtensions.HasCastDefined(System.Type,System.Type,System.Boolean)">
+  HasCastDefined(Type, Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a cast is defined between two types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static bool HasCastDefined(this Type from, Type to, bool implicitly)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <span class="xref">Type</span></dt>
+    <dd><p>The source type to check for cast definitions.</p>
+</dd>
+    <dt><code>to</code> <span class="xref">Type</span></dt>
+    <dd><p>The destination type to check for cast definitions.</p>
+</dd>
+    <dt><code>implicitly</code> <span class="xref">bool</span></dt>
+    <dd><p>If only implicit casts should be considered.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if a cast is defined between the types, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsCastDefined_" data-uid="CoreFramework.ReflectionExtensions.IsCastDefined*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsCastDefined_System_Type_System_Func_System_Reflection_MethodInfo_System_Type__System_Func_System_Reflection_MethodInfo_System_Type__System_Boolean_System_Boolean_" data-uid="CoreFramework.ReflectionExtensions.IsCastDefined(System.Type,System.Func{System.Reflection.MethodInfo,System.Type},System.Func{System.Reflection.MethodInfo,System.Type},System.Boolean,System.Boolean)">
+  IsCastDefined(Type, Func&lt;MethodInfo, Type&gt;, Func&lt;MethodInfo, Type&gt;, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a cast is defined between two types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static bool IsCastDefined(Type type, Func&lt;MethodInfo, Type&gt; baseType, Func&lt;MethodInfo, Type&gt; derivedType, bool implicitly, bool lookInBase)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The type to check for cast definitions.</p>
+</dd>
+    <dt><code>baseType</code> <span class="xref">Func</span>&lt;<span class="xref">MethodInfo</span>, <span class="xref">Type</span>&gt;</dt>
+    <dd><p>A function to get the base type from a method.</p>
+</dd>
+    <dt><code>derivedType</code> <span class="xref">Func</span>&lt;<span class="xref">MethodInfo</span>, <span class="xref">Type</span>&gt;</dt>
+    <dd><p>A function to get the derived type from a method.</p>
+</dd>
+    <dt><code>implicitly</code> <span class="xref">bool</span></dt>
+    <dd><p>If only implicit casts should be considered.</p>
+</dd>
+    <dt><code>lookInBase</code> <span class="xref">bool</span></dt>
+    <dd><p>If the base hierarchy should be searched for cast definitions.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if a cast is defined between the types, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsCastableTo_" data-uid="CoreFramework.ReflectionExtensions.IsCastableTo*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsCastableTo_System_Type_System_Type_System_Boolean_" data-uid="CoreFramework.ReflectionExtensions.IsCastableTo(System.Type,System.Type,System.Boolean)">
+  IsCastableTo(Type, Type, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if an object of the given type can be cast to the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsCastableTo(this Type from, Type to, bool implicitly = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>from</code> <span class="xref">Type</span></dt>
+    <dd><p>this object</p>
+</dd>
+    <dt><code>to</code> <span class="xref">Type</span></dt>
+    <dd><p>The destination type of the cast.</p>
+</dd>
+    <dt><code>implicitly</code> <span class="xref">bool</span></dt>
+    <dd><p>If only implicit casts should be considered.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>If the cast can be performed.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsDelegate_" data-uid="CoreFramework.ReflectionExtensions.IsDelegate*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsDelegate_System_Reflection_FieldInfo_" data-uid="CoreFramework.ReflectionExtensions.IsDelegate(System.Reflection.FieldInfo)">
+  IsDelegate(FieldInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a field is a delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDelegate(this FieldInfo fieldInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fieldInfo</code> <span class="xref">FieldInfo</span></dt>
+    <dd><p>The field to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the field is a delegate, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsDelegate_" data-uid="CoreFramework.ReflectionExtensions.IsDelegate*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsDelegate_System_Type_" data-uid="CoreFramework.ReflectionExtensions.IsDelegate(System.Type)">
+  IsDelegate(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a type is a delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDelegate(this Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The type to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the type is a delegate, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsDerivedTypeOf_" data-uid="CoreFramework.ReflectionExtensions.IsDerivedTypeOf*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsDerivedTypeOf_System_Type_System_Type_" data-uid="CoreFramework.ReflectionExtensions.IsDerivedTypeOf(System.Type,System.Type)">
+  IsDerivedTypeOf(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type is a derived type of the given base type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsDerivedTypeOf(this Type type, Type baseType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>this type</p>
+</dd>
+    <dt><code>baseType</code> <span class="xref">Type</span></dt>
+    <dd><p>The base type to test against.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>If the type is a derived type of the base type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsGenericTypeOf_" data-uid="CoreFramework.ReflectionExtensions.IsGenericTypeOf*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsGenericTypeOf_System_Type_System_Type_" data-uid="CoreFramework.ReflectionExtensions.IsGenericTypeOf(System.Type,System.Type)">
+  IsGenericTypeOf(Type, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the type is a generic type of the given non-generic type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsGenericTypeOf(this Type genericType, Type nonGenericType)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>genericType</code> <span class="xref">Type</span></dt>
+    <dd><p>The Type to be used</p>
+</dd>
+    <dt><code>nonGenericType</code> <span class="xref">Type</span></dt>
+    <dd><p>The non-generic type to test against.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>If the type is a generic type of the non-generic type.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsOverride_" data-uid="CoreFramework.ReflectionExtensions.IsOverride*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsOverride_System_Reflection_MethodInfo_" data-uid="CoreFramework.ReflectionExtensions.IsOverride(System.Reflection.MethodInfo)">
+  IsOverride(MethodInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if the given method is an override.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsOverride(this MethodInfo methodInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>methodInfo</code> <span class="xref">MethodInfo</span></dt>
+    <dd><p>The method to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the method is an override, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsStrongDelegate_" data-uid="CoreFramework.ReflectionExtensions.IsStrongDelegate*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsStrongDelegate_System_Reflection_FieldInfo_" data-uid="CoreFramework.ReflectionExtensions.IsStrongDelegate(System.Reflection.FieldInfo)">
+  IsStrongDelegate(FieldInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a field is a strongly typed delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsStrongDelegate(this FieldInfo fieldInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fieldInfo</code> <span class="xref">FieldInfo</span></dt>
+    <dd><p>The field to query.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the field is a strongly typed delegate, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_IsStrongDelegate_" data-uid="CoreFramework.ReflectionExtensions.IsStrongDelegate*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_IsStrongDelegate_System_Type_" data-uid="CoreFramework.ReflectionExtensions.IsStrongDelegate(System.Type)">
+  IsStrongDelegate(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L113"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a type is a strongly typed delegate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsStrongDelegate(this Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The type to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the type is a strongly typed delegate, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_Is_" data-uid="CoreFramework.ReflectionExtensions.Is*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_Is__1_System_Type_" data-uid="CoreFramework.ReflectionExtensions.Is``1(System.Type)">
+  Is&lt;T&gt;(Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a type is assignable from the specified generic type parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Is&lt;T&gt;(this Type type)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>type</code> <span class="xref">Type</span></dt>
+    <dd><p>The type to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the specified type is assignable from the generic type parameter T, otherwise false.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type to check against.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_ReflectionExtensions_RebaseMethod_" data-uid="CoreFramework.ReflectionExtensions.RebaseMethod*"></a>
+
+  <h3 id="CoreFramework_ReflectionExtensions_RebaseMethod_System_Reflection_MethodInfo_System_Type_" data-uid="CoreFramework.ReflectionExtensions.RebaseMethod(System.Reflection.MethodInfo,System.Type)">
+  RebaseMethod(MethodInfo, Type)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L443"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rebase a method onto a new type by finding the corresponding method with an equal signature.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static MethodInfo RebaseMethod(this MethodInfo method, Type newBase)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>method</code> <span class="xref">MethodInfo</span></dt>
+    <dd><p>Method to rebase</p>
+</dd>
+    <dt><code>newBase</code> <span class="xref">Type</span></dt>
+    <dd><p>New type to rebase the method onto</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">MethodInfo</span></dt>
+    <dd><p>The rebased method</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/ReflectionExtensions.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

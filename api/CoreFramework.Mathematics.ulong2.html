@@ -1,0 +1,5498 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="A custom struct representing a pair of 64-bit unsigned integers. Designed to mirror Unity&#39;s int2/uint2 structs.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Mathematics_ulong2.md&amp;value=---%0Auid%3A%20CoreFramework.Mathematics.ulong2%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Mathematics.ulong2">
+
+
+
+  <h1 id="CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2" class="text-break">
+Struct   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a>.<a class="xref" href="CoreFramework.Mathematics.html">Mathematics</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>A custom struct representing a pair of 64-bit unsigned integers.
+Designed to mirror Unity's int2/uint2 structs.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+[BurstCompile]
+public struct ulong2</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="CoreFramework.TaskExtensions.html#CoreFramework_TaskExtensions_AsCompletedTask__1___0_">TaskExtensions.AsCompletedTask&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(CoreFramework.Mathematics.ulong2)">
+  ulong2(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(ulong2 xy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xy</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_Boolean_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.Boolean)">
+  ulong2(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(bool v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_Double_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.Double)">
+  ulong2(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(double v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">double</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_Int32_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.Int32)">
+  ulong2(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(int v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_Int64_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.Int64)">
+  ulong2(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(long v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_Int64_System_Int64_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.Int64,System.Int64)">
+  ulong2(long, long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(long x, long y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <span class="xref">long</span></dt>
+    <dd></dd>
+    <dt><code>y</code> <span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_Single_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.Single)">
+  ulong2(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(float v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.UInt32)">
+  ulong2(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(uint v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.UInt64)">
+  ulong2(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(ulong v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_System_UInt64_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(System.UInt64,System.UInt64)">
+  ulong2(ulong, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(ulong x, ulong y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>y</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_Unity_Mathematics_bool2_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(Unity.Mathematics.bool2)">
+  ulong2(bool2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(bool2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_Unity_Mathematics_double2_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(Unity.Mathematics.double2)">
+  ulong2(double2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(double2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.double2.html">double2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_Unity_Mathematics_float2_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(Unity.Mathematics.float2)">
+  ulong2(float2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(float2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_Unity_Mathematics_int2_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(Unity.Mathematics.int2)">
+  ulong2(int2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(int2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.int2.html">int2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2__ctor_" data-uid="CoreFramework.Mathematics.ulong2.#ctor*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2__ctor_Unity_Mathematics_uint2_" data-uid="CoreFramework.Mathematics.ulong2.#ctor(Unity.Mathematics.uint2)">
+  ulong2(uint2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2(uint2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.uint2.html">uint2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CoreFramework_Mathematics_ulong2_x" data-uid="CoreFramework.Mathematics.ulong2.x">
+  x
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong x</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Mathematics_ulong2_y" data-uid="CoreFramework.Mathematics.ulong2.y">
+  y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong y</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_Mathematics_ulong2_zero" data-uid="CoreFramework.Mathematics.ulong2.zero">
+  zero
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly ulong2 zero</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xx_" data-uid="CoreFramework.Mathematics.ulong2.xx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xx" data-uid="CoreFramework.Mathematics.ulong2.xx">
+  xx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L569"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2 xx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xxxx_" data-uid="CoreFramework.Mathematics.ulong2.xxxx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xxxx" data-uid="CoreFramework.Mathematics.ulong2.xxxx">
+  xxxx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xxxx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xxxy_" data-uid="CoreFramework.Mathematics.ulong2.xxxy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xxxy" data-uid="CoreFramework.Mathematics.ulong2.xxxy">
+  xxxy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L435"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xxxy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xxyx_" data-uid="CoreFramework.Mathematics.ulong2.xxyx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xxyx" data-uid="CoreFramework.Mathematics.ulong2.xxyx">
+  xxyx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xxyx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xxyy_" data-uid="CoreFramework.Mathematics.ulong2.xxyy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xxyy" data-uid="CoreFramework.Mathematics.ulong2.xxyy">
+  xxyy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L453"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xxyy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xy_" data-uid="CoreFramework.Mathematics.ulong2.xy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xy" data-uid="CoreFramework.Mathematics.ulong2.xy">
+  xy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L577"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2 xy { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xyxx_" data-uid="CoreFramework.Mathematics.ulong2.xyxx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xyxx" data-uid="CoreFramework.Mathematics.ulong2.xyxx">
+  xyxx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L462"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xyxx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xyxy_" data-uid="CoreFramework.Mathematics.ulong2.xyxy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xyxy" data-uid="CoreFramework.Mathematics.ulong2.xyxy">
+  xyxy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L471"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xyxy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xyyx_" data-uid="CoreFramework.Mathematics.ulong2.xyyx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xyyx" data-uid="CoreFramework.Mathematics.ulong2.xyyx">
+  xyyx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L480"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xyyx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_xyyy_" data-uid="CoreFramework.Mathematics.ulong2.xyyy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_xyyy" data-uid="CoreFramework.Mathematics.ulong2.xyyy">
+  xyyy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L489"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 xyyy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yx_" data-uid="CoreFramework.Mathematics.ulong2.yx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yx" data-uid="CoreFramework.Mathematics.ulong2.yx">
+  yx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L587"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2 yx { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yxxx_" data-uid="CoreFramework.Mathematics.ulong2.yxxx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yxxx" data-uid="CoreFramework.Mathematics.ulong2.yxxx">
+  yxxx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L498"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yxxx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yxxy_" data-uid="CoreFramework.Mathematics.ulong2.yxxy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yxxy" data-uid="CoreFramework.Mathematics.ulong2.yxxy">
+  yxxy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L507"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yxxy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yxyx_" data-uid="CoreFramework.Mathematics.ulong2.yxyx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yxyx" data-uid="CoreFramework.Mathematics.ulong2.yxyx">
+  yxyx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L516"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yxyx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yxyy_" data-uid="CoreFramework.Mathematics.ulong2.yxyy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yxyy" data-uid="CoreFramework.Mathematics.ulong2.yxyy">
+  yxyy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L525"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yxyy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yy_" data-uid="CoreFramework.Mathematics.ulong2.yy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yy" data-uid="CoreFramework.Mathematics.ulong2.yy">
+  yy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L597"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2 yy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yyxx_" data-uid="CoreFramework.Mathematics.ulong2.yyxx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yyxx" data-uid="CoreFramework.Mathematics.ulong2.yyxx">
+  yyxx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L534"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yyxx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yyxy_" data-uid="CoreFramework.Mathematics.ulong2.yyxy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yyxy" data-uid="CoreFramework.Mathematics.ulong2.yyxy">
+  yyxy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L543"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yyxy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yyyx_" data-uid="CoreFramework.Mathematics.ulong2.yyyx*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yyyx" data-uid="CoreFramework.Mathematics.ulong2.yyyx">
+  yyyx
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L552"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yyyx { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_yyyy_" data-uid="CoreFramework.Mathematics.ulong2.yyyy*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_yyyy" data-uid="CoreFramework.Mathematics.ulong2.yyyy">
+  yyyy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L561"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Swizzles the vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong4 yyyy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong4.html">ulong4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Mathematics_ulong2_Equals_" data-uid="CoreFramework.Mathematics.ulong2.Equals*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_Equals_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.Equals(CoreFramework.Mathematics.ulong2)">
+  Equals(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L400"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether the current object is equal to another object of the same type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ulong2 other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd><p>An object to compare with this object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_Equals_" data-uid="CoreFramework.Mathematics.ulong2.Equals*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_Equals_System_Object_" data-uid="CoreFramework.Mathematics.ulong2.Equals(System.Object)">
+  Equals(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L403"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Indicates whether this instance and a specified object are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <span class="xref">object</span></dt>
+    <dd><p>The object to compare with the current instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">obj</code> and this instance are the same type and represent the same value; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_GetHashCode_" data-uid="CoreFramework.Mathematics.ulong2.GetHashCode*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_GetHashCode" data-uid="CoreFramework.Mathematics.ulong2.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L406"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd><p>A 32-bit signed integer that is the hash code for this instance.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_ToString_" data-uid="CoreFramework.Mathematics.ulong2.ToString*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_ToString" data-uid="CoreFramework.Mathematics.ulong2.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L411"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns the fully qualified type name of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The fully qualified type name.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_ToString_" data-uid="CoreFramework.Mathematics.ulong2.ToString*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_ToString_System_String_System_IFormatProvider_" data-uid="CoreFramework.Mathematics.ulong2.ToString(System.String,System.IFormatProvider)">
+  ToString(string, IFormatProvider)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Formats the value of the current instance using the specified format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>format</code> <span class="xref">string</span></dt>
+    <dd><p>The format to use.</p>
+<p>-or-</p>
+<p>A null reference (<code>Nothing</code> in Visual Basic) to use the default format defined for the type of the <span class="xref">System.IFormattable</span> implementation.</p>
+</dd>
+    <dt><code>formatProvider</code> <span class="xref">IFormatProvider</span></dt>
+    <dd><p>The provider to use to format the value.</p>
+<p>-or-</p>
+<p>A null reference (<code>Nothing</code> in Visual Basic) to obtain the numeric format information from the current locale setting of the operating system.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd><p>The value of the current instance in the specified format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_clamp_" data-uid="CoreFramework.Mathematics.ulong2.clamp*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_clamp_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.clamp(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  clamp(ulong2, ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L389"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 clamp(ulong2 value, ulong2 min, ulong2 max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>min</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>max</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_dot_" data-uid="CoreFramework.Mathematics.ulong2.dot*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_dot_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.dot(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  dot(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong dot(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_max_" data-uid="CoreFramework.Mathematics.ulong2.max*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_max_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.max(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  max(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 max(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_min_" data-uid="CoreFramework.Mathematics.ulong2.min*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_min_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.min(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  min(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L383"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 min(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Addition_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Addition_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator +(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator +(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Addition_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Addition_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator +(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator +(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Addition_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Addition_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator +(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator +(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Addition_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Addition_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator +(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator +(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Addition_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Addition_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Addition(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator +(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator +(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator &amp;(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator &amp;(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator &amp;(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator &amp;(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator &amp;(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator &amp;(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator &amp;(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator &amp;(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseAnd_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseAnd(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator &amp;(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator &amp;(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator |(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator |(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator |(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator |(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator |(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator |(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator |(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L260"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator |(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_BitwiseOr_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_BitwiseOr(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator |(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator |(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Decrement_" data-uid="CoreFramework.Mathematics.ulong2.op_Decrement*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Decrement_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Decrement(CoreFramework.Mathematics.ulong2)">
+  operator --(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator --(ulong2 val)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>val</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Division_" data-uid="CoreFramework.Mathematics.ulong2.op_Division*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Division_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Division(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator /(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator /(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Division_" data-uid="CoreFramework.Mathematics.ulong2.op_Division*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Division_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_Division(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator /(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator /(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Division_" data-uid="CoreFramework.Mathematics.ulong2.op_Division*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Division_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Division(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator /(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L192"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator /(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Division_" data-uid="CoreFramework.Mathematics.ulong2.op_Division*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Division_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Division(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator /(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator /(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Division_" data-uid="CoreFramework.Mathematics.ulong2.op_Division*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Division_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Division(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator /(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator /(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Equality_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Equality_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator ==(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator ==(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Equality_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Equality_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator ==(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator ==(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Equality_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Equality_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator ==(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L291"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator ==(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Equality_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Equality_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator ==(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator ==(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Equality_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Equality_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Equality(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator ==(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator ==(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator ^(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L263"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator ^(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator ^(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator ^(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator ^(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator ^(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator ^(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L275"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator ^(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_ExclusiveOr_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_ExclusiveOr(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator ^(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L269"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator ^(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__System_Double" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~System.Double">
+  explicit operator double(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator double(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">double</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__System_Int32" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~System.Int32">
+  explicit operator int(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator int(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__System_Int64" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~System.Int64">
+  explicit operator long(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator long(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__System_Single" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~System.Single">
+  explicit operator float(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator float(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__System_UInt32" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~System.UInt32">
+  explicit operator uint(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator uint(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__System_UInt64" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~System.UInt64">
+  explicit operator ulong(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator ulong(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__Unity_Mathematics_double2" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~Unity.Mathematics.double2">
+  explicit operator double2(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator double2(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.double2.html">double2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__Unity_Mathematics_float2" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~Unity.Mathematics.float2">
+  explicit operator float2(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator float2(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__Unity_Mathematics_int2" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~Unity.Mathematics.int2">
+  explicit operator int2(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator int2(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.int2.html">int2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Explicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Explicit_CoreFramework_Mathematics_ulong2__Unity_Mathematics_uint2" data-uid="CoreFramework.Mathematics.ulong2.op_Explicit(CoreFramework.Mathematics.ulong2)~Unity.Mathematics.uint2">
+  explicit operator uint2(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static explicit operator uint2(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.uint2.html">uint2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThan_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThan_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator &gt;(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L349"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThan_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThan_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator &gt;(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThan_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThan_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator &gt;(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThan_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThan_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator &gt;(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L361"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThan_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThan_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThan(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator &gt;(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator &gt;=(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L364"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;=(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator &gt;=(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;=(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator &gt;=(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;=(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator &gt;=(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;=(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_GreaterThanOrEqual_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_GreaterThanOrEqual(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator &gt;=(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L370"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &gt;=(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_CoreFramework_Mathematics_ulong2__System_ValueTuple_System_UInt64_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(CoreFramework.Mathematics.ulong2)~System.ValueTuple{System.UInt64,System.UInt64}">
+  implicit operator (ulong, ulong)(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator (ulong, ulong)(ulong2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<span class="xref">ulong</span> <span class="xref">x</span>, <span class="xref">ulong</span> <span class="xref">y</span>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_Boolean__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.Boolean)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(bool v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_Double__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.Double)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(double v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">double</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_Int32__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.Int32)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(int v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_Int64__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.Int64)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(long v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_Single__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.Single)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(float v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_UInt32__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.UInt32)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(uint v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_UInt64__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.UInt64)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(ulong v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_System_ValueTuple_System_UInt64_System_UInt64___CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(System.ValueTuple{System.UInt64,System.UInt64})~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2((ulong x, ulong y))
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2((ulong x, ulong y) v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> (<span class="xref">ulong</span> <span class="xref">x</span>, <span class="xref">ulong</span> <span class="xref">y</span>)</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_Unity_Mathematics_bool2__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(Unity.Mathematics.bool2)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(bool2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(bool2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_Unity_Mathematics_double2__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(Unity.Mathematics.double2)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(double2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(double2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.double2.html">double2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_Unity_Mathematics_float2__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(Unity.Mathematics.float2)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(float2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(float2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_Unity_Mathematics_int2__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(Unity.Mathematics.int2)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(int2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(int2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.int2.html">int2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Implicit_" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Implicit_Unity_Mathematics_uint2__CoreFramework_Mathematics_ulong2" data-uid="CoreFramework.Mathematics.ulong2.op_Implicit(Unity.Mathematics.uint2)~CoreFramework.Mathematics.ulong2">
+  implicit operator ulong2(uint2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong2(uint2 v)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v</code> <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.uint2.html">uint2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Increment_" data-uid="CoreFramework.Mathematics.ulong2.op_Increment*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Increment_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Increment(CoreFramework.Mathematics.ulong2)">
+  operator ++(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator ++(ulong2 val)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>val</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Inequality_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Inequality_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator !=(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator !=(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Inequality_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Inequality_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator !=(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L312"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator !=(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Inequality_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Inequality_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator !=(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L306"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator !=(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Inequality_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Inequality_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator !=(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator !=(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Inequality_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Inequality_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Inequality(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator !=(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L309"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator !=(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LeftShift_" data-uid="CoreFramework.Mathematics.ulong2.op_LeftShift*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LeftShift_CoreFramework_Mathematics_ulong2_System_Int32_" data-uid="CoreFramework.Mathematics.ulong2.op_LeftShift(CoreFramework.Mathematics.ulong2,System.Int32)">
+  operator &lt;&lt;(ulong2, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L281"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator &lt;&lt;(ulong2 a, int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>n</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThan_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThan_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator &lt;(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L319"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThan_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThan_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator &lt;(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThan_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThan_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator &lt;(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThan_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThan_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator &lt;(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThan_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThan_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThan(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator &lt;(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L325"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator &lt;=(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;=(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator &lt;=(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;=(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator &lt;=(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;=(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator &lt;=(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;=(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_LessThanOrEqual_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_LessThanOrEqual(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator &lt;=(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L340"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool2 operator &lt;=(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">bool2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Modulus_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Modulus_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator %(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator %(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Modulus_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Modulus_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator %(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator %(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Modulus_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Modulus_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator %(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator %(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Modulus_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Modulus_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator %(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator %(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Modulus_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Modulus_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Modulus(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator %(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator %(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Multiply_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Multiply_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator *(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator *(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Multiply_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Multiply_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator *(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator *(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Multiply_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Multiply_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator *(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator *(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Multiply_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Multiply_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator *(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L186"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator *(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Multiply_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Multiply_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Multiply(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator *(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L180"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator *(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_OnesComplement_" data-uid="CoreFramework.Mathematics.ulong2.op_OnesComplement*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_OnesComplement_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_OnesComplement(CoreFramework.Mathematics.ulong2)">
+  operator ~(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L278"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator ~(ulong2 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_RightShift_" data-uid="CoreFramework.Mathematics.ulong2.op_RightShift*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_RightShift_CoreFramework_Mathematics_ulong2_System_Int32_" data-uid="CoreFramework.Mathematics.ulong2.op_RightShift(CoreFramework.Mathematics.ulong2,System.Int32)">
+  operator &gt;&gt;(ulong2, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator &gt;&gt;(ulong2 a, int n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>n</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Subtraction_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Subtraction_CoreFramework_Mathematics_ulong2_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction(CoreFramework.Mathematics.ulong2,CoreFramework.Mathematics.ulong2)">
+  operator -(ulong2, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator -(ulong2 a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Subtraction_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Subtraction_CoreFramework_Mathematics_ulong2_System_UInt32_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction(CoreFramework.Mathematics.ulong2,System.UInt32)">
+  operator -(ulong2, uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator -(ulong2 a, uint b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Subtraction_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Subtraction_CoreFramework_Mathematics_ulong2_System_UInt64_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction(CoreFramework.Mathematics.ulong2,System.UInt64)">
+  operator -(ulong2, ulong)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator -(ulong2 a, ulong b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+    <dt><code>b</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Subtraction_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Subtraction_System_UInt32_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction(System.UInt32,CoreFramework.Mathematics.ulong2)">
+  operator -(uint, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L171"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator -(uint a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_Subtraction_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_Subtraction_System_UInt64_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_Subtraction(System.UInt64,CoreFramework.Mathematics.ulong2)">
+  operator -(ulong, ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator -(ulong a, ulong2 b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <span class="xref">ulong</span></dt>
+    <dd></dd>
+    <dt><code>b</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_UnaryNegation_" data-uid="CoreFramework.Mathematics.ulong2.op_UnaryNegation*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_UnaryNegation_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_UnaryNegation(CoreFramework.Mathematics.ulong2)">
+  operator -(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator -(ulong2 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Mathematics_ulong2_op_UnaryPlus_" data-uid="CoreFramework.Mathematics.ulong2.op_UnaryPlus*"></a>
+
+  <h3 id="CoreFramework_Mathematics_ulong2_op_UnaryPlus_CoreFramework_Mathematics_ulong2_" data-uid="CoreFramework.Mathematics.ulong2.op_UnaryPlus(CoreFramework.Mathematics.ulong2)">
+  operator +(ulong2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong2 operator +(ulong2 a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Mathmatics/ulong2.cs/#L14" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

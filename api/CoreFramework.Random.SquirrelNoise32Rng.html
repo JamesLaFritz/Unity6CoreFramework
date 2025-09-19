@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="Stateless random number generator based on SquirrelNoise3. Supports deterministic access and reproducibility.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Random_SquirrelNoise32Rng.md&amp;value=---%0Auid%3A%20CoreFramework.Random.SquirrelNoise32Rng%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Random.SquirrelNoise32Rng">
+
+
+
+  <h1 id="CoreFramework_Random_SquirrelNoise32Rng" data-uid="CoreFramework.Random.SquirrelNoise32Rng" class="text-break">
+Struct   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a>.<a class="xref" href="CoreFramework.Random.html">Random</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Stateless random number generator based on SquirrelNoise3.
+Supports deterministic access and reproducibility.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct SquirrelNoise32Rng : IRandomFunction&lt;int, uint&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="CoreFramework.Random.IRandomFunction-2.html">IRandomFunction</a>&lt;<span class="xref">int</span>, <span class="xref">uint</span>&gt;</div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="CoreFramework.TaskExtensions.html#CoreFramework_TaskExtensions_AsCompletedTask__1___0_">TaskExtensions.AsCompletedTask&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng__ctor_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.#ctor*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng__ctor_System_UInt32_CoreFramework_Random_NoiseType_System_Int32_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.#ctor(System.UInt32,CoreFramework.Random.NoiseType,System.Int32)">
+  SquirrelNoise32Rng(uint, NoiseType, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents a random number generator utilizing Squirrel Noise for deterministic pseudo-random output.
+Supports generation of random floats, integers, colors, and vectors in various ranges and dimensions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SquirrelNoise32Rng(uint seed, NoiseType type = NoiseType.MangledBitsBalancedMix, int position = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd></dd>
+    <dt><code>type</code> <a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd></dd>
+    <dt><code>position</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Bool_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Bool*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Bool" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Bool">
+  Bool
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents a boolean value generated based on a random function.
+Utilizes an underlying random noise function to produce true or false
+with an equal probability of approximately 50%.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Bool { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Byte_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Byte*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Byte" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Byte">
+  Byte
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a randomly generated byte value derived from the internal state of the random number generator.
+This property utilizes the random function's mechanism to produce a uniformly distributed
+8-bit unsigned integer value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte Byte { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">byte</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Direction2D_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Direction2D*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Direction2D" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Direction2D">
+  Direction2D
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents a randomly generated 2D directional vector with normalized length.
+This property utilizes noise-based randomness to produce a direction that is
+evenly distributed within the unit circle in a 2D space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float2 Direction2D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Direction3D_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Direction3D*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Direction3D" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Direction3D">
+  Direction3D
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides a random three-dimensional unit vector (float3) based on the current state of the random number generator.
+This allows the generation of a direction in 3D space uniformly distributed over the unit sphere.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float3 Direction3D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Direction4D_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Direction4D*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Direction4D" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Direction4D">
+  Direction4D
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L328"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents a randomly generated 4-dimensional directional vector.
+Provides a normalized float4 value, ensuring each direction is uniformly distributed
+across the 4D space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float4 Direction4D { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float4.html">float4</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_InsideUnitCircle_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.InsideUnitCircle*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_InsideUnitCircle" data-uid="CoreFramework.Random.SquirrelNoise32Rng.InsideUnitCircle">
+  InsideUnitCircle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random two-dimensional point within the unit circle.
+The generated point's x and y coordinates are uniformly distributed,
+and the point lies inside or on the boundary of a circle with a radius of 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float2 InsideUnitCircle { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_InsideUnitSphere_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.InsideUnitSphere*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_InsideUnitSphere" data-uid="CoreFramework.Random.SquirrelNoise32Rng.InsideUnitSphere">
+  InsideUnitSphere
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents a random point within a unit sphere, where the sphere is centered
+at the origin and has a radius of 1. The distribution of points ensures
+uniformity within the sphere's volume, providing a balanced random sample.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float3 InsideUnitSphere { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_OnUnitSphere_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.OnUnitSphere*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_OnUnitSphere" data-uid="CoreFramework.Random.SquirrelNoise32Rng.OnUnitSphere">
+  OnUnitSphere
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random point uniformly distributed on the surface of a unit sphere.
+Useful for scenarios requiring random direction vectors, such as in simulations
+or graphical applications involving spherical distributions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float3 OnUnitSphere { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Position_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Position*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Position" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Position">
+  Position
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tracks the current position or state within the sequence of generated random values.
+Used to ensure deterministic progression of values based on the current state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Position { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Rotation_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Rotation*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Rotation" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Rotation">
+  Rotation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents a randomly generated quaternion rotation.
+Provides an evenly distributed random rotation,
+useful for applications involving 3D rotational randomness such as
+randomized orientations or procedural generation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public quaternion Rotation { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.quaternion.html">quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_RotationUniform_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.RotationUniform*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_RotationUniform" data-uid="CoreFramework.Random.SquirrelNoise32Rng.RotationUniform">
+  RotationUniform
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a uniformly distributed random quaternion representing a random rotation.
+Useful for applications requiring unbiased rotational randomness, such as procedural orientation generation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public quaternion RotationUniform { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.quaternion.html">quaternion</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Seed_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Seed*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Seed" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Seed">
+  Seed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Represents the seed value used to initialize the random number generator.
+Serves as the basis for ensuring deterministic random value generation,
+allowing reproducible sequences of random numbers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint Seed { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Type_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Type*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Type" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines the type of noise generation algorithm used in the random number generator.
+This property determines the specific noise variation technique applied, such as
+mangled bits or ChaCha quarter round, influencing the randomness characteristics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NoiseType Type { readonly get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Random.NoiseType.html">NoiseType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Uint128_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint128*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Uint128" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint128">
+  Uint128
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong2 Uint128 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="CoreFramework.Mathematics.ulong2.html">ulong2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Uint16_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint16*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Uint16" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint16">
+  Uint16
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 16-bit unsigned integer (ushort) pseudo-random value.
+Useful for scenarios where a smaller random number with reduced memory
+footprint is sufficient. The value is derived from a higher precision
+random number by shifting its bits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort Uint16 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ushort</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Uint32_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint32*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Uint32" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint32">
+  Uint32
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides a 32-bit unsigned integer value representing a random or pseudo-random result.
+Typically employed in generating random values for various computational purposes.
+Derived using a noise function based on the current state and position of the generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint Uint32 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">uint</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Uint64_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint64*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Uint64" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Uint64">
+  Uint64
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 64-bit unsigned integer value derived from the current state of the random number generator.
+Utilized for scenarios where high-precision randomness is required or larger numeric ranges are involved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Uint64 { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ulong</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Value_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Value*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Value" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Value">
+  Value
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Provides a floating-point value between 0 and 1, representing a normalized
+random value generated based on the current state of the random number generator.
+This value is derived using the associated random function and noise function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Value { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Chance_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Chance*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Chance_System_Single_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Chance(System.Single)">
+  Chance(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines whether a chance-based event occurs based on the given probability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Chance(float probabilityOfTrue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>probabilityOfTrue</code> <span class="xref">float</span></dt>
+    <dd><p>A floating-point value between 0.0 and 1.0 representing the probability of returning true.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the event occurs based on the provided probability, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Float2_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Float2*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Float2_System_Single_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Float2(System.Single,System.Single,System.Single,System.Single)">
+  Float2(float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L272"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random 2-dimensional vector with each component constrained within specified ranges.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float2 Float2(float minX = -3.4028235E+38, float maxX = 3.4028235E+38, float minY = -3.4028235E+38, float maxY = 3.4028235E+38)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minX</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the X component of the generated vector. Default is <span class="xref">float.MinValue</span>.</p>
+</dd>
+    <dt><code>maxX</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the X component of the generated vector. Default is <span class="xref">float.MaxValue</span>.</p>
+</dd>
+    <dt><code>minY</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the Y component of the generated vector. Default is <span class="xref">float.MinValue</span>.</p>
+</dd>
+    <dt><code>maxY</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the Y component of the generated vector. Default is <span class="xref">float.MaxValue</span>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a></dt>
+    <dd><p>A <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">float2</a> representing a random 2D vector within the specified ranges.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Float3_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Float3*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Float3_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Float3(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+  Float3(float, float, float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a> value with each component constrained within the defined ranges for X, Y, and Z axes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float3 Float3(float minX = -3.4028235E+38, float maxX = 3.4028235E+38, float minY = -3.4028235E+38, float maxY = 3.4028235E+38, float minZ = -3.4028235E+38, float maxZ = 3.4028235E+38)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minX</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the X-axis.</p>
+</dd>
+    <dt><code>maxX</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the X-axis.</p>
+</dd>
+    <dt><code>minY</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the Y-axis.</p>
+</dd>
+    <dt><code>maxY</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the Y-axis.</p>
+</dd>
+    <dt><code>minZ</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the Z-axis.</p>
+</dd>
+    <dt><code>maxZ</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the Z-axis.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a></dt>
+    <dd><p>A <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">float3</a> structure representing a position with randomly generated X, Y, and Z coordinates within the specified ranges.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Float4_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Float4*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Float4_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Float4(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+  Float4(float, float, float, float, float, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a 4D vector (float4), where each component is randomly selected within specified ranges.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float4 Float4(float minX = -3.4028235E+38, float maxX = 3.4028235E+38, float minY = -3.4028235E+38, float maxY = 3.4028235E+38, float minZ = -3.4028235E+38, float maxZ = 3.4028235E+38, float minW = -3.4028235E+38, float maxW = 3.4028235E+38)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minX</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the X component of the vector. Defaults to float.MinValue.</p>
+</dd>
+    <dt><code>maxX</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the X component of the vector. Defaults to float.MaxValue.</p>
+</dd>
+    <dt><code>minY</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the Y component of the vector. Defaults to float.MinValue.</p>
+</dd>
+    <dt><code>maxY</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the Y component of the vector. Defaults to float.MaxValue.</p>
+</dd>
+    <dt><code>minZ</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the Z component of the vector. Defaults to float.MinValue.</p>
+</dd>
+    <dt><code>maxZ</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the Z component of the vector. Defaults to float.MaxValue.</p>
+</dd>
+    <dt><code>minW</code> <span class="xref">float</span></dt>
+    <dd><p>The minimum value for the W component of the vector. Defaults to float.MinValue.</p>
+</dd>
+    <dt><code>maxW</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum value for the W component of the vector. Defaults to float.MaxValue.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float4.html">float4</a></dt>
+    <dd><p>A float4 vector where each component is within the specified minimum and maximum range.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Perlin_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Perlin*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Perlin_System_Single_System_Single_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Perlin(System.Single,System.Single)">
+  Perlin(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L408"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Perlin noise value based on the provided 2D coordinates, seed, and noise type.
+The noise value is computed by hashing the corners of the surrounding grid and applying interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Perlin(float x, float y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <span class="xref">float</span></dt>
+    <dd><p>The X coordinate (continuous) used for generating the noise value.</p>
+</dd>
+    <dt><code>y</code> <span class="xref">float</span></dt>
+    <dd><p>The Y coordinate (continuous) used for generating the noise value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A floating-point value representing the generated Perlin noise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Perlin_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Perlin*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Perlin_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Perlin(System.Single,System.Single,System.Single)">
+  Perlin(float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L428"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a Perlin noise value based on the input coordinates and a specified seed.
+This method calculates smooth noise by blending integer-based deterministic noise
+values at each corner of the cube enclosing the input coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Perlin(float x, float y, float z)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>x</code> <span class="xref">float</span></dt>
+    <dd><p>The x-coordinate of the noise input.</p>
+</dd>
+    <dt><code>y</code> <span class="xref">float</span></dt>
+    <dd><p>The y-coordinate of the noise input.</p>
+</dd>
+    <dt><code>z</code> <span class="xref">float</span></dt>
+    <dd><p>The z-coordinate of the noise input.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A single-precision floating-point value representing the Perlin noise at the given coordinates.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Range_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Range*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Range_System_Int32_System_Int32_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Range(System.Int32,System.Int32)">
+  Range(int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a random integer within a specified range using the Squirrel Noise RNG algorithm.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Range(int minInclusive, int maxExclusive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minInclusive</code> <span class="xref">int</span></dt>
+    <dd><p>The minimum value (inclusive) of the desired random integer range.</p>
+</dd>
+    <dt><code>maxExclusive</code> <span class="xref">int</span></dt>
+    <dd><p>The maximum value (exclusive) of the desired random integer range.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd><p>A random integer between <code class="paramref">minInclusive</code> (inclusive) and <code class="paramref">maxExclusive</code> (exclusive).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_Range_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Range*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_Range_System_Single_System_Single_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.Range(System.Single,System.Single)">
+  Range(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Generates a uniformly random floating-point number within the specified range using Squirrel Noise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Range(float minInclusive, float maxInclusive)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minInclusive</code> <span class="xref">float</span></dt>
+    <dd><p>The lower bound of the range (inclusive).</p>
+</dd>
+    <dt><code>maxInclusive</code> <span class="xref">float</span></dt>
+    <dd><p>The upper bound of the range (inclusive).</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">float</span></dt>
+    <dd><p>A random float value between <code class="paramref">minInclusive</code> and <code class="paramref">maxInclusive</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Random_SquirrelNoise32Rng_ResetSeed_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.ResetSeed*"></a>
+
+  <h3 id="CoreFramework_Random_SquirrelNoise32Rng_ResetSeed_System_UInt32_System_Int32_" data-uid="CoreFramework.Random.SquirrelNoise32Rng.ResetSeed(System.UInt32,System.Int32)">
+  ResetSeed(uint, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resets the internal state of the random number generator to the specified seed and position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResetSeed(uint seed, int position = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seed</code> <span class="xref">uint</span></dt>
+    <dd><p>The new seed value to initialize the random number generator.</p>
+</dd>
+    <dt><code>position</code> <span class="xref">int</span></dt>
+    <dd><p>The starting position for generating random values. Defaults to 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Random/SquirrelNoise32Rng.cs/#L22" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

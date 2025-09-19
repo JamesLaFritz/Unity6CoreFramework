@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="Handles the build process by automating tasks such as version incrementing, executing builds, exporting version files, and optionally creating installers. Implements Unity&#39;s IPreprocessBuildWithReport and IPostprocessBuildWithReport interfaces.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_BuildProcessing.md&amp;value=---%0Auid%3A%20CoreFramework.BuildProcessing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.BuildProcessing">
+
+
+
+  <h1 id="CoreFramework_BuildProcessing" data-uid="CoreFramework.BuildProcessing" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Handles the build process by automating tasks such as version incrementing, executing builds,
+exporting version files, and optionally creating installers.
+Implements Unity's IPreprocessBuildWithReport and IPostprocessBuildWithReport interfaces.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BuildProcessing</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="CoreFramework.TaskExtensions.html#CoreFramework_TaskExtensions_AsCompletedTask__1___0_">TaskExtensions.AsCompletedTask&lt;T&gt;(T)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="CoreFramework_BuildProcessing__incrementBuild" data-uid="CoreFramework.BuildProcessing._incrementBuild">
+  _incrementBuild
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static bool _incrementBuild</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_BuildProcessing__incrementMajor" data-uid="CoreFramework.BuildProcessing._incrementMajor">
+  _incrementMajor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static bool _incrementMajor</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_BuildProcessing__incrementMinor" data-uid="CoreFramework.BuildProcessing._incrementMinor">
+  _incrementMinor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static bool _incrementMinor</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="CoreFramework_BuildProcessing__incrementRevision" data-uid="CoreFramework.BuildProcessing._incrementRevision">
+  _incrementRevision
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static bool _incrementRevision</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="CoreFramework_BuildProcessing_callbackOrder_" data-uid="CoreFramework.BuildProcessing.callbackOrder*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_callbackOrder" data-uid="CoreFramework.BuildProcessing.callbackOrder">
+  callbackOrder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Specifies the order in which callbacks should be invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int callbackOrder { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_BuildProcessing_Build_" data-uid="CoreFramework.BuildProcessing.Build*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_Build" data-uid="CoreFramework.BuildProcessing.Build">
+  Build()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds the project based on the current settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static void Build()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_ExportVersionFile_" data-uid="CoreFramework.BuildProcessing.ExportVersionFile*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_ExportVersionFile_System_String_" data-uid="CoreFramework.BuildProcessing.ExportVersionFile(System.String)">
+  ExportVersionFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Exports a version file to the specified build output path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static void ExportVersionFile(string outputPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>outputPath</code> <span class="xref">string</span></dt>
+    <dd><p>The path to the build output directory.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_IncrementBuildVersion_" data-uid="CoreFramework.BuildProcessing.IncrementBuildVersion*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_IncrementBuildVersion" data-uid="CoreFramework.BuildProcessing.IncrementBuildVersion">
+  IncrementBuildVersion()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Increments the version number based on selected flags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static void IncrementBuildVersion()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_OnPostprocessBuild_" data-uid="CoreFramework.BuildProcessing.OnPostprocessBuild*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_OnPostprocessBuild_UnityEditor_Build_Reporting_BuildReport_" data-uid="CoreFramework.BuildProcessing.OnPostprocessBuild(UnityEditor.Build.Reporting.BuildReport)">
+  OnPostprocessBuild(BuildReport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called after the build process finishes. Exports a version file and optionally runs the installer compiler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnPostprocessBuild(BuildReport report)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>report</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Build.Reporting.BuildReport.html">BuildReport</a></dt>
+    <dd><p>Provides information about the build.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_OnPreprocessBuild_" data-uid="CoreFramework.BuildProcessing.OnPreprocessBuild*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_OnPreprocessBuild_UnityEditor_Build_Reporting_BuildReport_" data-uid="CoreFramework.BuildProcessing.OnPreprocessBuild(UnityEditor.Build.Reporting.BuildReport)">
+  OnPreprocessBuild(BuildReport)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Called before the build process starts. Increments the build version based on selected flags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnPreprocessBuild(BuildReport report)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>report</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Build.Reporting.BuildReport.html">BuildReport</a></dt>
+    <dd><p>Provides information about the build.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_QuickBuildMajorMenuItem_" data-uid="CoreFramework.BuildProcessing.QuickBuildMajorMenuItem*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_QuickBuildMajorMenuItem" data-uid="CoreFramework.BuildProcessing.QuickBuildMajorMenuItem">
+  QuickBuildMajorMenuItem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initiates a quick build for a breaking API change, incrementing the major version.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MenuItem(&quot;Core Framework/Build/2 Breaking API Change&quot;)]
+private static void QuickBuildMajorMenuItem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_QuickBuildMenuItem_" data-uid="CoreFramework.BuildProcessing.QuickBuildMenuItem*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_QuickBuildMenuItem" data-uid="CoreFramework.BuildProcessing.QuickBuildMenuItem">
+  QuickBuildMenuItem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initiates a quick build as a hotfix or patch, incrementing the build number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MenuItem(&quot;Core Framework/Build/0 HotFix or Patch&quot;)]
+private static void QuickBuildMenuItem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_QuickBuildMinorMenuItem_" data-uid="CoreFramework.BuildProcessing.QuickBuildMinorMenuItem*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_QuickBuildMinorMenuItem" data-uid="CoreFramework.BuildProcessing.QuickBuildMinorMenuItem">
+  QuickBuildMinorMenuItem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initiates a quick build for a new feature, incrementing the minor version.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MenuItem(&quot;Core Framework/Build/1 New Feature&quot;)]
+private static void QuickBuildMinorMenuItem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_QuickBuildRevisionBuildMenuItem_" data-uid="CoreFramework.BuildProcessing.QuickBuildRevisionBuildMenuItem*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_QuickBuildRevisionBuildMenuItem" data-uid="CoreFramework.BuildProcessing.QuickBuildRevisionBuildMenuItem">
+  QuickBuildRevisionBuildMenuItem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initiates a quick build for Internal Testing, incrementing the revision number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MenuItem(&quot;Core Framework/Build/3 Internal Testing&quot;)]
+private static void QuickBuildRevisionBuildMenuItem()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_RunInstallerCompiler_" data-uid="CoreFramework.BuildProcessing.RunInstallerCompiler*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_RunInstallerCompiler" data-uid="CoreFramework.BuildProcessing.RunInstallerCompiler">
+  RunInstallerCompiler()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L169"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the installer compiler using Inno Setup.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static void RunInstallerCompiler()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_BuildProcessing_TryGetInnoSetupCompilerPath_" data-uid="CoreFramework.BuildProcessing.TryGetInnoSetupCompilerPath*"></a>
+
+  <h3 id="CoreFramework_BuildProcessing_TryGetInnoSetupCompilerPath_System_String__" data-uid="CoreFramework.BuildProcessing.TryGetInnoSetupCompilerPath(System.String@)">
+  TryGetInnoSetupCompilerPath(out string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tries to retrieve the path to the Inno Setup compiler from the registry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">private static bool TryGetInnoSetupCompilerPath(out string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <span class="xref">string</span></dt>
+    <dd><p>The output path to the Inno Setup compiler.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the compiler path was found, otherwise false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Editor/BuildProcessing.cs/#L25" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class  | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class  | Unity 6 Core Framework ">
+      
+      <meta name="description" content="Provides extension methods for Unity&#39;s Vector3 structure to enable additional functionality for vector operations such as modifying components, adding offsets, range checks, and conversions.">
+      <link rel="icon" href="../Images/logo_large.png">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/new/main/apiSpec/new?filename=CoreFramework_Vector3Extensions.md&amp;value=---%0Auid%3A%20CoreFramework.Vector3Extensions%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="CoreFramework.Vector3Extensions">
+
+
+
+  <h1 id="CoreFramework_Vector3Extensions" data-uid="CoreFramework.Vector3Extensions" class="text-break">
+Class   <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="CoreFramework.html">CoreFramework</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Provides extension methods for Unity's Vector3 structure to enable additional functionality
+for vector operations such as modifying components, adding offsets, range checks, and conversions.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Vector3Extensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref"></span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="CoreFramework_Vector3Extensions_Add_" data-uid="CoreFramework.Vector3Extensions.Add*"></a>
+
+  <h3 id="CoreFramework_Vector3Extensions_Add_UnityEngine_Vector3_System_Single_System_Single_System_Single_" data-uid="CoreFramework.Vector3Extensions.Add(UnityEngine.Vector3,System.Single,System.Single,System.Single)">
+  Add(Vector3, float, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds to any x y z values of a Vector3</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 Add(this Vector3 vector, float x = 0, float y = 0, float z = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>y</code> <span class="xref">float</span></dt>
+    <dd></dd>
+    <dt><code>z</code> <span class="xref">float</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Vector3Extensions_ComponentDivide_" data-uid="CoreFramework.Vector3Extensions.ComponentDivide*"></a>
+
+  <h3 id="CoreFramework_Vector3Extensions_ComponentDivide_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="CoreFramework.Vector3Extensions.ComponentDivide(UnityEngine.Vector3,UnityEngine.Vector3)">
+  ComponentDivide(Vector3, Vector3)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Divides two Vector3 objects component-wise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 ComponentDivide(this Vector3 v0, Vector3 v1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v0</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>The Vector3 object that this method extends.</p>
+</dd>
+    <dt><code>v1</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>The Vector3 object by which v0 is divided.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>A new Vector3 object resulting from the component-wise division.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <h4 class="section" id="CoreFramework_Vector3Extensions_ComponentDivide_UnityEngine_Vector3_UnityEngine_Vector3__examples">Examples</h4>
+  <p>Use &lsquo;ComponentDivide&rsquo; to scale a game object proportionally:</p>
+<pre><code class="lang-csharp">myObject.transform.localScale = originalScale.ComponentDivide(targetDimensions);</code></pre>
+<p>This scales the object size to fit within the target dimensions while maintaining its original proportions.</p>
+
+
+  <h4 class="section" id="CoreFramework_Vector3Extensions_ComponentDivide_UnityEngine_Vector3_UnityEngine_Vector3__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>For each component in v0 (x, y, z), it is divided by the corresponding component in v1 if the component in v1 is not zero.
+Otherwise, the component in v0 remains unchanged.</p>
+</div>
+
+
+
+
+  <a id="CoreFramework_Vector3Extensions_InRangeOf_" data-uid="CoreFramework.Vector3Extensions.InRangeOf*"></a>
+
+  <h3 id="CoreFramework_Vector3Extensions_InRangeOf_UnityEngine_Vector3_UnityEngine_Vector3_System_Single_" data-uid="CoreFramework.Vector3Extensions.InRangeOf(UnityEngine.Vector3,UnityEngine.Vector3,System.Single)">
+  InRangeOf(Vector3, Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a Boolean indicating whether the current Vector3 is in a given range from another Vector3</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool InRangeOf(this Vector3 current, Vector3 target, float range)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>current</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>The current Vector3 position</p>
+</dd>
+    <dt><code>target</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>The Vector3 position to compare against</p>
+</dd>
+    <dt><code>range</code> <span class="xref">float</span></dt>
+    <dd><p>The range value to compare against</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd><p>True if the current Vector3 is in the given range from the target Vector3, false otherwise</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Vector3Extensions_RandomOffset_" data-uid="CoreFramework.Vector3Extensions.RandomOffset*"></a>
+
+  <h3 id="CoreFramework_Vector3Extensions_RandomOffset_UnityEngine_Vector3_System_Single_" data-uid="CoreFramework.Vector3Extensions.RandomOffset(UnityEngine.Vector3,System.Single)">
+  RandomOffset(Vector3, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a random offset to the components of a <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a> within the specified range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 RandomOffset(this Vector3 vector, float range)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>The original vector to which the random offset will be applied.</p>
+</dd>
+    <dt><code>range</code> <span class="xref">float</span></dt>
+    <dd><p>The maximum absolute value of random offsets that can be added
+or subtracted to/from each component of the vector.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>A new <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a> with random offsets applied to its X, Y, and Z components.
+Each offset is in the range [-<code class="paramref">range</code>, <code class="paramref">range</code>].</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Vector3Extensions_RandomPointInAnnulus_" data-uid="CoreFramework.Vector3Extensions.RandomPointInAnnulus*"></a>
+
+  <h3 id="CoreFramework_Vector3Extensions_RandomPointInAnnulus_UnityEngine_Vector3_System_Single_System_Single_" data-uid="CoreFramework.Vector3Extensions.RandomPointInAnnulus(UnityEngine.Vector3,System.Single,System.Single)">
+  RandomPointInAnnulus(Vector3, float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Computes a random point in an annulus (a ring-shaped area) based on minimum and
+maximum radius values around a central Vector3 point (origin).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 RandomPointInAnnulus(this Vector3 origin, float minRadius, float maxRadius)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>origin</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>The center Vector3 point of the annulus.</p>
+</dd>
+    <dt><code>minRadius</code> <span class="xref">float</span></dt>
+    <dd><p>Minimum radius of the annulus.</p>
+</dd>
+    <dt><code>maxRadius</code> <span class="xref">float</span></dt>
+    <dd><p>Maximum radius of the annulus.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>A random Vector3 point within the specified annulus.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Vector3Extensions_ToVector3_" data-uid="CoreFramework.Vector3Extensions.ToVector3*"></a>
+
+  <h3 id="CoreFramework_Vector3Extensions_ToVector3_UnityEngine_Vector2_" data-uid="CoreFramework.Vector3Extensions.ToVector3(UnityEngine.Vector2)">
+  ToVector3(Vector2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a Vector2 to a Vector3 with a y value of 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 ToVector3(this Vector2 v2)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>v2</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector2.html">Vector2</a></dt>
+    <dd><p>The Vector2 to convert.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd><p>A Vector3 with the x and z values of the Vector2 and a y value of 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="CoreFramework_Vector3Extensions_With_" data-uid="CoreFramework.Vector3Extensions.With*"></a>
+
+  <h3 id="CoreFramework_Vector3Extensions_With_UnityEngine_Vector3_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__" data-uid="CoreFramework.Vector3Extensions.With(UnityEngine.Vector3,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})">
+  With(Vector3, float?, float?, float?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets any x y z values of a Vector3</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Vector3 With(this Vector3 vector, float? x = null, float? y = null, float? z = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vector</code> <a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <span class="xref">float</span>?</dt>
+    <dd></dd>
+    <dt><code>y</code> <span class="xref">float</span>?</dt>
+    <dd></dd>
+    <dt><code>z</code> <span class="xref">float</span>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Runtime/Extensions/Vector3Extensions.cs/#L10" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

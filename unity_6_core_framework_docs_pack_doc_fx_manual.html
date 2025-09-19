@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>CoreFramework — Documentation Pack | Unity 6 Core Framework </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="CoreFramework — Documentation Pack | Unity 6 Core Framework ">
+      
+      
+      <link rel="icon" href="Images/logo_large.png">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/unity_6_core_framework_docs_pack_doc_fx_manual.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="Images/logo_small.png" alt="Unity 6 Core Framework">
+            Unity 6 Core Framework
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="coreframework-documentation-pack">CoreFramework — Documentation Pack</h1>
+
+<p>This pack gives you a complete, production‑ready setup for <strong>API Reference</strong> (auto‑generated from your C# XML comments) and a <strong>Manual</strong>/Guide, built with <strong>DocFX</strong> and deployed to <strong>GitHub Pages</strong> from the <code>gh-pages</code> branch.</p>
+<blockquote>
+<p>Targets your repository layout: <code>Runtime/</code>, <code>Editor/</code>, <code>Tests/</code>. It assumes code lives on <strong>main</strong> and the website publishes from <strong>gh-pages</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="quick-start-tldr">Quick Start (TL;DR)</h2>
+<ol>
+<li>Copy this whole pack into the <strong>repo root</strong>.</li>
+<li>Commit.</li>
+<li>(Optional, first time only) In GitHub → <strong>Settings → Pages</strong>: set <strong>Source</strong> to <strong>Deploy from a branch</strong>, <strong>Branch</strong>: <code>gh-pages</code> / root.</li>
+<li>Push to <code>main</code>. GitHub Actions builds and publishes docs to <code>gh-pages</code> automatically.</li>
+</ol>
+<p>Local build test:</p>
+<pre><code class="lang-bash"># Windows (build only)
+choco install docfx -y
+# OR use dotnet tool if you already have docfx v3 preview installed; this pack expects DocFX v2
+# dotnet tool install -g docfx # (v3 preview – not recommended here)
+
+# 1) Generate metadata first (once per change to code)
+docfx metadata
+
+# 2) Generate grouped TOC
+./tools/Generate-ApiToc.ps1
+
+# 3) Build site (toc.yml will be honored for left nav)
+docfx build --serve
+
+</code></pre>
+<hr>
+<h2 id="file-tree">File Tree</h2>
+<pre><code>.
+├─ README.md
+├─ ChangeLog.md
+├─ LICENSE.md
+├─ ThirdPartyNotices.md
+├─ Documentation~/
+│  ├─ docfx.json
+│  ├─ filter.yml
+│  ├─ index.md
+│  ├─ 404.md
+│  ├─ templates/unity/
+│  │  ├─ partials/
+│  │  │  ├─ ManagedReference.namespace.tmpl.partial
+│  │  │  ├─ ManagedReference.namespaceSubtitle.tmpl.partial
+│  │  ├─ styles/unity.css
+│  ├─ tools/Generate-ApiToc.ps1
+│  ├─ manual/
+│  │  ├─ toc.yml
+│  │  ├─ getting-started.md
+│  │  ├─ faq.md
+│  │  ├─ modules/
+│  │  │  ├─ editor-settings.md
+│  │  │  ├─ editor-tools.md
+│  │  │  ├─ build-processing.md
+│  │  │  ├─ extensions.md
+│  │  │  ├─ mathematics.md
+│  │  │  ├─ patterns.md
+│  │  │  ├─ random-overview.md
+│  │  │  ├─ settings.md
+│  │  │  └─ bootstrapper.md
+│  ├─ api/
+│  │  └─ index.md
+│  │  └─ toc.yml
+│  ├─ Images/
+│  │  ├─ logo.png
+└─ .github/workflows/docs.yml
+</code></pre>
+<hr>
+<h2 id="docfx.json"><code>docfx.json</code></h2>
+<pre><code class="lang-json">{
+  &quot;$schema&quot;: &quot;https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json&quot;,
+  &quot;metadata&quot;: [
+    {
+      &quot;src&quot;: [
+        {
+		  &quot;src&quot;: &quot;../&quot;,
+		  &quot;files&quot;: [&quot;Runtime/**.cs&quot;, &quot;Editor/**.cs&quot;],
+          &quot;exclude&quot;: [&quot;Tests/**&quot;, &quot;**/*Tests.cs&quot;, &quot;**/*.asmdef&quot;]
+        }
+      ],
+      &quot;dest&quot;: &quot;api&quot;,
+      &quot;filter&quot;: &quot;filter.yml&quot;,
+      &quot;disableGitFeatures&quot;: false,
+      &quot;allowCompilationErrors&quot;: true,
+	  &quot;categoryLayout&quot;: &quot;nested&quot;,
+	  &quot;namespaceLayout&quot;: &quot;nested&quot;,
+	  &quot;includePrivateMembers&quot;: true,
+	  &quot;includeExplicitInterfaceImplementations&quot;: true
+    }
+  ],
+  &quot;build&quot;: {
+    &quot;content&quot;: [
+      { &quot;files&quot;: [&quot;**/*.{md,yml}&quot;], &quot;exclude&quot;: [&quot;_site/**&quot;, &quot;filter.yml&quot;, &quot;xref/unity-xrefmap.yml&quot;] }
+    ],
+    &quot;resource&quot;: [
+      { &quot;files&quot;: [&quot;Images/**&quot;] }
+    ],
+    &quot;output&quot;: &quot;_site&quot;,
+    &quot;template&quot;: [&quot;default&quot;, &quot;modern&quot;, &quot;templates/unity&quot;],
+	&quot;styles&quot;:   [ &quot;templates/unity/styles/unity.css&quot; ],
+    &quot;xref&quot;: [&quot;https://normanderwan.github.io/UnityXrefMaps/xrefmap.yml&quot;, &quot;xref/unity-xrefmap.yml&quot;,
+      &quot;https://xref.docs.microsoft.com/query?uid={uid}&quot;],
+	&quot;xrefService&quot;: [ &quot;https://xref.docs.microsoft.com/query?uid={uid}&quot; ],
+	&quot;sitemap&quot;: { &quot;baseUrl&quot;: &quot;https://JamesLaFritz.github.io/Unity6CoreFramework/&quot; },
+    &quot;markdownEngineProperties&quot;: {
+      &quot;markdigExtensions&quot;: [
+          &quot;emphasisextras&quot;, &quot;pipetables&quot;, &quot;gridtables&quot;, &quot;tasklists&quot;,
+          &quot;footnotes&quot;, &quot;autoidentifiers&quot;, &quot;autolinks&quot;, &quot;smartypants&quot;
+      ]
+    },
+    &quot;globalMetadata&quot;: {
+      &quot;_appName&quot;: &quot;Unity 6 Core Framework&quot;,
+      &quot;_appTitle&quot;: &quot;Unity 6 Core Framework&quot;,
+      &quot;_appFooter&quot;: &quot;© 2025 James LaFritz&quot;,
+      &quot;_appLogoPath&quot;: &quot;Images/logo.png&quot;,
+      &quot;_appFaviconPath&quot;: &quot;Images/logo.png&quot;,
+      &quot;_enableSearch&quot;: true,
+	  &quot;_enableNewTab&quot;: true,
+      &quot;name&quot;: &quot;Unity 6 Core Framework&quot;
+    }
+  }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<ul>
+<li><code>allowCompilationErrors</code> lets DocFX parse sources without a full Unity build environment.</li>
+<li>Metadata stage writes YAML into <code>/api/</code> which the build uses to render API pages.</li>
+</ul>
+</div>
+<hr>
+<h2 id="filter.yml"><code>filter.yml</code></h2>
+<pre><code class="lang-yaml">apiRules:
+  - include:
+      uidRegex: ^CoreFramework(\.|$)
+  - exclude:
+      uidRegex: ^System(\.|$)
+  - exclude:
+      uidRegex: ^UnityEditor(\.|$)
+  - exclude:
+      uidRegex: ^UnityEngine(\.|$)
+</code></pre>
+<blockquote>
+<p>Only include your namespaces; everything else gets filtered from the API TOC.</p>
+</blockquote>
+<hr>
+<h2 id="githubworkflowsdocs.yml"><code>.github/workflows/docs.yml</code></h2>
+<pre><code class="lang-yaml">name: Build &amp; Publish Docs
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest # Chocolatey available for DocFX v2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install DocFX (v2)
+        run: choco install docfx -y
+		
+	  - name: Generate API TOC
+        shell: pwsh
+        working-directory: Documentation~
+        run: ./tools/Generate-ApiToc.ps1
+
+      - name: Build docs
+        shell: pwsh
+        working-directory: Documentation~
+        run: docfx build
+		
+      - name: Add .nojekyll
+        shell: pwsh
+        run: New-Item -ItemType File -Path &quot;Documentation~/_site/.nojekyll&quot; -Force | Out-Null
+	
+      # ⬇️ Upload the built site as an artifact (optional but handy)
+      - name: Upload site artifact
+        if: always()                    # run even if a prior step failed
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: Documentation~/_site
+		  if-no-files-found: warn       # or &quot;ignore&quot; to avoid failing if build broke
+          # retention-days: 7   # (optional) keep for N days
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: Documentation~/_site
+          publish_branch: gh-pages
+</code></pre>
+<hr>
+<h2 id="toc.yml"><code>toc.yml</code></h2>
+<pre><code class="lang-markdown">- name: Manual
+  href: manual/
+- name: API
+  href: api/
+- name: Change Log
+  href: ChangeLog.md
+- name: LICENSE
+  href: LICENSE.md
+- name: Third Party Notices
+  href: ThirdPartyNotices.md
+</code></pre>
+<hr>
+<h2 id="changelog.md"><code>ChangeLog.md</code></h2>
+<pre><code class="lang-markdown">[!INCLUDE [Change Log](../CHANGELOG.md)]
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This assumes you have a CHANGELOG.md at the root level</p>
+</div>
+<hr>
+<h2 id="license.md"><code>LICENSE.md</code></h2>
+<pre><code class="lang-markdown">[!INCLUDE [LICENSE](../LICENSE.md)]
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This assumes you have a LICENSE.md at the root level</p>
+</div>
+<hr>
+<h2 id="thirdpartynotices.md"><code>ThirdPartyNotices.md</code></h2>
+<pre><code class="lang-markdown">[!INCLUDE [Third Party Notices](../ThirdPartyNotices.md)]
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This assumes you have a ThirdPartyNotices.md at the root level</p>
+</div>
+<hr>
+<h2 id="index.md"><code>index.md</code></h2>
+<pre><code class="lang-markdown">---
+title: Unity 6 Core Framework Home
+---
+
+# Unity 6 Core Framework
+
+A modular Unity 6 framework providing:
+- **Extensions** (AsyncOperation, Camera, Color, Enumerable/Enumerator, GameObject, LayerMask, List, Number, PropertyPath, Reflection, Rigidbody, String, Task, Transform, Vector2/3)
+- **Mathematics** utilities (`ulong2`, `ulong4`, and related `math` partials)
+- **Patterns** (Factory/IGameAssetFactory, SharedData, Visitor)
+- **Random** (noise‑based RNGs: SquirrelNoise 32/64/128, CryptoNoise, helpers, and docs)
+- **Settings** (CoreFrameworkSettings, VersionControl)
+- **Editor** (Preferences &amp; Project Settings providers, tools, build processing)
+- **Bootstrapper** (startup flow)
+
+- **Manual** → [Start here](manual/getting-started.md)
+- **API Reference** → [Browse namespaces](api/index.md)
+
+[!INCLUDE [README](../README.md)]
+</code></pre>
+<hr>
+<h2 id="md"><code>404.md</code></h2>
+<pre><code class="lang-markdown">---
+title: Not found
+permalink: /404.html
+---
+
+# 404
+
+We couldn’t find that page.  
+Go back to the **[Docs home](./index.html)** or use the search box.
+
+</code></pre>
+<hr>
+<h2 id="apiindex.md"><code>api/index.md</code></h2>
+<pre><code class="lang-markdown"># API Reference
+
+Browse the generated reference for the core namespace:
+
+- `CoreFramework.*`
+
+&gt; Tip: use the search box in the top‑right to jump to types and members.
+</code></pre>
+<hr>
+<h2 id="apitoc.yml"><code>api/toc.yml</code></h2>
+<p>Optional: group the left TOC into “Classes/Structs/…” folders, you can add a custom api/toc.yml</p>
+<p>Create Assets/CoreFramework/Documentation~/api/toc.yml (DocFX will prefer your manual TOC):</p>
+<pre><code class="lang-markdown">- name: CoreFramework
+  items:
+    - name: Classes
+      items:
+        - uid: CoreFramework.Bootstrapper
+        - uid: CoreFramework.GameAssetConfig
+        # ... add the rest (only once; a simple script can auto-generate this from metadata)
+    - name: Structs
+      items:
+        - uid: CoreFramework.Mathematics.ulong2
+        - uid: CoreFramework.Mathematics.ulong4
+    - name: Interfaces
+      items:
+        - uid: CoreFramework.IFactory`2
+        - uid: CoreFramework.IGameAssetFactory`2
+        - uid: CoreFramework.ISharedData
+        - uid: CoreFramework.IVisitor
+        - uid: CoreFramework.IVisitable
+    - name: Enumerations
+      items:
+        - uid: CoreFramework.Random.NoiseType
+
+</code></pre>
+<p>(UIDs are the fully-qualified type names DocFX emits; you can copy them from the generated _site/api/*.yml or from the page URL.)</p>
+<hr>
+<h2 id="manualtoc.yml"><code>manual/toc.yml</code></h2>
+<pre><code class="lang-yaml">items:
+- name: Getting Started
+  href: getting-started.md
+- name: Editor
+  items:
+  - name: Settings
+    href: modules/editor-settings.md
+  - name: Tools
+    href: modules/editor-tools.md
+  - name: Build Processing
+    href: modules/build-processing.md
+- name: Runtime
+  items:
+  - name: Extensions
+    href: modules/extensions.md
+  - name: Mathematics
+    href: modules/mathematics.md
+  - name: Patterns
+    href: modules/patterns.md
+  - name: Random (Noise &amp; Crypto)
+    href: modules/random-overview.md
+  - name: Settings
+    href: modules/settings.md
+  - name: Bootstrapper
+    href: modules/bootstrapper.md
+- name: FAQ
+  href: faq.md
+</code></pre>
+<hr>
+<h2 id="manual-pages-stubs-you-can-extend">Manual Pages (stubs you can extend)</h2>
+<h3 id="manualgetting-started.md"><code>manual/getting-started.md</code></h3>
+<pre><code class="lang-markdown"># Getting Started
+
+## Install via UPM
+Add this Git URL in **Unity Package Manager** → **Add package from git URL**:
+
+</code></pre>
+<p><a href="https://github.com/JamesLaFritz/Unity6CoreFramework.git">https://github.com/JamesLaFritz/Unity6CoreFramework.git</a></p>
+<pre><code>
+## Package Layout
+- **Runtime/** – Core runtime types and utilities
+- **Editor/** – Preferences/Project Settings providers, tooling windows (Heatmap, etc.), build hooks
+- **Tests/** – Editor &amp; Runtime test suites (excluded from docs)
+
+## Using the Docs
+- **Manual**: guides and recipes per module
+- **API**: XML‑comment reference for all public types in `CoreFramework.*`
+
+&gt; Docs are built on every commit to `main` and published to the `gh-pages` branch.
+</code></pre>
+<h3 id="manualmoduleseditor-settings.md"><code>manual/modules/editor-settings.md</code></h3>
+<pre><code class="lang-markdown"># Editor → Settings
+
+Covers:
+- **CoreFrameworkPreferences** &amp; **CoreFrameworkPreferencesProvider**
+- **CoreFrameworkProjectSettings** &amp; **CoreFrameworkProjectSettingsProvider**
+- **CoreFrameworkSettingInitialization**
+- **VersionInitialization**, **VersionProjectSettings**, **VersionProjectSettingsProvider**
+
+## Usage
+Explain how to open each panel and typical configuration.
+</code></pre>
+<h3 id="manualmoduleseditor-tools.md"><code>manual/modules/editor-tools.md</code></h3>
+<pre><code class="lang-markdown"># Editor → Tools
+
+- **CellularHeatmapWindow** — visualization window
+- **NoiseEditorHelper** — shared helper utilities
+- **SquirrelNoiseHeatMapWindow** — noise heatmap visualizer
+</code></pre>
+<h3 id="manualmodulesbuild-processing.md"><code>manual/modules/build-processing.md</code></h3>
+<pre><code class="lang-markdown"># Editor → Build Processing
+
+Overview of `BuildProcessing.cs` hooks and how they integrate with the Unity build pipeline.
+</code></pre>
+<h3 id="manualmodulesextensions.md"><code>manual/modules/extensions.md</code></h3>
+<pre><code class="lang-markdown"># Runtime → Extensions
+
+Categories:
+- AsyncOperation, Camera, Color, Enumerable, Enumerator, GameObject, LayerMask, List, Number,
+  PropertyPath, Reflection, Rigidbody, String, Task, Transform, Vector2, Vector3
+
+Provide short examples per category as you add them.
+</code></pre>
+<h3 id="manualmodulesmathematics.md"><code>manual/modules/mathematics.md</code></h3>
+<pre><code class="lang-markdown"># Runtime → Mathematics
+
+Utility wide integer types and helpers:
+- **ulong2** (plus related `math` partials)
+- **ulong4** (plus related `math` partials)
+</code></pre>
+<h3 id="manualmodulespatterns.md"><code>manual/modules/patterns.md</code></h3>
+<pre><code class="lang-markdown"># Runtime → Patterns
+
+- **GameAssetConfig**
+- **IFactory** / **IGameAssetFactory**
+- **ISharedData**
+- **Visitor** pattern — `IVisitor`, `IVisitable`
+</code></pre>
+<h3 id="manualmodulesrandom-overview.md"><code>manual/modules/random-overview.md</code></h3>
+<pre><code class="lang-markdown"># Runtime → Random (Noise &amp; Crypto)
+
+- **Crypto**: `CryptoNoise`
+- **Noise**: `SquirrelNoise32Bit`, `SquirrelNoise32Rng`, `SquirrelNoise64Bit`, `SquirrelNoise64Rng`, `SquirrelNoise128`
+- **Utilities**: `HashBasedNoiseUtils`, `IRandomFunction`, `NoiseRngUtils`, `NoiseType`
+
+Design notes from `Runtime/Random/docs/` are included in this site build.
+</code></pre>
+<h3 id="manualmodulessettings.md"><code>manual/modules/settings.md</code></h3>
+<pre><code class="lang-markdown"># Runtime → Settings
+
+- **CoreFrameworkSettings** — project‑level settings asset
+- **VersionControl** — helpers/utilities for versioning
+</code></pre>
+<h3 id="manualmodulesbootstrapper.md"><code>manual/modules/bootstrapper.md</code></h3>
+<pre><code class="lang-markdown"># Bootstrapper
+
+Centralized startup hook for your project.
+
+## Purpose
+Ensures essential settings are applied and the initial scene loads. Designed to run early via `RuntimeInitializeOnLoadMethod`.
+</code></pre>
+<h3 id="manualfaq.md"><code>manual/faq.md</code></h3>
+<pre><code class="lang-markdown"># FAQ
+
+**Why don’t Unity/Editor types resolve in API pages?**  
+DocFX only includes your namespaces. External Unity types are referenced but not documented here.
+
+**Where do the RNG design markdowns show up?**  
+They’re added from `Runtime/Random/docs/**.md` into the site build and linked from *Random (Noise &amp; Crypto)*.
+</code></pre>
+<hr>
+<h2 id="skinning-the-api-pages-so-they-read-more-like-unitys-docs-classes-structs-interfaces-enums.under-each-namespace">Skinning the API pages so they read more like Unity’s docs (Classes / Structs / Interfaces / Enums … under each namespace).</h2>
+<p>DocFX can be skinned and the API pages reshaped so they read more like Unity’s docs (Classes / Structs / Interfaces / Enums … under each namespace).</p>
+<h3 id="templatesunitypartialsmanagedreference.namespace.tmpl.partial"><code>templates/unity/partials/ManagedReference.namespace.tmpl.partial</code></h3>
+<pre><code class="lang-liquid">{%- comment -%}
+Groups types in a namespace like Unity docs (Classes/Structs/Interfaces/Enums/Delegates).
+Drop-in override for DocFX v2 &quot;default&quot; template.
+{%- endcomment -%}
+
+&lt;div class=&quot;unity-namespace&quot;&gt;
+  &lt;h1 class=&quot;page-title&quot;&gt;{{ model.name }}&lt;/h1&gt;
+  &lt;p class=&quot;lead&quot;&gt;{{ model.summary | strip_html }}&lt;/p&gt;
+
+  {%- assign all = model.members | default: model.items -%}
+  {%- assign classes     = all | where_exp: &quot;t&quot;, &quot;t.type | downcase == 'class'&quot;      | sort: &quot;name&quot; -%}
+  {%- assign interfaces  = all | where_exp: &quot;t&quot;, &quot;t.type | downcase == 'interface'&quot;  | sort: &quot;name&quot; -%}
+  {%- assign structs     = all | where_exp: &quot;t&quot;, &quot;t.type | downcase == 'struct'&quot;     | sort: &quot;name&quot; -%}
+  {%- assign enums       = all | where_exp: &quot;t&quot;, &quot;t.type | downcase == 'enum'&quot;       | sort: &quot;name&quot; -%}
+  {%- assign delegates   = all | where_exp: &quot;t&quot;, &quot;t.type | downcase == 'delegate'&quot;   | sort: &quot;name&quot; -%}
+
+  {%- assign groups = 
+    &quot;Classes,classes;Structs,structs;Interfaces,interfaces;Enumerations,enums;Delegates,delegates&quot; 
+    | split: &quot;;&quot; -%}
+
+  {%- for g in groups -%}
+    {%- assign pair = g | split: &quot;,&quot; -%}
+    {%- assign title = pair[0] -%}
+    {%- assign key = pair[1] -%}
+    {%- assign list = nil -%}
+    {%- case key -%}
+      {%- when &quot;classes&quot;    -%}{%- assign list = classes    -%}
+      {%- when &quot;structs&quot;    -%}{%- assign list = structs     -%}
+      {%- when &quot;interfaces&quot; -%}{%- assign list = interfaces  -%}
+      {%- when &quot;enums&quot;      -%}{%- assign list = enums       -%}
+      {%- when &quot;delegates&quot;  -%}{%- assign list = delegates   -%}
+    {%- endcase -%}
+
+    {%- if list and list.size &gt; 0 -%}
+	  &lt;!-- NOTE: key gives us unity-group--classes/structs/interfaces/enums/delegates --&gt;
+      &lt;section class=&quot;unity-group unity-group--{{ key }}&quot;&gt;
+        &lt;h2&gt;{{ title }}&lt;/h2&gt;
+        &lt;ul class=&quot;unity-list&quot;&gt;
+        {%- for t in list -%}
+          &lt;li class=&quot;kind-{{ t.type | downcase }}&quot;&gt;
+            &lt;a href=&quot;{{ t.href }}&quot;&gt;{{ t.name }}&lt;/a&gt;
+            {%- if t.summary %} — &lt;span class=&quot;summary&quot;&gt;{{ t.summary | strip_html }}&lt;/span&gt;{% endif -%}
+          &lt;/li&gt;
+        {%- endfor -%}
+        &lt;/ul&gt;
+      &lt;/section&gt;
+    {%- endif -%}
+  {%- endfor -%}
+&lt;/div&gt;
+</code></pre>
+<h3 id="templatesunitypartialsmanagedreference.namespacesubtitle.tmpl.partial"><code>templates/unity/partials/ManagedReference.namespaceSubtitle.tmpl.partial</code></h3>
+<pre><code class="lang-liquid">{% if model.parent and model.parent.name %}
+&lt;p class=&quot;subtitle&quot;&gt;Namespace in &lt;a href=&quot;{{ model.parent.href }}&quot;&gt;{{ model.parent.name }}&lt;/a&gt;&lt;/p&gt;
+{% endif %}
+</code></pre>
+<h3 id="templatesunitystylesunity.css"><code>templates/unity/styles/unity.css</code></h3>
+<pre><code class="lang-css/*">   Unity Dark for DocFX v2
+   Place in: templates/unity/styles/unity.css
+   Loaded AFTER &quot;default&quot; and/or &quot;modern&quot; templates
+   ========================================================================== */
+
+:root {
+  /* Core palette (Unity-ish) */
+  --u-bg: #1e1e1e;            /* page background */
+  --u-surface: #242526;       /* cards, panels */
+  --u-surface-2: #2d2f31;     /* deeper panels / TOC */
+  --u-border: #3a3d41;
+  --u-text: #d7dae0;          /* primary text */
+  --u-text-2: #b9bec6;        /* secondary */
+  --u-muted: #8a9099;
+  --u-accent: #59a8ff;        /* Unity link blue */
+  --u-accent-2: #74b7ff;      /* hover */
+  --u-success: #27c93f;
+  --u-warning: #ffbd2e;
+  --u-danger:  #ff5c5c;
+  --u-code-bg: #111213;
+  --u-code-border: #2b2d30;
+
+  --u-radius: 10px;
+  --u-shadow: 0 6px 20px rgba(0,0,0,.35);
+
+  --u-font-ui: Inter, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, sans-serif;
+  --u-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, &quot;Courier New&quot;, monospace;
+
+  color-scheme: dark;
+}
+
+/* Base ------------------------------------------------------------------- */
+html, body {
+  background: var(--u-bg);
+  color: var(--u-text);
+  font-family: var(--u-font-ui);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--u-accent);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: var(--u-accent-2);
+  text-decoration: underline;
+}
+hr { border-top: 1px solid var(--u-border); opacity:.7 }
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+  color: var(--u-text);
+  letter-spacing: .2px;
+}
+.page-title, .title, .navbar-brand {
+  font-weight: 650;
+}
+
+/* Layout containers (DocFX default &amp; modern) ----------------------------- */
+.mainContainer, .container, .container-fluid {
+  background: transparent;
+}
+article, .content, .article, .conceptual, .markdown {
+  background: transparent;
+}
+
+/* Cards / panels */
+.panel, .card, .well, .alert {
+  background: var(--u-surface);
+  border: 1px solid var(--u-border);
+  border-radius: var(--u-radius);
+  box-shadow: none;
+}
+
+/* Navbar (default + modern) ---------------------------------------------- */
+.navbar, .subnav {
+  background: #151515 !important;
+  border-bottom: 1px solid var(--u-border);
+}
+.navbar .navbar-brand, .navbar a, .navbar-nav&gt;li&gt;a {
+  color: var(--u-text-2) !important;
+}
+.navbar .navbar-brand:hover, .navbar-nav&gt;li&gt;a:hover {
+  color: var(--u-text) !important;
+}
+.navbar-form .form-control,
+.navbar .form-control {
+  background: var(--u-surface-2);
+  color: var(--u-text);
+  border: 1px solid var(--u-border);
+  border-radius: 8px;
+}
+.navbar .btn, .navbar .btn-default {
+  background: var(--u-surface-2);
+  color: var(--u-text);
+  border: 1px solid var(--u-border);
+  border-radius: 8px;
+}
+
+/* Breadcrumbs ------------------------------------------------------------ */
+.breadcrumb, .breadcrumb&gt;li+li:before {
+  color: var(--u-muted);
+}
+.breadcrumb {
+  background: transparent;
+  border-bottom: 1px solid var(--u-border);
+  border-radius: 0;
+  padding-left: 0;
+}
+
+/* Side TOC (default + modern) -------------------------------------------- */
+#sidetoc, .sidetoc, .toc, .sidenav, .sidefilter {
+  background: var(--u-surface-2);
+  border-right: 1px solid var(--u-border);
+}
+.toc .nav&gt;li&gt;a, .sidenav a, .toc a {
+  color: var(--u-text-2);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.toc .nav&gt;li&gt;a:hover, .sidenav a:hover {
+  color: var(--u-text);
+  background: rgba(255,255,255,.04);
+}
+.toc .nav&gt;.active&gt;a,
+.toc .nav&gt;.active&gt;a:focus,
+.toc .nav&gt;.active&gt;a:hover {
+  color: var(--u-text);
+  background: rgba(89,168,255,.12);
+}
+.toc .nav .level1&gt;a { font-weight: 600; }
+
+/* Right-side affix (On This Page) --------------------------------------- */
+.sideaffix, .affix {
+  background: var(--u-surface-2);
+  border-left: 1px solid var(--u-border);
+}
+.affix ul&gt;li&gt;a {
+  color: var(--u-text-2);
+}
+.affix ul&gt;li&gt;a:hover { color: var(--u-text) }
+
+/* Unity-style namespace page (from your custom partial) ------------------ */
+.unity-namespace .page-title { margin-bottom:.25rem }
+.unity-namespace .lead { color: var(--u-text-2) }
+.unity-group { margin-top: 2rem }
+.unity-group h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--u-muted);
+  margin: 0 0 .5rem 0;
+}
+.unity-list { list-style: none; padding-left: 0; margin: 0 }
+.unity-list li {
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.unity-list li:hover { background: rgba(255,255,255,.04) }
+.unity-list .summary { color: var(--u-muted) }
+
+/* Tables ----------------------------------------------------------------- */
+table, .table {
+  background: var(--u-surface);
+  border: 1px solid var(--u-border);
+  border-radius: var(--u-radius);
+  overflow: hidden;
+}
+.table&gt;thead&gt;tr&gt;th {
+  background: #2c2f33;
+  color: var(--u-text);
+  border-bottom: 1px solid var(--u-border);
+}
+.table&gt;tbody&gt;tr&gt;td,
+.table&gt;thead&gt;tr&gt;th {
+  border-color: var(--u-border);
+}
+
+/* Code blocks &amp; inline code ---------------------------------------------- */
+pre, code, .hljs {
+  background: var(--u-code-bg) !important;
+  color: #f8f8f2;
+  border: 1px solid var(--u-code-border);
+  border-radius: 8px;
+  font-family: var(--u-font-mono);
+  font-size: 0.95em;
+}
+pre { padding: 14px 16px; overflow: auto; }
+code { padding: 2px 6px }
+
+/* A subtle highlight.js dark palette */
+.hljs-keyword, .hljs-selector-tag, .hljs-subst      { color: #c678dd }
+.hljs-string, .hljs-title, .hljs-name, .hljs-type   { color: #98c379 }
+.hljs-number, .hljs-literal, .hljs-symbol           { color: #d19a66 }
+.hljs-attr, .hljs-attribute                         { color: #61afef }
+.hljs-comment                                       { color: #7f848e }
+
+/* Alerts / Notes --------------------------------------------------------- */
+.alert-info    { border-color:#2d5b96; background:#1d2940; color:#b6d3ff }
+.alert-warning { border-color:#856404; background:#3a2f00; color:#ffd77a }
+.alert-danger  { border-color:#6b1f1f; background:#2b1414; color:#ff9b9b }
+.alert-success { border-color:#216e39; background:#0f2b18; color:#5bd48f }
+
+/* Tabs, pills ------------------------------------------------------------ */
+.nav-tabs&gt;li&gt;a {
+  background: var(--u-surface);
+  border: 1px solid var(--u-border);
+  color: var(--u-text-2);
+  border-radius: 8px 8px 0 0;
+}
+.nav-tabs&gt;li.active&gt;a,
+.nav-tabs&gt;li&gt;a:hover {
+  color: var(--u-text);
+  background: #2c2f33;
+  border-bottom-color: transparent;
+}
+
+/* Pagination &amp; anchors --------------------------------------------------- */
+.pagination&gt;li&gt;a, .pagination&gt;li&gt;span {
+  background: var(--u-surface);
+  border: 1px solid var(--u-border);
+  color: var(--u-text-2);
+}
+.pagination&gt;li&gt;a:hover { color: var(--u-text) }
+
+.headerlink {
+  opacity: .25;
+}
+.headerlink:hover { opacity: .9 }
+
+/* Search page results ---------------------------------------------------- */
+.search-result, .search-list {
+  background: var(--u-surface);
+  border: 1px solid var(--u-border);
+  border-radius: var(--u-radius);
+  padding: 12px 14px;
+}
+.search .form-control {
+  background: var(--u-surface-2);
+  color: var(--u-text);
+  border: 1px solid var(--u-border);
+}
+
+/* Footer ----------------------------------------------------------------- */
+.footer, footer {
+  border-top: 1px solid var(--u-border);
+  color: var(--u-muted);
+  background: #151515;
+}
+
+/* Forms / inputs --------------------------------------------------------- */
+input, select, textarea, .form-control {
+  background: var(--u-surface);
+  color: var(--u-text);
+  border: 1px solid var(--u-border);
+  border-radius: 8px;
+}
+input:focus, select:focus, textarea:focus, .form-control:focus {
+  outline: none;
+  border-color: var(--u-accent);
+  box-shadow: 0 0 0 3px rgba(89,168,255,.25);
+}
+
+/* Buttons ---------------------------------------------------------------- */
+.btn, .btn-default, .btn-primary {
+  background: var(--u-surface);
+  color: var(--u-text);
+  border: 1px solid var(--u-border);
+  border-radius: 8px;
+}
+.btn-primary {
+  background: #2a67a6;
+  border-color: #2a67a6;
+}
+.btn:hover { filter: brightness(1.05) }
+
+/* Scrollbars (Chromium/Edge/Firefox) ------------------------------------ */
+* { scrollbar-color: #4a4f55 var(--u-bg); }
+*::-webkit-scrollbar { height: 10px; width: 10px }
+*::-webkit-scrollbar-thumb {
+  background: #4a4f55; border-radius: 8px; border: 2px solid var(--u-bg);
+}
+*::-webkit-scrollbar-track { background: var(--u-bg) }
+
+/* Small helpers ---------------------------------------------------------- */
+.badge { background: var(--u-surface-2); color: var(--u-text-2); border:1px solid var(--u-border) }
+.kbd { background: var(--u-surface-2); border:1px solid var(--u-border); border-bottom-width:3px }
+
+/* Mobile tweaks ---------------------------------------------------------- */
+@media (max-width: 992px) {
+  #sidetoc, .sidetoc, .sideaffix, .affix { border: 0 }
+  .toc .nav&gt;li&gt;a { padding: 8px 12px }
+}
+
+/* ======================
+   Unity-style group icons
+   ====================== */
+
+:root{
+  --u-icon: currentColor;     /* icon tint follows text */
+  --u-icon-size: 18px;
+}
+
+/* Base icon style applied to each group heading */
+.unity-group &gt; h2 {
+  position: relative;
+  padding-left: calc(var(--u-icon-size) + 10px);
+}
+.unity-group &gt; h2::before{
+  content:&quot;&quot;;
+  position:absolute;
+  left:0; top:50%;
+  width:var(--u-icon-size); height:var(--u-icon-size);
+  transform: translateY(-50%);
+  background: var(--u-icon);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  opacity:.9;
+}
+
+/* Classes */
+.unity-group--classes &gt; h2::before{
+  -webkit-mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;rect x='3' y='4' width='18' height='14' rx='2'/&gt;\
+    &lt;path d='M7 20h10'/&gt;\
+  &lt;/svg&gt;&quot;);
+  mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;rect x='3' y='4' width='18' height='14' rx='2'/&gt;\
+    &lt;path d='M7 20h10'/&gt;\
+  &lt;/svg&gt;&quot;);
+}
+
+/* Structs (brackets) */
+.unity-group--structs &gt; h2::before{
+  -webkit-mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;path d='M7 4H5v16h2'/&gt;\
+    &lt;path d='M17 4h2v16h-2'/&gt;\
+  &lt;/svg&gt;&quot;);
+  mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;path d='M7 4H5v16h2'/&gt;\
+    &lt;path d='M17 4h2v16h-2'/&gt;\
+  &lt;/svg&gt;&quot;);
+}
+
+/* Interfaces (node graph) */
+.unity-group--interfaces &gt; h2::before{
+  -webkit-mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;circle cx='6' cy='12' r='2'/&gt;\
+    &lt;circle cx='18' cy='6' r='2'/&gt;\
+    &lt;circle cx='18' cy='18' r='2'/&gt;\
+    &lt;path d='M8 12h6M16 7l-4 4m4 10l-4-6'/&gt;\
+  &lt;/svg&gt;&quot;);
+  mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;circle cx='6' cy='12' r='2'/&gt;\
+    &lt;circle cx='18' cy='6' r='2'/&gt;\
+    &lt;circle cx='18' cy='18' r='2'/&gt;\
+    &lt;path d='M8 12h6M16 7l-4 4m4 10l-4-6'/&gt;\
+  &lt;/svg&gt;&quot;);
+}
+
+/* Enums (list) */
+.unity-group--enums &gt; h2::before{
+  -webkit-mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;path d='M8 6h12M8 12h12M8 18h12'/&gt;\
+    &lt;circle cx='4' cy='6' r='1'/&gt;\
+    &lt;circle cx='4' cy='12' r='1'/&gt;\
+    &lt;circle cx='4' cy='18' r='1'/&gt;\
+  &lt;/svg&gt;&quot;);
+  mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;path d='M8 6h12M8 12h12M8 18h12'/&gt;\
+    &lt;circle cx='4' cy='6' r='1'/&gt;\
+    &lt;circle cx='4' cy='12' r='1'/&gt;\
+    &lt;circle cx='4' cy='18' r='1'/&gt;\
+  &lt;/svg&gt;&quot;);
+}
+
+/* Assemblies (box cubes) */
+.unity-group--assemblies &gt; h2::before{
+  -webkit-mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;path d='M12 3l7 4v6l-7 4-7-4V7l7-4z'/&gt;\
+    &lt;path d='M12 7l7 4'/&gt;\
+    &lt;path d='M12 7L5 11'/&gt;\
+  &lt;/svg&gt;&quot;);
+  mask-image: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;path d='M12 3l7 4v6l-7 4-7-4V7l7-4z'/&gt;\
+    &lt;path d='M12 7l7 4'/&gt;\
+    &lt;path d='M12 7L5 11'/&gt;\
+  &lt;/svg&gt;&quot;);
+}
+
+/* Optional: tiny glyphs before each item inside a group (needs kind marker)
+   Add `li` classes like `.kind-class`, `.kind-struct`, etc. in your partial. */
+.unity-list li.kind-class::before,
+.unity-list li.kind-struct::before,
+.unity-list li.kind-interface::before,
+.unity-list li.kind-enum::before {
+  content:&quot;&quot;;
+  display:inline-block;
+  width:14px; height:14px; margin-right:8px;
+  background: var(--u-icon);
+  -webkit-mask-size: contain; mask-size: contain;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-position:center; mask-position:center;
+  opacity:.85; transform: translateY(2px);
+}
+.unity-list li.kind-class::before     { -webkit-mask-image: var(--class-mask);    mask-image: var(--class-mask) }
+.unity-list li.kind-struct::before    { -webkit-mask-image: var(--struct-mask);   mask-image: var(--struct-mask) }
+.unity-list li.kind-interface::before { -webkit-mask-image: var(--iface-mask);    mask-image: var(--iface-mask) }
+.unity-list li.kind-enum::before      { -webkit-mask-image: var(--enum-mask);     mask-image: var(--enum-mask) }
+
+/* expose masks as CSS variables so we don't duplicate data URIs */
+:root{
+  --class-mask: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'&gt;&lt;rect x='3' y='4' width='18' height='14' rx='2'/&gt;&lt;path d='M7 20h10'/&gt;&lt;/svg&gt;&quot;);
+  --struct-mask: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;&lt;path d='M7 4H5v16h2'/&gt;&lt;path d='M17 4h2v16h-2'/&gt;&lt;/svg&gt;&quot;);
+  --iface-mask:  url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;&lt;circle cx='6' cy='12' r='2'/&gt;&lt;circle cx='18' cy='6' r='2'/&gt;&lt;circle cx='18' cy='18' r='2'/&gt;&lt;path d='M8 12h6M16 7l-4 4m4 10l-4-6'/&gt;&lt;/svg&gt;&quot;);
+  --enum-mask:   url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke='black' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'&gt;&lt;path d='M8 6h12M8 12h12M8 18h12'/&gt;&lt;circle cx='4' cy='6' r='1'/&gt;&lt;circle cx='4' cy='12' r='1'/&gt;&lt;circle cx='4' cy='18' r='1'/&gt;&lt;/svg&gt;&quot;);
+}
+
+/* ======================
+   Refined highlight.js colors
+   (tuned toward Unity's docs vibe)
+   ====================== */
+
+.hljs { background: var(--u-code-bg) !important; color: #e6e6e6 }
+.hljs-comment, .hljs-quote               { color:#7f848e; font-style: italic }
+.hljs-keyword, .hljs-selector-tag        { color:#c678dd }     /* purple */
+.hljs-type, .hljs-built_in, .hljs-attr,
+.hljs-attribute, .hljs-title.class_      { color:#61afef }     /* blue */
+.hljs-string, .hljs-title, .hljs-name    { color:#98c379 }     /* green */
+.hljs-number, .hljs-literal, .hljs-symbol,
+.hljs-bullet                              { color:#d19a66 }     /* orange */
+.hljs-meta, .hljs-doctag, .hljs-template-tag { color:#e5c07b } /* yellow */
+.hljs-title.function_, .hljs-function .hljs-title { color:#61afef }
+.hljs-params                              { color:#abb2bf }
+.hljs-section, .hljs-selector-id          { color:#56b6c2 }     /* cyan */
+.hljs-emphasis                            { font-style: italic }
+.hljs-strong                              { font-weight: 700 }
+
+/* Optional: code block header look (if your template adds .code-header) */
+.code-header{
+  background:#1a1b1c; border:1px solid var(--u-code-border);
+  border-bottom:none; border-radius:8px 8px 0 0; padding:8px 12px;
+}
+pre { border-top-left-radius:0; border-top-right-radius:0 }
+
+/* ======================
+   Delegates icon (bolt)
+   ====================== */
+
+/* SVG mask for &quot;delegate&quot; */
+:root{
+  --delegate-mask: url(&quot;data:image/svg+xml;utf8,\
+  &lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'&gt;\
+    &lt;path d='M13 2L3 14h7l-1 8 12-14h-8z'/&gt;\
+  &lt;/svg&gt;&quot;);
+}
+
+/* Group heading icon */
+.unity-group--delegates &gt; h2::before{
+  -webkit-mask-image: var(--delegate-mask);
+  mask-image: var(--delegate-mask);
+}
+
+/* Per-item glyph */
+.unity-list li.kind-delegate::before{
+  -webkit-mask-image: var(--delegate-mask);
+  mask-image: var(--delegate-mask);
+}
+
+</code></pre>
+<h3 id="toolsgenerate-apitoc.ps1">Tools/Generate-ApiToc.ps1</h3>
+<pre><code>&lt;#  Generate-ApiToc.ps1 v3.1  (PowerShell 5.1 compatible)
+    - Default: namespaces-only TOC (Unity-style: CoreFramework → Mathematics/Random/Settings/Tools/…)
+    - -IncludeTypes: also list types under each namespace (grouped)
+    - -IncludeNestedTypes: include nested types like Foo.Bar
+	
+	.\tools\Generate-ApiToc.ps1 -IncludeTypes:$false -IncludeNestedTypes:$false
+#&gt;
+
+[CmdletBinding()]
+param(
+  [string]$DocRoot,
+  [string]$ApiDir = 'api',
+  [string]$OutFile = 'api/toc.yml',
+  [string]$RootNamespace = 'CoreFramework',
+  [switch]$IncludeTypes,
+  [switch]$IncludeNestedTypes
+)
+
+# Default switches to ON unless caller explicitly provides $false
+if (-not $PSBoundParameters.ContainsKey('IncludeTypes'))        { $IncludeTypes = $true }
+if (-not $PSBoundParameters.ContainsKey('IncludeNestedTypes'))  { $IncludeNestedTypes = $true }
+
+function Resolve-DocRoot {
+  param([string]$Hint)
+  if ($Hint -and (Test-Path (Join-Path $Hint 'docfx.json'))) { return (Resolve-Path $Hint).Path }
+  $dir = Get-Item $PSScriptRoot
+  while ($dir) {
+    if ((Test-Path (Join-Path $dir.FullName 'docfx.json')) -and (Test-Path (Join-Path $dir.FullName $ApiDir))) {
+      return $dir.FullName
+    }
+    $dir = $dir.Parent
+  }
+  throw &quot;Could not find docfx.json and '$ApiDir/' by walking up from $PSScriptRoot. Pass -DocRoot.&quot;
+}
+
+$DocRoot = Resolve-DocRoot -Hint $DocRoot
+$ApiPath = Join-Path $DocRoot $ApiDir
+$OutPath = Join-Path $DocRoot $OutFile
+
+if (!(Test-Path $ApiPath)) { throw &quot;API directory not found: $ApiPath. Run 'docfx metadata' first.&quot; }
+
+$HasYaml = Get-Command ConvertFrom-Yaml -ErrorAction SilentlyContinue
+
+function Read-YamlItem {
+  param([string]$File)
+  $raw = Get-Content -Raw $File
+  if ($HasYaml) {
+    try {
+      $y = ConvertFrom-Yaml -Yaml $raw
+      return $y.items[0]
+    } catch {
+      # fall through to lightweight parser
+    }
+  }
+  # Minimal top-level field grabber
+  $lines = $raw -split &quot;`r?`n&quot;
+  $uid=$null; $type=$null; $name=$null; $ns=$null
+  foreach ($ln in $lines) {
+    if (-not $uid  -and $ln -match '^\s*-?\s*uid:\s*(.+)$') { $uid  = $Matches[1].Trim(); continue }
+    if (-not $type -and $ln -match '^\s*type:\s*(.+)$')     { $type = $Matches[1].Trim(); continue }
+    if (-not $name -and $ln -match '^\s*name:\s*(.+)$')     { $name = $Matches[1].Trim(); continue }
+    if (-not $ns   -and $ln -match '^\s*namespace:\s*(.+)$'){ $ns   = $Matches[1].Trim(); continue }
+    if ($uid -and $type -and $name) { break }
+  }
+  return [pscustomobject]@{ uid=$uid; type=$type; name=$name; namespace=$ns }
+}
+
+# --- collect namespaces &amp; types ---
+$files = Get-ChildItem $ApiPath -Filter *.yml -File | Where-Object { $_.Name -ne 'toc.yml' }
+
+# Collect all items first (2-pass)
+$allItems = @()
+foreach ($f in $files) {
+  $it = Read-YamlItem $f.FullName
+  if ($it) {
+    $it | Add-Member -NotePropertyName href -NotePropertyValue $f.Name
+    $allItems += $it
+  }
+}
+
+# Sets we’ll use
+$realNs   = New-Object 'System.Collections.Generic.HashSet[string]' # only items with type == Namespace
+$typeUids = New-Object 'System.Collections.Generic.HashSet[string]' # every non-namespace uid
+
+foreach ($it in $allItems) {
+  $kind = (($it.type) | Out-String).Trim()
+  if ($kind -eq 'Namespace') {
+    $null = $realNs.Add($it.uid)
+  } else {
+    $null = $typeUids.Add($it.uid)
+  }
+}
+
+$nsMap = @{} # nsId -&gt; object with name, href, children:Set[string], types:buckets
+
+function New-NSNode([string]$nsId, [string]$href) {
+  $last = ($nsId -split '\.')[-1]
+  return @{
+    name     = $last
+    href     = $href
+    children = ([System.Collections.Generic.HashSet[string]]::new())
+    types    = @{
+      class     = (New-Object System.Collections.ArrayList)
+      struct    = (New-Object System.Collections.ArrayList)
+      interface = (New-Object System.Collections.ArrayList)
+      enum      = (New-Object System.Collections.ArrayList)
+      delegate  = (New-Object System.Collections.ArrayList)
+    }
+  }
+}
+
+function Ensure-NS([string]$nsId, [string]$href) {
+  if (-not $nsMap.ContainsKey($nsId)) { $nsMap[$nsId] = New-NSNode $nsId $href }
+  elseif ($href -and -not $nsMap[$nsId].href) { $nsMap[$nsId].href = $href }
+}
+
+foreach ($item in $allItems) {
+  $kind = (($item.type) | Out-String).Trim()
+  $href = $item.href
+
+  if ($kind -eq 'Namespace') {
+    Ensure-NS $item.uid $href
+    continue
+  }
+
+  # Determine logical namespace for the type
+  $ns = $item.namespace
+  if (-not $ns) {
+    if ($item.uid -and ($item.uid -match '^(.*)\.[^.]+$')) { $ns = $Matches[1] } else { continue }
+  }
+
+  # Flatten nested-type &quot;namespaces&quot; (e.g., CoreFramework.Mathematics.ulong2)
+  # If the last segment is actually a type full UID, drop that segment.
+  $lastDot = $ns.LastIndexOf('.')
+  if ($lastDot -gt 0) {
+    $maybeType = $ns.Substring($lastDot + 1)
+    $outerNs   = $ns.Substring(0, $lastDot)
+    if ($typeUids.Contains(&quot;$outerNs.$maybeType&quot;)) {
+      $ns = $outerNs
+    }
+  }
+
+  Ensure-NS $ns $null
+
+  if ($IncludeTypes) {
+    $bucket = switch ($kind.ToLowerInvariant()) {
+      'class'     { 'class' }
+      'struct'    { 'struct' }
+      'interface' { 'interface' }
+      'enum'      { 'enum' }
+      'delegate'  { 'delegate' }
+      default     { $null }
+    }
+    if ($bucket) {
+      [void]$nsMap[$ns].types[$bucket].Add([ordered]@{ name=$item.name; href=$href })
+    }
+  }
+}
+
+# parent/child links
+foreach ($nsId in $nsMap.Keys) {
+  $lastDot = $nsId.LastIndexOf('.')
+  if ($lastDot -gt 0) {
+    $parent = $nsId.Substring(0, $lastDot)
+    if ($nsMap.ContainsKey($parent)) { $null = $nsMap[$parent].children.Add($nsId) }
+  }
+}
+
+# ensure hrefs for NS without explicit yml
+foreach ($nsId in $nsMap.Keys) {
+  if (-not $nsMap[$nsId].href) {
+    $guess = ($nsId + '.yml')
+    if (Test-Path (Join-Path $ApiPath $guess)) { $nsMap[$nsId].href = $guess }
+    else { $nsMap[$nsId].href = $guess } # fallback; DocFX may warn if it truly doesn't exist
+  }
+}
+
+function Get-DirectNamespaceChildren {
+  param([string]$nsId)
+  $prefix = &quot;$nsId.&quot;
+  return @(
+    @($realNs) |
+      Where-Object { $_.StartsWith($prefix) -and ($_.Substring($prefix.Length) -notmatch '\.') } |
+      Sort-Object
+  )
+}
+
+# --- write helpers ---
+$sb = New-Object System.Text.StringBuilder
+function Add-Line([string]$s){ [void]$sb.AppendLine($s) }
+
+function Write-NS {
+  param([string]$nsId, [int]$indent = 2)
+  $pad = ' ' * $indent
+  $node = $nsMap[$nsId]
+  Add-Line &quot;$pad- name: $($node.name)&quot;
+  Add-Line &quot;$pad  href: $($node.href)&quot;
+
+  # --- only recurse into namespaces ---
+  #$nsChildren = @($node.children | Where-Object { $_ -and $nsMap.ContainsKey($_) } | Sort-Object)
+  $nsChildren = @(Get-DirectNamespaceChildren -nsId $nsId)
+
+  $hasTypes = $false
+  if ($IncludeTypes) {
+    if ($node.types.class.Count -or $node.types.struct.Count -or
+        $node.types.interface.Count -or $node.types.enum.Count -or
+        $node.types.delegate.Count) { $hasTypes = $true }
+  }
+
+  if ($nsChildren.Count -gt 0 -or $hasTypes) { Add-Line &quot;$pad  items:&quot; }
+
+  foreach ($child in $nsChildren) { Write-NS -nsId $child -indent ($indent + 4) }
+
+  if ($IncludeTypes) {
+    $groups = @(
+      @{title='Classes';      key='class'    },
+      @{title='Structs';      key='struct'   },
+      @{title='Interfaces';   key='interface'},
+      @{title='Enumerations'; key='enum'     },
+      @{title='Delegates';    key='delegate' }
+    )
+    foreach ($g in $groups) {
+      $arr = $node.types[$g.key]
+      if ($arr.Count -gt 0) {
+        Add-Line &quot;$pad    - name: $($g.title)&quot;
+        Add-Line &quot;$pad      items:&quot;
+        foreach ($t in ($arr | Sort-Object { $_.name })) {
+          Add-Line &quot;$pad        - name: $($t.name)&quot;
+          Add-Line &quot;$pad          href: $($t.href)&quot;
+        }
+      }
+    }
+  }
+}
+
+# roots
+$roots = @()
+if ($realNs.Contains($RootNamespace)) {
+  $roots = @($RootNamespace)
+} else {
+  $roots = @(@($realNs) | Where-Object { $_ -notmatch '\.' } | Sort-Object)
+}
+
+Add-Line '### YamlMime:TableOfContent'
+Add-Line 'items:'
+foreach ($r in $roots) { Write-NS -nsId $r }
+
+# write file
+$null = New-Item -ItemType Directory -Force -Path $ApiPath | Out-Null
+$sb.ToString() | Set-Content -Path $OutPath -Encoding UTF8
+Write-Host &quot;Wrote $OutPath&quot;
+</code></pre>
+<hr>
+<h2 id="sanity-checks">Sanity Checks</h2>
+<pre><code class="lang-bash">docfx metadata
+./tools/Generate-ApiToc.ps1
+docfx build --serve
+</code></pre>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/blob/main/Documentation~/unity_6_core_framework_docs_pack_doc_fx_manual.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          © 2025 James LaFritz
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -87,16 +87,75 @@
         <article data-uid="">
 <h1 id="ulong4">ulong4</h1>
 
-<p>Source: $ ./Runtime/Mathmatics\ulong4.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Mathematics/ulong4.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>ulong4</code> is a lightweight <strong>four-component vector of 64-bit unsigned integers</strong> designed to mirror Unity.Mathematics’ vector types (<code>int4</code>, <code>uint4</code>, etc.). It supports rich <strong>construction</strong>, <strong>implicit conversions</strong>, <strong>component-wise operators</strong>, <strong>comparisons</strong> returning <code>bool4</code>, <strong>bitwise ops</strong>, <strong>swizzles</strong>, and simple <strong>math helpers</strong>.</p>
+<p>Originally added to support <strong>256-bit noise hashing</strong> and crypto-style procedural generation (full ChaCha rounds), it lays the groundwork for larger, more secure hashes if needed. In CoreFramework most 128-bit use cases are handled by <code>ulong2</code>, but you can use <code>ulong4</code> wherever you want a deterministic 256-bit value packaged in a single type.</p>
+<h2 id="constructors-conversions">Constructors &amp; Conversions</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Direct: <code>new ulong4(ulong x, ulong y, ulong z, ulong w)</code></li>
+<li>Broadcast: <code>new ulong4(ulong v)</code> (sets all four components)</li>
+<li>From signed/float vectors: <code>new ulong4(int4|float4|double4|long4|bool4)</code> (componentwise conversion)</li>
+<li>Implicit <strong>from</strong>: <code>uint4</code>, <code>int4</code>, <code>float4</code>, <code>double4</code>, <code>bool4</code>, and the scalar forms (<code>ulong/long/uint/int/float/double/bool</code>)</li>
+<li>Explicit <strong>to</strong>: <code>uint4</code>, <code>int4</code>, <code>float4</code>, <code>double4</code><br>
+(scalar casts use <code>x</code> component)</li>
+</ul>
+<p>Also includes tuple sugar:</p>
+<pre><code class="lang-csharp">ulong4 a = (1UL, 2UL, 3UL, 4UL);           // implicit (ulong,ulong,ulong,ulong) -&gt; ulong4
+(ulong x, ulong y, ulong z, ulong w) t = a; // deconstruct back to tuple
+</code></pre>
+<h2 id="operators-component-wise">Operators (component-wise)</h2>
+<ul>
+<li>Arithmetic: <code>+  -  *  /  %</code> (with <code>ulong</code>/<code>uint</code> scalar overloads)</li>
+<li>Unary: <code>++  --  +  -</code> (note: unary <code>-</code> uses wraparound semantics on <code>ulong</code>)</li>
+<li>Bitwise: <code>&amp;  |  ^  ~  &lt;&lt;  &gt;&gt;</code></li>
+<li>Comparisons → <code>bool4</code>: <code>== != &lt; &lt;= &gt; &gt;=</code></li>
+</ul>
+<h2 id="swizzles">Swizzles</h2>
+<p>A full set of 2-, 3-, and 4-component read-only swizzles (<code>xxxy</code>, <code>xxyy</code>, <code>yxxx</code>, <code>zwxy</code>, …) plus writable 2-component pairs:</p>
+<pre><code class="lang-csharp">var p = new ulong4(10, 20, 30, 40);
+ulong2 a = p.xy;        // (10,20)
+p.yx = (1UL, 2UL);      // now p = (2,1,30,40)
+</code></pre>
+<h2 id="math-helpers-static">Math helpers (static)</h2>
+<pre><code class="lang-csharp">ulong4 min(ulong4 a, ulong4 b)
+ulong4 max(ulong4 a, ulong4 b)
+ulong4 clamp(ulong4 v, ulong4 min, ulong4 max)
+ulong   dot(ulong4 a, ulong4 b)
+</code></pre>
+<h2 id="hash-helpers-coreframework.mathematics.math">Hash helpers (<code>CoreFramework.Mathematics.Math</code>)</h2>
+<pre><code class="lang-csharp">ulong  Math.hash(ulong4 v)                       // 64-bit hash of all lanes
+ulong4 Math.hashwide(ulong4 v)                   // wide hash (per-lane)
+ulong  Math.shuffle(ulong4 left, ulong4 right, ShuffleComponent x)
+ulong2 Math.shuffle(ulong4 left, ulong4 right, ShuffleComponent x, ShuffleComponent y)
+ulong4 Math.shuffle(ulong4 left, ulong4 right, ShuffleComponent x, y, z, w)
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp">using CoreFramework.Mathematics;
+using Unity.Mathematics;
+
+var a = new ulong4(1UL, 2UL, 3UL, 4UL);
+var b = (ulong4) new uint4(7, 9, 11, 13);
+
+ulong4 sum = a + b;          // (8,11,14,17)
+bool4  gt  = a &gt; b;          // (false,false,false,false)
+
+ulong  h  = Math.hash(sum);  // compact 64-bit hash
+ulong4 hw = Math.hashwide(a);
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>BurstCompile</code> attribute is present; operators and helpers are inlined and Burst-friendly.</li>
+<li><code>GetHashCode()</code> delegates to <code>Math.hash(this)</code>.</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong4.html">xref:CoreFramework.Mathematics.ulong4</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong2.html">xref:CoreFramework.Mathematics.ulong2</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.int4.html">xref:Unity.Mathematics.int4</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.uint4.html">xref:Unity.Mathematics.uint4</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool4.html">xref:Unity.Mathematics.bool4</a></li>
+</ul>
 
 </article>
 

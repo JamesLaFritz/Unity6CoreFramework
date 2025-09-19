@@ -87,16 +87,75 @@
         <article data-uid="">
 <h1 id="ulong2">ulong2</h1>
 
-<p>Source: $ ./Runtime/Mathmatics\ulong2.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Mathmatics/ulong2.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>ulong2</code> is a lightweight pair of 64-bit unsigned integers designed to mirror Unity.Mathematics’ vector types (<code>int2</code>, <code>uint2</code>, etc.). It supports rich <strong>construction</strong>, <strong>implicit conversions</strong>, <strong>component-wise operators</strong>, <strong>comparisons</strong> returning <code>bool2</code>, <strong>bitwise ops</strong>, <strong>swizzles</strong>, and simple <strong>math helpers</strong>.</p>
+<p>Used throughout CoreFramework where a compact <strong>128-bit lane</strong> is convenient (e.g., hashing &amp; noise).</p>
+<h2 id="constructors-conversions">Constructors &amp; Conversions</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Direct: <code>new ulong2(ulong x, ulong y)</code></li>
+<li>Broadcast: <code>new ulong2(ulong v)</code> (sets both <code>x</code> and <code>y</code>)</li>
+<li>From signed/float vectors: <code>new ulong2(int2|float2|double2|long2|bool2)</code></li>
+<li>Implicit <strong>from</strong>: <code>uint2</code>, <code>int2</code>, <code>float2</code>, <code>double2</code>, <code>bool2</code>, and the scalar forms (<code>ulong/long/uint/int/float/double/bool</code>)</li>
+<li>Explicit <strong>to</strong>: <code>uint2</code>, <code>int2</code>, <code>float2</code>, <code>double2</code><br>
+(scalar casts use <code>x</code> component)</li>
+</ul>
+<p>Also includes tuple sugar:</p>
+<pre><code class="lang-csharp">ulong2 a = (1UL, 2UL);       // implicit (ulong,ulong) -&gt; ulong2
+(ulong x, ulong y) t = a;    // deconstruct back to tuple
+</code></pre>
+<h2 id="operators-component-wise">Operators (component-wise)</h2>
+<ul>
+<li>Arithmetic: <code>+  -  *  /  %</code> (with <code>ulong</code>/<code>uint</code> scalar overloads)</li>
+<li>Unary: <code>++  --  +  -</code> (note: unary <code>-</code> uses wraparound semantics on <code>ulong</code>)</li>
+<li>Bitwise: <code>&amp;  |  ^  ~  &lt;&lt;  &gt;&gt;</code></li>
+<li>Comparisons → <code>bool2</code>: <code>== != &lt; &lt;= &gt; &gt;=</code></li>
+</ul>
+<h2 id="swizzles">Swizzles</h2>
+<p>A full set of 2- and 4-component read-only swizzles (<code>xxxy</code>, <code>xxyy</code>, <code>yxxx</code>, …) plus writable 2-component pairs:</p>
+<pre><code class="lang-csharp">var p = new ulong2(10, 20);
+ulong2 a = p.xy;     // (10,20)
+p.yx = (1UL, 2UL);   // now p = (2,1)
+</code></pre>
+<h2 id="math-helpers-static">Math helpers (static)</h2>
+<pre><code class="lang-csharp">ulong2 min(ulong2 a, ulong2 b)
+ulong2 max(ulong2 a, ulong2 b)
+ulong2 clamp(ulong2 v, ulong2 min, ulong2 max)
+ulong   dot(ulong2 a, ulong2 b)
+</code></pre>
+<h2 id="hash-helpers-coreframework.mathematics.math">Hash helpers (<code>CoreFramework.Mathematics.Math</code>)</h2>
+<pre><code class="lang-csharp">ulong  Math.hash(ulong2 v)                       // 64-bit hash of both lanes
+ulong2 Math.hashwide(ulong2 v)                   // wide hash (per-lane)
+ulong  Math.shuffle(ulong2 left, ulong2 right, ShuffleComponent x)
+ulong2 Math.shuffle(ulong2 left, ulong2 right, ShuffleComponent x, ShuffleComponent y)
+ulong4 Math.shuffle(ulong2 left, ulong2 right, ShuffleComponent x, y, z, w)
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp">using CoreFramework.Mathematics;
+using Unity.Mathematics;
+
+var a = new ulong2(123UL, 456UL);
+var b = (ulong2) new uint2(7, 9);
+
+ulong2 sum = a + b;          // (130, 465)
+bool2  gt = a &gt; b;           // (true, true)
+
+ulong  h  = Math.hash(sum);  // compact 64-bit hash
+ulong2 hw = Math.hashwide(a);
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>BurstCompile</code> attribute is present; operators and helpers are inlined and Burst-friendly.</li>
+<li><code>GetHashCode()</code> delegates to <code>Math.hash(this)</code>.</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong2.html">xref:CoreFramework.Mathematics.ulong2</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong4.html">xref:CoreFramework.Mathematics.ulong4</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.int2.html">xref:Unity.Mathematics.int2</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.uint2.html">xref:Unity.Mathematics.uint2</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.bool2.html">xref:Unity.Mathematics.bool2</a></li>
+</ul>
 
 </article>
 

@@ -85,18 +85,92 @@
         </div>
 
         <article data-uid="">
-<h1 id="cryptonoise">CryptoNoise</h1>
+<h1 id="cryptonoise"><code>CryptoNoise</code></h1>
 
-<p>Source: $ ./Runtime/Random\Crypto\CryptoNoise.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Random/Crypto/CryptoNoise.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>CryptoNoise</code> is a <strong>static helper</strong> that generates <strong>deterministic, noise-based keys</strong> for experimental cryptographic or large-key procedural generation scenarios.<br>
+It builds on Core Framework’s noise functions (<code>SquirrelNoise32Bit</code>, <code>SquirrelNoise64Bit</code>, and <code>HashBasedNoiseUtils</code>) to produce <code>uint4</code> or <code>ulong[]</code> key material seeded with ChaCha-inspired quarter rounds.</p>
+<p>Although full 256-bit noise hashing hasn’t been implemented in CoreFramework yet, <code>CryptoNoise</code> lays the groundwork for it by combining multiple noise calls and <code>Prime</code> constants to mimic cryptographic diffusion.</p>
+<h2 id="responsibilities">Responsibilities</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Generate 4×32-bit or 4×64-bit pseudo-random values for use as keys.</li>
+<li>Provide overloads for <code>uint</code>/<code>ulong</code> positions and seeds.</li>
+<li>Use different <code>NoiseType</code> variants (ChaChaQuarterRoundSimple/Advanced) to diversify the key stream.</li>
+<li>Return deterministic keys for the same position+seed input.</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GenerateKey(uint seed)</code></td>
+<td>Returns a <code>uint4</code> key based on a simple ChaCha noise seed.</td>
+</tr>
+<tr>
+<td><code>GenerateKey(uint position, uint seed)</code></td>
+<td>Returns a <code>uint4</code> key using 32-bit index+seed, combining simple and advanced ChaCha rounds.</td>
+</tr>
+<tr>
+<td><code>GenerateKey(ulong seed)</code></td>
+<td>Same as above but using a 64-bit seed.</td>
+</tr>
+<tr>
+<td><code>GenerateKey(ulong position, ulong seed)</code></td>
+<td>Returns a <code>uint4</code> key by combining multiple noise calls with Prime constants.</td>
+</tr>
+<tr>
+<td><code>GenerateKey64(uint seed)</code> / <code>GenerateKey64(uint position, uint seed)</code> / <code>GenerateKey64(ulong seed)</code> / <code>GenerateKey64(ulong position, ulong seed)</code></td>
+<td>Return an array of four 64-bit unsigned integers as the key material.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code class="lang-csharp">using CoreFramework.Random.Crypto;
+using Unity.Mathematics;
+
+public class KeyExample
+{
+    public void DemoKeys()
+    {
+        // Simple 32-bit key
+        uint4 key32 = CryptoNoise.GenerateKey(123u);
+        
+        // 32-bit key from position + seed
+        uint4 key32Pos = CryptoNoise.GenerateKey(42u, 999u);
+
+        // 64-bit key material
+        ulong[] key64 = CryptoNoise.GenerateKey64(42UL, 999UL);
+
+        UnityEngine.Debug.Log($&quot;Key32: {key32}&quot;);
+        UnityEngine.Debug.Log($&quot;Key64 parts: {string.Join(\&quot;, \&quot;, key64)}&quot;);
+    }
+}
+</code></pre>
+<p>This will yield the same keys every time for the same inputs, which is useful for procedural or reproducible setups.</p>
+<h2 id="behavior-notes">Behavior Notes</h2>
+<ul>
+<li>Keys are <strong>deterministic</strong> but not cryptographically secure — they’re for hashing / PCG experiments, not for real encryption.</li>
+<li>Uses CoreFramework’s <code>Prime1</code>, <code>Prime2</code>, and <code>Prime3</code> constants to spread input entropy across multiple rounds.</li>
+<li>Can be extended to output a <code>ulong4</code> once full 256-bit noise hashing is implemented.</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../../api/CoreFramework.Random.Crypto.CryptoNoise.html">xref:CoreFramework.Random.Crypto.CryptoNoise</a></li>
+<li><a href="xref:System.UInt64">xref:System.UInt64</a> -also knowen as ulong</li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.uint4.html">xref:Unity.Mathematics.uint4</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.uint.html">xref:Unity.Mathematics.uint</a></li>
+<li><a class="xref" href="../../../../../api/CoreFramework.Mathematics.ulong4.html">xref:CoreFramework.Mathematics.ulong4</a>  — potential target type for future 256-bit keys.</li>
+<li><a class="xref" href="../../../../../api/CoreFramework.Mathematics.ulong2.html">xref:CoreFramework.Mathematics.ulong2</a></li>
+<li><a class="xref" href="../../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="../../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">xref:CoreFramework.Random.SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">xref:CoreFramework.Random.SquirrelNoise64Bit</a></li>
+</ul>
 
 </article>
 

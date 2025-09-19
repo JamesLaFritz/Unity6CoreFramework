@@ -87,16 +87,78 @@
         <article data-uid="">
 <h1 id="squirrelnoise128">SquirrelNoise128</h1>
 
-<p>Source: $ ./Runtime/Random\SquirrelNoise128.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Random/SquirrelNoise128.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>SquirrelNoise128</code> provides <strong>128-bit lane</strong> hashing utilities used to build deterministic pseudo-random <strong>1D/2D/3D/4D</strong> noise. It works with <code>ulong2</code> (two 64-bit lanes) and returns either packed 128-bit results or reduced 64/32-bit scalars. Float helpers convert to <strong>[0,1]</strong> or <strong>[-1,1]</strong> ranges.</p>
+<blockquote>
+<p>Default algorithm: <code>NoiseType.ChaChaQuarterRoundSimple</code> (see <code>NoiseType</code> enum). Internally, hashing mixes constants like the 64-bit golden-ratio prime.</p>
+</blockquote>
+<h2 id="core-functions">Core functions</h2>
+<h3 id="bit">128- / 64-bit</h3>
+<pre><code class="lang-csharp">ulong2 GetUInt128(ulong2 index, ulong2 seed, NoiseType type = Default)
+ulong  GetUInt64 (ulong2 index, ulong2 seed, NoiseType type = Default)  // OR of both lanes
+</code></pre>
+<h3 id="integer-noise-returns-uint">Integer noise (returns <code>uint</code>)</h3>
+<pre><code class="lang-csharp">uint Get1DNoise(ulong2 index,                 ulong2 seed, NoiseType type = Default)
+uint Get2DNoise(ulong2 x, ulong2 y,           ulong2 seed, NoiseType type = Default)
+uint Get3DNoise(ulong2 x, ulong2 y, ulong2 z, ulong2 seed, NoiseType type = Default)
+uint Get4DNoise(ulong2 x, ulong2 y, ulong2 z, ulong2 w, ulong2 seed, NoiseType type = Default)
+</code></pre>
+<p>(2D/3D/4D combine coordinates with 64-bit primes before hashing.)</p>
+<h3 id="float-helpers">Float helpers</h3>
+<pre><code class="lang-csharp">float Get1DNoise01     (ulong2 index,                      ulong2 seed, NoiseType type = Default) // [0,1]
+float Get2DNoise01     (ulong2 x, ulong2 y,                ulong2 seed, NoiseType type = Default)
+float Get3DNoise01     (ulong2 x, ulong2 y, ulong2 z,      ulong2 seed, NoiseType type = Default)
+float Get4DNoise01     (ulong2 x, ulong2 y, ulong2 z, ulong2 w, ulong2 seed, NoiseType type = Default)
+
+float Get1DNoiseNeg1To1(ulong2 index,                      ulong2 seed, NoiseType type = Default) // [-1,1]
+float Get2DNoiseNeg1To1(ulong2 x, ulong2 y,                ulong2 seed, NoiseType type = Default)
+float Get3DNoiseNeg1To1(ulong2 x, ulong2 y, ulong2 z,      ulong2 seed, NoiseType type = Default)
+float Get4DNoiseNeg1To1(ulong2 x, ulong2 y, ulong2 z, ulong2 w, ulong2 seed, NoiseType = Default)
+</code></pre>
+<h2 id="usage-examples">Usage examples</h2>
+<p><strong>2D tileable sampling (integers-in, floats-out)</strong></p>
+<pre><code class="lang-csharp">using CoreFramework.Mathematics;
+using CoreFramework.Random;
+
+int w = 256, h = 256;
+var seed = new ulong2(12345UL, 67890UL);
+
+for (int y = 0; y &lt; h; y++)
+for (int x = 0; x &lt; w; x++)
+{
+    // pack coordinates into ulong2 lanes if desired; here we just broadcast
+    var X = new ulong2((ulong)x);
+    var Y = new ulong2((ulong)y);
+
+    float v01 = SquirrelNoise128.Get2DNoise01(X, Y, seed);         // [0,1]
+    // ...write to texture / heightmap...
+}
+</code></pre>
+<p><strong>3D volume strip (compatible with the editor heatmaps)</strong></p>
+<pre><code class="lang-csharp">var seed = (ulong2)(42UL);
+for (int y = 0; y &lt; H; y++)
+for (int x = 0; x &lt; W; x++)
+for (int z = 0; z &lt; W; z++)
+{
+    float v = SquirrelNoise128.Get3DNoise01((ulong2)(ulong)x, (ulong2)(ulong)y, (ulong2)(ulong)z, seed);
+    // pack at column = z*W + x, row = y
+}
+</code></pre>
+<h2 id="notes">Notes</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Functions are <code>MethodImplOptions.AggressiveInlining</code> for Burst friendliness.</li>
+<li><code>GetUInt64</code> reduces <code>GetUInt128</code> by OR’ing lanes; pick the variant appropriate for your distribution needs.</li>
+<li>Float mapping helpers use <code>HashBasedNoiseUtils.ToZeroToOne</code> / <code>ToNegOneToOne</code>.</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong2.html">xref:CoreFramework.Mathematics.ulong2</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.NoiseType.html">xref:CoreFramework.Random.NoiseType</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">xref:CoreFramework.Random.SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">xref:CoreFramework.Random.SquirrelNoise64Bit</a></li>
+</ul>
 
 </article>
 

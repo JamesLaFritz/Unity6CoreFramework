@@ -2,805 +2,805 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/ChangeLog.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/LICENSE.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/ThirdPartyNotices.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.AsyncOperationExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Bootstrapper.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.BuildProcessing.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.CameraExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.ColorExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.EnumerableExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.EnumeratorExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.GameAssetConfig.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.GameObjectExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.IFactory-2.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.IGameAssetFactory-2.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.ISharedData.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.IVisitable.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.IVisitor.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.LayerMaskExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.ListExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Mathematics.Math.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Mathematics.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Mathematics.ulong2.DebuggerProxy.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Mathematics.ulong2.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Mathematics.ulong4.DebuggerProxy.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Mathematics.ulong4.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.NumberExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.PropertyPathExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.Crypto.CryptoNoise.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.Crypto.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.HashBasedNoiseUtils.Cellular2DResult.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.HashBasedNoiseUtils.Cellular3DResult.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.HashBasedNoiseUtils.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.IRandomFunction-2.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.NoiseRngUtils.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.NoiseType.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.NoiseTypeExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.SquirrelNoise128.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.SquirrelNoise32Bit.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.SquirrelNoise32Rng.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.SquirrelNoise64Bit.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.SquirrelNoise64Rng.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Random.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.ReflectionExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.RigidbodyExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.CoreFrameworkPreferences.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.CoreFrameworkPreferencesProvider.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.CoreFrameworkProjectSettings.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.CoreFrameworkSettingInitialization.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.CoreFrameworkSettings.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.VersionControl.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.VersionInitialization.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.VersionProjectSettings.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.VersionProjectSettingsProvider.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Settings.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.StringExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.TaskExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Tools.CellularHeatmapWindow.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Tools.NoiseEditorHelper.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Tools.SquirrelNoiseHeatMapWindow.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Tools.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.TransformExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Vector2Extensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.Vector3Extensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/CoreFramework.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/api/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/BuildProcessing.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/CoreFrameworkPreferences.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/CoreFrameworkPreferencesProvider.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/CoreFrameworkProjectSettings.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/CoreFrameworkProjectSettingsProvider.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/CoreFrameworkSettingInitialization.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/VersionInitialization.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/VersionProjectSettings.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/VersionProjectSettingsProvider.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Settings/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Tools/CellularHeatmapWindow.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Tools/NoiseEditorHelper.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Tools/SquirrelNoiseHeatMapWindow.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/Tools/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Editor/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Bootstrapper.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/AsyncOperationExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/CameraExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/ColorExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/EnumerableExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/EnumeratorExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/GameObjectExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/LayerMaskExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/ListExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/NumberExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/PropertyPathExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/ReflectionExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/RigidbodyExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/StringExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/TaskExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/TransformExtensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/Vector2Extensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/Vector3Extensions.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Extensions/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Mathmatics/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Mathmatics/ulong2.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Mathmatics/ulong4.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Patterns/GameAssetConfig.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Patterns/IFactory.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Patterns/IGameAssetFactory.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Patterns/ISharedData.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Patterns/Visitor.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Patterns/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/Crypto/CryptoNoise.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/Crypto/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/HashBasedNoiseUtils.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/IRandomFunction.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/NoiseRngUtils.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/NoiseType.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/NoiseTypes.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/NoiseTypesSquirrelIntegrationAPracticalGuide.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/SquirrelNoise128.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/SquirrelNoise32Bit.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/SquirrelNoise32Rng.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/SquirrelNoise64Bit.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/SquirrelNoise64Rng.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/UniqueWorlds.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Random/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Settings/CoreFrameworkSettings.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Settings/VersionControl.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/Settings/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/Runtime/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/code/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/getting-started.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/manual/index.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jameslafritz.github.io/Unity6CoreFramework/unity_6_core_framework_docs_pack_doc_fx_manual.html</loc>
-    <lastmod>2025-09-19T05:18:09-04:00</lastmod>
+    <lastmod>2025-09-19T06:29:56-04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

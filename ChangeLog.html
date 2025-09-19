@@ -84,12 +84,30 @@ Package resolution ignores <code>+metadata</code>, so publish patches as <code>1
 <p><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/latest"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;display_name=release&amp;style=plastic&amp;label=Latest%20Release&amp;logo=github" alt="GitHub Release"></a></p>
 <hr>
 <h2 id="unreleased-unreleased"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/compare/1.4.0...HEAD">Unreleased</a> - <a href="https://github.com/JamesLaFritz/Unity6CoreFramework"><img src="https://img.shields.io/badge/Core_Framework-blue?logo=github&amp;label=Unreleased" alt="Unreleased"></a></h2>
+<h3 id="changed">Changed</h3>
 <ul>
-<li><em>Add entries here for changes after 1.4.0.</em></li>
+<li>Updated <strong>README.md</strong> with revised guidelines and examples.</li>
+<li>Fixed minor issues in <code>Bootstrapper</code>, <code>EnumeratorExtensions</code>, and <code>NoiseType</code>.</li>
+</ul>
+<h3 id="added">Added</h3>
+<ul>
+<li><code>GuidelinesDemoTest</code> under <strong>Tests/Editor</strong> for demo validation.</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li>Deleted outdated documentation: <code>Documentation~/CoreFramework.md</code>.</li>
+</ul>
+<h3 id="renamed">Renamed</h3>
+<ul>
+<li><code>Third Party Notices.md</code> → <code>ThirdPartyNotices.md</code> for naming consistency.</li>
+</ul>
+<h3 id="fixed">Fixed</h3>
+<ul>
+<li>Small corrections in <strong>Editor Tools</strong> (<code>CellularHeatmapWindow</code>, <code>SquirrelNoiseHeatMapWindow</code>).</li>
 </ul>
 <hr>
 <h2 id="github-release"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/compare/v1.3.0.0...1.4.0">1.4.0</a> — 2025-08-29 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.4.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=v1.4.0&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Random)%3A%20add%20Squirrel%20Noise" alt="GitHub Release"></a></h2>
-<h3 id="added">Added</h3>
+<h3 id="added-1">Added</h3>
 <ul>
 <li><strong>Squirrel Noise Random</strong>: stateless, deterministic noise/RNG suite.
 <ul>
@@ -120,13 +138,13 @@ Package resolution ignores <code>+metadata</code>, so publish patches as <code>1
 </ul>
 </li>
 </ul>
-<h3 id="changed">Changed</h3>
+<h3 id="changed-1">Changed</h3>
 <ul>
 <li><strong>Packaging:</strong> <code>package.json</code> now <strong>SemVer</strong> (<code>&quot;version&quot;: &quot;1.4.0+rev.0&quot;</code>).<br>
 (Replaces previous 4-segment scheme like <code>1.3.0.0</code>.)</li>
 <li>Updated badges/docs to reflect new versioning and install instructions.</li>
 </ul>
-<h3 id="fixed">Fixed</h3>
+<h3 id="fixed-1">Fixed</h3>
 <ul>
 <li>Added missing <code>.meta</code> files to prevent import warnings.</li>
 <li>Removed orphaned <code>Gemfile.lock.meta</code>.</li>
@@ -141,7 +159,7 @@ Package resolution ignores <code>+metadata</code>, so publish patches as <code>1
 <em>(Package resolution treats <code>1.4.0+rev.0</code> the same as <code>1.4.0</code>.)</em></p>
 <hr>
 <h2 id="github-release-1"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.3.0.0">1.3.0.0</a> — 2024-10-16 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.3.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.3.0.0&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Editor)%3A%20add%20build%20processing%20automation%20script" alt="GitHub Release"></a></h2>
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 <ul>
 <li><strong>Editor build processing automation</strong> (<code>BuildProcessing.cs</code>):
 <ul>
@@ -152,7 +170,7 @@ Package resolution ignores <code>+metadata</code>, so publish patches as <code>1
 </ul>
 <hr>
 <h2 id="github-release-2"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.2.0.0">1.2.0.0</a> — 2024-10-16 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.2.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.2.0.0&amp;display_name=release&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Settings)%3A%20add%20version%20control%20and%20initialization%20support" alt="GitHub Release"></a></h2>
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 <ul>
 <li><strong>Version control &amp; initialization</strong>:
 <ul>
@@ -162,19 +180,19 @@ Package resolution ignores <code>+metadata</code>, so publish patches as <code>1
 </ul>
 <hr>
 <h2 id="github-release-3"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.1.0.0">1.1.0.0</a> — 2024-10-15 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.1.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.1.0.0&amp;display_name=release&amp;style=plastic&amp;label=%E2%9C%A8%20feat(Runtime)%3A%20add%20Bootstrapper%20for%20initialization%20logic" alt="GitHub Release"></a></h2>
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 <ul>
 <li><strong>Runtime Bootstrapper</strong> to centralize app initialization.</li>
 </ul>
 <hr>
 <h2 id="github-release-4"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.1.0">1.0.1.0</a> — 2024-10-15 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.1.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.0.1.0&amp;display_name=release&amp;style=plastic&amp;label=%F0%9F%90%9B%20fix(Settings)%3A%20resolve%20issue%20with%20settings%20not%20saving" alt="GitHub Release"></a></h2>
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 <ul>
 <li>Project settings not saving correctly (<code>CoreFrameworkProjectSettings</code>, <code>CoreFrameworkProjectSettingsProvider</code>, <code>CoreFrameworkSettings</code>).</li>
 </ul>
 <hr>
 <h2 id="github-release-5"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.2">1.0.0.2</a> — 2024-10-15<a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.2"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.0.0.2&amp;display_name=release&amp;style=plastic&amp;label=%E2%99%BB%EF%B8%8F%20refactor(Editor)%3A%20update%20variable%20names%20and%20switch%20to%20UI%20Elements" alt="GitHub Release"></a></h2>
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 <ul>
 <li>Editor refactor: variable name clean-up; migrated UI to <strong>UI Elements</strong>.</li>
 </ul>
@@ -190,7 +208,7 @@ Package resolution ignores <code>+metadata</code>, so publish patches as <code>1
 </ul>
 <hr>
 <h2 id="github-release-7"><a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.0">1.0.0.0</a> — 2024-07-31 <a href="https://github.com/JamesLaFritz/Unity6CoreFramework/releases/tag/v1.0.0.0"><img src="https://img.shields.io/github/v/release/JamesLaFritz/Unity6CoreFramework?sort=date&amp;filter=*v1.0.0.0&amp;display_name=release&amp;style=plastic&amp;label=%E2%9C%A8%20feat(coreframework)%3A%20introduce%20Core%20Framework%20with%20initial%20setup%20and%20settings" alt="GitHub Release"></a></h2>
-<h3 id="added-4">Added</h3>
+<h3 id="added-5">Added</h3>
 <ul>
 <li>Initial Core Framework:
 <ul>

@@ -87,16 +87,95 @@
         <article data-uid="">
 <h1 id="versionprojectsettings">VersionProjectSettings</h1>
 
-<p>Source: $ ./Editor/Settings\VersionProjectSettings.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Settings/VersionProjectSettings.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Holds the <strong>project-wide version settings</strong> (serialized and committed to VCS) used by CoreFramework to control save/version compatibility and to sync Unity’s <strong>PlayerSettings.bundleVersion</strong>.</p>
+<p>Curently there is no save system in CoreFramework. This will be added at a later stage.</p>
+<p>The asset is stored at:</p>
+<pre><code>ProjectSettings/VersionProjectSettings.asset
+</code></pre>
+<blockquote>
+<p>This class is a <code>ScriptableSingleton&lt;VersionProjectSettings&gt;</code>; access via <code>VersionProjectSettings.instance</code>.</p>
+</blockquote>
+<h2 id="fields">Fields</h2>
+<h3 id="current-version">Current Version</h3>
+<p>Represents the <strong>latest</strong> file format/version of your project.</p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Major — incompatible API/format changes</li>
+<li>Minor — backward-compatible feature additions</li>
+<li>Build — backward-compatible bug fixes</li>
+<li>Revision — pre-release/internals</li>
+</ul>
+<pre><code class="lang-csharp">public Version CurrentFileVersion
+{
+    get =&gt; new(_major, _minor, _build, _revision);
+    set
+    {
+        PlayerSettings.bundleVersion = value.ToString();
+        VersionControl.CurrentFileVersion = value;
+        _major = value.Major;
+        _minor = value.Minor;
+        _build = value.Build;
+        _revision = value.Revision;
+        Save(true);
+    }
+}
+</code></pre>
+<p>Setting <code>CurrentFileVersion</code>:</p>
+<ul>
+<li><strong>Updates</strong> <code>UnityEditor.PlayerSettings.bundleVersion</code></li>
+<li><strong>Updates</strong> <code>VersionControl.CurrentFileVersion</code></li>
+<li><strong>Saves</strong> the singleton asset</li>
+</ul>
+<h3 id="min-version">Min Version</h3>
+<p>The <strong>earliest</strong> save/file version that remains supported.</p>
+<pre><code class="lang-csharp">public Version MinFileVersion
+{
+    get =&gt; new(_minMajor, _minMinor, _minBuild, _minRevision);
+    set
+    {
+        VersionControl.MinFileVersion = value;
+        _minMajor = value.Major;
+        _minMinor = value.Minor;
+        _minBuild = value.Build;
+        _minRevision = value.Revision;
+        Save(true);
+    }
+}
+</code></pre>
+<h2 id="where-to-edit-it-unity">Where to edit it (Unity)</h2>
+<blockquote>
+<p><strong>Edit → Project Settings → Core Framework → Version Settings</strong></p>
+</blockquote>
+<p><img src="../../../../Images/Screenshot-2025-09-19-084938.png" alt="Version Settings"></p>
+<h2 id="how-it-fits-together">How it fits together</h2>
+<ul>
+<li><p>On editor load, <a href="VersionInitialization.html"><code>VersionInitialization</code></a> copies these values to:</p>
+<ul>
+<li><code>VersionControl.CurrentFileVersion</code></li>
+<li><code>VersionControl.MinFileVersion</code></li>
+<li>and syncs <code>PlayerSettings.bundleVersion</code> accordingly</li>
+</ul>
+</li>
+<li><p>Build menus in <a href="../BuildProcessing.html"><code>BuildProcessing</code></a> bump version parts and assign back to <code>CurrentFileVersion</code>.</p>
+</li>
+</ul>
+<h2 id="usage-snippet">Usage snippet</h2>
+<pre><code class="lang-csharp">// Bump build and persist everywhere (asset + PlayerSettings + VersionControl)
+var v = VersionProjectSettings.instance.CurrentFileVersion;
+VersionProjectSettings.instance.CurrentFileVersion = new Version(v.Major, v.Minor, v.Build + 1, 0);
+</code></pre>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="VersionProjectSettingsProvider.html">VersionProjectSettingsProvider</a></li>
+<li><a href="VersionInitialization.html">VersionInitialization</a></li>
+<li><a href="../BuildProcessing.html">BuildProcessing</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionProjectSettings.html">xref:CoreFramework.Settings.VersionProjectSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionControl.html">xref:CoreFramework.Settings.VersionControl</a></li>
+</ul>
 
 </article>
 

@@ -87,16 +87,77 @@
         <article data-uid="">
 <h1 id="coreframeworkpreferences">CoreFrameworkPreferences</h1>
 
-<p>Source: $ ./Editor/Settings\CoreFrameworkPreferences.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Settings/CoreFrameworkPreferences.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Defines the <strong>Unity Preferences</strong> (per-developer) for CoreFramework editor tooling. These values appear under:</p>
+<blockquote>
+<p><strong>Edit → Preferences → Core Framework → Settings</strong></p>
+</blockquote>
+<p>They expose sliders and toggles for debug display (Show Debug, Info Size, Warning Size, Error Size) but are <strong>currently not used by CoreFramework at runtime</strong>. They are designed to be read from your own scripts if you want to size and filter messages consistently.</p>
+<h2 id="current-fields">Current Fields</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>Show Debug</strong> — toggle to enable or disable debug output.</li>
+<li><strong>Info Size</strong> — slider for informational message size.</li>
+<li><strong>Warning Size</strong> — slider for warning message size.</li>
+<li><strong>Error Size</strong> — slider for error message size.</li>
+</ul>
+<p><img src="../../../../Images/Screenshot-2025-09-19-070638.png" alt="Preferences"></p>
+<h2 id="suggested-usage">Suggested Usage</h2>
+<p>Although CoreFramework itself does not yet consume these settings at runtime, you can use them in your own components. One approach is to create an <strong>abstract base <code>MonoBehaviour</code></strong> with helper logging methods that respect the preferences:</p>
+<pre><code class="lang-csharp">using UnityEngine;
+
+/// &lt;summary&gt;
+/// Base MonoBehaviour that logs messages according to CoreFrameworkSettings preferences.
+/// &lt;/summary&gt;
+public abstract class CoreFrameworkDebugBehaviour : MonoBehaviour
+{
+    protected void LogInfo(string message, Object target = null)
+    {
+        if (CoreFrameworkSettings.ShowDebug)
+        {
+            // Note: Unity rich text uses closing tags like &lt;/size&gt;
+            // Add any other rich text formating or othe info that you might want to use with the message.
+            Debug.Log($&quot;&lt;size={CoreFrameworkSettings.InfoSize}&gt;&lt;color=blue&gt;Info:&lt;/color&gt; {message}&lt;/size&gt;&quot;, target);
+        }
+    }
+
+    protected void LogWarning(string message, Object target = null)
+    {
+        // remove the if statment to always show warnings
+        if (CoreFrameworkSettings.ShowDebug)
+        {
+            Debug.LogWarning($&quot;&lt;size={CoreFrameworkSettings.WarningSize}&gt;&lt;color=orange&gt;Warning:&lt;/color&gt; {message}&lt;/size&gt;&quot;, target);
+        }
+    }
+
+    protected void LogError(string message, Object target = null)
+    {
+        Debug.LogError($&quot;&lt;size={CoreFrameworkSettings.ErrorSize}&gt;&lt;color=red&gt;Error:&lt;/color&gt; {message}&lt;/size&gt;&quot;, target);
+    }
+}
+</code></pre>
+<p>You can then use this class in your own scripts to log messages according to the preferences.</p>
+<pre><code class="lang-csharp">public class MyComponent : CoreFrameworkDebugBehaviour
+{
+    void Update()
+    {
+        // Example of using the base logging methods
+        LogInfo(&quot;Some informational message about Update()&quot;);
+    }
+}
+</code></pre>
+<h2 id="behavior-notes">Behavior Notes</h2>
+<ul>
+<li>Stored per-developer (EditorPrefs), not committed to the repo.</li>
+<li>Used by CoreFramework editor tooling; runtime access is via <code>CoreFrameworkSettings</code>.</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkPreferences.html">xref:CoreFramework.Settings.CoreFrameworkPreferences</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkPreferencesProvider.html">xref:CoreFramework.Settings.CoreFrameworkPreferencesProvider</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettingInitialization.html">xref:CoreFramework.Settings.CoreFrameworkSettingInitialization</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettings.html">xref:CoreFramework.Settings.CoreFrameworkSettings</a></li>
+</ul>
 
 </article>
 

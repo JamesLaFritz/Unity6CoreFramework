@@ -87,16 +87,77 @@
         <article data-uid="">
 <h1 id="versioninitialization">VersionInitialization</h1>
 
-<p>Source: $ ./Editor/Settings\VersionInitialization.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
+<p>Source: <code>./Editor/Settings/VersionInitialization.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Ensures that version-related settings are synchronized between <strong>VersionProjectSettings</strong>, <strong>VersionControl</strong>, and Unity’s <strong>PlayerSettings.bundleVersion</strong> when the editor starts.</p>
+<p>This keeps the project’s current and minimum file versions consistent and automatically updates the Unity bundle version if necessary.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><code>VersionInitialization</code> is marked with <code>[InitializeOnLoad]</code>, so its static constructor runs automatically when the Unity Editor loads.</p>
+<pre><code class="lang-csharp">[InitializeOnLoad]
+public class VersionInitialization
+{
+    static VersionInitialization()
+    {
+        // Retrieve the VersionProjectSettings instance
+        var settings = VersionProjectSettings.instance;
+
+        // Set the current and minimum save file versions from VersionProjectSettings
+        VersionControl.CurrentFileVersion = settings.CurrentFileVersion;
+        VersionControl.MinFileVersion     = settings.MinFileVersion;
+
+        // Sync Unity PlayerSettings.bundleVersion
+        if (Version.TryParse(PlayerSettings.bundleVersion, out var result) &amp;&amp;
+            VersionControl.CurrentFileVersion &lt; result)
+        {
+            // If bundleVersion is newer, update CurrentFileVersion
+            settings.CurrentFileVersion = result;
+        }
+        else
+        {
+            // Otherwise, set the bundleVersion to CurrentFileVersion
+            PlayerSettings.bundleVersion = settings.CurrentFileVersion.ToString();
+        }
+    }
+}
+</code></pre>
+<h3 id="flow-diagram">Flow diagram</h3>
+<ol>
+<li><p><strong>Editor starts</strong></p>
+</li>
+<li><p>Static constructor runs.</p>
+</li>
+<li><p>Reads <code>VersionProjectSettings.instance</code> (current &amp; minimum file versions).</p>
+</li>
+<li><p>Assigns values to <code>VersionControl.CurrentFileVersion</code> and <code>VersionControl.MinFileVersion</code>.</p>
+</li>
+<li><p>Compares <code>PlayerSettings.bundleVersion</code> to <code>CurrentFileVersion</code>:</p>
+<ul>
+<li>If Unity’s bundle version is newer → update <code>CurrentFileVersion</code>.</li>
+<li>Otherwise → set Unity’s bundle version to match <code>CurrentFileVersion</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="why-it-matters">Why it matters</h3>
+<ul>
+<li>Keeps your <strong>save file versions</strong> in step with project settings.</li>
+<li>Ensures <strong>PlayerSettings.bundleVersion</strong> matches your CoreFramework versioning scheme, preventing mismatches between builds and save data.</li>
+</ul>
 <h2 id="usage-notes">Usage Notes</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>This runs only in the <strong>Unity Editor</strong> due to <code>[InitializeOnLoad]</code>.</li>
+<li>Make sure <code>VersionProjectSettings</code> is configured with the correct <strong>CurrentFileVersion</strong> and <strong>MinFileVersion</strong>.</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="VersionProjectSettings.html">VersionProjectSettings</a></li>
+<li><a href="../../Runtime/Settings/VersionControl.html">VersionControl</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionInitialization.html">xref:CoreFramework.Settings.VersionInitialization</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionProjectSettings.html">xref:CoreFramework.Settings.VersionProjectSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionControl.html">xref:CoreFramework.Settings.VersionControl</a></li>
+</ul>
 
 </article>
 

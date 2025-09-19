@@ -87,16 +87,36 @@
         <article data-uid="">
 <h1 id="coreframeworkpreferencesprovider">CoreFrameworkPreferencesProvider</h1>
 
-<p>Source: $ ./Editor/Settings\CoreFrameworkPreferencesProvider.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Settings/CoreFrameworkPreferencesProvider.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Implements the Unity <strong>Preferences</strong> integration for CoreFramework.<br>
+This class registers the <strong>CoreFrameworkPreferences</strong> page under:</p>
+<blockquote>
+<p><strong>Edit → Preferences → Core Framework → Settings</strong></p>
+</blockquote>
+<p>It does <strong>not</strong> hold any settings itself. Instead, it exposes the UI and binds to the data stored in <a href="CoreFrameworkPreferences.html"><code>CoreFrameworkPreferences</code></a>.</p>
+<h2 id="responsibilities">Responsibilities</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Adds a “Core Framework” entry in Unity’s Preferences window.</li>
+<li>Draws the fields defined in <code>CoreFrameworkPreferences</code> (Show Debug, Info Size, Warning Size, Error Size).</li>
+<li>Saves and loads those values using <code>EditorPrefs</code>.</li>
+</ul>
+<p>This allows you to adjust the values per-developer without modifying project assets.</p>
+<h2 id="usage">Usage</h2>
+<p>You generally do <strong>not</strong> use <code>CoreFrameworkPreferencesProvider</code> directly.<br>
+It runs automatically when Unity loads the editor.<br>
+You interact with the stored values through:</p>
+<ul>
+<li><a href="CoreFrameworkPreferences.html"><code>CoreFrameworkPreferences</code></a> (editor side)</li>
+<li>or your own scripts reading <code>CoreFrameworkSettings</code> (runtime mirror).</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkPreferencesProvider.html">CoreFrameworkPreferencesProvider</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkPreferences.html">CoreFrameworkPreferences</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettingInitialization.html">CoreFrameworkSettingInitialization</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettings.html">CoreFrameworkSettings</a></li>
+</ul>
 
 </article>
 

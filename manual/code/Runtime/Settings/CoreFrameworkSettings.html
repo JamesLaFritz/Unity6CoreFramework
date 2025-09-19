@@ -87,16 +87,100 @@
         <article data-uid="">
 <h1 id="coreframeworksettings">CoreFrameworkSettings</h1>
 
-<p>Source: $ ./Runtime/Settings\CoreFrameworkSettings.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Settings/CoreFrameworkSettings.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>A <strong>runtime static container</strong> that other systems read to determine startup scenes and debug display preferences.<br>
+Values are populated in the <strong>Editor</strong> by <a href="../../Editor/Settings/CoreFrameworkSettingInitialization.html"><code>CoreFrameworkSettingInitialization</code></a>, which mirrors:</p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Project-wide scene choices from <a href="../../Editor/Settings/CoreFrameworkProjectSettings.html"><code>CoreFrameworkProjectSettings</code></a></li>
+<li>Per-developer debug prefs from <a href="../../Editor/Settings/CoreFrameworkPreferences.html"><code>CoreFrameworkPreferences</code></a></li>
+</ul>
+<p>These values are then consumed at runtime (e.g., by <a href="../Bootstrapper.html"><code>Bootstrapper</code></a>).</p>
+<h2 id="fields-defaults-shown">Fields (defaults shown)</h2>
+<pre><code class="lang-csharp">public static class CoreFrameworkSettings
+{
+    /// Name of the game start scene. &quot;None&quot; disables loading.
+    public static string StartScene = &quot;None&quot;;
+
+    /// Name of the boot scene. &quot;None&quot; disables loading.
+    public static string BootScene  = &quot;None&quot;;
+
+    /// Show debug messages controlled by CoreFramework utilities.
+    public static bool ShowDebug;
+
+    /// Rich-text font sizes for info/warn/error logs.
+    public static int InfoSize    = 14;
+    public static int WarningSize = 15;
+    public static int ErrorSize   = 16;
+}
+</code></pre>
+<blockquote>
+<p>In the <strong>Editor</strong>, these are set on load from the Preferences/Project Settings.
+In a <strong>built player</strong>, set them via your own bootstrap/config if needed.</p>
+</blockquote>
+<h2 id="typical-usage">Typical usage</h2>
+<h3 id="scene-boot-flow-used-by-bootstrapper">Scene boot flow (used by <code>Bootstrapper</code>)</h3>
+<pre><code class="lang-csharp">// Boot scene load (simplified)
+if (!string.IsNullOrWhiteSpace(CoreFrameworkSettings.BootScene) &amp;&amp;
+    !string.Equals(CoreFrameworkSettings.BootScene, &quot;None&quot;, StringComparison.Ordinal))
+{
+    SceneManager.LoadScene(CoreFrameworkSettings.BootScene);
+}
+
+// Start scene load (built player path)
+if (!string.IsNullOrWhiteSpace(CoreFrameworkSettings.StartScene) &amp;&amp;
+    !string.Equals(CoreFrameworkSettings.StartScene, &quot;None&quot;, StringComparison.Ordinal))
+{
+    SceneManager.LoadSceneAsync(CoreFrameworkSettings.StartScene, LoadSceneMode.Additive);
+}
+</code></pre>
+<h3 id="consistent-debug-formatting-pair-with-your-own-base-class">Consistent debug formatting (pair with your own base class)</h3>
+<pre><code class="lang-csharp">using UnityEngine;
+
+public abstract class CoreFrameworkDebugBehaviour : MonoBehaviour
+{
+    protected void LogInfo(string message, Object ctx = null)
+    {
+        if (CoreFrameworkSettings.ShowDebug)
+            Debug.Log($&quot;&lt;size={CoreFrameworkSettings.InfoSize}&gt;&lt;color=blue&gt;Info:&lt;/color&gt; {message}&lt;/size&gt;&quot;, ctx);
+    }
+
+    protected void LogWarning(string message, Object ctx = null)
+    {
+        if (CoreFrameworkSettings.ShowDebug)
+            Debug.LogWarning($&quot;&lt;size={CoreFrameworkSettings.WarningSize}&gt;&lt;color=orange&gt;Warning:&lt;/color&gt; {message}&lt;/size&gt;&quot;, ctx);
+    }
+
+    protected void LogError(string message, Object ctx = null)
+    {
+        Debug.LogError($&quot;&lt;size={CoreFrameworkSettings.ErrorSize}&gt;&lt;color=red&gt;Error:&lt;/color&gt; {message}&lt;/size&gt;&quot;, ctx);
+    }
+}
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><p><strong>Editor population</strong>: Happens via <code>[InitializeOnLoad]</code> in <code>CoreFrameworkSettingInitialization</code>.</p>
+</li>
+<li><p><strong>Build settings</strong>: Scene names must be listed in <em>File → Build Settings…</em> to load by name.</p>
+</li>
+<li><p><strong>Team vs. personal</strong>:</p>
+<ul>
+<li><code>StartScene</code>/<code>BootScene</code> come from <strong>Project Settings</strong> (team-shared).</li>
+<li><code>ShowDebug</code>/sizes come from <strong>Preferences</strong> (per-developer).</li>
+</ul>
+</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="../Bootstrapper.html">Bootstrapper</a></li>
+<li><a href="../../Editor/Settings/CoreFrameworkSettingInitialization.html">CoreFrameworkSettingInitialization</a></li>
+<li><a href="../../Editor/Settings/CoreFrameworkProjectSettings.html">CoreFrameworkProjectSettings</a></li>
+<li><a href="../../Editor/Settings/CoreFrameworkPreferences.html">CoreFrameworkPreferences</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettings.html">xref:CoreFramework.Settings.CoreFrameworkSettings</a></li>
+</ul>
 
 </article>
 

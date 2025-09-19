@@ -87,16 +87,70 @@
         <article data-uid="">
 <h1 id="coreframeworksettinginitialization">CoreFrameworkSettingInitialization</h1>
 
-<p>Source: $ ./Editor/Settings\CoreFrameworkSettingInitialization.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Settings/CoreFrameworkSettingInitialization.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Ensures that the <strong>editor preferences</strong> (<code>CoreFrameworkPreferences</code>) and <strong>project settings</strong> (<code>CoreFrameworkProjectSettings</code>) are synchronized into the static runtime container <a href="../../Runtime/Settings/CoreFrameworkSettings.html"><code>CoreFrameworkSettings</code></a> as soon as the Unity Editor starts.</p>
+<p>This guarantees that:</p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Any scripts or tools accessing <code>CoreFrameworkSettings</code> get up-to-date values (ShowDebug, InfoSize, WarningSize, ErrorSize, BootScene, StartScene).</li>
+<li>Runtime systems such as <a href="../../Runtime/Bootstrapper.html"><code>Bootstrapper</code></a> can read those values without extra setup.</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<p><code>CoreFrameworkSettingInitialization</code> is marked with <code>[InitializeOnLoad]</code>, so its static constructor runs automatically when the Unity Editor loads.</p>
+<pre><code class="lang-csharp">[InitializeOnLoad]
+public static class CoreFrameworkSettingInitialization
+{
+    static CoreFrameworkSettingInitialization()
+    {
+        // Load preferences
+        var preferences = CoreFrameworkPreferences.instance;
+        CoreFrameworkSettings.ShowDebug   = preferences.ShowDebug;
+        CoreFrameworkSettings.InfoSize    = preferences.InfoSize;
+        CoreFrameworkSettings.WarningSize = preferences.WarningSize;
+        CoreFrameworkSettings.ErrorSize   = preferences.ErrorSize;
+
+        // Load project settings
+        var projectSettings = CoreFrameworkProjectSettings.instance;
+        CoreFrameworkSettings.StartScene = projectSettings.StartScene;
+        CoreFrameworkSettings.BootScene  = projectSettings.BootScene;
+    }
+}
+</code></pre>
+<h3 id="flow-diagram">Flow diagram</h3>
+<ol>
+<li><p><strong>Editor starts</strong></p>
+</li>
+<li><p>Static constructor runs.</p>
+</li>
+<li><p>Reads values from:</p>
+<ul>
+<li><code>CoreFrameworkPreferences.instance</code></li>
+<li><code>CoreFrameworkProjectSettings.instance</code></li>
+</ul>
+</li>
+<li><p>Writes them into <code>CoreFrameworkSettings</code> statics.</p>
+</li>
+<li><p>Runtime systems and editor scripts can now just use <code>CoreFrameworkSettings</code>.</p>
+</li>
+</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>This runs only in the <strong>Unity Editor</strong> (due to <code>[InitializeOnLoad]</code>).</li>
+<li>In a built player, you’ll need to ensure <code>CoreFrameworkSettings</code> is set up some other way if you’re not using the editor to populate it.</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="CoreFrameworkPreferences.html">CoreFrameworkPreferences</a></li>
+<li><a href="CoreFrameworkProjectSettings.html">CoreFrameworkProjectSettings</a></li>
+<li><a href="../../Runtime/Bootstrapper.html">Bootstrapper</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettingInitialization.html">xref:CoreFramework.Settings.CoreFrameworkSettingInitialization</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkPreferences.html">xref:CoreFramework.Settings.CoreFrameworkPreferences</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkProjectSettings.html">xref:CoreFramework.Settings.CoreFrameworkProjectSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettings.html">xref:CoreFramework.Settings.CoreFrameworkSettings</a></li>
+</ul>
 
 </article>
 

@@ -87,16 +87,88 @@
         <article data-uid="">
 <h1 id="bootstrapper">Bootstrapper</h1>
 
-<p>Source: $ ./Runtime/Bootstrapper.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Bootstrapper.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Handles the <strong>initial bootstrapping of the application</strong>, ensuring essential settings are applied and that the correct scenes load when the application starts.</p>
+<p>At startup it reads the static values in <a href="Settings/CoreFrameworkSettings.html"><code>CoreFrameworkSettings</code></a> (populated by <code>CoreFrameworkPreferences</code> + <code>CoreFrameworkProjectSettings</code> via <code>CoreFrameworkSettingInitialization</code>) and uses them to load the <strong>Boot Scene</strong> and <strong>Start Scene</strong>.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The class uses Unity’s <code>[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]</code> to run a static <code>Init()</code> method before the first scene loads.</p>
+<h3 id="flow">Flow</h3>
+<ol>
+<li><p><strong>Editor</strong></p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Gets the currently loaded editor scene.</li>
+<li>If a Boot Scene is configured and not yet loaded:
+<ul>
+<li>Unloads the current editor scene.</li>
+<li>Loads the Boot Scene.</li>
+</ul>
+</li>
+<li>Then re-adds the editor scene additively so you can keep working.</li>
+</ul>
+</li>
+<li><p><strong>Player (built game)</strong></p>
+<ul>
+<li>If Boot Scene is configured and not yet loaded, loads it.</li>
+<li>If Start Scene is configured and not yet loaded, loads it <strong>additively</strong> after Boot Scene.</li>
+</ul>
+</li>
+</ol>
+<pre><code class="lang-csharp">[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+private static void Init()
+{
+#if UNITY_EDITOR
+    var currentlyLoadedEditorScene = SceneManager.GetActiveScene();
+#endif
+
+    if (string.IsNullOrWhiteSpace(CoreFrameworkSettings.BootScene) ||
+        string.Equals(CoreFrameworkSettings.BootScene, &quot;None&quot;, StringComparison.Ordinal)) return;
+
+    // Load Boot Scene if not loaded
+    if (!SceneManager.GetSceneByName(CoreFrameworkSettings.BootScene).isLoaded)
+    {
+#if UNITY_EDITOR
+        SceneManager.UnloadSceneAsync(currentlyLoadedEditorScene);
+#endif
+        SceneManager.LoadScene(CoreFrameworkSettings.BootScene);
+    }
+
+#if UNITY_EDITOR
+    // Additively reload the original editor scene
+    SceneManager.LoadSceneAsync(currentlyLoadedEditorScene.name, LoadSceneMode.Additive);
+#else
+    // In built player, load Start Scene additively
+    if (!string.IsNullOrWhiteSpace(CoreFrameworkSettings.StartScene) &amp;&amp;
+        !string.Equals(CoreFrameworkSettings.StartScene, &quot;None&quot;, StringComparison.Ordinal) &amp;&amp;
+        !SceneManager.GetSceneByName(CoreFrameworkSettings.StartScene).isLoaded)
+    {
+        SceneManager.LoadSceneAsync(CoreFrameworkSettings.StartScene, LoadSceneMode.Additive);
+    }
+#endif
+}
+</code></pre>
+<h2 id="why-it-matters">Why it matters</h2>
+<ul>
+<li><strong>Editor convenience</strong>: lets you test Boot + Start scene flow without manually loading scenes.</li>
+<li><strong>Consistent startup</strong>: in builds, automatically loads Boot Scene, then Start Scene additively if configured.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Scene names must be in <strong>File → Build Settings…</strong> for Unity to load them by name.</li>
+<li>Boot Scene and Start Scene values come from <strong>Project Settings → Core Framework → Settings</strong>.</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="Settings/CoreFrameworkSettings.html">CoreFrameworkSettings</a></li>
+<li><a href="../Editor/Settings/CoreFrameworkProjectSettings.html">CoreFrameworkProjectSettings</a></li>
+<li><a href="../Editor/Settings/CoreFrameworkSettingInitialization.html">CoreFrameworkSettingInitialization</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../api/CoreFramework.Bootstrapper.html">xref:CoreFramework.Bootstrapper</a></li>
+<li><a class="xref" href="../../../api/CoreFramework.Settings.CoreFrameworkSettings.html">xref:CoreFramework.Settings.CoreFrameworkSettings</a></li>
+<li><a class="xref" href="../../../api/CoreFramework.Settings.CoreFrameworkProjectSettings.html">xref:CoreFramework.Settings.CoreFrameworkProjectSettings</a></li>
+</ul>
 
 </article>
 

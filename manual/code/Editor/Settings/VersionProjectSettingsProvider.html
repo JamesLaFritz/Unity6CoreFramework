@@ -87,16 +87,67 @@
         <article data-uid="">
 <h1 id="versionprojectsettingsprovider">VersionProjectSettingsProvider</h1>
 
-<p>Source: $ ./Editor/Settings\VersionProjectSettingsProvider.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Settings/VersionProjectSettingsProvider.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Registers the <strong>Version Settings</strong> UI for CoreFramework at:</p>
+<blockquote>
+<p><strong>Edit → Project Settings → Core Framework → Version Settings</strong></p>
+</blockquote>
+<p>The page lets you edit the <strong>Current Version</strong> and the <strong>Min Version</strong>, with an optional <em>Backwards Compatibility</em> toggle that mirrors Current → Min.</p>
+<p><img src="../../../../Images/Screenshot-2025-09-19-084938.png" alt="Version Settings"></p>
+<h2 id="responsibilities">Responsibilities</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>Path &amp; scope</strong>: <code>&quot;Project/Core Framework/Version Settings&quot;</code> (<code>SettingsScope.Project</code>)</li>
+<li><strong>UI (IMGUI)</strong>:
+<ul>
+<li>Current Version (Major, Minor, Build, Revision)</li>
+<li><em>Backwards Compatibility</em> toggle (when enabled, Min = Current)</li>
+<li>Min Version (Major, Minor, Build, Revision)</li>
+</ul>
+</li>
+<li><strong>Apply logic</strong>:
+<ul>
+<li>When Current changes → <code>VersionProjectSettings.instance.CurrentFileVersion = new(...)</code></li>
+<li>When Min changes (and compatibility is off) → <code>VersionProjectSettings.instance.MinFileVersion = new(...)</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-csharp">// Excerpt (structure)
+public override void OnGUI(string searchContext)
+{
+    EditorGUILayout.HelpBox(
+        &quot;Every Save File has a Version Number.\n&quot; +
+        &quot;When trying to load a save, only files with the current version (or the minimum legacy version) will be valid.\n&quot; +
+        &quot;Changing the version number here will overwrite the Project-&gt;Player-&gt;Version.&quot;,
+        MessageType.Info);
+
+    // Edit Current Version → writes to VersionProjectSettings.instance.CurrentFileVersion
+    // Toggle Backwards Compatibility → optionally mirror Current → Min
+    // Edit Min Version → writes to VersionProjectSettings.instance.MinFileVersion
+}
+</code></pre>
+<h3 id="menu-shortcut">Menu shortcut</h3>
+<ul>
+<li><strong>Core Framework → Version Settings</strong>
+Opens this page via <code>SettingsService.OpenProjectSettings(&quot;Project/Core Framework/Version Settings&quot;)</code>.</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Changing <strong>Current Version</strong> updates <code>PlayerSettings.bundleVersion</code> and <code>VersionControl.CurrentFileVersion</code> through the setter in <code>VersionProjectSettings</code>.</li>
+<li>The min version controls how far back your <strong>save compatibility</strong> extends.</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="VersionProjectSettings.html">VersionProjectSettings</a></li>
+<li><a href="VersionInitialization.html">VersionInitialization</a></li>
+<li><a href="../BuildProcessing.html">BuildProcessing</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionProjectSettingsProvider.html">xref:CoreFramework.Settings.VersionProjectSettingsProvider</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionProjectSettings.html">xref:CoreFramework.Settings.VersionProjectSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionControl.html">xref:CoreFramework.Settings.VersionControl</a></li>
+</ul>
 
 </article>
 

@@ -87,16 +87,110 @@
         <article data-uid="">
 <h1 id="coreframeworkprojectsettings">CoreFrameworkProjectSettings</h1>
 
-<p>Source: $ ./Editor/Settings\CoreFrameworkProjectSettings.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
+<p>Source: <code>./Editor/Settings/CoreFrameworkProjectSettings.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><strong>CoreFrameworkProjectSettings</strong> holds <strong>project-wide</strong> (team-shared) settings that the editor serializes and commits with your project. These values appear under:</p>
+<blockquote>
+<p><strong>Edit → Project Settings → Core Framework → Settings</strong></p>
+</blockquote>
+<p>They are used to declare the <strong>Boot Scene</strong> and <strong>Start Scene</strong> for the project. On editor load, <a href="CoreFrameworkSettingInitialization.html"><code>CoreFrameworkSettingInitialization</code></a> copies these values into the runtime static container <a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettings.html"><code>CoreFrameworkSettings</code></a>. The <a href="../../Runtime/Bootstrapper.html"><code>Bootstrapper</code></a> then reads those values to handle scene loading at startup.</p>
+<p><img src="../../../../Images/Screenshot-2025-09-19-081345.png" alt="Settings"></p>
+<h2 id="fields">Fields</h2>
+<ul>
+<li><p><strong>Boot Scene</strong> — Name of the <em>boot</em> scene to load first.<br>
+If set to <code>None</code> or empty, no boot scene is loaded.</p>
+</li>
+<li><p><strong>Start Scene</strong> — Name of the <em>game start</em> scene.<br>
+If set to <code>None</code> or empty, the start scene is not loaded by the bootstrap sequence.</p>
+</li>
+</ul>
+<blockquote>
+<p>Scenes should be added to <strong>File → Build Settings…</strong> so Unity can load them by name at runtime.</p>
+</blockquote>
+<h2 id="how-it-flows">How it flows</h2>
+<ol>
+<li><strong>You choose scenes</strong> in <em>Project Settings → Core Framework → Settings</em>.</li>
+<li>On editor load, <strong><code>CoreFrameworkSettingInitialization</code></strong> mirrors them into the runtime statics:
+<ul>
+<li><code>CoreFrameworkSettings.BootScene</code></li>
+<li><code>CoreFrameworkSettings.StartScene</code></li>
+</ul>
+</li>
+<li>At application start, <strong><code>Bootstrapper</code></strong> reads those values and loads scenes.</li>
+</ol>
+<h3 id="snippet-runtime-statics-for-reference">Snippet: runtime statics (for reference)</h3>
+<pre><code class="lang-csharp">public static class CoreFrameworkSettings
+{
+    public static string StartScene = &quot;None&quot;;
+    public static string BootScene  = &quot;None&quot;;
+
+    public static bool ShowDebug;
+    public static int  InfoSize    = 14;
+    public static int  WarningSize = 15;
+    public static int  ErrorSize   = 16;
+}
+</code></pre>
+<h3 id="snippet-how-bootstrapper-uses-them">Snippet: how <code>Bootstrapper</code> uses them</h3>
+<pre><code class="lang-csharp">[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+private static void Init()
+{
+#if UNITY_EDITOR
+    var currentlyLoadedEditorScene = SceneManager.GetActiveScene();
+#endif
+
+    if (!string.IsNullOrWhiteSpace(CoreFrameworkSettings.BootScene) &amp;&amp;
+        !string.Equals(CoreFrameworkSettings.BootScene, &quot;None&quot;, StringComparison.Ordinal))
+    {
+        if (!SceneManager.GetSceneByName(CoreFrameworkSettings.BootScene).isLoaded)
+        {
+#if UNITY_EDITOR
+            SceneManager.UnloadSceneAsync(currentlyLoadedEditorScene);
+#endif
+            SceneManager.LoadScene(CoreFrameworkSettings.BootScene);
+        }
+    }
+
+#if UNITY_EDITOR
+    // In the Editor, reopen the scene you had loaded, additively.
+    SceneManager.LoadSceneAsync(currentlyLoadedEditorScene.name, LoadSceneMode.Additive);
+#else
+    // In a built player, optionally load the Start Scene additively.
+    if (!string.IsNullOrWhiteSpace(CoreFrameworkSettings.StartScene) &amp;&amp;
+        !string.Equals(CoreFrameworkSettings.StartScene, &quot;None&quot;, StringComparison.Ordinal) &amp;&amp;
+        !SceneManager.GetSceneByName(CoreFrameworkSettings.StartScene).isLoaded)
+    {
+        SceneManager.LoadSceneAsync(CoreFrameworkSettings.StartScene, LoadSceneMode.Additive);
+    }
+#endif
+}
+</code></pre>
 <h2 id="usage-notes">Usage Notes</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><p><strong>Editor vs Player behavior</strong></p>
+<ul>
+<li><em>Editor</em>: the current scene is unloaded, <strong>Boot Scene</strong> is loaded, then the original scene is added back <strong>additively</strong> so you can keep working.</li>
+<li><em>Player</em>: <strong>Boot Scene</strong> loads first; if a <strong>Start Scene</strong> is set, it loads <strong>additively</strong> afterward.</li>
+</ul>
+</li>
+<li><p><strong>Scene names</strong> must match the asset names and be present in <strong>Build Settings</strong>.</p>
+</li>
+<li><p><strong>Team-wide</strong>: these settings are serialized and should be committed to VCS so everyone shares the same startup flow.</p>
+</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="CoreFrameworkProjectSettingsProvider.html">CoreFrameworkProjectSettingsProvider</a></li>
+<li><a href="CoreFrameworkSettingInitialization.html">CoreFrameworkSettingInitialization</a></li>
+<li><a href="../../Runtime/Bootstrapper.html">Bootstrapper</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkProjectSettings.html">xref:CoreFramework.Settings.CoreFrameworkProjectSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.html">xref:CoreFramework.Settings.CoreFrameworkProjectSettingsProvider</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettingInitialization.html">xref:CoreFramework.Settings.CoreFrameworkSettingInitialization</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettings.html">xref:CoreFramework.Settings.CoreFrameworkSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Bootstrapper.html">xref:CoreFramework.Bootstrapper</a></li>
+</ul>
 
 </article>
 

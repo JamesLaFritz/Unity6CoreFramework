@@ -87,16 +87,102 @@
         <article data-uid="">
 <h1 id="versioncontrol">VersionControl</h1>
 
-<p>Source: $ ./Runtime/Settings\VersionControl.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Settings/VersionControl.cs</code> (runtime)</p>
+<h2 id="overview">Overview</h2>
+<p>A lightweight <strong>runtime container</strong> that tracks the project’s file/version information:</p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>CurrentFileVersion</strong> — the version your content/save format is currently at.</li>
+<li><strong>MinFileVersion</strong> — the <strong>earliest</strong> version still considered compatible.</li>
+</ul>
+<p>These values are set from editor data at load time:</p>
+<ul>
+<li><a href="../../Editor/Settings/VersionInitialization.html"><code>VersionInitialization</code></a> copies values from
+<a href="../../Editor/Settings/VersionProjectSettings.html"><code>VersionProjectSettings</code></a> into <code>VersionControl</code>.</li>
+<li>Changing <code>VersionProjectSettings.CurrentFileVersion</code> or <code>.MinFileVersion</code> also writes into <code>VersionControl</code>
+(via the property setters shown on that page).</li>
+</ul>
+<p>Unity’s <code>PlayerSettings.bundleVersion</code> is kept in sync by <code>VersionInitialization</code> and by the
+<code>VersionProjectSettings.CurrentFileVersion</code> setter.</p>
+<h2 id="fields">Fields</h2>
+<pre><code class="lang-csharp">// System.Version values (Major.Minor.Build.Revision)
+public static Version CurrentFileVersion; // latest supported version
+public static Version MinFileVersion;     // minimum backward-compatible version
+</code></pre>
+<blockquote>
+<p>These are <code>System.Version</code> values, so you can compare them directly with <code>&lt;</code>, <code>&gt;</code>, <code>==</code>, etc.</p>
+</blockquote>
+<h2 id="typical-usage">Typical usage</h2>
+<h3 id="gate-loading-by-version">Gate loading by version</h3>
+<p>Use the min/current values to validate save data, content packs, or networked payloads.</p>
+<pre><code class="lang-csharp">using System;
+
+bool IsSaveSupported(Version saveVersion)
+{
+    // Must be &gt;= minimum AND &lt;= current
+    return saveVersion &gt;= VersionControl.MinFileVersion &amp;&amp;
+           saveVersion &lt;= VersionControl.CurrentFileVersion;
+}
+</code></pre>
+<h3 id="example-save-header-check">Example: save header check</h3>
+<pre><code class="lang-csharp">[Serializable]
+public struct SaveHeader
+{
+    public string productName;
+    public string guid;
+    public string version; // serialized as string &quot;2.0.0.0&quot;
+}
+
+bool TryValidate(SaveHeader header, out string reason)
+{
+    if (!Version.TryParse(header.version, out var v))
+    {
+        reason = &quot;Invalid version format.&quot;;
+        return false;
+    }
+
+    if (v &lt; VersionControl.MinFileVersion)
+    {
+        reason = $&quot;Save too old. Min supported: {VersionControl.MinFileVersion}&quot;;
+        return false;
+    }
+
+    if (v &gt; VersionControl.CurrentFileVersion)
+    {
+        reason = $&quot;Save from newer build. Current: {VersionControl.CurrentFileVersion}&quot;;
+        return false;
+    }
+
+    reason = null;
+    return true;
+}
+</code></pre>
+<h3 id="bumping-versions-editor-driven">Bumping versions (editor-driven)</h3>
+<p>You normally bump versions via editor UI and build menus:</p>
+<ul>
+<li><strong>Project Settings → Core Framework → Version Settings</strong>
+(<code>VersionProjectSettingsProvider</code>) edits the numbers.</li>
+<li><strong>Core Framework → Build → (0..3)</strong>
+(<code>BuildProcessing</code>) increments parts and applies to <code>VersionProjectSettings.CurrentFileVersion</code>.</li>
+</ul>
+<p>Those flows then update <code>VersionControl</code> automatically.</p>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><code>VersionControl</code> is <strong>read</strong> at runtime; values are <strong>written</strong> from editor-side systems.</li>
+<li>In Player builds, ensure your save/load code writes a version string/number that can be parsed to <code>System.Version</code>.</li>
+<li>If you need custom compatibility rules (e.g., allow specific hotfix revisions), implement those checks on top of these two values.</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="../../Editor/Settings/VersionInitialization.html">VersionInitialization</a></li>
+<li><a href="../../Editor/Settings/VersionProjectSettings.html">VersionProjectSettings</a></li>
+<li><a href="../../Editor/BuildProcessing.html">BuildProcessing</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionControl.html">xref:CoreFramework.Settings.VersionControl</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionProjectSettings.html">xref:CoreFramework.Settings.VersionProjectSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.VersionProjectSettingsProvider.html">xref:CoreFramework.Settings.VersionProjectSettingsProvider</a></li>
+</ul>
 
 </article>
 

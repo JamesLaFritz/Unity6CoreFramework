@@ -87,16 +87,78 @@
         <article data-uid="">
 <h1 id="coreframeworkprojectsettingsprovider">CoreFrameworkProjectSettingsProvider</h1>
 
-<p>Source: $ ./Editor/Settings\CoreFrameworkProjectSettingsProvider.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Settings/CoreFrameworkProjectSettingsProvider.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Registers the <strong>Project Settings</strong> UI for CoreFramework at:</p>
+<blockquote>
+<p><strong>Edit → Project Settings → Core Framework → Settings</strong></p>
+</blockquote>
+<p>The provider renders two dropdowns—<strong>Boot Scene</strong> and <strong>Start Scene</strong>—backed by <code>CoreFrameworkProjectSettings.instance</code>.<br>
+It also exposes a convenience menu item (<strong>Core Framework → Project Settings</strong>) to jump directly to the page.</p>
+<p><img src="../../../../Images/Screenshot-2025-09-19-081345.png" alt="Settings"></p>
+<h2 id="responsibilities">Responsibilities</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>Path &amp; scope</strong>: <code>Project/Core Framework/Settings</code> (project-scoped <code>SettingsScope.Project</code>).</li>
+<li><strong>Scene list</strong>: Reads enabled scenes from <code>EditorBuildSettings.scenes</code>; inserts a <code>&quot;None&quot;</code> option.</li>
+<li><strong>UI (IMGUI)</strong>: Uses <code>EditorGUILayout.Popup</code> to select:
+<ul>
+<li><strong>Boot Scene</strong> → <code>CoreFrameworkProjectSettings.instance.BootScene</code></li>
+<li><strong>Start Scene</strong> → <code>CoreFrameworkProjectSettings.instance.StartScene</code></li>
+</ul>
+</li>
+<li><strong>Search keywords</strong>: <code>&quot;Boot Scene&quot;</code>, <code>&quot;Start Scene&quot;</code> to improve settings search.</li>
+<li><strong>Menu item</strong>: <code>Core Framework/Project Settings</code> opens this page via <code>SettingsService.OpenProjectSettings</code>.</li>
+</ul>
+<blockquote>
+<p>Note: There’s a commented-out UIElements version (<code>OnActivate</code>) in the file. The active implementation draws via IMGUI in <code>OnGUI</code>.</p>
+</blockquote>
+<h2 id="how-it-works-flow">How it works (flow)</h2>
+<ol>
+<li>Collect enabled scene paths → build a list, insert <code>&quot;None&quot;</code>.</li>
+<li>Fetch <code>CoreFrameworkProjectSettings.instance</code>.</li>
+<li>Compute selected indices (fall back to <code>&quot;None&quot;</code> when not found).</li>
+<li>Draw the two popups; assign chosen values back to the settings instance.</li>
+</ol>
+<pre><code class="lang-csharp">// Excerpt (structure only)
+public override void OnGUI(string searchContext)
+{
+    var scenesList = (from s in EditorBuildSettings.scenes where s.enabled select s.path).ToList();
+    if (scenesList.Count &gt; 0) scenesList.Insert(0, &quot;None&quot;); else scenesList.Add(&quot;None&quot;);
+
+    var settings = CoreFrameworkProjectSettings.instance;
+
+    var bootIndex  = scenesList.Contains(settings.BootScene)  ? scenesList.IndexOf(settings.BootScene)  : 0;
+    var startIndex = scenesList.Contains(settings.StartScene) ? scenesList.IndexOf(settings.StartScene) : 0;
+
+    settings.BootScene  = scenesList[EditorGUILayout.Popup(&quot;Boot Scene&quot;,  bootIndex,  scenesList.ToArray())];
+    settings.StartScene = scenesList[EditorGUILayout.Popup(&quot;Start Scene&quot;, startIndex, scenesList.ToArray())];
+}
+</code></pre>
+<h3 id="open-it-from-a-menu-and-code">Open it from a menu (and code)</h3>
+<ul>
+<li><strong>Menu</strong>: <code>Core Framework/Project Settings</code></li>
+<li><strong>Programmatically</strong>:</li>
+</ul>
+<pre><code class="lang-csharp">UnityEditor.SettingsService.OpenProjectSettings(&quot;Project/Core Framework/Settings&quot;);
+</code></pre>
+<h2 id="notes-tips">Notes &amp; tips</h2>
+<ul>
+<li>Ensure chosen scenes are added to <strong>File → Build Settings…</strong> so they can be loaded by name.</li>
+<li>These values are <strong>team-shared</strong> (serialized), and later mirrored into <code>CoreFrameworkSettings</code> by <code>CoreFrameworkSettingInitialization</code> for runtime use (e.g., <code>Bootstrapper</code> scene loading).</li>
+</ul>
+<h2 id="related-pages">Related Pages</h2>
+<ul>
+<li><a href="CoreFrameworkProjectSettings.html">CoreFrameworkProjectSettings</a></li>
+<li><a href="CoreFrameworkSettingInitialization.html">CoreFrameworkSettingInitialization</a></li>
+<li><a href="../../Runtime/Bootstrapper.html">Bootstrapper</a></li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkProjectSettingsProvider.html">xref:CoreFramework.Settings.CoreFrameworkProjectSettingsProvider</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkProjectSettings.html">xref:CoreFramework.Settings.CoreFrameworkProjectSettings</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettingInitialization.html">xref:CoreFramework.Settings.CoreFrameworkSettingInitialization</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Settings.CoreFrameworkSettings.html">xref:CoreFramework.Settings.CoreFrameworkSettings</a></li>
+</ul>
 
 </article>
 

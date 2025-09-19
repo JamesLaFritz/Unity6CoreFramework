@@ -395,6 +395,36 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "Images/Screenshot-2025-09-19-070638.png",
+      "output": {
+        "resource": {
+          "relative_path": "Images/Screenshot-2025-09-19-070638.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Images/Screenshot-2025-09-19-081345.png",
+      "output": {
+        "resource": {
+          "relative_path": "Images/Screenshot-2025-09-19-081345.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Images/Screenshot-2025-09-19-084938.png",
+      "output": {
+        "resource": {
+          "relative_path": "Images/Screenshot-2025-09-19-084938.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "Images/Unity 6 Core Logo Variations(1).png",
       "output": {
         "resource": {

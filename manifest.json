@@ -445,6 +445,26 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "Images/Unity-UUbGAXBs.png",
+      "output": {
+        "resource": {
+          "relative_path": "Images/Unity-UUbGAXBs.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "Images/Unity-u3Y6FFbj.png",
+      "output": {
+        "resource": {
+          "relative_path": "Images/Unity-u3Y6FFbj.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "Images/logo - Copy.png",
       "output": {
         "resource": {

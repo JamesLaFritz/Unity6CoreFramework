@@ -87,16 +87,84 @@
         <article data-uid="">
 <h1 id="cellularheatmapwindow">CellularHeatmapWindow</h1>
 
-<p>Source: $ ./Editor/Tools\CellularHeatmapWindow.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Tools/CellularHeatmapWindow.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>An Editor window for visualizing <strong>Worley/Cellular noise</strong>. It renders compact heatmaps for <strong>F1</strong>, <strong>F2</strong>, and <strong>F2 − F1</strong> using multiple distance metrics so you can quickly sanity-check “wormy” vs “blocky/diamond” looks and compare presets/seeds.</p>
+<p>Open it from the Unity menu:</p>
+<blockquote>
+<p><strong>Core Framework → Tools → Cellular Heatmap</strong></p>
+</blockquote>
+<p><img src="../../../../Images/Unity-UUbGAXBs.png" alt="Cellular Heatmap Window"></p>
+<p>The window can <strong>Regenerate</strong> previews with new parameters and <strong>Save PNGs</strong> of each preview.</p>
+<h2 id="what-it-shows">What it shows</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>F1 (nearest distance)</strong> — scalar field to the closest feature point (Euclidean metric).</li>
+<li><strong>F2 (second-nearest distance)</strong> — second closest.</li>
+<li><strong>Edges: F2 − F1</strong>
+<ul>
+<li><strong>Euclidean</strong> (“wormy” borders)</li>
+<li><strong>Chebyshev</strong> (“blocky”/square borders)</li>
+<li><strong>Manhattan</strong> (“diamond” borders)</li>
 </ul>
-<h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+</li>
+</ul>
+<h2 id="controls-ui">Controls (UI)</h2>
+<p><strong>Sampling</strong></p>
+<ul>
+<li><strong>Width / Height</strong> — output texture size (px).</li>
+<li><strong>Pixel Step (world units)</strong> — how far world-space advances per pixel; lowers/raises sampling density.</li>
+<li><strong>Origin X / Origin Y</strong> — world-space offset for tiling/scroll tests.</li>
+<li><strong>Seed (uint)</strong> — feature distribution seed.</li>
+<li><strong>Noise Type</strong> — hashing variant from <code>NoiseType</code> (e.g., <code>MangledBitsBalancedMix</code>).</li>
+</ul>
+<p><strong>Cellular Controls</strong></p>
+<ul>
+<li><strong>Frequency</strong> — features per world unit (higher → more, smaller cells).</li>
+<li><strong>Jitter</strong> <em>(0–1)</em> — scatter points within a cell; 0 = at cell center, 1 = full jitter.</li>
+<li><strong>Edge Width (visual)</strong> — scales <code>F2 − F1</code> before clamping to [0,1]; smaller values accentuate edges.</li>
+</ul>
+<p><strong>Display</strong></p>
+<ul>
+<li><strong>Auto Normalize</strong> — normalize F1/F2 to each image’s observed min/max.</li>
+<li><strong>Auto-Fit Previews to Window</strong> — scale rows to width.<br>
+<strong>Preview Scale</strong> — manual scale when Auto-Fit is off.</li>
+<li><strong>Gradient</strong> — color ramp used for all previews.</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul>
+<li><strong>Regenerate</strong> — recompute all buffers and textures with current parameters.</li>
+<li><strong>Save PNGs</strong> — writes <code>F1.png</code>, <code>F2.png</code>, <code>Edges_Euclidean.png</code>, <code>Edges_Chebyshev.png</code>, <code>Edges_Manhattan.png</code>
+using <code>NoiseEditorHelper.SavePng</code>.</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Start with <strong>Jitter = 1</strong> and <strong>Frequency ≈ 0.01</strong> for clearly visible cells.</li>
+<li>Lower <strong>Edge Width</strong> (e.g., <code>0.05</code>) to emphasize ridges in <code>F2 − F1</code>.</li>
+<li>Animate <strong>Origin</strong> or <strong>Seed</strong> to compare stability of presets.</li>
+<li>Turn <strong>Auto Normalize</strong> off when you need comparable absolute ranges between runs.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><code>Unity.Mathematics</code> (<code>float2</code>)</li>
+<li><code>CoreFramework.Random.HashBasedNoiseUtils</code></li>
+<li><code>CoreFramework.Random.SquirrelNoise32Bit.Cellular2D</code></li>
+<li><code>NoiseEditorHelper</code> (texture creation/drawing/saving helpers)</li>
+<li>Enums: <code>NoiseType</code>, <code>CellularDistance</code></li>
+</ul>
+<h2 id="related-api-docs">Related API / Docs</h2>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.NoiseType.html">NoiseType</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.CellularDistance.html">HashBasedNoiseUtils.CellularDistance</a></li>
+<li><a href="NoiseEditorHelper.html">NoiseEditorHelper</a></li>
+<li><a href="SquirrelNoiseHeatMapWindow.html">SquirrelNoiseHeatMapWindow</a></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Previews are rebuilt on demand; large sizes will allocate buffers of <code>width × height</code> floats per preview.</li>
+<li>PNGs are saved using the helper’s default path/prompt behavior.</li>
+</ul>
 
 </article>
 

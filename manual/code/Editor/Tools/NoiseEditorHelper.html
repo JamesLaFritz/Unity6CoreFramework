@@ -87,16 +87,59 @@
         <article data-uid="">
 <h1 id="noiseeditorhelper">NoiseEditorHelper</h1>
 
-<p>Source: $ ./Editor/Tools\NoiseEditorHelper.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Tools/NoiseEditorHelper.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>NoiseEditorHelper</code> is a static utility class used by CoreFramework editor windows such as <a href="CellularHeatmapWindow.html">CellularHeatmapWindow</a> and <a href="SquirrelNoiseHeatMapWindow.html">SquirrelNoiseHeatMapWindow</a>.<br>
+It centralizes the repetitive editor-UI code for creating textures, uploading noise buffers, drawing scaled previews, and saving PNGs.</p>
+<p>This keeps each heatmap window small and focused on <strong>computing</strong> the values rather than worrying about Unity editor plumbing.</p>
+<h2 id="responsibilities">Responsibilities</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnsureTex(Texture2D tex, int w, int h)</code></td>
+<td>Creates (or resizes) a <code>Texture2D</code> of the specified width/height, configured for point-sampling and clamped wrap mode. Returns an existing texture if size already matches.</td>
+</tr>
+<tr>
+<td><code>ApplyToTexture(Texture2D tex, float[] buffer, (float min,float max) range, Gradient gradient)</code></td>
+<td>Uploads a scalar buffer into a texture, mapping values from <code>range</code> to <code>[0..1]</code> and coloring them using <code>gradient</code>.</td>
+</tr>
+<tr>
+<td><code>DrawRow(string rowTitle, Texture2D tex, bool autoFit, float windowWidth, int previewScale)</code></td>
+<td>Draws a label and a scaled texture row inside an editor scroll view. Handles auto-fit or fixed preview scale.</td>
+</tr>
+<tr>
+<td><code>SavePng(Texture2D tex, string nameBase)</code></td>
+<td>Opens a Save File Panel to export the current texture as a PNG file. Uses <code>AssetDatabase.Refresh()</code> after writing.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="typical-usage">Typical usage</h2>
+<p>Both heatmap windows follow the same pattern:</p>
+<pre><code class="lang-csharp">_tex = NoiseEditorHelper.EnsureTex(_tex, _width, _height);
+NoiseEditorHelper.ApplyToTexture(_tex, _buffer, (0f, 1f), _gradient);
+
+NoiseEditorHelper.DrawRow(&quot;My Preview&quot;, _tex, _autoFit, position.width, _previewScale);
+
+if (GUILayout.Button(&quot;Save PNG&quot;))
+    NoiseEditorHelper.SavePng(_tex, &quot;My Heatmap&quot;);
+</code></pre>
+<p>This gives you a one-line API for drawing each preview row and exporting it.</p>
+<h2 id="dependencies">Dependencies</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>UnityEditor (<code>EditorGUILayout</code>, <code>EditorUtility</code>, <code>AssetDatabase</code>)</li>
+<li>UnityEngine (<code>Texture2D</code>, <code>Gradient</code>, <code>Color</code>)</li>
 </ul>
-<h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<h2 id="related-docs">Related Docs</h2>
+<ul>
+<li><a href="CellularHeatmapWindow.html">CellularHeatmapWindow</a></li>
+<li><a href="SquirrelNoiseHeatMapWindow.html">SquirrelNoiseHeatMapWindow</a></li>
+</ul>
 
 </article>
 

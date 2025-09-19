@@ -87,16 +87,81 @@
         <article data-uid="">
 <h1 id="squirrelnoiseheatmapwindow">SquirrelNoiseHeatMapWindow</h1>
 
-<p>Source: $ ./Editor/Tools\SquirrelNoiseHeatMapWindow.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Editor/Tools/SquirrelNoiseHeatMapWindow.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p>Editor window that previews <strong>Squirrel noise</strong> outputs as heatmaps for quick visual checks of distribution and hashing mixes. It renders <strong>1D, 2D, and 3D</strong> variants for both <strong>32-bit</strong> and <strong>64-bit</strong> implementations across the selected <code>NoiseType</code>.</p>
+<p>Open from:</p>
+<blockquote>
+<p><strong>Core Framework → Tools → Squirrel Noise Heatmap</strong></p>
+</blockquote>
+<p><img src="../../../../Images/Unity-u3Y6FFbj.png" alt="SquirrelNoiseHeatMapWindow"></p>
+<h2 id="what-it-shows">What it shows</h2>
+<p>For the chosen <code>NoiseType</code>:</p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>1D</strong>: <code>Noise 1D 32 Bit</code>, <code>Noise 1D 64 Bit</code> (row textures)</li>
+<li><strong>2D</strong>: <code>Noise 2D 32 Bit</code>, <code>Noise 2D 64 Bit</code></li>
+<li><strong>3D</strong>: <code>Noise 3D 32 Bit</code>, <code>Noise 3D 64 Bit</code> (packed as strips of Z-slices across X: column <code>z*_width + x</code>, row = <code>y</code>)</li>
 </ul>
-<h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<p>All previews are mapped with the selected <strong>Gradient</strong> over <code>[0..1]</code>.</p>
+<h2 id="controls">Controls</h2>
+<p><strong>Sampling</strong></p>
+<ul>
+<li><strong>Width / Height</strong> — texture dimensions.</li>
+<li><strong>Seed (uint)</strong> — hash seed.</li>
+<li><strong>Noise Type</strong> — hashing variant (<code>NoiseType</code>, e.g., <code>MangledBitsBalancedMix</code>).</li>
+</ul>
+<p><strong>Display</strong></p>
+<ul>
+<li><strong>Auto-Fit Previews to Window</strong> — scale to window width.</li>
+<li><strong>Preview Scale</strong> — used when Auto-Fit is off.</li>
+<li><strong>Gradient</strong> — color ramp.</li>
+</ul>
+<p><strong>Actions</strong></p>
+<ul>
+<li><strong>Regenerate</strong> — allocate (if needed) and recompute all buffers.</li>
+<li><strong>Save PNGs</strong> — exports six images:
+<ul>
+<li><code>Noise 1D 32 Bit &lt;NoiseType&gt;</code></li>
+<li><code>Noise 1D 64 Bit &lt;NoiseType&gt;</code></li>
+<li><code>Noise 2D 32 Bit &lt;NoiseType&gt;</code></li>
+<li><code>Noise 2D 64 Bit &lt;NoiseType&gt;</code></li>
+<li><code>Noise 3D 32 Bit &lt;NoiseType&gt;</code></li>
+<li><code>Noise 3D 64 Bit &lt;NoiseType&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="implementation-notes">Implementation notes</h2>
+<ul>
+<li>1D buffers = <code>width</code>.</li>
+<li>2D buffers = <code>width * height</code>.</li>
+<li>3D buffers flattened to <code>(height rows) × (width*width columns)</code>.</li>
+<li>Sampling calls:
+<ul>
+<li><code>SquirrelNoise32Bit.Get1D/2D/3DNoise01(...)</code></li>
+<li><code>SquirrelNoise64Bit.Get1D/2D/3DNoise01(...)</code></li>
+</ul>
+</li>
+<li>Upload via <code>NoiseEditorHelper.ApplyToTexture</code>, textures created with <code>NoiseEditorHelper.EnsureTex</code>.</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>Use the same <strong>Seed</strong> and vary <strong>Noise Type</strong> to compare hash mixes.</li>
+<li>Keep <strong>Width/Height</strong> modest (e.g., 128–256) for quick iteration; 3D previews allocate <code>height * width^2</code> floats.</li>
+<li>Save a set of PNGs and diff them when tuning <code>NoiseType</code> implementations.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><code>CoreFramework.Random</code> (Squirrel 32/64 noise + <code>NoiseType</code>)</li>
+<li><code>NoiseEditorHelper</code> (texture creation/apply/save)</li>
+</ul>
+<h2 id="related-api-docs">Related API / Docs</h2>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">SquirrelNoise64Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.NoiseType.html">NoiseType</a></li>
+<li><a href="NoiseEditorHelper.html">NoiseEditorHelper</a></li>
+<li><a href="CellularHeatmapWindow.html">CellularHeatmapWindow</a></li>
+</ul>
 
 </article>
 

@@ -87,16 +87,98 @@
         <article data-uid="">
 <h1 id="hashbasednoiseutils">HashBasedNoiseUtils</h1>
 
-<p>Source: $ ./Runtime/Random\HashBasedNoiseUtils.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Random/HashBasedNoiseUtils.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>HashBasedNoiseUtils</code> is a <strong>Burst-compiled static helper class</strong> providing the building blocks for all of CoreFramework’s hashing-based noise functions.<br>
+It exposes constants, bit-mangling utilities, ChaCha-inspired mixing rounds, Perlin gradients, fade curves, cellular helpers, and normalization helpers.</p>
+<p>This class underpins all SquirrelNoise32/64/128 implementations, Cellular/Worley evaluation, and CryptoNoise key generation.</p>
+<h2 id="responsibilities">Responsibilities</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>Constants:</strong> Golden ratios, MurmurHash3 finals, ChaCha primes, large primes, simplex skew/unskew factors.</li>
+<li><strong>32-bit mixing:</strong> ShiftXOR, BalancedMix, Rotational, ChaCha quarter rounds.</li>
+<li><strong>64-bit mixing:</strong> Same patterns extended to 64-bit lanes.</li>
+<li><strong>Float conversions:</strong> Unsigned → [0,1] and [-1,1].</li>
+<li><strong>Perlin core:</strong> Gradient functions, fade, fade derivatives, and PerlinWithDeriv for analytic gradients.</li>
+<li><strong>Cellular core:</strong> Distance metrics, F1/F2 result structs, vein intensity remaps, and F1 normalization helpers.</li>
+</ul>
+<h2 id="key-constants">Key Constants</h2>
+<pre><code class="lang-csharp">public const uint  GoldenRatio     = 0x9E3779B9;          // 32-bit
+public const ulong GoldenRatioUl   = 0x9E3779B97F4A7C15UL; // 64-bit
+
+public const uint  MurmurHash3Final1 = 0x85EBCA6B;
+public const uint  MurmurHash3Final2 = 0xC2B2AE35;
+public const ulong MurmurHash3Final1Ul = 0x85EBCA77C2B2AE63UL;
+public const ulong MurmurHash3Final2Ul = 0xC2B2AE3D27D4EB4FUL;
+
+// ChaCha block constants (“expa”, “nd 3”, “2-by”, “te k”)
+public const uint  ChaChaPrime1 = 0x61707865;
+...
+public const ulong ChaChaPrime4Ul = 0x6B2065746B206574UL;
+</code></pre>
+<h2 id="float-conversions">Float Conversions</h2>
+<pre><code class="lang-csharp">float ToZeroToOne(uint value);   // [0,1]
+float ToNegOneToOne(uint value); // [-1,1]
+</code></pre>
+<h2 id="mixing-helpers-32-bit">Mixing Helpers (32-bit)</h2>
+<pre><code class="lang-csharp">uint RotateLeft(uint value, int offset);
+
+uint MangledBitsShiftXOR(uint index, uint seed);
+uint MangledBitsBalancedMix(uint index, uint seed);
+uint MangledBitsRotational(uint index, uint seed);
+uint ChaChaQuarterRoundAdvanced(uint index, uint seed);
+uint ChaChaQuarterRoundSimple(uint index, uint seed);
+</code></pre>
+<h2 id="mixing-helpers-64-bit">Mixing Helpers (64-bit)</h2>
+<pre><code class="lang-csharp">ulong RotateLeft(ulong value, int offset);
+
+ulong MangledBitsShiftXOR(ulong index, ulong seed);
+ulong MangledBitsBalancedMix(ulong index, ulong seed);
+ulong MangledBitsRotational(ulong index, ulong seed);
+ulong ChaChaQuarterAdvanced(ulong index, ulong seed);
+ulong ChaChaQuarterRoundSimple(ulong index, ulong seed);
+void  ChaChaQuarterRound(ref ulong prime, ref ulong key1, ref ulong key2, ref ulong input);
+</code></pre>
+<h2 id="perlin-core">Perlin Core</h2>
+<ul>
+<li><code>Fade(t)</code> and <code>FadeDeriv(t)</code> — quintic fade curve and derivative.</li>
+<li><code>Perlin(...)</code> — 2D &amp; 3D corner-hash driven Perlin noise.</li>
+<li><code>PerlinWithDeriv(...)</code> — 2D &amp; 3D with analytic gradient out-parameters.</li>
+<li><code>Grad2Vec(hash)</code> / <code>Grad3Vec(hash)</code> — gradient direction lookups.</li>
+</ul>
+<h2 id="cellular-worley-core">Cellular / Worley Core</h2>
+<ul>
+<li><code>CellularDistance</code> enum — Euclidean, Manhattan, Chebyshev.</li>
+<li><code>Cellular2DResult</code> &amp; <code>Cellular3DResult</code> readonly structs.</li>
+<li><code>CellularVein01</code> &amp; <code>CellularVeinExp01</code> — vein/edge intensities.</li>
+<li><code>NormalizeF101</code> &amp; <code>NormalizeF1Inv01</code> — jitter/metric-aware F1 normalization.</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="lang-csharp">using CoreFramework.Random;
+
+uint hash = HashBasedNoiseUtils.MangledBitsBalancedMix(123, 456);
+
+float fade = HashBasedNoiseUtils.Fade(0.5f);
+
+var cell = new HashBasedNoiseUtils.Cellular2DResult(0.1f, 0.3f, new float2(0.5f,0.5f), new int2(1,1));
+float edge = HashBasedNoiseUtils.CellularVein01(cell, 0.12f);
+</code></pre>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>All methods are <code>[MethodImpl(MethodImplOptions.AggressiveInlining)]</code> and <code>[BurstCompile]</code> where applicable.</li>
+<li>Designed for deterministic, reproducible hashing and noise across Unity jobs and Burst.</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">xref:CoreFramework.Random.SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">xref:CoreFramework.Random.SquirrelNoise64Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise128.html">xref:CoreFramework.Random.SquirrelNoise128</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.Crypto.CryptoNoise.html">xref:CoreFramework.Random.Crypto.CryptoNoise</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong2.html">xref:CoreFramework.Mathematics.ulong2</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong4.html">xref:CoreFramework.Mathematics.ulong4</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">xref:Unity.Mathematics.float2</a> · <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">xref:Unity.Mathematics.float3</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.int2.html">xref:Unity.Mathematics.int2</a> · <a href="xref:Unity.Mathematics.int3">xref:Unity.Mathematics.int3</a></li>
+</ul>
 
 </article>
 

@@ -85,18 +85,102 @@
         </div>
 
         <article data-uid="">
-<h1 id="irandomfunction">IRandomFunction</h1>
+<h1 id="irandomfunctiontindex-tseed">IRandomFunction&lt;TIndex, TSeed&gt;</h1>
 
-<p>Source: $ ./Runtime/Random\IRandomFunction.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Random/IRandomFunction.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>IRandomFunction&lt;TIndex, TSeed&gt;</code> defines the <strong>interface contract</strong> for any deterministic random function or RNG used within CoreFramework.<br>
+It abstracts over <em>index-based</em> and <em>seed-based</em> noise functions (e.g. SquirrelNoise, SecureNoise) so that both <strong>stateless</strong> and <strong>stateful</strong> RNGs can be plugged into the same systems.</p>
+<p>Implementations (like <code>SquirrelNoise64Rng</code>) provide a <strong>deterministic</strong>, <strong>Burst-friendly</strong>, and <strong>reproducible</strong> source of random values for procedural content generation.</p>
+<h2 id="key-responsibilities">Key Responsibilities</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li>Exposes the <strong>Seed</strong> and <strong>Position</strong> (or index) that drive random sequence generation.</li>
+<li>Provides a consistent API to:
+<ul>
+<li>Reset or reseed the generator.</li>
+<li>Query the current <code>Seed</code> value.</li>
+<li>Step through a sequence deterministically.</li>
+<li>Retrieve single values or structured values (vectors, rotations).</li>
 </ul>
+</li>
+<li>Designed to work with Unity.Mathematics types and Burst.</li>
+</ul>
+<h2 id="typical-interface-members">Typical Interface Members</h2>
+<p>Although the interface is generic, your implementing RNGs usually include:</p>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Seed { get; }</code></td>
+<td>Underlying seed controlling randomness.</td>
+</tr>
+<tr>
+<td><code>Position</code></td>
+<td>Current index/position (for sequential RNGs).</td>
+</tr>
+<tr>
+<td><code>ResetSeed(seed, position)</code></td>
+<td>Re-initialize seed &amp; index.</td>
+</tr>
+<tr>
+<td><code>Range(min, max)</code></td>
+<td>Get a random value in a specified range.</td>
+</tr>
+<tr>
+<td><code>Value</code></td>
+<td>Normalized float [0,1] per step.</td>
+</tr>
+<tr>
+<td><code>InsideUnitSphere</code> / <code>OnUnitSphere</code></td>
+<td>Random directions/points.</td>
+</tr>
+<tr>
+<td><code>Rotation</code> / <code>RotationUniform</code></td>
+<td>Random quaternions.</td>
+</tr>
+<tr>
+<td><code>Uint128</code> / <code>Uint64</code> etc.</td>
+<td>Raw integer lanes from noise.</td>
+</tr>
+</tbody>
+</table>
+<p>Concrete examples can be seen in <a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Rng.html"><code>SquirrelNoise64Rng</code></a>.</p>
+<h2 id="example-usage">Example Usage</h2>
+<pre><code class="lang-csharp">using CoreFramework.Random;
+
+public class Example
+{
+    public void Demo(IRandomFunction&lt;ulong, ulong&gt; rng)
+    {
+        // reseed
+        rng.ResetSeed(1234UL);
+
+        // get normalized float
+        float val = rng.Value;
+
+        // random int range
+        int dice = rng.Range(1, 7);
+
+        // random rotation
+        var q = rng.RotationUniform;
+    }
+}
+</code></pre>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li>[xref:CoreFramework.Random.IRandomFunction](xref:CoreFramework.Random.IRandomFunction&lt;TIndex, TSeed&gt;)</li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Rng.html">xref:CoreFramework.Random.SquirrelNoise64Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">xref:CoreFramework.Random.SquirrelNoise64Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">xref:CoreFramework.Random.SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">xref:Unity.Mathematics.float3</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.quaternion.html">xref:Unity.Mathematics.quaternion</a></li>
+</ul>
 
 </article>
 

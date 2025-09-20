@@ -87,16 +87,81 @@
         <article data-uid="">
 <h1 id="noiserngutils">NoiseRngUtils</h1>
 
-<p>Source: $ ./Runtime/Random\NoiseRngUtils.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Random/NoiseRngUtils.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>NoiseRngUtils</code> is a <strong>helper utility class</strong> that bundles common patterns and convenience functions for CoreFramework’s noise-based random number generators.<br>
+It provides a <strong>shared toolkit</strong> for implementing <code>IRandomFunction&lt;TIndex,TSeed&gt;</code> RNGs such as <code>SquirrelNoise32Rng</code> and <code>SquirrelNoise64Rng</code>.</p>
+<p>Use it to reduce boilerplate when writing new RNGs: the static methods encapsulate repeated math for range mapping, normalized float conversions, vector sampling, and direction/rotation utilities.</p>
+<h2 id="key-responsibilities">Key Responsibilities</h2>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><strong>Value mapping:</strong> Convert raw noise lanes to normalized floats or scaled ranges.</li>
+<li><strong>Sampling helpers:</strong> Produce inside/on unit sphere directions, 2D/3D random points, quaternions.</li>
+<li><strong>Utility sugar:</strong> Step or reseed your RNG consistently across implementations.</li>
+<li><strong>Performance:</strong> All methods are <code>[MethodImpl(MethodImplOptions.AggressiveInlining)]</code> and Burst-friendly.</li>
 </ul>
+<h2 id="typical-methods">Typical Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float To01(uint v)</code></td>
+<td>Convert uint noise lane to <code>[0,1]</code>.</td>
+</tr>
+<tr>
+<td><code>float Range01(uint v, float min, float max)</code></td>
+<td>Map noise lane to <code>[min,max]</code>.</td>
+</tr>
+<tr>
+<td><code>float2 Direction2D(uint a, uint b)</code></td>
+<td>Random 2D unit direction from two lanes.</td>
+</tr>
+<tr>
+<td><code>float3 Direction3D(uint a, uint b, uint c)</code></td>
+<td>Random 3D unit direction from three lanes.</td>
+</tr>
+<tr>
+<td><code>quaternion RotationUniform(uint a, uint b, uint c, uint d)</code></td>
+<td>Uniform random quaternion from four lanes.</td>
+</tr>
+</tbody>
+</table>
+<p>(Exact signatures depend on the utility version you have, but these are the patterns you’ll find.)</p>
+<h2 id="example-usage">Example Usage</h2>
+<pre><code class="lang-csharp">using CoreFramework.Random;
+
+public class Example
+{
+    public void Demo()
+    {
+        // raw lanes from a noise RNG
+        uint a = 123456789u;
+        uint b = 987654321u;
+
+        // convert to normalized float
+        float val = NoiseRngUtils.To01(a);
+
+        // get a random direction
+        var dir2 = NoiseRngUtils.Direction2D(a, b);
+
+        // map to a custom range
+        float roll = NoiseRngUtils.Range01(a, 1f, 6f);
+    }
+}
+</code></pre>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.NoiseRngUtils.html">xref:CoreFramework.Random.NoiseRngUtils</a></li>
+<li>[xref:CoreFramework.Random.IRandomFunction](xref:CoreFramework.Random.IRandomFunction&lt;TIndex, TSeed&gt;)</li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Rng.html">xref:CoreFramework.Random.SquirrelNoise32Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Rng.html">xref:CoreFramework.Random.SquirrelNoise64Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">xref:Unity.Mathematics.float2</a> · <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">xref:Unity.Mathematics.float3</a> · <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.quaternion.html">xref:Unity.Mathematics.quaternion</a></li>
+</ul>
 
 </article>
 

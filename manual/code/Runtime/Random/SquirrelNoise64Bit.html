@@ -87,16 +87,111 @@
         <article data-uid="">
 <h1 id="squirrelnoise64bit">SquirrelNoise64Bit</h1>
 
-<p>Source: $ ./Runtime/Random\SquirrelNoise64Bit.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Random/SquirrelNoise64Bit.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>SquirrelNoise64Bit</code> is the 64-bit, hash-based noise core for CoreFramework.<br>
+It exposes fast, seedable <strong>1D–4D integer noise</strong> returning <code>ulong</code>, normalized float variants (<code>[0,1]</code> and <code>[-1,1]</code>), <strong>Perlin</strong> wrappers (2D/3D with optional analytic derivatives), and <strong>Cellular/Worley</strong> helpers using 64-bit mixing.</p>
+<p>Defaults use <code>DefaultNoiseType</code> (currently <code>MangledBitsBalancedMix</code>) — see the guides below for details and trade-offs.</p>
+<p><strong>Further reading:</strong></p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><a href="NoiseTypesSquirrelIntegrationAPracticalGuide.html">Noise Types &amp; Squirrel Integration — A Practical Guide</a></li>
+<li><a href="NoiseTypes.html">What each noise “type” actually is</a></li>
+</ul>
+<hr>
+<h2 id="bit-integer-noise">64-bit integer noise</h2>
+<pre><code class="lang-csharp">public static ulong Get1DNoise(ulong index, ulong seed, NoiseType type = DefaultNoiseType)
+public static ulong Get2DNoise(ulong x, ulong y, ulong seed = 0, NoiseType type = DefaultNoiseType)
+public static ulong Get3DNoise(ulong x, ulong y, ulong z, ulong seed = 0, NoiseType type = DefaultNoiseType)
+public static ulong Get4DNoise(ulong x, ulong y, ulong z, ulong w, ulong seed = 0, NoiseType type = DefaultNoiseType)
+</code></pre>
+<p>Returns component-hashed <code>ulong</code> values; stable across platforms for the same inputs.</p>
+<h3 id="normalized-01-variants">Normalized (0–1) Variants</h3>
+<pre><code class="lang-csharp">public static float Get1DNoise01(ulong index, ulong seed, NoiseType type = DefaultNoiseType)
+public static float Get2DNoise01(ulong x, ulong y, ulong seed = 0, NoiseType type = DefaultNoiseType)
+public static float Get3DNoise01(ulong x, ulong y, ulong z, ulong seed = 0, NoiseType type = DefaultNoiseType)
+public static float Get4DNoise01(ulong x, ulong y, ulong z, ulong w, ulong seed = 0, NoiseType type = DefaultNoiseType)
+</code></pre>
+<p>Same as the integer cores but mapped to <code>[0,1]</code> float.</p>
+<h3 id="normalized-1.1-variants">Normalized (−1…1) Variants</h3>
+<pre><code class="lang-csharp">public static float Get1DNoiseNeg1To1(ulong index, ulong seed, NoiseType type = DefaultNoiseType)
+public static float Get2DNoiseNeg1To1(ulong x, ulong y, ulong seed = 0, NoiseType type = DefaultNoiseType)
+public static float Get3DNoiseNeg1To1(ulong x, ulong y, ulong z, ulong seed = 0, NoiseType type = DefaultNoiseType)
+public static float Get4DNoiseNeg1To1(ulong x, ulong y, ulong z, ulong w, ulong seed = 0, NoiseType type = DefaultNoiseType)
+</code></pre>
+<p>Same cores, remapped to <code>[-1,1]</code> float.</p>
+<hr>
+<h2 id="bit-helper">128-bit helper</h2>
+<pre><code class="lang-csharp">public static ulong2 GetUInt128(ulong index, ulong seed, NoiseType type = DefaultNoiseType)
+</code></pre>
+<p>Build combined 128-bit noise from the 64-bit core for wide keys and RNG state.</p>
+<hr>
+<h2 id="perlin-noise-float-domain">Perlin noise (float domain)</h2>
+<p>Scalar Perlin with corner-hashing done via the selected <code>NoiseType</code>.</p>
+<pre><code class="lang-csharp">public static float Perlin(float x, float y, ulong seed = 0, NoiseType type = DefaultNoiseType)
+public static float Perlin(float x, float y, float z, ulong seed = 0, NoiseType type = DefaultNoiseType)
+</code></pre>
+<h3 id="perlin-analytic-derivatives">Perlin + analytic derivatives</h3>
+<pre><code class="lang-csharp">public static float PerlinWithDeriv(float  x, float  y,           ulong seed, out float2 deriv, NoiseType type = DefaultNoiseType)
+public static float PerlinWithDeriv(float  x, float  y, float  z, ulong seed, out float3 deriv, NoiseType type = DefaultNoiseType)
+
+// Cell/offset overloads:
+public static float PerlinWithDeriv(float2 offset, int2 cell, ulong seed, out float2 deriv, NoiseType type = DefaultNoiseType)
+public static float PerlinWithDeriv(float3 offset, int3 cell, ulong seed, out float3 deriv, NoiseType type = DefaultNoiseType)
+</code></pre>
+<p>Derivatives are computed analytically (not finite-differenced).</p>
+<h3 id="value-noise-with-gradient">Value noise with gradient</h3>
+<pre><code class="lang-csharp">public static float ValueAndGrad(float x, float y,           ulong seed, out float2 grad, NoiseType type = DefaultNoiseType)
+public static float ValueAndGrad(float2 p,                    ulong seed, out float2 grad, NoiseType type = DefaultNoiseType)
+public static float ValueAndGrad(float3 p,                    ulong seed, out float3 grad, NoiseType type = DefaultNoiseType)
+</code></pre>
+<hr>
+<h2 id="cellular-worley">Cellular / Worley</h2>
+<pre><code class="lang-csharp">public static HashBasedNoiseUtils.Cellular2DResult Cellular2D(
+    float x, float y, int frequency, ulong seed, float jitter = 0.9f,
+    HashBasedNoiseUtils.CellularDistance metric = HashBasedNoiseUtils.CellularDistance.Euclidean,
+    NoiseType type = DefaultNoiseType)
+
+public static HashBasedNoiseUtils.Cellular3DResult Cellular3D(
+    float x, float y, float z, int frequency, ulong seed, float jitter = 0.9f,
+    HashBasedNoiseUtils.CellularDistance metric = HashBasedNoiseUtils.CellularDistance.Euclidean,
+    NoiseType type = DefaultNoiseType)
+</code></pre>
+<p>Returns nearest/second-nearest distances (<code>F1</code>, <code>F2</code>), feature position, and owning cell. See <strong>Cellular remaps</strong> and normalization helpers in <code>HashBasedNoiseUtils</code>.</p>
+<hr>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp">using CoreFramework.Random;
+
+// integer
+ulong h = SquirrelNoise64Bit.Get3DNoise(12, 7, 4, seed: 1337UL);
+
+// normalized float
+float n = SquirrelNoise64Bit.Get2DNoise01(128UL, 64UL, seed: 42UL);
+
+// Perlin + derivative
+float v = SquirrelNoise64Bit.PerlinWithDeriv(3.2f, -1.1f, seed: 9UL, out float2 d);
+
+// wide keys
+ulong2 k128 = SquirrelNoise64Bit.GetUInt128(5UL, 99UL);
+</code></pre>
+<hr>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>All methods are <code>[MethodImplOptions.AggressiveInlining]</code> and <code>[BurstCompile]</code> ready.</li>
+<li>Works statelessly — you can query any index without sequential calls.</li>
+<li>Use <code>NoiseType</code> to switch between bit-mix strategies (MangledBits, ChaCha, etc.).</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">xref:CoreFramework.Random.SquirrelNoise64Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Rng.html">xref:CoreFramework.Random.SquirrelNoise64Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">xref:CoreFramework.Random.SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Rng.html">xref:CoreFramework.Random.SquirrelNoise32Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.NoiseType.html">xref:CoreFramework.Random.NoiseType</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Mathematics.ulong2.html">xref:CoreFramework.Mathematics.ulong2</a></li>
+<li><a href="NoiseTypesSquirrelIntegrationAPracticalGuide.html">Noise Types &amp; Squirrel Integration — A Practical Guide</a></li>
+<li><a href="NoiseTypes.html">What each noise “type” actually is</a></li>
+</ul>
 
 </article>
 

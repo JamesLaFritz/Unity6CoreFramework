@@ -87,16 +87,71 @@
         <article data-uid="">
 <h1 id="noisetype">NoiseType</h1>
 
-<p>Source: $ ./Runtime/Random\NoiseType.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
-<ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
-</ul>
+<p>Source: <code>./Runtime/Random/NoiseType.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>NoiseType</code> is an <strong>enumeration</strong> that specifies which <em>mixing / hashing algorithm</em> a CoreFramework noise generator or RNG should use.<br>
+It acts as a runtime <strong>switch</strong> inside <code>SquirrelNoise32Bit</code>, <code>SquirrelNoise64Bit</code>, and their RNG wrappers, allowing you to pick between multiple bit-mangling strategies (balanced Murmur3 style, rotational, ChaCha quarter rounds, etc.).</p>
+<p>This gives you fine control over the <em>statistical distribution</em> and <em>performance characteristics</em> of your procedural noise / random functions.</p>
+<h2 id="members">Members</h2>
+<table>
+<thead>
+<tr>
+<th>Enum Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MangledBitsShiftXOR</code></td>
+<td>A fast, old-school XOR+shift+Murmur mix.</td>
+</tr>
+<tr>
+<td><code>MangledBitsBalancedMix</code></td>
+<td>Balanced Murmur3-inspired mixing (default).</td>
+</tr>
+<tr>
+<td><code>MangledBitsRotational</code></td>
+<td>Rotational bit-mangling variant for extra diffusion.</td>
+</tr>
+<tr>
+<td><code>ChaChaQuarterRoundSimple</code></td>
+<td>Simple ChaCha-inspired quarter-round.</td>
+</tr>
+<tr>
+<td><code>ChaChaQuarterRoundAdvanced</code></td>
+<td>Full ChaCha-style quarter-round with extra mixing.</td>
+</tr>
+</tbody>
+</table>
+<p>(Exact names depend on the version of <code>NoiseType.cs</code> you have; these are the standard ones.)</p>
+<h2 id="typical-usage">Typical Usage</h2>
+<pre><code class="lang-csharp">using CoreFramework.Random;
+
+public class Example
+{
+    public void Demo()
+    {
+        // pick a mixing style
+        NoiseType type = NoiseType.ChaChaQuarterRoundAdvanced;
+
+        // feed it into a noise function
+        uint noise = SquirrelNoise32Bit.Get1DNoise(1234, 5678, type);
+
+        // or into a noise-based RNG
+        var rng = new SquirrelNoise32Rng(0u, 123u, type);
+        float value = rng.Value; // uses selected NoiseType internally
+    }
+}
+</code></pre>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.NoiseType.html">xref:CoreFramework.Random.NoiseType</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">xref:CoreFramework.Random.SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">xref:CoreFramework.Random.SquirrelNoise64Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Rng.html">xref:CoreFramework.Random.SquirrelNoise32Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Rng.html">xref:CoreFramework.Random.SquirrelNoise64Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+</ul>
 
 </article>
 

@@ -87,16 +87,135 @@
         <article data-uid="">
 <h1 id="squirrelnoise64rng">SquirrelNoise64Rng</h1>
 
-<p>Source: $ ./Runtime/Random\SquirrelNoise64Rng.cs</p>
-<h2 id="summary">Summary</h2>
-<p>Add a brief description of this script and how it is used in CoreFramework.</p>
-<h2 id="usage-notes">Usage Notes</h2>
+<p>Source: <code>./Runtime/Random/SquirrelNoise64Rng.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>SquirrelNoise64Rng</code> is a lightweight, <strong>stateless-style RNG façade</strong> built on the 64-bit Squirrel noise core. Given a <code>Seed</code> and <code>Position</code>, it produces reproducible random values (scalars, vectors, rotations) by advancing the <code>Position</code> and hashing it with the chosen <code>NoiseType</code>. It’s ideal for deterministic gameplay, spawning, and procedural generation where you want <strong>repeatable streams</strong> without maintaining a heavy PRNG state.</p>
+<p>Defaults use <code>NoiseType.ChaChaQuarterRoundSimple</code>. See the guides for trade-offs and picking a noise type.</p>
+<p><strong>Further reading:</strong></p>
 <ul>
-<li>Key responsibilities</li>
-<li>Typical call sites or editor windows that use it</li>
+<li><a href="NoiseTypesSquirrelIntegrationAPracticalGuide.html">Noise Types &amp; Squirrel Integration — A Practical Guide</a></li>
+<li><a href="NoiseTypes.html">What each noise “type” actually is</a></li>
+</ul>
+<hr>
+<h2 id="construction">Construction</h2>
+<pre><code class="lang-csharp">public struct SquirrelNoise64Rng : IRandomFunction&lt;ulong, ulong&gt;
+
+public SquirrelNoise64Rng(
+    ulong seed,
+    NoiseType type = NoiseType.ChaChaQuarterRoundSimple,
+    ulong position = 0)
+</code></pre>
+<pre><code class="lang-csharp">// reset
+public void ResetSeed(ulong seed, ulong position = 0)
+</code></pre>
+<h3 id="core-settings">Core settings</h3>
+<pre><code class="lang-csharp">public NoiseType Type { get; set; }
+public ulong     Seed { get; }         // current seed
+public ulong     Position { get; }     // current position (advances as you read values)
+</code></pre>
+<hr>
+<h2 id="sampling-api-per-read-advances-position">Sampling API (per read advances Position)</h2>
+<h3 id="scalars">Scalars</h3>
+<pre><code class="lang-csharp">public float  Value                     // [0,1]   (float)
+public ulong  Uint64
+public uint   Uint32
+public ushort Uint16
+public byte   Byte
+public bool   Bool
+</code></pre>
+<h3 id="ranged-chance-helpers">Ranged &amp; chance helpers</h3>
+<pre><code class="lang-csharp">public float Range(float minInclusive, float maxInclusive)
+public int   Range(int   minInclusive, int   maxExclusive)
+public bool  Chance(float probabilityOfTrue)
+</code></pre>
+<h3 id="vectors-directions">Vectors &amp; directions</h3>
+<pre><code class="lang-csharp">public float2 Float2(
+    float minX = float.MinValue, float maxX = float.MaxValue,
+    float minY = float.MinValue, float maxY = float.MaxValue)
+
+public float3 Float3(
+    float minX = float.MinValue, float maxX = float.MaxValue,
+    float minY = float.MinValue, float maxY = float.MaxValue,
+    float minZ = float.MinValue, float maxZ = float.MaxValue)
+
+public float4 Float4(
+    float minX = float.MinValue, float maxX = float.MaxValue,
+    float minY = float.MinValue, float maxY = float.MaxValue,
+    float minZ = float.MinValue, float maxZ = float.MaxValue,
+    float minW = float.MinValue, float maxW = float.MaxValue)
+</code></pre>
+<pre><code class="lang-csharp">public float2 Direction2D          // unit vector uniformly distributed on the circle
+public float3 Direction3D          // unit vector uniformly distributed on the sphere
+public float2 InsideUnitCircle
+public float3 InsideUnitSphere
+public float3 OnUnitSphere         // alias for Direction3D
+</code></pre>
+<h3 id="rotations">Rotations</h3>
+<pre><code class="lang-csharp">public quaternion Rotation         // uniform random rotation (unit quaternion)
+public quaternion RotationUniform  // same: uniform on SO(3)
+</code></pre>
+<h3 id="wide-integers">Wide integers</h3>
+<pre><code class="lang-csharp">public ulong2 Uint128
+</code></pre>
+<h3 id="perlin-helpers-seeded-by-this-rng">Perlin helpers (seeded by this RNG)</h3>
+<pre><code class="lang-csharp">public float Perlin(float x, float y)
+public float Perlin(float x, float y, float z)
+</code></pre>
+<blockquote>
+<p>All members above are pulled directly from <code>SquirrelNoise64Rng.cs</code> so signatures and defaults match the source.</p>
+</blockquote>
+<hr>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-csharp">using CoreFramework.Random;
+using Unity.Mathematics;
+
+var rng = new SquirrelNoise64Rng(seed: 1234UL);
+
+// Scalars
+uint  r32 = rng.Uint32;
+ulong r64 = rng.Uint64;
+float u01 = rng.Value;
+bool  hit = rng.Chance(0.25f);
+
+// Ranges
+int   i = rng.Range(-10, 10);
+float f = rng.Range(-1f, 1f);
+
+// Vectors &amp; rotations
+float3 dir = rng.Direction3D;
+float3 p   = rng.InsideUnitSphere;
+quaternion q = rng.Rotation;
+
+// Wide ints
+ulong2 k = rng.Uint128;
+
+// Perlin using the RNG’s seed/type
+float n2 = rng.Perlin(12.5f, 7.25f);
+float n3 = rng.Perlin(1f, 2f, 3f);
+</code></pre>
+<hr>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Deterministic for the same <code>(Seed, Type)</code> and read order; each getter advances <code>Position</code> internally.</li>
+<li>Designed for Burst: methods are small, inline-friendly, and allocation-free.</li>
+<li>Use <code>ResetSeed(...)</code> to reuse an RNG with a different seed and/or starting position.</li>
 </ul>
 <h2 id="related-api">Related API</h2>
-<p>Use the search box to find the generated API page for the types in this file.</p>
+<ul>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Rng.html">xref:CoreFramework.Random.SquirrelNoise64Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise64Bit.html">xref:CoreFramework.Random.SquirrelNoise64Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Rng.html">xref:CoreFramework.Random.SquirrelNoise32Rng</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.SquirrelNoise32Bit.html">xref:CoreFramework.Random.SquirrelNoise32Bit</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.HashBasedNoiseUtils.html">xref:CoreFramework.Random.HashBasedNoiseUtils</a></li>
+<li><a class="xref" href="../../../../api/CoreFramework.Random.NoiseType.html">xref:CoreFramework.Random.NoiseType</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float2.html">xref:Unity.Mathematics.float2</a> · <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float3.html">xref:Unity.Mathematics.float3</a> · <a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.float4.html">xref:Unity.Mathematics.float4</a></li>
+<li><a class="xref" href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.3/api/Unity.Mathematics.quaternion.html">xref:Unity.Mathematics.quaternion</a></li>
+</ul>
+<p><strong>Guides</strong></p>
+<ul>
+<li><a href="NoiseTypesSquirrelIntegrationAPracticalGuide.html">Noise Types &amp; Squirrel Integration — A Practical Guide</a></li>
+<li><a href="NoiseTypes.html">What each noise “type” actually is</a></li>
+</ul>
 
 </article>
 
